@@ -1,0 +1,1796 @@
+[
+  {
+    "id": 1,
+    "name": "To Cheuk Hei",
+    "gender": "Male",
+    "category": "Sprint",
+    "group": "SD",
+    "data": {
+      "2025": {
+        "jointROM": {
+          "hipTotalRomL": 90.0,
+          "hipTotalRomR": 90.0,
+          "forwardReachingTest": 44.5
+        },
+        "isometricStrength": {
+          "lhFlexors": 285.75,
+          "rhFlexors": 304.0,
+          "lhExtensors": 627.5,
+          "rhExtensors": 647.75,
+          "lhAdductors": 420.25,
+          "rhAdductors": 416.5,
+          "lhAbductors": 532.0,
+          "rhAbductors": 548.75,
+          "laPlantarflexors": 1278.25,
+          "raPlantarflexors": 1265.75,
+          "lhAddAbdRatio": 0.79,
+          "rhAddAbdRatio": 0.76
+        },
+        "functionalMovement": {
+          "totalScore": 20
+        },
+        "trunkEndurance": {
+          "flexors": 240.0,
+          "extensors": 110.0,
+          "leftLateral": 120.0,
+          "rightLateral": 120.0
+        }
+      },
+      "2026": {
+        "jointROM": {
+          "hipTotalRomL": 95.0,
+          "hipTotalRomR": 100.0,
+          "forwardReachingTest": 43.5
+        },
+        "isometricStrength": {
+          "lhFlexors": 297.0,
+          "rhFlexors": 317.0,
+          "lhExtensors": 369.0,
+          "rhExtensors": 378.0,
+          "lhAdductors": 396.0,
+          "rhAdductors": 397.0,
+          "lhAbductors": 454.0,
+          "rhAbductors": 451.0,
+          "laPlantarflexors": 1009.0,
+          "raPlantarflexors": 1043.0,
+          "lhAddAbdRatio": 0.87,
+          "rhAddAbdRatio": 0.88
+        },
+        "functionalMovement": {
+          "totalScore": 20
+        },
+        "trunkEndurance": {
+          "flexors": 240.0,
+          "extensors": 180.0,
+          "leftLateral": 120.0,
+          "rightLateral": 120.0
+        }
+      }
+    }
+  },
+  {
+    "id": 2,
+    "name": "Yung Tsun Ho",
+    "gender": "Male",
+    "category": "Sprint",
+    "group": "SD",
+    "data": {
+      "2025": {
+        "jointROM": {
+          "hipTotalRomL": 85.0,
+          "hipTotalRomR": 95.0,
+          "forwardReachingTest": 35.0
+        },
+        "isometricStrength": {
+          "lhFlexors": 450.5,
+          "rhFlexors": 466.25,
+          "lhExtensors": 349.25,
+          "rhExtensors": 553.25,
+          "lhAdductors": 463.0,
+          "rhAdductors": 474.75,
+          "lhAbductors": 554.25,
+          "rhAbductors": 525.75,
+          "laPlantarflexors": 1016.75,
+          "raPlantarflexors": 1064.75,
+          "lhAddAbdRatio": 0.84,
+          "rhAddAbdRatio": 0.9
+        },
+        "functionalMovement": {
+          "totalScore": 19
+        },
+        "trunkEndurance": {
+          "flexors": 240.0,
+          "extensors": 120.0,
+          "leftLateral": 120.0,
+          "rightLateral": 120.0
+        }
+      },
+      "2026": {
+        "jointROM": {
+          "hipTotalRomL": 95.0,
+          "hipTotalRomR": 95.0,
+          "forwardReachingTest": 42.5
+        },
+        "isometricStrength": {
+          "lhFlexors": 473.0,
+          "rhFlexors": 448.0,
+          "lhExtensors": 634.0,
+          "rhExtensors": 652.0,
+          "lhAdductors": 513.0,
+          "rhAdductors": 574.0,
+          "lhAbductors": 618.0,
+          "rhAbductors": 578.0,
+          "laPlantarflexors": 1248.0,
+          "raPlantarflexors": 809.0,
+          "lhAddAbdRatio": 0.84,
+          "rhAddAbdRatio": 0.89
+        },
+        "functionalMovement": {
+          "totalScore": 0
+        },
+        "trunkEndurance": {
+          "flexors": 240.0,
+          "extensors": 120.0,
+          "leftLateral": 0,
+          "rightLateral": 120.0
+        }
+      }
+    }
+  },
+  {
+    "id": 3,
+    "name": "Mok Tsz Chun",
+    "gender": "Male",
+    "category": "Sprint",
+    "group": "SD",
+    "data": {
+      "2025": {
+        "jointROM": {
+          "hipTotalRomL": 80.0,
+          "hipTotalRomR": 80.0,
+          "forwardReachingTest": 44.0
+        },
+        "isometricStrength": {
+          "lhFlexors": 281.0,
+          "rhFlexors": 254.0,
+          "lhExtensors": 393.0,
+          "rhExtensors": 568.0,
+          "lhAdductors": 394.0,
+          "rhAdductors": 423.0,
+          "lhAbductors": 371.0,
+          "rhAbductors": 364.0,
+          "laPlantarflexors": 656.0,
+          "raPlantarflexors": 644.0,
+          "lhAddAbdRatio": 0.96,
+          "rhAddAbdRatio": 0.95
+        },
+        "functionalMovement": {
+          "totalScore": 21
+        },
+        "trunkEndurance": {
+          "flexors": 240.0,
+          "extensors": 161.0,
+          "leftLateral": 120.0,
+          "rightLateral": 120.0
+        }
+      },
+      "2026": {
+        "jointROM": {
+          "hipTotalRomL": 95.0,
+          "hipTotalRomR": 95.0,
+          "forwardReachingTest": 43.5
+        },
+        "isometricStrength": {
+          "lhFlexors": 467.0,
+          "rhFlexors": 395.0,
+          "lhExtensors": 374.0,
+          "rhExtensors": 406.0,
+          "lhAdductors": 439.0,
+          "rhAdductors": 441.0,
+          "lhAbductors": 381.0,
+          "rhAbductors": 395.0,
+          "laPlantarflexors": 827.0,
+          "raPlantarflexors": 939.0,
+          "lhAddAbdRatio": 1.15,
+          "rhAddAbdRatio": 1.2
+        },
+        "functionalMovement": {
+          "totalScore": 21
+        },
+        "trunkEndurance": {
+          "flexors": 240.0,
+          "extensors": 180.0,
+          "leftLateral": 120.0,
+          "rightLateral": 120.0
+        }
+      }
+    }
+  },
+  {
+    "id": 4,
+    "name": "Lai Wing Kin",
+    "gender": "Male",
+    "category": "Sprint",
+    "group": "SD",
+    "data": {
+      "2025": {
+        "jointROM": {
+          "hipTotalRomL": 105.0,
+          "hipTotalRomR": 110.0,
+          "forwardReachingTest": 30.0
+        },
+        "isometricStrength": {
+          "lhFlexors": 352.0,
+          "rhFlexors": 388.0,
+          "lhExtensors": 311.0,
+          "rhExtensors": 393.0,
+          "lhAdductors": 441.0,
+          "rhAdductors": 420.0,
+          "lhAbductors": 391.0,
+          "rhAbductors": 380.0,
+          "laPlantarflexors": 1007.0,
+          "raPlantarflexors": 1244.0,
+          "lhAddAbdRatio": 1.13,
+          "rhAddAbdRatio": 1.1
+        },
+        "functionalMovement": {
+          "totalScore": 19
+        },
+        "trunkEndurance": {
+          "flexors": 240.0,
+          "extensors": 180.0,
+          "leftLateral": 120.0,
+          "rightLateral": 120.0
+        }
+      },
+      "2026": {
+        "jointROM": {
+          "hipTotalRomL": 70.0,
+          "hipTotalRomR": 70.0,
+          "forwardReachingTest": 31.5
+        },
+        "isometricStrength": {
+          "lhFlexors": 506.0,
+          "rhFlexors": 493.0,
+          "lhExtensors": 571.0,
+          "rhExtensors": 582.0,
+          "lhAdductors": 482.0,
+          "rhAdductors": 501.0,
+          "lhAbductors": 522.0,
+          "rhAbductors": 480.0,
+          "laPlantarflexors": 1400.0,
+          "raPlantarflexors": 1496.0,
+          "lhAddAbdRatio": 1.08,
+          "rhAddAbdRatio": 0.96
+        },
+        "functionalMovement": {
+          "totalScore": 19
+        },
+        "trunkEndurance": {
+          "flexors": 240.0,
+          "extensors": 180.0,
+          "leftLateral": 120.0,
+          "rightLateral": 120.0
+        }
+      }
+    }
+  },
+  {
+    "id": 5,
+    "name": "Ng Po Li",
+    "gender": "Male",
+    "category": "Sprint",
+    "group": "SD",
+    "data": {
+      "2025": {
+        "jointROM": {
+          "hipTotalRomL": 90.0,
+          "hipTotalRomR": 86.0,
+          "forwardReachingTest": 43.5
+        },
+        "isometricStrength": {
+          "lhFlexors": 292.0,
+          "rhFlexors": 316.0,
+          "lhExtensors": 656.5,
+          "rhExtensors": 681.8,
+          "lhAdductors": 350.0,
+          "rhAdductors": 351.0,
+          "lhAbductors": 364.0,
+          "rhAbductors": 369.0,
+          "laPlantarflexors": 1116.0,
+          "raPlantarflexors": 1152.0,
+          "lhAddAbdRatio": 0.96,
+          "rhAddAbdRatio": 0.95
+        },
+        "functionalMovement": {
+          "totalScore": 17
+        },
+        "trunkEndurance": {
+          "flexors": 205.0,
+          "extensors": 128.0,
+          "leftLateral": 120.0,
+          "rightLateral": 120.0
+        }
+      },
+      "2026": {
+        "jointROM": {
+          "hipTotalRomL": 90.0,
+          "hipTotalRomR": 86.0,
+          "forwardReachingTest": 44.0
+        },
+        "isometricStrength": {
+          "lhFlexors": 354.0,
+          "rhFlexors": 374.0,
+          "lhExtensors": 547.0,
+          "rhExtensors": 486.0,
+          "lhAdductors": 404.0,
+          "rhAdductors": 413.0,
+          "lhAbductors": 429.0,
+          "rhAbductors": 425.0,
+          "laPlantarflexors": 1293.0,
+          "raPlantarflexors": 1351.0,
+          "lhAddAbdRatio": 0.94,
+          "rhAddAbdRatio": 0.97
+        },
+        "functionalMovement": {
+          "totalScore": 20
+        },
+        "trunkEndurance": {
+          "flexors": 205.0,
+          "extensors": 134.0,
+          "leftLateral": 120.0,
+          "rightLateral": 120.0
+        }
+      }
+    }
+  },
+  {
+    "id": 6,
+    "name": "Yeung Cho Yiu",
+    "gender": "Female",
+    "category": "Sprint",
+    "group": "SD",
+    "data": {
+      "2025": {
+        "jointROM": {
+          "hipTotalRomL": 105.0,
+          "hipTotalRomR": 105.0,
+          "forwardReachingTest": 36.5
+        },
+        "isometricStrength": {
+          "lhFlexors": 257.0,
+          "rhFlexors": 303.0,
+          "lhExtensors": 176.0,
+          "rhExtensors": 166.5,
+          "lhAdductors": 340.0,
+          "rhAdductors": 337.0,
+          "lhAbductors": 323.0,
+          "rhAbductors": 294.0,
+          "laPlantarflexors": 915.0,
+          "raPlantarflexors": 822.0,
+          "lhAddAbdRatio": 1.05,
+          "rhAddAbdRatio": 1.14
+        },
+        "functionalMovement": {
+          "totalScore": 18
+        },
+        "trunkEndurance": {
+          "flexors": 240.0,
+          "extensors": 180.0,
+          "leftLateral": 120.0,
+          "rightLateral": 120.0
+        }
+      },
+      "2026": {
+        "jointROM": {
+          "hipTotalRomL": 115.0,
+          "hipTotalRomR": 110.0,
+          "forwardReachingTest": 36.5
+        },
+        "isometricStrength": {
+          "lhFlexors": 268.0,
+          "rhFlexors": 231.0,
+          "lhExtensors": 233.0,
+          "rhExtensors": 231.0,
+          "lhAdductors": 329.0,
+          "rhAdductors": 353.0,
+          "lhAbductors": 279.0,
+          "rhAbductors": 287.0,
+          "laPlantarflexors": 1093.0,
+          "raPlantarflexors": 1010.0,
+          "lhAddAbdRatio": 1.18,
+          "rhAddAbdRatio": 1.23
+        },
+        "functionalMovement": {
+          "totalScore": 19
+        },
+        "trunkEndurance": {
+          "flexors": 240.0,
+          "extensors": 180.0,
+          "leftLateral": 120.0,
+          "rightLateral": 120.0
+        }
+      }
+    }
+  },
+  {
+    "id": 7,
+    "name": "Ng Sze Wing",
+    "gender": "Female",
+    "category": "Sprint",
+    "group": "SD",
+    "data": {
+      "2025": {
+        "jointROM": {
+          "hipTotalRomL": 95.0,
+          "hipTotalRomR": 95.0,
+          "forwardReachingTest": 41.5
+        },
+        "isometricStrength": {
+          "lhFlexors": 142.0,
+          "rhFlexors": 167.0,
+          "lhExtensors": 235.0,
+          "rhExtensors": 255.0,
+          "lhAdductors": 308.0,
+          "rhAdductors": 310.0,
+          "lhAbductors": 274.0,
+          "rhAbductors": 287.0,
+          "laPlantarflexors": 668.0,
+          "raPlantarflexors": 753.0,
+          "lhAddAbdRatio": 1.13,
+          "rhAddAbdRatio": 1.08
+        },
+        "functionalMovement": {
+          "totalScore": 18
+        },
+        "trunkEndurance": {
+          "flexors": 240.0,
+          "extensors": 180.0,
+          "leftLateral": 120.0,
+          "rightLateral": 120.0
+        }
+      },
+      "2026": {
+        "jointROM": {
+          "hipTotalRomL": 90.0,
+          "hipTotalRomR": 90.0,
+          "forwardReachingTest": 43.0
+        },
+        "isometricStrength": {
+          "lhFlexors": 314.0,
+          "rhFlexors": 309.0,
+          "lhExtensors": 344.0,
+          "rhExtensors": 396.0,
+          "lhAdductors": 377.0,
+          "rhAdductors": 330.0,
+          "lhAbductors": 321.0,
+          "rhAbductors": 311.0,
+          "laPlantarflexors": 871.0,
+          "raPlantarflexors": 900.0,
+          "lhAddAbdRatio": 1.17,
+          "rhAddAbdRatio": 1.06
+        },
+        "functionalMovement": {
+          "totalScore": 20
+        },
+        "trunkEndurance": {
+          "flexors": 240.0,
+          "extensors": 180.0,
+          "leftLateral": 120.0,
+          "rightLateral": 120.0
+        }
+      }
+    }
+  },
+  {
+    "id": 8,
+    "name": "Tung Phoebe",
+    "gender": "Female",
+    "category": "Sprint",
+    "group": "SD",
+    "data": {
+      "2025": {
+        "jointROM": {
+          "hipTotalRomL": 95.0,
+          "hipTotalRomR": 95.0,
+          "forwardReachingTest": 46.5
+        },
+        "isometricStrength": {
+          "lhFlexors": 210.0,
+          "rhFlexors": 210.0,
+          "lhExtensors": 497.8,
+          "rhExtensors": 685.8,
+          "lhAdductors": 305.0,
+          "rhAdductors": 321.0,
+          "lhAbductors": 346.0,
+          "rhAbductors": 349.0,
+          "laPlantarflexors": 861.0,
+          "raPlantarflexors": 791.0,
+          "lhAddAbdRatio": 1.13,
+          "rhAddAbdRatio": 1.09
+        },
+        "functionalMovement": {
+          "totalScore": 19
+        },
+        "trunkEndurance": {
+          "flexors": 240.0,
+          "extensors": 104.0,
+          "leftLateral": 120.0,
+          "rightLateral": 120.0
+        }
+      },
+      "2026": {
+        "jointROM": {
+          "hipTotalRomL": 95.0,
+          "hipTotalRomR": 110.0,
+          "forwardReachingTest": 46.6
+        },
+        "isometricStrength": {
+          "lhFlexors": 267.0,
+          "rhFlexors": 265.0,
+          "lhExtensors": 435.0,
+          "rhExtensors": 394.0,
+          "lhAdductors": 366.0,
+          "rhAdductors": 356.0,
+          "lhAbductors": 347.0,
+          "rhAbductors": 357.0,
+          "laPlantarflexors": 1167.0,
+          "raPlantarflexors": 1049.0,
+          "lhAddAbdRatio": 1.06,
+          "rhAddAbdRatio": 1.0
+        },
+        "functionalMovement": {
+          "totalScore": 20
+        },
+        "trunkEndurance": {
+          "flexors": 240.0,
+          "extensors": 90.0,
+          "leftLateral": 120.0,
+          "rightLateral": 120.0
+        }
+      }
+    }
+  },
+  {
+    "id": 9,
+    "name": "Ching Yin Shan",
+    "gender": "Female",
+    "category": "Sprint",
+    "group": "SD",
+    "data": {
+      "2025": {
+        "jointROM": {
+          "hipTotalRomL": 80.0,
+          "hipTotalRomR": 80.0,
+          "forwardReachingTest": 42.0
+        },
+        "isometricStrength": {
+          "lhFlexors": 165.0,
+          "rhFlexors": 150.0,
+          "lhExtensors": 151.0,
+          "rhExtensors": 138.0,
+          "lhAdductors": 275.0,
+          "rhAdductors": 267.0,
+          "lhAbductors": 230.0,
+          "rhAbductors": 231.0,
+          "laPlantarflexors": 814.0,
+          "raPlantarflexors": 842.0,
+          "lhAddAbdRatio": 1.2,
+          "rhAddAbdRatio": 1.16
+        },
+        "functionalMovement": {
+          "totalScore": 18
+        },
+        "trunkEndurance": {
+          "flexors": 191.0,
+          "extensors": 143.0,
+          "leftLateral": 120.0,
+          "rightLateral": 120.0
+        }
+      },
+      "2026": {
+        "jointROM": {
+          "hipTotalRomL": 80.0,
+          "hipTotalRomR": 80.0,
+          "forwardReachingTest": 42.5
+        },
+        "isometricStrength": {
+          "lhFlexors": 232.0,
+          "rhFlexors": 225.0,
+          "lhExtensors": 461.0,
+          "rhExtensors": 446.0,
+          "lhAdductors": 370.0,
+          "rhAdductors": 373.0,
+          "lhAbductors": 343.0,
+          "rhAbductors": 334.0,
+          "laPlantarflexors": 964.0,
+          "raPlantarflexors": 940.0,
+          "lhAddAbdRatio": 1.08,
+          "rhAddAbdRatio": 1.12
+        },
+        "functionalMovement": {
+          "totalScore": 18
+        },
+        "trunkEndurance": {
+          "flexors": 100.0,
+          "extensors": 103.0,
+          "leftLateral": 120.0,
+          "rightLateral": 120.0
+        }
+      }
+    }
+  },
+  {
+    "id": 10,
+    "name": "Lau Wan Yau",
+    "gender": "Male",
+    "category": "Endurance",
+    "group": "LD",
+    "data": {
+      "2025": {
+        "jointROM": {
+          "hipTotalRomL": 85.0,
+          "hipTotalRomR": 85.0,
+          "forwardReachingTest": 33.0
+        },
+        "isometricStrength": {
+          "lhFlexors": 157.0,
+          "rhFlexors": 216.0,
+          "lhExtensors": 339.0,
+          "rhExtensors": 417.0,
+          "lhAdductors": 250.0,
+          "rhAdductors": 265.0,
+          "lhAbductors": 246.0,
+          "rhAbductors": 238.0,
+          "laPlantarflexors": 817.0,
+          "raPlantarflexors": 838.0,
+          "lhAddAbdRatio": 1.02,
+          "rhAddAbdRatio": 1.11
+        },
+        "functionalMovement": {
+          "totalScore": 17
+        },
+        "trunkEndurance": {
+          "flexors": 240.0,
+          "extensors": 90.0,
+          "leftLateral": 120.0,
+          "rightLateral": 120.0
+        }
+      },
+      "2026": {
+        "jointROM": {
+          "hipTotalRomL": 95.0,
+          "hipTotalRomR": 90.0,
+          "forwardReachingTest": 34.0
+        },
+        "isometricStrength": {
+          "lhFlexors": 230.0,
+          "rhFlexors": 297.0,
+          "lhExtensors": 321.0,
+          "rhExtensors": 414.0,
+          "lhAdductors": 343.0,
+          "rhAdductors": 325.0,
+          "lhAbductors": 264.0,
+          "rhAbductors": 308.0,
+          "laPlantarflexors": 829.0,
+          "raPlantarflexors": 839.0,
+          "lhAddAbdRatio": 0.79,
+          "rhAddAbdRatio": 0.98
+        },
+        "functionalMovement": {
+          "totalScore": 18
+        },
+        "trunkEndurance": {
+          "flexors": 240.0,
+          "extensors": 180.0,
+          "leftLateral": 120.0,
+          "rightLateral": 120.0
+        }
+      }
+    }
+  },
+  {
+    "id": 11,
+    "name": "Mow Ching Yin",
+    "gender": "Male",
+    "category": "Endurance",
+    "group": "LD",
+    "data": {
+      "2025": {
+        "jointROM": {
+          "hipTotalRomL": 90.0,
+          "hipTotalRomR": 90.0,
+          "forwardReachingTest": 43.0
+        },
+        "isometricStrength": {
+          "lhFlexors": 133.0,
+          "rhFlexors": 153.0,
+          "lhExtensors": 183.0,
+          "rhExtensors": 195.0,
+          "lhAdductors": 237.0,
+          "rhAdductors": 230.0,
+          "lhAbductors": 217.0,
+          "rhAbductors": 206.0,
+          "laPlantarflexors": 846.0,
+          "raPlantarflexors": 877.0,
+          "lhAddAbdRatio": 0.92,
+          "rhAddAbdRatio": 0.89
+        },
+        "functionalMovement": {
+          "totalScore": 19
+        },
+        "trunkEndurance": {
+          "flexors": 240.0,
+          "extensors": 180.0,
+          "leftLateral": 120.0,
+          "rightLateral": 120.0
+        }
+      },
+      "2026": {
+        "jointROM": {
+          "hipTotalRomL": 110.0,
+          "hipTotalRomR": 115.0,
+          "forwardReachingTest": 37.5
+        },
+        "isometricStrength": {
+          "lhFlexors": 191.0,
+          "rhFlexors": 201.0,
+          "lhExtensors": 242.0,
+          "rhExtensors": 280.0,
+          "lhAdductors": 167.0,
+          "rhAdductors": 156.0,
+          "lhAbductors": 207.0,
+          "rhAbductors": 198.0,
+          "laPlantarflexors": 708.0,
+          "raPlantarflexors": 856.0,
+          "lhAddAbdRatio": 0.8,
+          "rhAddAbdRatio": 0.79
+        },
+        "functionalMovement": {
+          "totalScore": 19
+        },
+        "trunkEndurance": {
+          "flexors": 240.0,
+          "extensors": 180.0,
+          "leftLateral": 120.0,
+          "rightLateral": 120.0
+        }
+      }
+    }
+  },
+  {
+    "id": 12,
+    "name": "Tso Kai Kwong",
+    "gender": "Male",
+    "category": "Endurance",
+    "group": "LD",
+    "data": {
+      "2025": {
+        "jointROM": {
+          "hipTotalRomL": 90.0,
+          "hipTotalRomR": 90.0,
+          "forwardReachingTest": 44.0
+        },
+        "isometricStrength": {
+          "lhFlexors": 220.0,
+          "rhFlexors": 215.0,
+          "lhExtensors": 256.0,
+          "rhExtensors": 242.0,
+          "lhAdductors": 229.0,
+          "rhAdductors": 218.0,
+          "lhAbductors": 252.0,
+          "rhAbductors": 262.0,
+          "laPlantarflexors": 583.0,
+          "raPlantarflexors": 641.0,
+          "lhAddAbdRatio": 0.91,
+          "rhAddAbdRatio": 0.83
+        },
+        "functionalMovement": {
+          "totalScore": 20
+        },
+        "trunkEndurance": {
+          "flexors": 240.0,
+          "extensors": 180.0,
+          "leftLateral": 120.0,
+          "rightLateral": 120.0
+        }
+      },
+      "2026": {
+        "jointROM": {
+          "hipTotalRomL": 100.0,
+          "hipTotalRomR": 100.0,
+          "forwardReachingTest": 44.0
+        },
+        "isometricStrength": {
+          "lhFlexors": 240.0,
+          "rhFlexors": 250.0,
+          "lhExtensors": 239.0,
+          "rhExtensors": 189.0,
+          "lhAdductors": 324.0,
+          "rhAdductors": 250.0,
+          "lhAbductors": 307.0,
+          "rhAbductors": 317.0,
+          "laPlantarflexors": 841.0,
+          "raPlantarflexors": 767.0,
+          "lhAddAbdRatio": 1.06,
+          "rhAddAbdRatio": 0.79
+        },
+        "functionalMovement": {
+          "totalScore": 19
+        },
+        "trunkEndurance": {
+          "flexors": 240.0,
+          "extensors": 180.0,
+          "leftLateral": 120.0,
+          "rightLateral": 120.0
+        }
+      }
+    }
+  },
+  {
+    "id": 13,
+    "name": "Chu Tsun Wai",
+    "gender": "Male",
+    "category": "Endurance",
+    "group": "LD",
+    "data": {
+      "2025": {
+        "jointROM": {
+          "hipTotalRomL": 80.0,
+          "hipTotalRomR": 85.0,
+          "forwardReachingTest": 35.0
+        },
+        "isometricStrength": {
+          "lhFlexors": 194.0,
+          "rhFlexors": 217.0,
+          "lhExtensors": 448.0,
+          "rhExtensors": 441.0,
+          "lhAdductors": 307.0,
+          "rhAdductors": 287.0,
+          "lhAbductors": 351.0,
+          "rhAbductors": 387.0,
+          "laPlantarflexors": 963.0,
+          "raPlantarflexors": 995.0,
+          "lhAddAbdRatio": 1.14,
+          "rhAddAbdRatio": 1.35
+        },
+        "functionalMovement": {
+          "totalScore": 20
+        },
+        "trunkEndurance": {
+          "flexors": 240.0,
+          "extensors": 180.0,
+          "leftLateral": 120.0,
+          "rightLateral": 120.0
+        }
+      },
+      "2026": {
+        "jointROM": {
+          "hipTotalRomL": 90.0,
+          "hipTotalRomR": 88.0,
+          "forwardReachingTest": 35.0
+        },
+        "isometricStrength": {
+          "lhFlexors": 315.0,
+          "rhFlexors": 328.0,
+          "lhExtensors": 495.0,
+          "rhExtensors": 435.0,
+          "lhAdductors": 259.0,
+          "rhAdductors": 264.0,
+          "lhAbductors": 258.0,
+          "rhAbductors": 251.0,
+          "laPlantarflexors": 865.0,
+          "raPlantarflexors": 922.0,
+          "lhAddAbdRatio": 1.0,
+          "rhAddAbdRatio": 1.05
+        },
+        "functionalMovement": {
+          "totalScore": 19
+        },
+        "trunkEndurance": {
+          "flexors": 240.0,
+          "extensors": 140.0,
+          "leftLateral": 120.0,
+          "rightLateral": 120.0
+        }
+      }
+    }
+  },
+  {
+    "id": 14,
+    "name": "Ng Sum Lui",
+    "gender": "Male",
+    "category": "Endurance",
+    "group": "LD",
+    "data": {
+      "2025": {
+        "jointROM": {
+          "hipTotalRomL": 89.0,
+          "hipTotalRomR": 90.0,
+          "forwardReachingTest": 37.0
+        },
+        "isometricStrength": {
+          "lhFlexors": 256.0,
+          "rhFlexors": 240.0,
+          "lhExtensors": 207.0,
+          "rhExtensors": 267.0,
+          "lhAdductors": 358.0,
+          "rhAdductors": 349.0,
+          "lhAbductors": 255.0,
+          "rhAbductors": 252.0,
+          "laPlantarflexors": 773.0,
+          "raPlantarflexors": 1072.0,
+          "lhAddAbdRatio": 1.4,
+          "rhAddAbdRatio": 1.38
+        },
+        "functionalMovement": {
+          "totalScore": 20
+        },
+        "trunkEndurance": {
+          "flexors": 240.0,
+          "extensors": 180.0,
+          "leftLateral": 120.0,
+          "rightLateral": 120.0
+        }
+      },
+      "2026": {
+        "jointROM": {
+          "hipTotalRomL": 90.0,
+          "hipTotalRomR": 90.0,
+          "forwardReachingTest": 38.5
+        },
+        "isometricStrength": {
+          "lhFlexors": 297.0,
+          "rhFlexors": 300.0,
+          "lhExtensors": 264.0,
+          "rhExtensors": 311.0,
+          "lhAdductors": 353.0,
+          "rhAdductors": 354.0,
+          "lhAbductors": 261.0,
+          "rhAbductors": 247.0,
+          "laPlantarflexors": 976.0,
+          "raPlantarflexors": 1309.0,
+          "lhAddAbdRatio": 1.35,
+          "rhAddAbdRatio": 1.43
+        },
+        "functionalMovement": {
+          "totalScore": 19
+        },
+        "trunkEndurance": {
+          "flexors": 240.0,
+          "extensors": 180.0,
+          "leftLateral": 120.0,
+          "rightLateral": 120.0
+        }
+      }
+    }
+  },
+  {
+    "id": 15,
+    "name": "Liang King Hung",
+    "gender": "Male",
+    "category": "Endurance",
+    "group": "LD",
+    "data": {
+      "2025": {
+        "jointROM": {
+          "hipTotalRomL": 90.0,
+          "hipTotalRomR": 85.0,
+          "forwardReachingTest": 44.0
+        },
+        "isometricStrength": {
+          "lhFlexors": 248.0,
+          "rhFlexors": 251.0,
+          "lhExtensors": 408.0,
+          "rhExtensors": 394.0,
+          "lhAdductors": 332.0,
+          "rhAdductors": 358.0,
+          "lhAbductors": 313.0,
+          "rhAbductors": 320.0,
+          "laPlantarflexors": 896.0,
+          "raPlantarflexors": 1028.0,
+          "lhAddAbdRatio": 1.06,
+          "rhAddAbdRatio": 1.12
+        },
+        "functionalMovement": {
+          "totalScore": 19
+        },
+        "trunkEndurance": {
+          "flexors": 240.0,
+          "extensors": 143.0,
+          "leftLateral": 120.0,
+          "rightLateral": 120.0
+        }
+      },
+      "2026": {
+        "jointROM": {
+          "hipTotalRomL": 90.0,
+          "hipTotalRomR": 90.0,
+          "forwardReachingTest": 44.0
+        },
+        "isometricStrength": {
+          "lhFlexors": 270.0,
+          "rhFlexors": 230.0,
+          "lhExtensors": 383.0,
+          "rhExtensors": 322.0,
+          "lhAdductors": 346.0,
+          "rhAdductors": 349.0,
+          "lhAbductors": 360.0,
+          "rhAbductors": 295.0,
+          "laPlantarflexors": 817.0,
+          "raPlantarflexors": 901.0,
+          "lhAddAbdRatio": 0.96,
+          "rhAddAbdRatio": 1.18
+        },
+        "functionalMovement": {
+          "totalScore": 19
+        },
+        "trunkEndurance": {
+          "flexors": 240.0,
+          "extensors": 180.0,
+          "leftLateral": 120.0,
+          "rightLateral": 120.0
+        }
+      }
+    }
+  },
+  {
+    "id": 16,
+    "name": "Lau Joseph",
+    "gender": "Male",
+    "category": "Endurance",
+    "group": "LD",
+    "data": {
+      "2025": {
+        "jointROM": {
+          "hipTotalRomL": 90.0,
+          "hipTotalRomR": 90.0,
+          "forwardReachingTest": 40.5
+        },
+        "isometricStrength": {
+          "lhFlexors": 208.0,
+          "rhFlexors": 202.0,
+          "lhExtensors": 330.0,
+          "rhExtensors": 268.0,
+          "lhAdductors": 355.0,
+          "rhAdductors": 334.0,
+          "lhAbductors": 324.0,
+          "rhAbductors": 328.0,
+          "laPlantarflexors": 920.0,
+          "raPlantarflexors": 941.0,
+          "lhAddAbdRatio": 0.91,
+          "rhAddAbdRatio": 0.98
+        },
+        "functionalMovement": {
+          "totalScore": 17
+        },
+        "trunkEndurance": {
+          "flexors": 240.0,
+          "extensors": 180.0,
+          "leftLateral": 120.0,
+          "rightLateral": 120.0
+        }
+      },
+      "2026": {
+        "jointROM": {
+          "hipTotalRomL": 85.0,
+          "hipTotalRomR": 85.0,
+          "forwardReachingTest": 36.0
+        },
+        "isometricStrength": {
+          "lhFlexors": 280.0,
+          "rhFlexors": 212.0,
+          "lhExtensors": 263.0,
+          "rhExtensors": 259.0,
+          "lhAdductors": 298.0,
+          "rhAdductors": 292.0,
+          "lhAbductors": 318.0,
+          "rhAbductors": 306.0,
+          "laPlantarflexors": 720.0,
+          "raPlantarflexors": 632.0,
+          "lhAddAbdRatio": 94.0,
+          "rhAddAbdRatio": 0.95
+        },
+        "functionalMovement": {
+          "totalScore": 17
+        },
+        "trunkEndurance": {
+          "flexors": 240.0,
+          "extensors": 180.0,
+          "leftLateral": 120.0,
+          "rightLateral": 120.0
+        }
+      }
+    }
+  },
+  {
+    "id": 17,
+    "name": "Siu Ka Chun",
+    "gender": "Male",
+    "category": "Endurance",
+    "group": "LD",
+    "data": {
+      "2025": {
+        "jointROM": {
+          "hipTotalRomL": 85.0,
+          "hipTotalRomR": 85.0,
+          "forwardReachingTest": 40.5
+        },
+        "isometricStrength": {
+          "lhFlexors": 144.0,
+          "rhFlexors": 178.0,
+          "lhExtensors": 311.0,
+          "rhExtensors": 383.0,
+          "lhAdductors": 286.5,
+          "rhAdductors": 309.0,
+          "lhAbductors": 330.0,
+          "rhAbductors": 340.0,
+          "laPlantarflexors": 1084.5,
+          "raPlantarflexors": 1134.5,
+          "lhAddAbdRatio": 0.87,
+          "rhAddAbdRatio": 0.91
+        },
+        "functionalMovement": {
+          "totalScore": 18
+        },
+        "trunkEndurance": {
+          "flexors": 240.0,
+          "extensors": 180.0,
+          "leftLateral": 120.0,
+          "rightLateral": 120.0
+        }
+      },
+      "2026": {
+        "jointROM": {
+          "hipTotalRomL": 95.0,
+          "hipTotalRomR": 95.0,
+          "forwardReachingTest": 38.0
+        },
+        "isometricStrength": {
+          "lhFlexors": 272.0,
+          "rhFlexors": 274.0,
+          "lhExtensors": 367.0,
+          "rhExtensors": 578.0,
+          "lhAdductors": 282.0,
+          "rhAdductors": 291.0,
+          "lhAbductors": 310.0,
+          "rhAbductors": 345.0,
+          "laPlantarflexors": 691.0,
+          "raPlantarflexors": 700.0,
+          "lhAddAbdRatio": 0.91,
+          "rhAddAbdRatio": 0.84
+        },
+        "functionalMovement": {
+          "totalScore": 21
+        },
+        "trunkEndurance": {
+          "flexors": 240.0,
+          "extensors": 180.0,
+          "leftLateral": 120.0,
+          "rightLateral": 120.0
+        }
+      }
+    }
+  },
+  {
+    "id": 18,
+    "name": "Yau Ping Cheung",
+    "gender": "Male",
+    "category": "Endurance",
+    "group": "LD",
+    "data": {
+      "2025": {
+        "jointROM": {
+          "hipTotalRomL": 95.0,
+          "hipTotalRomR": 95.0,
+          "forwardReachingTest": 39.0
+        },
+        "isometricStrength": {
+          "lhFlexors": 297.0,
+          "rhFlexors": 289.0,
+          "lhExtensors": 372.0,
+          "rhExtensors": 431.0,
+          "lhAdductors": 407.0,
+          "rhAdductors": 436.0,
+          "lhAbductors": 333.0,
+          "rhAbductors": 343.0,
+          "laPlantarflexors": 1038.0,
+          "raPlantarflexors": 1092.0,
+          "lhAddAbdRatio": 1.22,
+          "rhAddAbdRatio": 1.27
+        },
+        "functionalMovement": {
+          "totalScore": 19
+        },
+        "trunkEndurance": {
+          "flexors": 240.0,
+          "extensors": 165.0,
+          "leftLateral": 120.0,
+          "rightLateral": 120.0
+        }
+      },
+      "2026": {
+        "jointROM": {
+          "hipTotalRomL": 97.0,
+          "hipTotalRomR": 102.0,
+          "forwardReachingTest": 37.5
+        },
+        "isometricStrength": {
+          "lhFlexors": 317.0,
+          "rhFlexors": 398.0,
+          "lhExtensors": 361.0,
+          "rhExtensors": 462.0,
+          "lhAdductors": 444.0,
+          "rhAdductors": 515.0,
+          "lhAbductors": 369.0,
+          "rhAbductors": 374.0,
+          "laPlantarflexors": 877.0,
+          "raPlantarflexors": 654.0,
+          "lhAddAbdRatio": 1.2,
+          "rhAddAbdRatio": 1.38
+        },
+        "functionalMovement": {
+          "totalScore": 19
+        },
+        "trunkEndurance": {
+          "flexors": 240.0,
+          "extensors": 120.0,
+          "leftLateral": 100.0,
+          "rightLateral": 100.0
+        }
+      }
+    }
+  },
+  {
+    "id": 19,
+    "name": "Kwok Chun Yan",
+    "gender": "Male",
+    "category": "Endurance",
+    "group": "LD",
+    "data": {
+      "2025": {
+        "jointROM": {
+          "hipTotalRomL": 100.0,
+          "hipTotalRomR": 100.0,
+          "forwardReachingTest": 44.0
+        },
+        "isometricStrength": {
+          "lhFlexors": 290.0,
+          "rhFlexors": 306.0,
+          "lhExtensors": 542.0,
+          "rhExtensors": 521.0,
+          "lhAdductors": 399.0,
+          "rhAdductors": 428.0,
+          "lhAbductors": 387.0,
+          "rhAbductors": 391.0,
+          "laPlantarflexors": 1072.0,
+          "raPlantarflexors": 1137.0,
+          "lhAddAbdRatio": 1.03,
+          "rhAddAbdRatio": 1.09
+        },
+        "functionalMovement": {
+          "totalScore": 18
+        },
+        "trunkEndurance": {
+          "flexors": 240.0,
+          "extensors": 180.0,
+          "leftLateral": 120.0,
+          "rightLateral": 120.0
+        }
+      },
+      "2026": {
+        "jointROM": {
+          "hipTotalRomL": 100.0,
+          "hipTotalRomR": 115.0,
+          "forwardReachingTest": 40.5
+        },
+        "isometricStrength": {
+          "lhFlexors": 461.0,
+          "rhFlexors": 471.0,
+          "lhExtensors": 629.0,
+          "rhExtensors": 664.0,
+          "lhAdductors": 429.0,
+          "rhAdductors": 449.0,
+          "lhAbductors": 442.0,
+          "rhAbductors": 455.0,
+          "laPlantarflexors": 850.0,
+          "raPlantarflexors": 869.0,
+          "lhAddAbdRatio": 0.97,
+          "rhAddAbdRatio": 0.99
+        },
+        "functionalMovement": {
+          "totalScore": 20
+        },
+        "trunkEndurance": {
+          "flexors": 240.0,
+          "extensors": 180.0,
+          "leftLateral": 120.0,
+          "rightLateral": 120.0
+        }
+      }
+    }
+  },
+  {
+    "id": 20,
+    "name": "Cheung Shi Ho",
+    "gender": "Male",
+    "category": "Endurance",
+    "group": "LD",
+    "data": {
+      "2025": {
+        "jointROM": {
+          "hipTotalRomL": 95.0,
+          "hipTotalRomR": 100.0,
+          "forwardReachingTest": 43.0
+        },
+        "isometricStrength": {
+          "lhFlexors": 282.0,
+          "rhFlexors": 280.0,
+          "lhExtensors": 286.0,
+          "rhExtensors": 298.0,
+          "lhAdductors": 349.0,
+          "rhAdductors": 367.0,
+          "lhAbductors": 311.0,
+          "rhAbductors": 320.0,
+          "laPlantarflexors": 710.0,
+          "raPlantarflexors": 931.0,
+          "lhAddAbdRatio": 1.12,
+          "rhAddAbdRatio": 1.15
+        },
+        "functionalMovement": {
+          "totalScore": 20
+        },
+        "trunkEndurance": {
+          "flexors": 240.0,
+          "extensors": 180.0,
+          "leftLateral": 120.0,
+          "rightLateral": 120.0
+        }
+      },
+      "2026": {
+        "jointROM": {
+          "hipTotalRomL": 108.0,
+          "hipTotalRomR": 108.0,
+          "forwardReachingTest": 42.0
+        },
+        "isometricStrength": {
+          "lhFlexors": 294.0,
+          "rhFlexors": 341.0,
+          "lhExtensors": 466.0,
+          "rhExtensors": 466.0,
+          "lhAdductors": 327.0,
+          "rhAdductors": 380.0,
+          "lhAbductors": 324.0,
+          "rhAbductors": 320.0,
+          "laPlantarflexors": 818.0,
+          "raPlantarflexors": 1005.0,
+          "lhAddAbdRatio": 1.01,
+          "rhAddAbdRatio": 1.19
+        },
+        "functionalMovement": {
+          "totalScore": 19
+        },
+        "trunkEndurance": {
+          "flexors": 240.0,
+          "extensors": 180.0,
+          "leftLateral": 120.0,
+          "rightLateral": 120.0
+        }
+      }
+    }
+  },
+  {
+    "id": 21,
+    "name": "Wu Chun Yin",
+    "gender": "Male",
+    "category": "Endurance",
+    "group": "LD",
+    "data": {
+      "2025": {
+        "jointROM": {
+          "hipTotalRomL": 85.0,
+          "hipTotalRomR": 85.0,
+          "forwardReachingTest": 49.5
+        },
+        "isometricStrength": {
+          "lhFlexors": 286.0,
+          "rhFlexors": 280.0,
+          "lhExtensors": 267.0,
+          "rhExtensors": 277.0,
+          "lhAdductors": 379.0,
+          "rhAdductors": 379.0,
+          "lhAbductors": 375.0,
+          "rhAbductors": 347.0,
+          "laPlantarflexors": 955.0,
+          "raPlantarflexors": 924.0,
+          "lhAddAbdRatio": 1.01,
+          "rhAddAbdRatio": 1.09
+        },
+        "functionalMovement": {
+          "totalScore": 19
+        },
+        "trunkEndurance": {
+          "flexors": 240.0,
+          "extensors": 180.0,
+          "leftLateral": 120.0,
+          "rightLateral": 120.0
+        }
+      },
+      "2026": {
+        "jointROM": {
+          "hipTotalRomL": 94.0,
+          "hipTotalRomR": 92.0,
+          "forwardReachingTest": 49.5
+        },
+        "isometricStrength": {
+          "lhFlexors": 367.0,
+          "rhFlexors": 339.0,
+          "lhExtensors": 447.0,
+          "rhExtensors": 407.0,
+          "lhAdductors": 345.0,
+          "rhAdductors": 350.0,
+          "lhAbductors": 380.0,
+          "rhAbductors": 358.0,
+          "laPlantarflexors": 1016.0,
+          "raPlantarflexors": 1057.0,
+          "lhAddAbdRatio": 0.91,
+          "rhAddAbdRatio": 0.98
+        },
+        "functionalMovement": {
+          "totalScore": 20
+        },
+        "trunkEndurance": {
+          "flexors": 240.0,
+          "extensors": 180.0,
+          "leftLateral": 120.0,
+          "rightLateral": 120.0
+        }
+      }
+    }
+  },
+  {
+    "id": 22,
+    "name": "Lai Chun Kin",
+    "gender": "Male",
+    "category": "Endurance",
+    "group": "LD",
+    "data": {
+      "2025": {
+        "jointROM": {
+          "hipTotalRomL": 105.0,
+          "hipTotalRomR": 95.0,
+          "forwardReachingTest": 28.5
+        },
+        "isometricStrength": {
+          "lhFlexors": 231.0,
+          "rhFlexors": 258.0,
+          "lhExtensors": 215.0,
+          "rhExtensors": 179.0,
+          "lhAdductors": 269.0,
+          "rhAdductors": 277.0,
+          "lhAbductors": 311.0,
+          "rhAbductors": 309.0,
+          "laPlantarflexors": 609.0,
+          "raPlantarflexors": 706.0,
+          "lhAddAbdRatio": 0.87,
+          "rhAddAbdRatio": 0.9
+        },
+        "functionalMovement": {
+          "totalScore": 17
+        },
+        "trunkEndurance": {
+          "flexors": 240.0,
+          "extensors": 150.0,
+          "leftLateral": 120.0,
+          "rightLateral": 120.0
+        }
+      },
+      "2026": {
+        "jointROM": {
+          "hipTotalRomL": 90.0,
+          "hipTotalRomR": 90.0,
+          "forwardReachingTest": 26.5
+        },
+        "isometricStrength": {
+          "lhFlexors": 219.0,
+          "rhFlexors": 240.0,
+          "lhExtensors": 233.0,
+          "rhExtensors": 213.0,
+          "lhAdductors": 252.0,
+          "rhAdductors": 240.0,
+          "lhAbductors": 313.0,
+          "rhAbductors": 328.0,
+          "laPlantarflexors": 624.0,
+          "raPlantarflexors": 618.0,
+          "lhAddAbdRatio": 0.8,
+          "rhAddAbdRatio": 0.73
+        },
+        "functionalMovement": {
+          "totalScore": 18
+        },
+        "trunkEndurance": {
+          "flexors": 240.0,
+          "extensors": 180.0,
+          "leftLateral": 120.0,
+          "rightLateral": 120.0
+        }
+      }
+    }
+  },
+  {
+    "id": 23,
+    "name": "Leung Wing Yee",
+    "gender": "Female",
+    "category": "Endurance",
+    "group": "LD",
+    "data": {
+      "2025": {
+        "jointROM": {
+          "hipTotalRomL": 112.0,
+          "hipTotalRomR": 104.0,
+          "forwardReachingTest": 52.0
+        },
+        "isometricStrength": {
+          "lhFlexors": 102.0,
+          "rhFlexors": 102.0,
+          "lhExtensors": 201.0,
+          "rhExtensors": 194.0,
+          "lhAdductors": 189.0,
+          "rhAdductors": 193.0,
+          "lhAbductors": 182.0,
+          "rhAbductors": 202.0,
+          "laPlantarflexors": 553.0,
+          "raPlantarflexors": 517.0,
+          "lhAddAbdRatio": 1.04,
+          "rhAddAbdRatio": 0.98
+        },
+        "functionalMovement": {
+          "totalScore": 20
+        },
+        "trunkEndurance": {
+          "flexors": 240.0,
+          "extensors": 180.0,
+          "leftLateral": 120.0,
+          "rightLateral": 120.0
+        }
+      },
+      "2026": {
+        "jointROM": {
+          "hipTotalRomL": 105.0,
+          "hipTotalRomR": 105.0,
+          "forwardReachingTest": 52.0
+        },
+        "isometricStrength": {
+          "lhFlexors": 145.0,
+          "rhFlexors": 151.0,
+          "lhExtensors": 228.0,
+          "rhExtensors": 276.0,
+          "lhAdductors": 204.0,
+          "rhAdductors": 218.0,
+          "lhAbductors": 188.0,
+          "rhAbductors": 196.0,
+          "laPlantarflexors": 562.0,
+          "raPlantarflexors": 567.0,
+          "lhAddAbdRatio": 1.08,
+          "rhAddAbdRatio": 1.11
+        },
+        "functionalMovement": {
+          "totalScore": 20
+        },
+        "trunkEndurance": {
+          "flexors": 240.0,
+          "extensors": 180.0,
+          "leftLateral": 120.0,
+          "rightLateral": 120.0
+        }
+      }
+    }
+  },
+  {
+    "id": 24,
+    "name": "Lee Sze Wing",
+    "gender": "Female",
+    "category": "Endurance",
+    "group": "LD",
+    "data": {
+      "2025": {
+        "jointROM": {
+          "hipTotalRomL": 125.0,
+          "hipTotalRomR": 125.0,
+          "forwardReachingTest": 40.0
+        },
+        "isometricStrength": {
+          "lhFlexors": 194.0,
+          "rhFlexors": 194.0,
+          "lhExtensors": 174.0,
+          "rhExtensors": 163.0,
+          "lhAdductors": 286.0,
+          "rhAdductors": 301.0,
+          "lhAbductors": 270.0,
+          "rhAbductors": 269.0,
+          "laPlantarflexors": 817.0,
+          "raPlantarflexors": 760.0,
+          "lhAddAbdRatio": 0.94,
+          "rhAddAbdRatio": 0.9
+        },
+        "functionalMovement": {
+          "totalScore": 21
+        },
+        "trunkEndurance": {
+          "flexors": 240.0,
+          "extensors": 180.0,
+          "leftLateral": 120.0,
+          "rightLateral": 120.0
+        }
+      },
+      "2026": {
+        "jointROM": {
+          "hipTotalRomL": 120.0,
+          "hipTotalRomR": 114.0,
+          "forwardReachingTest": 36.0
+        },
+        "isometricStrength": {
+          "lhFlexors": 0,
+          "rhFlexors": 0,
+          "lhExtensors": 0,
+          "rhExtensors": 0,
+          "lhAdductors": 0,
+          "rhAdductors": 0,
+          "lhAbductors": 0,
+          "rhAbductors": 0,
+          "laPlantarflexors": 0,
+          "raPlantarflexors": 0,
+          "lhAddAbdRatio": 0,
+          "rhAddAbdRatio": 0
+        },
+        "functionalMovement": {
+          "totalScore": 20
+        },
+        "trunkEndurance": {
+          "flexors": 0,
+          "extensors": 0,
+          "leftLateral": 0,
+          "rightLateral": 0
+        }
+      }
+    }
+  },
+  {
+    "id": 25,
+    "name": "Cheung Li Tong Guardiola",
+    "gender": "Female",
+    "category": "Endurance",
+    "group": "LD",
+    "data": {
+      "2025": {
+        "jointROM": {
+          "hipTotalRomL": 100.0,
+          "hipTotalRomR": 100.0,
+          "forwardReachingTest": 43.5
+        },
+        "isometricStrength": {
+          "lhFlexors": 263.0,
+          "rhFlexors": 267.0,
+          "lhExtensors": 182.0,
+          "rhExtensors": 223.0,
+          "lhAdductors": 238.0,
+          "rhAdductors": 247.0,
+          "lhAbductors": 178.0,
+          "rhAbductors": 203.0,
+          "laPlantarflexors": 580.0,
+          "raPlantarflexors": 656.0,
+          "lhAddAbdRatio": 1.34,
+          "rhAddAbdRatio": 1.23
+        },
+        "functionalMovement": {
+          "totalScore": 17
+        },
+        "trunkEndurance": {
+          "flexors": 240.0,
+          "extensors": 180.0,
+          "leftLateral": 120.0,
+          "rightLateral": 103.0
+        }
+      },
+      "2026": {
+        "jointROM": {
+          "hipTotalRomL": 95.0,
+          "hipTotalRomR": 105.0,
+          "forwardReachingTest": 42.5
+        },
+        "isometricStrength": {
+          "lhFlexors": 197.0,
+          "rhFlexors": 196.0,
+          "lhExtensors": 329.0,
+          "rhExtensors": 327.0,
+          "lhAdductors": 210.0,
+          "rhAdductors": 232.0,
+          "lhAbductors": 159.0,
+          "rhAbductors": 196.0,
+          "laPlantarflexors": 660.0,
+          "raPlantarflexors": 563.0,
+          "lhAddAbdRatio": 1.32,
+          "rhAddAbdRatio": 1.18
+        },
+        "functionalMovement": {
+          "totalScore": 18
+        },
+        "trunkEndurance": {
+          "flexors": 240.0,
+          "extensors": 180.0,
+          "leftLateral": 90.0,
+          "rightLateral": 70.0
+        }
+      }
+    }
+  },
+  {
+    "id": 26,
+    "name": "Kwan Tsz Kwan",
+    "gender": "Female",
+    "category": "Endurance",
+    "group": "LD",
+    "data": {
+      "2025": {
+        "jointROM": {
+          "hipTotalRomL": 95.0,
+          "hipTotalRomR": 95.0,
+          "forwardReachingTest": 40.5
+        },
+        "isometricStrength": {
+          "lhFlexors": 243.0,
+          "rhFlexors": 220.0,
+          "lhExtensors": 290.0,
+          "rhExtensors": 278.0,
+          "lhAdductors": 296.0,
+          "rhAdductors": 306.0,
+          "lhAbductors": 316.0,
+          "rhAbductors": 307.0,
+          "laPlantarflexors": 900.0,
+          "raPlantarflexors": 789.0,
+          "lhAddAbdRatio": 0.94,
+          "rhAddAbdRatio": 1.0
+        },
+        "functionalMovement": {
+          "totalScore": 21
+        },
+        "trunkEndurance": {
+          "flexors": 240.0,
+          "extensors": 180.0,
+          "leftLateral": 120.0,
+          "rightLateral": 120.0
+        }
+      },
+      "2026": {
+        "jointROM": {
+          "hipTotalRomL": 90.0,
+          "hipTotalRomR": 95.0,
+          "forwardReachingTest": 40.5
+        },
+        "isometricStrength": {
+          "lhFlexors": 226.0,
+          "rhFlexors": 204.0,
+          "lhExtensors": 270.0,
+          "rhExtensors": 237.0,
+          "lhAdductors": 252.0,
+          "rhAdductors": 259.0,
+          "lhAbductors": 249.0,
+          "rhAbductors": 249.0,
+          "laPlantarflexors": 809.0,
+          "raPlantarflexors": 775.0,
+          "lhAddAbdRatio": 1.01,
+          "rhAddAbdRatio": 1.01
+        },
+        "functionalMovement": {
+          "totalScore": 20
+        },
+        "trunkEndurance": {
+          "flexors": 240.0,
+          "extensors": 180.0,
+          "leftLateral": 120.0,
+          "rightLateral": 120.0
+        }
+      }
+    }
+  }
+]

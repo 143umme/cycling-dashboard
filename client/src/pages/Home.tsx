@@ -3,7 +3,7 @@ import { athletes, type Athlete, type Gender, type Category, type YearKey, getTe
 import Sidebar from "@/components/Sidebar";
 import AthleteProfile from "@/components/AthleteProfile";
 import TestTabs from "@/components/TestTabs";
-import GroupAnalysis from "@/components/GroupAnalysis";
+import GroupComparison from "@/components/GroupComparison";
 
 export default function Home() {
   const [selectedAthleteId, setSelectedAthleteId] = useState<number | null>(athletes[0]?.id ?? null);
@@ -136,7 +136,7 @@ export default function Home() {
             )
           ) : (
             <div className="p-6 space-y-6">
-              <GroupAnalysis yearView={yearView} />
+              <GroupComparison yearView={yearView} />
             </div>
           )}
         </div>

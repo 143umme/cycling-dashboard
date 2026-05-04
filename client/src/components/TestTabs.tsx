@@ -33,11 +33,15 @@ export default function TestTabs({ athlete, yearView, teamAvg2025, teamAvg2026 }
   const d25 = athlete.data["2025"];
   const d26 = athlete.data["2026"];
 
-  // Joint ROM Data - Radar Chart with Normative Values
+  // Joint ROM Data - Radar Chart (Hip ROM angles only)
   const jointROMRadarData = [
     { metric: "L Hip ROM", 2025: d25.jointROM.hipTotalRomL, 2026: d26.jointROM.hipTotalRomL, normative: NORMATIVE_VALUES.hipROM },
     { metric: "R Hip ROM", 2025: d25.jointROM.hipTotalRomR, 2026: d26.jointROM.hipTotalRomR, normative: NORMATIVE_VALUES.hipROM },
-    { metric: "Forward Reach", 2025: d25.jointROM.forwardReachingTest, 2026: d26.jointROM.forwardReachingTest, normative: NORMATIVE_VALUES.forwardReach },
+  ];
+
+  // Forward Reaching Test Data (separate - different units)
+  const forwardReachData = [
+    { name: "Forward Reach", 2025: d25.jointROM.forwardReachingTest, 2026: d26.jointROM.forwardReachingTest, normative: NORMATIVE_VALUES.forwardReach },
   ];
 
   // Isometric Strength - All 12 measurements with normative values
@@ -98,49 +102,73 @@ export default function TestTabs({ athlete, yearView, teamAvg2025, teamAvg2026 }
 
       {/* Tab Content */}
       <div className="bg-white rounded-xl p-6 shadow-sm border border-slate-100">
-        {/* Joint ROM & Flexibility - Radar Chart */}
+        {/* Joint ROM & Flexibility - Radar Chart (Hip ROM only) */}
         {activeTab === "jointrom" && (
           <div className="space-y-6">
-            <h3 className="text-lg font-bold text-slate-800">Joint ROM & Flexibility - Radar Comparison</h3>
-            <ResponsiveContainer width="100%" height={400}>
-              <RadarChart data={jointROMRadarData}>
-                <PolarGrid />
-                <PolarAngleAxis dataKey="metric" />
-                <PolarRadiusAxis />
-                {yearView === "2025" || yearView === "Compare" ? (
-                  <Radar name="2025" dataKey="2025" stroke="#6366f1" fill="#6366f1" fillOpacity={0.25} />
-                ) : null}
-                {yearView === "2026" || yearView === "Compare" ? (
-                  <Radar name="2026" dataKey="2026" stroke="#0ea5e9" fill="#0ea5e9" fillOpacity={0.25} />
-                ) : null}
-                <Radar name="Normative" dataKey="normative" stroke="#94a3b8" strokeDasharray="5 5" fill="none" />
-                <Legend />
-              </RadarChart>
-            </ResponsiveContainer>
+            {/* Chart 1: Hip ROM Radar */}
+            <div>
+              <h3 className="text-lg font-bold text-slate-800 mb-4">Hip Range of Motion (Angles)</h3>
+              <ResponsiveContainer width="100%" height={350}>
+                <RadarChart data={jointROMRadarData}>
+                  <PolarGrid />
+                  <PolarAngleAxis dataKey="metric" />
+                  <PolarRadiusAxis />
+                  {yearView === "2025" || yearView === "Compare" ? (
+                    <Radar name="2025" dataKey="2025" stroke="#6366f1" fill="#6366f1" fillOpacity={0.25} />
+                  ) : null}
+                  {yearView === "2026" || yearView === "Compare" ? (
+                    <Radar name="2026" dataKey="2026" stroke="#0ea5e9" fill="#0ea5e9" fillOpacity={0.25} />
+                  ) : null}
+                  <Radar name="Normative" dataKey="normative" stroke="#94a3b8" strokeDasharray="5 5" fill="none" />
+                  <Legend />
+                </RadarChart>
+              </ResponsiveContainer>
 
-            {/* Metrics Cards */}
-            <div className="grid grid-cols-3 gap-4">
-              <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-4 rounded-lg">
-                <p className="text-sm font-semibold text-slate-600">L Hip ROM (°)</p>
-                <p className="text-2xl font-bold text-blue-600">{d26.jointROM.hipTotalRomL.toFixed(1)}</p>
-                <p className="text-xs text-slate-500 mt-1">Norm: {NORMATIVE_VALUES.hipROM}°</p>
-                <p className={`text-xs font-semibold mt-1 ${d26.jointROM.hipTotalRomL >= NORMATIVE_VALUES.hipROM ? "text-green-600" : "text-red-600"}`}>
-                  {d26.jointROM.hipTotalRomL >= NORMATIVE_VALUES.hipROM ? "✓ Above Norm" : "✗ Below Norm"}
-                </p>
+              {/* Hip ROM Metrics Cards */}
+              <div className="grid grid-cols-2 gap-4 mt-4">
+                <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-4 rounded-lg">
+                  <p className="text-sm font-semibold text-slate-600">L Hip ROM (°)</p>
+                  <p className="text-2xl font-bold text-blue-600">{d26.jointROM.hipTotalRomL.toFixed(1)}</p>
+                  <p className="text-xs text-slate-500 mt-1">Norm: {NORMATIVE_VALUES.hipROM}°</p>
+                  <p className={`text-xs font-semibold mt-1 ${d26.jointROM.hipTotalRomL >= NORMATIVE_VALUES.hipROM ? "text-green-600" : "text-red-600"}`}>
+                    {d26.jointROM.hipTotalRomL >= NORMATIVE_VALUES.hipROM ? "✓ Above Norm" : "✗ Below Norm"}
+                  </p>
+                </div>
+
+                <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-4 rounded-lg">
+                  <p className="text-sm font-semibold text-slate-600">R Hip ROM (°)</p>
+                  <p className="text-2xl font-bold text-blue-600">{d26.jointROM.hipTotalRomR.toFixed(1)}</p>
+                  <p className="text-xs text-slate-500 mt-1">Norm: {NORMATIVE_VALUES.hipROM}°</p>
+                  <p className={`text-xs font-semibold mt-1 ${d26.jointROM.hipTotalRomR >= NORMATIVE_VALUES.hipROM ? "text-green-600" : "text-red-600"}`}>
+                    {d26.jointROM.hipTotalRomR >= NORMATIVE_VALUES.hipROM ? "✓ Above Norm" : "✗ Below Norm"}
+                  </p>
+                </div>
               </div>
+            </div>
 
-              <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-4 rounded-lg">
-                <p className="text-sm font-semibold text-slate-600">R Hip ROM (°)</p>
-                <p className="text-2xl font-bold text-blue-600">{d26.jointROM.hipTotalRomR.toFixed(1)}</p>
-                <p className="text-xs text-slate-500 mt-1">Norm: {NORMATIVE_VALUES.hipROM}°</p>
-                <p className={`text-xs font-semibold mt-1 ${d26.jointROM.hipTotalRomR >= NORMATIVE_VALUES.hipROM ? "text-green-600" : "text-red-600"}`}>
-                  {d26.jointROM.hipTotalRomR >= NORMATIVE_VALUES.hipROM ? "✓ Above Norm" : "✗ Below Norm"}
-                </p>
-              </div>
+            {/* Chart 2: Forward Reaching Test (separate - different units) */}
+            <div className="border-t pt-6">
+              <h3 className="text-lg font-bold text-slate-800 mb-4">Forward Reaching Test (Distance)</h3>
+              <ResponsiveContainer width="100%" height={250}>
+                <BarChart data={forwardReachData} margin={{ top: 10, right: 30, left: 0, bottom: 50 }}>
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <XAxis dataKey="name" />
+                  <YAxis label={{ value: "Distance (cm)", angle: -90, position: "insideLeft" }} />
+                  <Tooltip />
+                  {yearView === "2025" || yearView === "Compare" ? (
+                    <Bar dataKey="2025" fill="#6366f1" name="2025" />
+                  ) : null}
+                  {yearView === "2026" || yearView === "Compare" ? (
+                    <Bar dataKey="2026" fill="#0ea5e9" name="2026" />
+                  ) : null}
+                  <ReferenceLine y={NORMATIVE_VALUES.forwardReach} stroke="#94a3b8" strokeDasharray="5 5" label={{ value: `Normative (${NORMATIVE_VALUES.forwardReach}cm)`, position: "right", fill: "#64748b" }} />
+                </BarChart>
+              </ResponsiveContainer>
 
-              <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-4 rounded-lg">
-                <p className="text-sm font-semibold text-slate-600">Forward Reach (cm)</p>
-                <p className="text-2xl font-bold text-blue-600">{d26.jointROM.forwardReachingTest.toFixed(1)}</p>
+              {/* Forward Reach Metric Card */}
+              <div className="mt-4 bg-gradient-to-br from-amber-50 to-amber-100 p-4 rounded-lg max-w-xs">
+                <p className="text-sm font-semibold text-slate-600">Forward Reaching Test (cm)</p>
+                <p className="text-2xl font-bold text-amber-600">{d26.jointROM.forwardReachingTest.toFixed(1)}</p>
                 <p className="text-xs text-slate-500 mt-1">Norm: {NORMATIVE_VALUES.forwardReach} cm</p>
                 <p className={`text-xs font-semibold mt-1 ${d26.jointROM.forwardReachingTest >= NORMATIVE_VALUES.forwardReach ? "text-green-600" : "text-red-600"}`}>
                   {d26.jointROM.forwardReachingTest >= NORMATIVE_VALUES.forwardReach ? "✓ Above Norm" : "✗ Below Norm"}

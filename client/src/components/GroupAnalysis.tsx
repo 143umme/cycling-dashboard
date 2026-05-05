@@ -202,86 +202,76 @@ export default function GroupAnalysis({ yearView }: GroupAnalysisProps) {
           </ResponsiveContainer>
         </div>
 
-        {/* Isometric Strength Ratios - Simple Display */}
+        {/* Isometric Strength Ratios - Horizontal Dumbbell Chart */}
         <div className="bg-white rounded-lg p-6 shadow-sm border border-slate-100">
-          <h3 className="text-lg font-bold text-slate-800 mb-6">Isometric Strength - Add/Abd Ratios (LH & RH)</h3>
-          <div className="space-y-4">
-            {groupData.map((athlete, idx) => {
-              const maxValue = Math.max(athlete.lhAddAbdRatio, athlete.rhAddAbdRatio, 1) * 1.2;
-              const scale = 100 / maxValue;
-              const posLH = athlete.lhAddAbdRatio * scale;
-              const posRH = athlete.rhAddAbdRatio * scale;
-              const posNorm = 1 * scale;
-              const lhBalanced = Math.abs(athlete.lhAddAbdRatio - 1) < 0.2;
-              const rhBalanced = Math.abs(athlete.rhAddAbdRatio - 1) < 0.2;
-
-              return (
-                <div key={idx} className="bg-gradient-to-r from-slate-50 to-slate-100 rounded-lg p-4 border border-slate-200">
-                  <p className="font-semibold text-slate-800 mb-3">{athlete.name}</p>
-                  
-                  {/* LH Ratio Dumbbell */}
-                  <div className="mb-4">
-                    <p className="text-xs font-semibold text-slate-600 mb-2">LH Add/Abd Ratio</p>
-                    <div className="relative h-10 bg-white rounded-lg p-2 border border-slate-300">
-                      <div
-                        className="absolute top-0 bottom-0 w-0.5 bg-red-400"
-                        style={{ left: `${posNorm}%` }}
-                      />
-                      <div className="absolute top-1/2 transform -translate-y-1/2 w-full">
-                        <div
-                          className="absolute h-1 bg-gradient-to-r from-indigo-400 to-indigo-500 top-1/2 transform -translate-y-1/2 rounded-full"
-                          style={{
-                            left: `${Math.min(posNorm, posLH)}%`,
-                            width: `${Math.abs(posLH - posNorm)}%`,
-                          }}
-                        />
-                        <div
-                          className="absolute w-3.5 h-3.5 bg-indigo-500 rounded-full border-2 border-indigo-700 shadow-md transform -translate-x-1/2 -translate-y-1/2 top-1/2"
-                          style={{ left: `${posLH}%` }}
-                        />
+          <h3 className="text-lg font-bold text-slate-800 mb-4">Add/Abd Ratios - Horizontal Dumbbell Chart</h3>
+          <ResponsiveContainer width="100%" height={Math.max(300, groupData.length * 40)}>
+            <ScatterChart margin={{ top: 20, right: 30, left: 120, bottom: 20 }}>
+              <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+              <XAxis 
+                type="number" 
+                dataKey="ratio" 
+                name="Ratio Value"
+                domain={[0.6, 1.5]}
+                label={{ value: "Ratio Value", position: "insideBottomRight", offset: -10 }}
+                tick={{ fontSize: 11 }}
+              />
+              <YAxis 
+                type="category" 
+                dataKey="name" 
+                name="Athlete"
+                width={110}
+                tick={{ fontSize: 10 }}
+              />
+              <Tooltip 
+                contentStyle={{ backgroundColor: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "8px" }}
+                cursor={{ strokeDasharray: "3 3" }}
+                content={({ active, payload }) => {
+                  if (active && payload && payload.length) {
+                    const data = payload[0].payload;
+                    return (
+                      <div className="bg-white p-2 rounded border border-slate-200 text-xs">
+                        <p className="font-semibold">{data.name}</p>
+                        <p className="text-slate-600">{data.side}: {data.ratio.toFixed(2)}</p>
                       </div>
-                    </div>
-                    <div className="flex justify-between items-center mt-1 text-xs">
-                      <span className="text-slate-700">Value: <span className="font-semibold">{athlete.lhAddAbdRatio.toFixed(2)}</span></span>
-                      <p className={`font-semibold ${lhBalanced ? "text-green-600" : "text-orange-600"}`}>
-                        {lhBalanced ? "✓ Balanced" : "⚠ Imbalanced"}
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* RH Ratio Dumbbell */}
-                  <div>
-                    <p className="text-xs font-semibold text-slate-600 mb-2">RH Add/Abd Ratio</p>
-                    <div className="relative h-10 bg-white rounded-lg p-2 border border-slate-300">
-                      <div
-                        className="absolute top-0 bottom-0 w-0.5 bg-red-400"
-                        style={{ left: `${posNorm}%` }}
-                      />
-                      <div className="absolute top-1/2 transform -translate-y-1/2 w-full">
-                        <div
-                          className="absolute h-1 bg-gradient-to-r from-orange-400 to-orange-500 top-1/2 transform -translate-y-1/2 rounded-full"
-                          style={{
-                            left: `${Math.min(posNorm, posRH)}%`,
-                            width: `${Math.abs(posRH - posNorm)}%`,
-                          }}
-                        />
-                        <div
-                          className="absolute w-3.5 h-3.5 bg-orange-500 rounded-full border-2 border-orange-700 shadow-md transform -translate-x-1/2 -translate-y-1/2 top-1/2"
-                          style={{ left: `${posRH}%` }}
-                        />
-                      </div>
-                    </div>
-                    <div className="flex justify-between items-center mt-1 text-xs">
-                      <span className="text-slate-700">Value: <span className="font-semibold">{athlete.rhAddAbdRatio.toFixed(2)}</span></span>
-                      <p className={`font-semibold ${rhBalanced ? "text-green-600" : "text-orange-600"}`}>
-                        {rhBalanced ? "✓ Balanced" : "⚠ Imbalanced"}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
+                    );
+                  }
+                  return null;
+                }}
+              />
+              <Legend />
+              <ReferenceLine 
+                x={1} 
+                stroke="#ef4444" 
+                strokeDasharray="5 5" 
+                label={{ value: "Normative (1.0)", position: "top", fill: "#64748b", fontSize: 11 }} 
+              />
+              {/* Left Leg Dumbbells */}
+              <Scatter 
+                name="Left Leg" 
+                data={groupData.map((a, idx) => ({ 
+                  name: a.name, 
+                  ratio: a.lhAddAbdRatio, 
+                  side: "LH",
+                  y: idx 
+                }))} 
+                fill="#6366f1" 
+                shape="circle"
+              />
+              {/* Right Leg Dumbbells */}
+              <Scatter 
+                name="Right Leg" 
+                data={groupData.map((a, idx) => ({ 
+                  name: a.name, 
+                  ratio: a.rhAddAbdRatio, 
+                  side: "RH",
+                  y: idx 
+                }))} 
+                fill="#f97316" 
+                shape="circle"
+              />
+            </ScatterChart>
+          </ResponsiveContainer>
         </div>
 
         {/* Trunk Endurance - Horizontal Bar Chart */}

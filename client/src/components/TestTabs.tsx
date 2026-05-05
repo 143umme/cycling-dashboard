@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, ReferenceLine, LineChart, Line, ComposedChart } from "recharts";
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, ReferenceLine, LineChart, Line, ComposedChart, ScatterChart, Scatter } from "recharts";
 import type { Athlete, AthleteYear, YearKey } from "@/lib/athleteData";
 
 interface TestTabsProps {
@@ -263,81 +263,105 @@ export default function TestTabs({ athlete, yearView, teamAvg2025, teamAvg2026 }
             ))}
           </div>
 
-          {/* Add/Abd Ratios - Dumbbell Chart */}
+          {/* Add/Abd Ratios - Horizontal Dumbbell Scatter Chart */}
           <div className="bg-white rounded-lg p-6 shadow-sm border border-slate-100">
-            <h3 className="text-lg font-bold text-slate-800 mb-6">Add/Abd Ratios (Balance - 2025 vs 2026)</h3>
-            <div className="space-y-6">
+            <h3 className="text-lg font-bold text-slate-800 mb-4">Add/Abd Ratios - Left vs Right (2025 vs 2026)</h3>
+            <ResponsiveContainer width="100%" height={300}>
+              <ScatterChart margin={{ top: 20, right: 30, left: 80, bottom: 20 }}>
+                <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+                <XAxis 
+                  type="number" 
+                  dataKey="ratio" 
+                  name="Ratio Value"
+                  domain={[0.6, 1.4]}
+                  label={{ value: "Ratio Value", position: "insideBottomRight", offset: -10 }}
+                  tick={{ fontSize: 11 }}
+                />
+                <YAxis 
+                  type="category" 
+                  dataKey="name" 
+                  name="Side"
+                  width={70}
+                  tick={{ fontSize: 11 }}
+                />
+                <Tooltip 
+                  contentStyle={{ backgroundColor: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "8px" }}
+                  cursor={{ strokeDasharray: "3 3" }}
+                  content={({ active, payload }) => {
+                    if (active && payload && payload.length) {
+                      const data = payload[0].payload;
+                      return (
+                        <div className="bg-white p-2 rounded border border-slate-200 text-xs">
+                          <p className="font-semibold">{data.name}</p>
+                          <p className="text-slate-600">{data.year}: {data.ratio.toFixed(2)}</p>
+                        </div>
+                      );
+                    }
+                    return null;
+                  }}
+                />
+                <Legend />
+                <ReferenceLine 
+                  x={1} 
+                  stroke="#ef4444" 
+                  strokeDasharray="5 5" 
+                  label={{ value: "Normative (1.0)", position: "top", fill: "#64748b", fontSize: 11 }} 
+                />
+                {/* Left Hip 2025 */}
+                <Scatter 
+                  name="LH 2025" 
+                  data={[{ name: "Left Hip", ratio: ratioData[0]["2025"], year: "2025" }]} 
+                  fill="#6366f1" 
+                  shape="circle"
+                />
+                {/* Left Hip 2026 */}
+                <Scatter 
+                  name="LH 2026" 
+                  data={[{ name: "Left Hip", ratio: ratioData[0]["2026"], year: "2026" }]} 
+                  fill="#06b6d4" 
+                  shape="circle"
+                />
+                {/* Right Hip 2025 */}
+                <Scatter 
+                  name="RH 2025" 
+                  data={[{ name: "Right Hip", ratio: ratioData[1]["2025"], year: "2025" }]} 
+                  fill="#f97316" 
+                  shape="circle"
+                />
+                {/* Right Hip 2026 */}
+                <Scatter 
+                  name="RH 2026" 
+                  data={[{ name: "Right Hip", ratio: ratioData[1]["2026"], year: "2026" }]} 
+                  fill="#f59e0b" 
+                  shape="circle"
+                />
+              </ScatterChart>
+            </ResponsiveContainer>
+            
+            {/* Ratio Cards Below Chart */}
+            <div className="grid grid-cols-2 gap-4 mt-6">
               {ratioData.map((item, idx) => {
                 const { change, percent } = calculateChange(item["2025"], item["2026"]);
                 const isBalanced = Math.abs(item["2026"] - item.normative) < 0.2;
-                const maxValue = Math.max(item["2025"], item["2026"], item.normative) * 1.2;
-                const scale = 100 / maxValue;
-                const pos2025 = item["2025"] * scale;
-                const pos2026 = item["2026"] * scale;
-                const posNorm = item.normative * scale;
-
                 return (
-                  <div key={idx} className="bg-gradient-to-r from-slate-50 to-slate-100 rounded-lg p-4 border border-slate-200">
-                    <div className="flex justify-between items-center mb-3">
-                      <h4 className="font-semibold text-slate-800">{item.name}</h4>
-                      <div className={`text-right ${parseFloat(change) >= 0 ? "text-green-600" : "text-red-600"}`}>
-                        <p className="font-bold text-sm">{parseFloat(change) >= 0 ? "+" : ""}{parseFloat(change).toFixed(2)}</p>
-                        <p className="text-xs">{parseFloat(change) >= 0 ? "+" : ""}{percent}%</p>
+                  <div key={idx} className="bg-gradient-to-br from-slate-50 to-slate-100 p-4 rounded-lg border border-slate-200">
+                    <p className="text-sm font-semibold text-slate-700 mb-2">{item.name}</p>
+                    <div className="space-y-1 text-xs">
+                      <div className="flex justify-between">
+                        <span className="text-slate-600">2025:</span>
+                        <span className="font-bold text-slate-800">{item["2025"].toFixed(2)}</span>
                       </div>
-                    </div>
-
-                    {/* Dumbbell Chart */}
-                    <div className="relative h-16 bg-white rounded-lg p-3 border border-slate-300">
-                      {/* Normative Reference Line */}
-                      <div
-                        className="absolute top-0 bottom-0 w-0.5 bg-red-400"
-                        style={{ left: `${posNorm}%` }}
-                        title={`Normative: ${item.normative}`}
-                      />
-
-                      {/* Dumbbell Connector Line */}
-                      <div className="absolute top-1/2 transform -translate-y-1/2 w-full">
-                        <div
-                          className="absolute h-1.5 bg-gradient-to-r from-indigo-400 to-cyan-400 top-1/2 transform -translate-y-1/2 rounded-full"
-                          style={{
-                            left: `${Math.min(pos2025, pos2026)}%`,
-                            width: `${Math.abs(pos2026 - pos2025)}%`,
-                          }}
-                        />
-
-                        {/* 2025 Circle (Left) */}
-                        <div
-                          className="absolute w-5 h-5 bg-indigo-500 rounded-full border-3 border-indigo-700 shadow-lg transform -translate-x-1/2 -translate-y-1/2 top-1/2"
-                          style={{ left: `${pos2025}%` }}
-                          title={`2025: ${item["2025"].toFixed(2)}`}
-                        />
-
-                        {/* 2026 Circle (Right) */}
-                        <div
-                          className="absolute w-5 h-5 bg-cyan-500 rounded-full border-3 border-cyan-700 shadow-lg transform -translate-x-1/2 -translate-y-1/2 top-1/2"
-                          style={{ left: `${pos2026}%` }}
-                          title={`2026: ${item["2026"].toFixed(2)}`}
-                        />
+                      <div className="flex justify-between">
+                        <span className="text-slate-600">2026:</span>
+                        <span className="font-bold text-slate-800">{item["2026"].toFixed(2)}</span>
                       </div>
-                    </div>
-
-                    {/* Legend and Status */}
-                    <div className="flex justify-between items-center mt-3 text-xs">
-                      <div className="flex gap-3">
-                        <div className="flex items-center gap-1">
-                          <div className="w-3 h-3 bg-indigo-500 rounded-full border border-indigo-700"></div>
-                          <span className="text-slate-700">2025: <span className="font-semibold">{item["2025"].toFixed(2)}</span></span>
-                        </div>
-                        <div className="flex items-center gap-1">
-                          <div className="w-3 h-3 bg-cyan-500 rounded-full border border-cyan-700"></div>
-                          <span className="text-slate-700">2026: <span className="font-semibold">{item["2026"].toFixed(2)}</span></span>
-                        </div>
-                        <div className="flex items-center gap-1">
-                          <div className="w-1 h-3 bg-red-400"></div>
-                          <span className="text-slate-700">Norm: <span className="font-semibold">{item.normative}</span></span>
-                        </div>
+                      <div className="flex justify-between pt-1 border-t border-slate-300">
+                        <span className="text-slate-600">Change:</span>
+                        <span className={`font-bold ${parseFloat(change) >= 0 ? "text-green-600" : "text-red-600"}`}>
+                          {parseFloat(change) >= 0 ? "+" : ""}{change} ({percent}%)
+                        </span>
                       </div>
-                      <p className={`font-semibold ${isBalanced ? "text-green-600" : "text-orange-600"}`}>
+                      <p className={`text-xs font-semibold mt-2 ${isBalanced ? "text-green-600" : "text-orange-600"}`}>
                         {isBalanced ? "✓ Balanced" : "⚠ Imbalanced"}
                       </p>
                     </div>

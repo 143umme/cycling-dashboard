@@ -2,7 +2,7 @@ import { useState, useMemo } from "react";
 import { athletes, type Athlete, type Gender, type Category, type YearKey, getTeamAverages } from "@/lib/athleteData";
 import Sidebar from "@/components/Sidebar";
 import AthleteProfile from "@/components/AthleteProfile";
-import TestTabs from "@/components/TestTabs";
+import { TestTabs } from "@/components/TestTabs";
 import GroupAnalysis from "@/components/GroupAnalysis";
 
 export default function Home() {
@@ -124,9 +124,7 @@ export default function Home() {
                 <AthleteProfile athlete={effectiveSelected} yearView={yearView} />
                 <TestTabs
                   athlete={effectiveSelected}
-                  yearView={yearView}
-                  teamAvg2025={teamAvg2025}
-                  teamAvg2026={teamAvg2026}
+                  year={yearView === "Compare" ? "both" : yearView}
                 />
               </div>
             ) : (

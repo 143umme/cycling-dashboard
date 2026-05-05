@@ -204,27 +204,83 @@ export default function GroupAnalysis({ yearView }: GroupAnalysisProps) {
 
         {/* Isometric Strength Ratios - Simple Display */}
         <div className="bg-white rounded-lg p-6 shadow-sm border border-slate-100">
-          <h3 className="text-lg font-bold text-slate-800 mb-6">Isometric Strength - Add/Abd Ratios</h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-            {groupData.map((athlete, idx) => (
-              <div key={idx} className="space-y-2">
-                <p className="text-xs font-semibold text-slate-700 text-center">{athlete.name}</p>
-                <div className="bg-gradient-to-br from-indigo-50 to-indigo-100 p-3 rounded-lg border border-indigo-200">
-                  <p className="text-xs text-indigo-700 font-semibold mb-1">LH Ratio</p>
-                  <p className="text-lg font-bold text-indigo-600">{athlete.lhAddAbdRatio.toFixed(2)}</p>
-                  <p className={`text-xs font-semibold mt-1 ${Math.abs(athlete.lhAddAbdRatio - 1) < 0.2 ? "text-green-600" : "text-orange-600"}`}>
-                    {Math.abs(athlete.lhAddAbdRatio - 1) < 0.2 ? "✓ Balanced" : "⚠ Imbalanced"}
-                  </p>
+          <h3 className="text-lg font-bold text-slate-800 mb-6">Isometric Strength - Add/Abd Ratios (LH & RH)</h3>
+          <div className="space-y-4">
+            {groupData.map((athlete, idx) => {
+              const maxValue = Math.max(athlete.lhAddAbdRatio, athlete.rhAddAbdRatio, 1) * 1.2;
+              const scale = 100 / maxValue;
+              const posLH = athlete.lhAddAbdRatio * scale;
+              const posRH = athlete.rhAddAbdRatio * scale;
+              const posNorm = 1 * scale;
+              const lhBalanced = Math.abs(athlete.lhAddAbdRatio - 1) < 0.2;
+              const rhBalanced = Math.abs(athlete.rhAddAbdRatio - 1) < 0.2;
+
+              return (
+                <div key={idx} className="bg-gradient-to-r from-slate-50 to-slate-100 rounded-lg p-4 border border-slate-200">
+                  <p className="font-semibold text-slate-800 mb-3">{athlete.name}</p>
+                  
+                  {/* LH Ratio Dumbbell */}
+                  <div className="mb-4">
+                    <p className="text-xs font-semibold text-slate-600 mb-2">LH Add/Abd Ratio</p>
+                    <div className="relative h-10 bg-white rounded-lg p-2 border border-slate-300">
+                      <div
+                        className="absolute top-0 bottom-0 w-0.5 bg-red-400"
+                        style={{ left: `${posNorm}%` }}
+                      />
+                      <div className="absolute top-1/2 transform -translate-y-1/2 w-full">
+                        <div
+                          className="absolute h-1 bg-gradient-to-r from-indigo-400 to-indigo-500 top-1/2 transform -translate-y-1/2 rounded-full"
+                          style={{
+                            left: `${Math.min(posNorm, posLH)}%`,
+                            width: `${Math.abs(posLH - posNorm)}%`,
+                          }}
+                        />
+                        <div
+                          className="absolute w-3.5 h-3.5 bg-indigo-500 rounded-full border-2 border-indigo-700 shadow-md transform -translate-x-1/2 -translate-y-1/2 top-1/2"
+                          style={{ left: `${posLH}%` }}
+                        />
+                      </div>
+                    </div>
+                    <div className="flex justify-between items-center mt-1 text-xs">
+                      <span className="text-slate-700">Value: <span className="font-semibold">{athlete.lhAddAbdRatio.toFixed(2)}</span></span>
+                      <p className={`font-semibold ${lhBalanced ? "text-green-600" : "text-orange-600"}`}>
+                        {lhBalanced ? "✓ Balanced" : "⚠ Imbalanced"}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* RH Ratio Dumbbell */}
+                  <div>
+                    <p className="text-xs font-semibold text-slate-600 mb-2">RH Add/Abd Ratio</p>
+                    <div className="relative h-10 bg-white rounded-lg p-2 border border-slate-300">
+                      <div
+                        className="absolute top-0 bottom-0 w-0.5 bg-red-400"
+                        style={{ left: `${posNorm}%` }}
+                      />
+                      <div className="absolute top-1/2 transform -translate-y-1/2 w-full">
+                        <div
+                          className="absolute h-1 bg-gradient-to-r from-orange-400 to-orange-500 top-1/2 transform -translate-y-1/2 rounded-full"
+                          style={{
+                            left: `${Math.min(posNorm, posRH)}%`,
+                            width: `${Math.abs(posRH - posNorm)}%`,
+                          }}
+                        />
+                        <div
+                          className="absolute w-3.5 h-3.5 bg-orange-500 rounded-full border-2 border-orange-700 shadow-md transform -translate-x-1/2 -translate-y-1/2 top-1/2"
+                          style={{ left: `${posRH}%` }}
+                        />
+                      </div>
+                    </div>
+                    <div className="flex justify-between items-center mt-1 text-xs">
+                      <span className="text-slate-700">Value: <span className="font-semibold">{athlete.rhAddAbdRatio.toFixed(2)}</span></span>
+                      <p className={`font-semibold ${rhBalanced ? "text-green-600" : "text-orange-600"}`}>
+                        {rhBalanced ? "✓ Balanced" : "⚠ Imbalanced"}
+                      </p>
+                    </div>
+                  </div>
                 </div>
-                <div className="bg-gradient-to-br from-orange-50 to-orange-100 p-3 rounded-lg border border-orange-200">
-                  <p className="text-xs text-orange-700 font-semibold mb-1">RH Ratio</p>
-                  <p className="text-lg font-bold text-orange-600">{athlete.rhAddAbdRatio.toFixed(2)}</p>
-                  <p className={`text-xs font-semibold mt-1 ${Math.abs(athlete.rhAddAbdRatio - 1) < 0.2 ? "text-green-600" : "text-orange-600"}`}>
-                    {Math.abs(athlete.rhAddAbdRatio - 1) < 0.2 ? "✓ Balanced" : "⚠ Imbalanced"}
-                  </p>
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
 

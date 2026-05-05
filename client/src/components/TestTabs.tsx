@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, ReferenceLine } from "recharts";
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, ReferenceLine, PieChart, Pie, Cell, LineChart, Line } from "recharts";
 import type { Athlete, AthleteYear, YearKey } from "@/lib/athleteData";
 
 interface TestTabsProps {
@@ -207,41 +207,118 @@ export default function TestTabs({ athlete, yearView, teamAvg2025, teamAvg2026 }
           </div>
         )}
 
-        {/* Isometric Strength - All 12 measurements in one chart */}
+        {/* Isometric Strength - Horizontal bars for main measurements + Pie charts for ratios */}
         {activeTab === "isometric" && (
-          <div className="space-y-6">
-            <h3 className="text-lg font-bold text-slate-800 mb-4">Isometric Strength (All Measurements - Newtons)</h3>
-            <ResponsiveContainer width="100%" height={400}>
-              <BarChart data={isometricData} margin={{ top: 20, right: 30, left: 0, bottom: 80 }}>
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="name" angle={-45} textAnchor="end" height={100} />
-                <YAxis label={{ value: "Force (N)", angle: -90, position: "insideLeft" }} />
-                <Tooltip />
-                <Legend />
-                {yearView === "2025" || yearView === "Compare" ? (
-                  <Bar dataKey="2025" fill="#6366f1" name="2025" />
-                ) : null}
-                {yearView === "2026" || yearView === "Compare" ? (
-                  <Bar dataKey="2026" fill="#0ea5e9" name="2026" />
-                ) : null}
-                <ReferenceLine y={NORMATIVE_VALUES.hipStrength} stroke="#94a3b8" strokeDasharray="5 5" label={{ value: `Norm (${NORMATIVE_VALUES.hipStrength}N)`, position: "right", fill: "#64748b", fontSize: 10 }} />
-              </BarChart>
-            </ResponsiveContainer>
+          <div className="space-y-8">
+            {/* Main Strength Measurements - Horizontal Bar Chart */}
+            <div>
+              <h3 className="text-lg font-bold text-slate-800 mb-4">Isometric Strength - Main Measurements (Newtons)</h3>
+              <ResponsiveContainer width="100%" height={400}>
+                <BarChart data={isometricData.slice(0, 10)} layout="vertical" margin={{ top: 10, right: 30, left: 120, bottom: 10 }}>
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <XAxis type="number" label={{ value: "Force (N)", position: "insideBottomRight", offset: -5 }} />
+                  <YAxis dataKey="name" type="category" width={110} />
+                  <Tooltip />
+                  <Legend />
+                  {yearView === "2025" || yearView === "Compare" ? (
+                    <Bar dataKey="2025" fill="#6366f1" name="2025" radius={[0, 8, 8, 0]} />
+                  ) : null}
+                  {yearView === "2026" || yearView === "Compare" ? (
+                    <Bar dataKey="2026" fill="#0ea5e9" name="2026" radius={[0, 8, 8, 0]} />
+                  ) : null}
+                  <ReferenceLine x={NORMATIVE_VALUES.hipStrength} stroke="#94a3b8" strokeDasharray="5 5" label={{ value: `Norm (${NORMATIVE_VALUES.hipStrength}N)`, position: "top", fill: "#64748b", fontSize: 10 }} />
+                </BarChart>
+              </ResponsiveContainer>
 
-            {/* Metric Cards Grid */}
-            <div className="grid grid-cols-2 gap-4 mt-6">
-              <MetricCard label="LH Flexors" value2025={d25.isometricStrength.lhFlexors} value2026={d26.isometricStrength.lhFlexors} unit="N" normative={NORMATIVE_VALUES.hipStrength} />
-              <MetricCard label="RH Flexors" value2025={d25.isometricStrength.rhFlexors} value2026={d26.isometricStrength.rhFlexors} unit="N" normative={NORMATIVE_VALUES.hipStrength} />
-              <MetricCard label="LH Extensors" value2025={d25.isometricStrength.lhExtensors} value2026={d26.isometricStrength.lhExtensors} unit="N" normative={NORMATIVE_VALUES.hipStrength} />
-              <MetricCard label="RH Extensors" value2025={d25.isometricStrength.rhExtensors} value2026={d26.isometricStrength.rhExtensors} unit="N" normative={NORMATIVE_VALUES.hipStrength} />
-              <MetricCard label="LH Adductors" value2025={d25.isometricStrength.lhAdductors} value2026={d26.isometricStrength.lhAdductors} unit="N" normative={NORMATIVE_VALUES.hipStrength} />
-              <MetricCard label="RH Adductors" value2025={d25.isometricStrength.rhAdductors} value2026={d26.isometricStrength.rhAdductors} unit="N" normative={NORMATIVE_VALUES.hipStrength} />
-              <MetricCard label="LH Abductors" value2025={d25.isometricStrength.lhAbductors} value2026={d26.isometricStrength.lhAbductors} unit="N" normative={NORMATIVE_VALUES.hipStrength} />
-              <MetricCard label="RH Abductors" value2025={d25.isometricStrength.rhAbductors} value2026={d26.isometricStrength.rhAbductors} unit="N" normative={NORMATIVE_VALUES.hipStrength} />
-              <MetricCard label="LA Plantarflexors" value2025={d25.isometricStrength.laPlantarflexors} value2026={d26.isometricStrength.laPlantarflexors} unit="N" normative={NORMATIVE_VALUES.ankleStrength} />
-              <MetricCard label="RA Plantarflexors" value2025={d25.isometricStrength.raPlantarflexors} value2026={d26.isometricStrength.raPlantarflexors} unit="N" normative={NORMATIVE_VALUES.ankleStrength} />
-              <MetricCard label="LH Add/Abd Ratio" value2025={d25.isometricStrength.lhAddAbdRatio} value2026={d26.isometricStrength.lhAddAbdRatio} unit="" normative={NORMATIVE_VALUES.addAbdRatio} />
-              <MetricCard label="RH Add/Abd Ratio" value2025={d25.isometricStrength.rhAddAbdRatio} value2026={d26.isometricStrength.rhAddAbdRatio} unit="" normative={NORMATIVE_VALUES.addAbdRatio} />
+              {/* Metric Cards for Main Measurements */}
+              <div className="grid grid-cols-2 gap-4 mt-6">
+                <MetricCard label="LH Flexors" value2025={d25.isometricStrength.lhFlexors} value2026={d26.isometricStrength.lhFlexors} unit="N" normative={NORMATIVE_VALUES.hipStrength} />
+                <MetricCard label="RH Flexors" value2025={d25.isometricStrength.rhFlexors} value2026={d26.isometricStrength.rhFlexors} unit="N" normative={NORMATIVE_VALUES.hipStrength} />
+                <MetricCard label="LH Extensors" value2025={d25.isometricStrength.lhExtensors} value2026={d26.isometricStrength.lhExtensors} unit="N" normative={NORMATIVE_VALUES.hipStrength} />
+                <MetricCard label="RH Extensors" value2025={d25.isometricStrength.rhExtensors} value2026={d26.isometricStrength.rhExtensors} unit="N" normative={NORMATIVE_VALUES.hipStrength} />
+                <MetricCard label="LH Adductors" value2025={d25.isometricStrength.lhAdductors} value2026={d26.isometricStrength.lhAdductors} unit="N" normative={NORMATIVE_VALUES.hipStrength} />
+                <MetricCard label="RH Adductors" value2025={d25.isometricStrength.rhAdductors} value2026={d26.isometricStrength.rhAdductors} unit="N" normative={NORMATIVE_VALUES.hipStrength} />
+                <MetricCard label="LH Abductors" value2025={d25.isometricStrength.lhAbductors} value2026={d26.isometricStrength.lhAbductors} unit="N" normative={NORMATIVE_VALUES.hipStrength} />
+                <MetricCard label="RH Abductors" value2025={d25.isometricStrength.rhAbductors} value2026={d26.isometricStrength.rhAbductors} unit="N" normative={NORMATIVE_VALUES.hipStrength} />
+                <MetricCard label="LA Plantarflexors" value2025={d25.isometricStrength.laPlantarflexors} value2026={d26.isometricStrength.laPlantarflexors} unit="N" normative={NORMATIVE_VALUES.ankleStrength} />
+                <MetricCard label="RA Plantarflexors" value2025={d25.isometricStrength.raPlantarflexors} value2026={d26.isometricStrength.raPlantarflexors} unit="N" normative={NORMATIVE_VALUES.ankleStrength} />
+              </div>
+            </div>
+
+            {/* Add/Abd Ratios - Pie Charts */}
+            <div className="border-t pt-8">
+              <h3 className="text-lg font-bold text-slate-800 mb-6">Adductor/Abductor Ratio (Percentage)</h3>
+              <div className="grid grid-cols-2 gap-8">
+                {/* LH Add/Abd Ratio */}
+                <div className="flex flex-col items-center">
+                  <p className="text-sm font-semibold text-slate-600 mb-4">LH Add/Abd Ratio (2026: {d26.isometricStrength.lhAddAbdRatio.toFixed(2)})</p>
+                  <ResponsiveContainer width="100%" height={250}>
+                    <PieChart>
+                      <Pie
+                        data={[
+                          { name: "Adductors", value: (d26.isometricStrength.lhAddAbdRatio / (1 + d26.isometricStrength.lhAddAbdRatio)) * 100 },
+                          { name: "Abductors", value: (100 / (1 + d26.isometricStrength.lhAddAbdRatio)) * 100 },
+                        ]}
+                        cx="50%"
+                        cy="50%"
+                        innerRadius={60}
+                        outerRadius={90}
+                        paddingAngle={2}
+                        dataKey="value"
+                      >
+                        <Cell fill="#6366f1" />
+                        <Cell fill="#0ea5e9" />
+                      </Pie>
+                      <Tooltip formatter={(value: any) => `${typeof value === 'number' ? value.toFixed(1) : value}%`} />
+                      <Legend />
+                    </PieChart>
+                  </ResponsiveContainer>
+                  <div className="mt-4 text-center">
+                    <p className={`text-sm font-semibold ${d26.isometricStrength.lhAddAbdRatio >= NORMATIVE_VALUES.addAbdRatio ? "text-green-600" : "text-red-600"}`}>
+                      {d26.isometricStrength.lhAddAbdRatio >= NORMATIVE_VALUES.addAbdRatio ? "✓ Balanced" : "✗ Imbalanced"}
+                    </p>
+                    <p className="text-xs text-slate-500 mt-1">Norm: {NORMATIVE_VALUES.addAbdRatio}</p>
+                  </div>
+                </div>
+
+                {/* RH Add/Abd Ratio */}
+                <div className="flex flex-col items-center">
+                  <p className="text-sm font-semibold text-slate-600 mb-4">RH Add/Abd Ratio (2026: {d26.isometricStrength.rhAddAbdRatio.toFixed(2)})</p>
+                  <ResponsiveContainer width="100%" height={250}>
+                    <PieChart>
+                      <Pie
+                        data={[
+                          { name: "Adductors", value: (d26.isometricStrength.rhAddAbdRatio / (1 + d26.isometricStrength.rhAddAbdRatio)) * 100 },
+                          { name: "Abductors", value: (100 / (1 + d26.isometricStrength.rhAddAbdRatio)) * 100 },
+                        ]}
+                        cx="50%"
+                        cy="50%"
+                        innerRadius={60}
+                        outerRadius={90}
+                        paddingAngle={2}
+                        dataKey="value"
+                      >
+                        <Cell fill="#f97316" />
+                        <Cell fill="#ec4899" />
+                      </Pie>
+                      <Tooltip formatter={(value: any) => `${typeof value === 'number' ? value.toFixed(1) : value}%`} />
+                      <Legend />
+                    </PieChart>
+                  </ResponsiveContainer>
+                  <div className="mt-4 text-center">
+                    <p className={`text-sm font-semibold ${d26.isometricStrength.rhAddAbdRatio >= NORMATIVE_VALUES.addAbdRatio ? "text-green-600" : "text-red-600"}`}>
+                      {d26.isometricStrength.rhAddAbdRatio >= NORMATIVE_VALUES.addAbdRatio ? "✓ Balanced" : "✗ Imbalanced"}
+                    </p>
+                    <p className="text-xs text-slate-500 mt-1">Norm: {NORMATIVE_VALUES.addAbdRatio}</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Ratio Metric Cards */}
+              <div className="grid grid-cols-2 gap-4 mt-6">
+                <MetricCard label="LH Add/Abd Ratio" value2025={d25.isometricStrength.lhAddAbdRatio} value2026={d26.isometricStrength.lhAddAbdRatio} unit="" normative={NORMATIVE_VALUES.addAbdRatio} />
+                <MetricCard label="RH Add/Abd Ratio" value2025={d25.isometricStrength.rhAddAbdRatio} value2026={d26.isometricStrength.rhAddAbdRatio} unit="" normative={NORMATIVE_VALUES.addAbdRatio} />
+              </div>
             </div>
           </div>
         )}

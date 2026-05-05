@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { LineChart, Line, AreaChart, Area, RadarChart, Radar, PolarGrid, PolarAngleAxis, PolarRadiusAxis, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, ScatterChart, Scatter } from "recharts";
-import { athletes, type GroupType, type Gender, type YearKey, getGroupStats } from "@/lib/athleteData";
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, ReferenceLine } from "recharts";
+import { athletes, type GroupType, type Gender, type YearKey } from "@/lib/athleteData";
 
 interface GroupAnalysisProps {
   yearView: YearKey | "Compare";
@@ -13,6 +13,18 @@ const groups = [
   { group: "LD" as GroupType, gender: "Female" as Gender, label: "Long Distance - Female", color: "#0891b2", bgColor: "#cffafe" },
 ];
 
+// Normative values
+const NORMATIVE_VALUES = {
+  hipROM: 90,
+  forwardReach: 29,
+  hipStrength: 200,
+  addAbdRatio: 1,
+  ankleStrength: 600,
+  trunkFlexors: 120,
+  trunkExtensors: 150,
+  trunkLateral: 100,
+};
+
 export default function GroupAnalysis({ yearView }: GroupAnalysisProps) {
   const [selectedGroup, setSelectedGroup] = useState(0);
   const currentGroup = groups[selectedGroup];
@@ -20,53 +32,89 @@ export default function GroupAnalysis({ yearView }: GroupAnalysisProps) {
   // Get athletes in selected group
   const groupAthletes = athletes.filter(a => a.group === currentGroup.group && a.gender === currentGroup.gender);
 
-  // Prepare data for different chart types
-  const prepareChartData = (testKey: string, subKey: string) => {
+  // Prepare data for charts - combining same units
+  const prepareGroupData = () => {
     return groupAthletes.map(a => {
       const year = yearView === "2025" ? "2025" : yearView === "2026" ? "2026" : "2026";
-      let value: any = a.data[year];
-      for (const k of testKey.split('.')) {
-        value = value[k];
-      }
+      const data = a.data[year];
       return {
-        name: a.name.split(' ')[0], // First name only for space
+        name: a.name.split(' ')[0], // First name only
         fullName: a.name,
-        value: value[subKey],
-        category: a.category,
+        // Joint ROM (angles)
+        lHipROM: data.jointROM.hipTotalRomL,
+        rHipROM: data.jointROM.hipTotalRomR,
+        // Forward Reach (cm)
+        forwardReach: data.jointROM.forwardReachingTest,
+        // Isometric Strength (N)
+        lhFlexors: data.isometricStrength.lhFlexors,
+        rhFlexors: data.isometricStrength.rhFlexors,
+        lhExtensors: data.isometricStrength.lhExtensors,
+        rhExtensors: data.isometricStrength.rhExtensors,
+        lhAdductors: data.isometricStrength.lhAdductors,
+        rhAdductors: data.isometricStrength.rhAdductors,
+        lhAbductors: data.isometricStrength.lhAbductors,
+        rhAbductors: data.isometricStrength.rhAbductors,
+        laPlantarflexors: data.isometricStrength.laPlantarflexors,
+        raPlantarflexors: data.isometricStrength.raPlantarflexors,
+        // Trunk Endurance (seconds)
+        flexors: data.trunkEndurance.flexors,
+        extensors: data.trunkEndurance.extensors,
+        leftLateral: data.trunkEndurance.leftLateral,
+        rightLateral: data.trunkEndurance.rightLateral,
+        // FMS
+        fms: data.functionalMovement.totalScore,
       };
     });
   };
 
-  // Joint ROM Data
-  const hipRomLData = prepareChartData("jointROM", "hipTotalRomL");
-  const hipRomRData = prepareChartData("jointROM", "hipTotalRomR");
-  const forwardReachData = prepareChartData("jointROM", "forwardReachingTest");
+  const groupData = prepareGroupData();
 
-  // Isometric Strength Data
-  const lhFlexorsData = prepareChartData("isometricStrength", "lhFlexors");
-  const rhFlexorsData = prepareChartData("isometricStrength", "rhFlexors");
-  const lhExtensorsData = prepareChartData("isometricStrength", "lhExtensors");
-  const rhExtensorsData = prepareChartData("isometricStrength", "rhExtensors");
-
-  // Trunk Endurance Data
-  const flexorsData = prepareChartData("trunkEndurance", "flexors");
-  const extensorsData = prepareChartData("trunkEndurance", "extensors");
-  const leftLateralData = prepareChartData("trunkEndurance", "leftLateral");
-  const rightLateralData = prepareChartData("trunkEndurance", "rightLateral");
-
-  // FMS Data
-  const fmsData = groupAthletes.map(a => {
-    const year = yearView === "2025" ? "2025" : yearView === "2026" ? "2026" : "2026";
-    return {
-      name: a.name.split(' ')[0],
-      fullName: a.name,
-      score: a.data[year].functionalMovement.totalScore,
-      category: a.category,
-    };
-  });
+  // Chart configurations
+  const chartConfigs = [
+    {
+      title: "Hip Range of Motion (Degrees)",
+      keys: ["lHipROM", "rHipROM"],
+      labels: ["L Hip ROM", "R Hip ROM"],
+      unit: "°",
+      colors: ["#6366f1", "#0ea5e9"],
+      normative: NORMATIVE_VALUES.hipROM,
+    },
+    {
+      title: "Forward Reaching Test (Centimeters)",
+      keys: ["forwardReach"],
+      labels: ["Forward Reach"],
+      unit: "cm",
+      colors: ["#f59e0b"],
+      normative: NORMATIVE_VALUES.forwardReach,
+    },
+    {
+      title: "Isometric Strength - Hip (Newtons)",
+      keys: ["lhFlexors", "rhFlexors", "lhExtensors", "rhExtensors", "lhAdductors", "rhAdductors", "lhAbductors", "rhAbductors"],
+      labels: ["LH Flex", "RH Flex", "LH Ext", "RH Ext", "LH Add", "RH Add", "LH Abd", "RH Abd"],
+      unit: "N",
+      colors: ["#6366f1", "#0ea5e9", "#06b6d4", "#14b8a6", "#22c55e", "#84cc16", "#facc15", "#f59e0b"],
+      normative: NORMATIVE_VALUES.hipStrength,
+    },
+    {
+      title: "Isometric Strength - Ankle (Newtons)",
+      keys: ["laPlantarflexors", "raPlantarflexors"],
+      labels: ["LA Plantarflexors", "RA Plantarflexors"],
+      unit: "N",
+      colors: ["#f97316", "#ec4899"],
+      normative: NORMATIVE_VALUES.ankleStrength,
+    },
+    {
+      title: "Trunk Muscle Endurance (Seconds)",
+      keys: ["flexors", "extensors", "leftLateral", "rightLateral"],
+      labels: ["Flexors", "Extensors", "Left Lateral", "Right Lateral"],
+      unit: "s",
+      colors: ["#14b8a6", "#06b6d4", "#0891b2", "#0369a1"],
+      normative: NORMATIVE_VALUES.trunkFlexors,
+    },
+  ];
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-8">
       {/* Group Selector */}
       <div className="grid grid-cols-4 gap-3">
         {groups.map((g, idx) => (
@@ -96,224 +144,95 @@ export default function GroupAnalysis({ yearView }: GroupAnalysisProps) {
         </p>
       </div>
 
-      {/* Joint ROM & Flexibility */}
-      <div className="space-y-4">
-        <h3 className="text-lg font-bold text-slate-800">Joint ROM & Flexibility</h3>
-        
-        {/* L Hip ROM - Area Chart */}
-        <div className="bg-white rounded-lg p-6 border border-slate-200">
-          <h4 className="font-semibold text-slate-700 mb-4">L Hip Total ROM (°) - Area Chart</h4>
+      {/* Charts Grid */}
+      <div className="space-y-8">
+        {chartConfigs.map((config, idx) => (
+          <div key={idx} className="bg-white rounded-lg p-6 shadow-sm border border-slate-100">
+            <h3 className="text-lg font-bold text-slate-800 mb-4">{config.title}</h3>
+            <ResponsiveContainer width="100%" height={350}>
+              <BarChart data={groupData} margin={{ top: 20, right: 30, left: 0, bottom: 80 }}>
+                <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+                <XAxis 
+                  dataKey="name" 
+                  angle={-45} 
+                  textAnchor="end" 
+                  height={100}
+                  tick={{ fontSize: 12 }}
+                />
+                <YAxis 
+                  label={{ value: config.unit, angle: -90, position: "insideLeft" }}
+                  tick={{ fontSize: 12 }}
+                />
+                <Tooltip 
+                  contentStyle={{ backgroundColor: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "8px" }}
+                  formatter={(value: any) => value.toFixed(1)}
+                />
+                <Legend />
+                {config.keys.map((key, i) => (
+                  <Bar 
+                    key={key} 
+                    dataKey={key} 
+                    fill={config.colors[i]} 
+                    name={config.labels[i]}
+                    radius={[8, 8, 0, 0]}
+                  />
+                ))}
+                <ReferenceLine 
+                  y={config.normative} 
+                  stroke="#94a3b8" 
+                  strokeDasharray="5 5" 
+                  label={{ 
+                    value: `Normative (${config.normative}${config.unit})`, 
+                    position: "right", 
+                    fill: "#64748b", 
+                    fontSize: 11 
+                  }} 
+                />
+              </BarChart>
+            </ResponsiveContainer>
+          </div>
+        ))}
+
+        {/* FMS Scores */}
+        <div className="bg-white rounded-lg p-6 shadow-sm border border-slate-100">
+          <h3 className="text-lg font-bold text-slate-800 mb-4">Functional Movement Screen (FMS) Scores</h3>
           <ResponsiveContainer width="100%" height={300}>
-            <AreaChart data={hipRomLData}>
-              <defs>
-                <linearGradient id="colorHipL" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor={currentGroup.color} stopOpacity={0.8} />
-                  <stop offset="95%" stopColor={currentGroup.color} stopOpacity={0} />
-                </linearGradient>
-              </defs>
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="name" />
-              <YAxis />
-              <Tooltip formatter={(value: any) => (typeof value === 'number' ? value.toFixed(1) : value)} />
-              <Area type="monotone" dataKey="value" stroke={currentGroup.color} fillOpacity={1} fill="url(#colorHipL)" />
-            </AreaChart>
-          </ResponsiveContainer>
-        </div>
-
-        {/* R Hip ROM - Line Chart */}
-        <div className="bg-white rounded-lg p-6 border border-slate-200">
-          <h4 className="font-semibold text-slate-700 mb-4">R Hip Total ROM (°) - Line Chart</h4>
-          <ResponsiveContainer width="100%" height={300}>
-            <LineChart data={hipRomRData}>
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="name" />
-              <YAxis />
-              <Tooltip formatter={(value: any) => (typeof value === 'number' ? value.toFixed(1) : value)} />
-              <Line type="monotone" dataKey="value" stroke={currentGroup.color} strokeWidth={3} dot={{ fill: currentGroup.color, r: 5 }} activeDot={{ r: 7 }} />
-            </LineChart>
-          </ResponsiveContainer>
-        </div>
-
-        {/* Forward Reach - Bar Chart */}
-        <div className="bg-white rounded-lg p-6 border border-slate-200">
-          <h4 className="font-semibold text-slate-700 mb-4">Forward Reaching Test (cm) - Bar Chart</h4>
-          <ResponsiveContainer width="100%" height={300}>
-            <BarChart data={forwardReachData}>
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="name" />
-              <YAxis />
-              <Tooltip formatter={(value: any) => (typeof value === 'number' ? value.toFixed(1) : value)} />
-              <Bar dataKey="value" fill={currentGroup.color} radius={[8, 8, 0, 0]} />
-            </BarChart>
-          </ResponsiveContainer>
-        </div>
-      </div>
-
-      {/* Isometric Strength */}
-      <div className="space-y-4">
-        <h3 className="text-lg font-bold text-slate-800">Isometric Strength (Newtons)</h3>
-
-        {/* LH Flexors - Scatter Chart */}
-        <div className="bg-white rounded-lg p-6 border border-slate-200">
-          <h4 className="font-semibold text-slate-700 mb-4">LH Flexors - Scatter Plot</h4>
-          <ResponsiveContainer width="100%" height={300}>
-            <ScatterChart margin={{ top: 20, right: 20, bottom: 20, left: 20 }}>
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="name" type="category" />
-              <YAxis dataKey="value" />
-              <Tooltip cursor={{ strokeDasharray: "3 3" }} />
-              <Scatter name="LH Flexors" data={lhFlexorsData} fill={currentGroup.color} />
-            </ScatterChart>
-          </ResponsiveContainer>
-        </div>
-
-        {/* RH Flexors - Area Chart */}
-        <div className="bg-white rounded-lg p-6 border border-slate-200">
-          <h4 className="font-semibold text-slate-700 mb-4">RH Flexors - Area Chart</h4>
-          <ResponsiveContainer width="100%" height={300}>
-            <AreaChart data={rhFlexorsData}>
-              <defs>
-                <linearGradient id="colorRhF" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor={currentGroup.color} stopOpacity={0.8} />
-                  <stop offset="95%" stopColor={currentGroup.color} stopOpacity={0} />
-                </linearGradient>
-              </defs>
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="name" />
-              <YAxis />
-              <Tooltip formatter={(value: any) => (typeof value === 'number' ? value.toFixed(1) : value)} />
-              <Area type="monotone" dataKey="value" stroke={currentGroup.color} fillOpacity={1} fill="url(#colorRhF)" />
-            </AreaChart>
-          </ResponsiveContainer>
-        </div>
-
-        {/* LH Extensors - Line Chart */}
-        <div className="bg-white rounded-lg p-6 border border-slate-200">
-          <h4 className="font-semibold text-slate-700 mb-4">LH Extensors - Line Chart</h4>
-          <ResponsiveContainer width="100%" height={300}>
-            <LineChart data={lhExtensorsData}>
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="name" />
-              <YAxis />
-              <Tooltip formatter={(value: any) => (typeof value === 'number' ? value.toFixed(1) : value)} />
-              <Line type="monotone" dataKey="value" stroke={currentGroup.color} strokeWidth={3} dot={{ fill: currentGroup.color, r: 5 }} />
-            </LineChart>
-          </ResponsiveContainer>
-        </div>
-
-        {/* RH Extensors - Bar Chart */}
-        <div className="bg-white rounded-lg p-6 border border-slate-200">
-          <h4 className="font-semibold text-slate-700 mb-4">RH Extensors - Bar Chart</h4>
-          <ResponsiveContainer width="100%" height={300}>
-            <BarChart data={rhExtensorsData}>
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="name" />
-              <YAxis />
-              <Tooltip formatter={(value: any) => (typeof value === 'number' ? value.toFixed(1) : value)} />
-              <Bar dataKey="value" fill={currentGroup.color} radius={[8, 8, 0, 0]} />
-            </BarChart>
-          </ResponsiveContainer>
-        </div>
-      </div>
-
-      {/* Trunk Endurance */}
-      <div className="space-y-4">
-        <h3 className="text-lg font-bold text-slate-800">Trunk Muscle Endurance (Seconds)</h3>
-
-        {/* Flexors - Area Chart */}
-        <div className="bg-white rounded-lg p-6 border border-slate-200">
-          <h4 className="font-semibold text-slate-700 mb-4">Flexors - Area Chart</h4>
-          <ResponsiveContainer width="100%" height={300}>
-            <AreaChart data={flexorsData}>
-              <defs>
-                <linearGradient id="colorFlex" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor={currentGroup.color} stopOpacity={0.8} />
-                  <stop offset="95%" stopColor={currentGroup.color} stopOpacity={0} />
-                </linearGradient>
-              </defs>
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="name" />
-              <YAxis />
-              <Tooltip formatter={(value: any) => (typeof value === 'number' ? value.toFixed(1) : value)} />
-              <Area type="monotone" dataKey="value" stroke={currentGroup.color} fillOpacity={1} fill="url(#colorFlex)" />
-            </AreaChart>
-          </ResponsiveContainer>
-        </div>
-
-        {/* Extensors - Line Chart */}
-        <div className="bg-white rounded-lg p-6 border border-slate-200">
-          <h4 className="font-semibold text-slate-700 mb-4">Extensors - Line Chart</h4>
-          <ResponsiveContainer width="100%" height={300}>
-            <LineChart data={extensorsData}>
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="name" />
-              <YAxis />
-              <Tooltip formatter={(value: any) => (typeof value === 'number' ? value.toFixed(1) : value)} />
-              <Line type="monotone" dataKey="value" stroke={currentGroup.color} strokeWidth={3} dot={{ fill: currentGroup.color, r: 5 }} />
-            </LineChart>
-          </ResponsiveContainer>
-        </div>
-
-        {/* Left Lateral - Bar Chart */}
-        <div className="bg-white rounded-lg p-6 border border-slate-200">
-          <h4 className="font-semibold text-slate-700 mb-4">Left Lateral - Bar Chart</h4>
-          <ResponsiveContainer width="100%" height={300}>
-            <BarChart data={leftLateralData}>
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="name" />
-              <YAxis />
-              <Tooltip formatter={(value: any) => (typeof value === 'number' ? value.toFixed(1) : value)} />
-              <Bar dataKey="value" fill={currentGroup.color} radius={[8, 8, 0, 0]} />
-            </BarChart>
-          </ResponsiveContainer>
-        </div>
-
-        {/* Right Lateral - Scatter Chart */}
-        <div className="bg-white rounded-lg p-6 border border-slate-200">
-          <h4 className="font-semibold text-slate-700 mb-4">Right Lateral - Scatter Plot</h4>
-          <ResponsiveContainer width="100%" height={300}>
-            <ScatterChart margin={{ top: 20, right: 20, bottom: 20, left: 20 }}>
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="name" type="category" />
-              <YAxis dataKey="value" />
-              <Tooltip cursor={{ strokeDasharray: "3 3" }} />
-              <Scatter name="Right Lateral" data={rightLateralData} fill={currentGroup.color} />
-            </ScatterChart>
-          </ResponsiveContainer>
-        </div>
-      </div>
-
-      {/* Functional Movement Screen */}
-      <div className="space-y-4">
-        <h3 className="text-lg font-bold text-slate-800">Functional Movement Screen (Score /21)</h3>
-        <div className="bg-white rounded-lg p-6 border border-slate-200">
-          <h4 className="font-semibold text-slate-700 mb-4">FMS Scores - Bar Chart with Status</h4>
-          <ResponsiveContainer width="100%" height={350}>
-            <BarChart data={fmsData}>
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="name" />
-              <YAxis domain={[0, 21]} />
-              <Tooltip 
-                formatter={(value: any) => value}
-                content={({ active, payload }: any) => {
-                  if (active && payload && payload[0]) {
-                    const score = payload[0].value as number;
-                    let status = "Poor";
-                    let color = "#ef4444";
-                    if (score >= 18) { status = "Good"; color = "#22c55e"; }
-                    else if (score >= 14) { status = "Moderate"; color = "#eab308"; }
-                    return (
-                      <div className="bg-white p-2 rounded border border-slate-200 text-xs">
-                        <p className="font-semibold">{payload[0].payload.fullName}</p>
-                        <p>Score: {score}/21</p>
-                        <p style={{ color }}>Status: {status}</p>
-                      </div>
-                    );
-                  }
-                  return null;
-                }}
+            <BarChart data={groupData} margin={{ top: 20, right: 30, left: 0, bottom: 80 }}>
+              <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+              <XAxis 
+                dataKey="name" 
+                angle={-45} 
+                textAnchor="end" 
+                height={100}
+                tick={{ fontSize: 12 }}
               />
-              <Bar dataKey="score" fill={currentGroup.color} radius={[8, 8, 0, 0]} />
+              <YAxis 
+                domain={[0, 21]}
+                label={{ value: "Score (out of 21)", angle: -90, position: "insideLeft" }}
+                tick={{ fontSize: 12 }}
+              />
+              <Tooltip 
+                contentStyle={{ backgroundColor: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "8px" }}
+                formatter={(value: any) => value.toFixed(0)}
+              />
+              <Bar 
+                dataKey="fms" 
+                fill={currentGroup.color} 
+                name="FMS Score"
+                radius={[8, 8, 0, 0]}
+              />
+              <ReferenceLine 
+                y={14} 
+                stroke="#ef4444" 
+                strokeDasharray="5 5" 
+                label={{ value: "Poor (14)", position: "right", fill: "#dc2626", fontSize: 10 }} 
+              />
+              <ReferenceLine 
+                y={18} 
+                stroke="#eab308" 
+                strokeDasharray="5 5" 
+                label={{ value: "Good (18)", position: "right", fill: "#ca8a04", fontSize: 10 }} 
+              />
             </BarChart>
           </ResponsiveContainer>
         </div>

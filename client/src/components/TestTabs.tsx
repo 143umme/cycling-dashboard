@@ -23,9 +23,9 @@ const NORMATIVE_VALUES = {
   hipStrength: 200,
   addAbdRatio: 1,
   ankleStrength: 600,
-  trunkFlexors: 120,
-  trunkExtensors: 150,
-  trunkLateral: 100,
+  trunkFlexors: 240,
+  trunkExtensors: 180,
+  trunkLateral: 120,
 };
 
 export default function TestTabs({ athlete, yearView, teamAvg2025, teamAvg2026 }: TestTabsProps) {

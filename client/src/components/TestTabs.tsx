@@ -263,13 +263,87 @@ export default function TestTabs({ athlete, yearView, teamAvg2025, teamAvg2026 }
             ))}
           </div>
 
-          {/* Add/Abd Ratios - Simple Display */}
+          {/* Add/Abd Ratios - Dumbbell Chart */}
           <div className="bg-white rounded-lg p-6 shadow-sm border border-slate-100">
-            <h3 className="text-lg font-bold text-slate-800 mb-4">Add/Abd Ratios (Balance)</h3>
-            <div className="grid grid-cols-2 gap-4">
-              {ratioData.map((item, idx) => (
-                <RatioCard key={idx} label={item.name} value2025={item["2025"]} value2026={item["2026"]} normative={item.normative} />
-              ))}
+            <h3 className="text-lg font-bold text-slate-800 mb-6">Add/Abd Ratios (Balance - 2025 vs 2026)</h3>
+            <div className="space-y-6">
+              {ratioData.map((item, idx) => {
+                const { change, percent } = calculateChange(item["2025"], item["2026"]);
+                const isBalanced = Math.abs(item["2026"] - item.normative) < 0.2;
+                const maxValue = Math.max(item["2025"], item["2026"], item.normative) * 1.2;
+                const scale = 100 / maxValue;
+                const pos2025 = item["2025"] * scale;
+                const pos2026 = item["2026"] * scale;
+                const posNorm = item.normative * scale;
+
+                return (
+                  <div key={idx} className="bg-gradient-to-r from-slate-50 to-slate-100 rounded-lg p-4 border border-slate-200">
+                    <div className="flex justify-between items-center mb-3">
+                      <h4 className="font-semibold text-slate-800">{item.name}</h4>
+                      <div className={`text-right ${parseFloat(change) >= 0 ? "text-green-600" : "text-red-600"}`}>
+                        <p className="font-bold text-sm">{parseFloat(change) >= 0 ? "+" : ""}{parseFloat(change).toFixed(2)}</p>
+                        <p className="text-xs">{parseFloat(change) >= 0 ? "+" : ""}{percent}%</p>
+                      </div>
+                    </div>
+
+                    {/* Dumbbell Chart */}
+                    <div className="relative h-16 bg-white rounded-lg p-3 border border-slate-300">
+                      {/* Normative Reference Line */}
+                      <div
+                        className="absolute top-0 bottom-0 w-0.5 bg-red-400"
+                        style={{ left: `${posNorm}%` }}
+                        title={`Normative: ${item.normative}`}
+                      />
+
+                      {/* Dumbbell Connector Line */}
+                      <div className="absolute top-1/2 transform -translate-y-1/2 w-full">
+                        <div
+                          className="absolute h-1.5 bg-gradient-to-r from-indigo-400 to-cyan-400 top-1/2 transform -translate-y-1/2 rounded-full"
+                          style={{
+                            left: `${Math.min(pos2025, pos2026)}%`,
+                            width: `${Math.abs(pos2026 - pos2025)}%`,
+                          }}
+                        />
+
+                        {/* 2025 Circle (Left) */}
+                        <div
+                          className="absolute w-5 h-5 bg-indigo-500 rounded-full border-3 border-indigo-700 shadow-lg transform -translate-x-1/2 -translate-y-1/2 top-1/2"
+                          style={{ left: `${pos2025}%` }}
+                          title={`2025: ${item["2025"].toFixed(2)}`}
+                        />
+
+                        {/* 2026 Circle (Right) */}
+                        <div
+                          className="absolute w-5 h-5 bg-cyan-500 rounded-full border-3 border-cyan-700 shadow-lg transform -translate-x-1/2 -translate-y-1/2 top-1/2"
+                          style={{ left: `${pos2026}%` }}
+                          title={`2026: ${item["2026"].toFixed(2)}`}
+                        />
+                      </div>
+                    </div>
+
+                    {/* Legend and Status */}
+                    <div className="flex justify-between items-center mt-3 text-xs">
+                      <div className="flex gap-3">
+                        <div className="flex items-center gap-1">
+                          <div className="w-3 h-3 bg-indigo-500 rounded-full border border-indigo-700"></div>
+                          <span className="text-slate-700">2025: <span className="font-semibold">{item["2025"].toFixed(2)}</span></span>
+                        </div>
+                        <div className="flex items-center gap-1">
+                          <div className="w-3 h-3 bg-cyan-500 rounded-full border border-cyan-700"></div>
+                          <span className="text-slate-700">2026: <span className="font-semibold">{item["2026"].toFixed(2)}</span></span>
+                        </div>
+                        <div className="flex items-center gap-1">
+                          <div className="w-1 h-3 bg-red-400"></div>
+                          <span className="text-slate-700">Norm: <span className="font-semibold">{item.normative}</span></span>
+                        </div>
+                      </div>
+                      <p className={`font-semibold ${isBalanced ? "text-green-600" : "text-orange-600"}`}>
+                        {isBalanced ? "✓ Balanced" : "⚠ Imbalanced"}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>

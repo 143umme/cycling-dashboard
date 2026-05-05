@@ -179,88 +179,70 @@ export default function GroupAnalysis({ yearView }: GroupAnalysisProps) {
           </ResponsiveContainer>
         </div>
 
-        {/* Isometric Strength Ratios - Pie Charts Grid */}
+        {/* Ankle Plantarflexors - Separate Chart */}
+        <div className="bg-white rounded-lg p-6 shadow-sm border border-slate-100">
+          <h3 className="text-lg font-bold text-slate-800 mb-4">Ankle Plantarflexors (N)</h3>
+          <ResponsiveContainer width="100%" height={300}>
+            <BarChart data={groupData} margin={{ top: 20, right: 30, left: 0, bottom: 80 }}>
+              <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+              <XAxis 
+                dataKey="name" 
+                angle={-45} 
+                textAnchor="end" 
+                height={100}
+                tick={{ fontSize: 11 }}
+              />
+              <YAxis label={{ value: "N", angle: -90, position: "insideLeft" }} />
+              <Tooltip contentStyle={{ backgroundColor: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "8px" }} formatter={(value: any) => value.toFixed(1)} />
+              <Legend />
+              <Bar dataKey="laPlantarflexors" fill="#10b981" name="L Ankle Plantarflexors" radius={[4, 4, 0, 0]} />
+              <Bar dataKey="raPlantarflexors" fill="#f59e0b" name="R Ankle Plantarflexors" radius={[4, 4, 0, 0]} />
+              <ReferenceLine y={600} stroke="#94a3b8" strokeDasharray="5 5" label={{ value: "Normative (600N)", position: "right", fill: "#64748b", fontSize: 11 }} />
+            </BarChart>
+          </ResponsiveContainer>
+        </div>
+
+        {/* Isometric Strength Ratios - Simple Display */}
         <div className="bg-white rounded-lg p-6 shadow-sm border border-slate-100">
           <h3 className="text-lg font-bold text-slate-800 mb-6">Isometric Strength - Add/Abd Ratios</h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
             {groupData.map((athlete, idx) => (
-              <div key={idx} className="flex flex-col items-center">
-                <p className="text-xs font-semibold text-slate-700 mb-2 text-center">{athlete.name}</p>
-                <div className="flex gap-4">
-                  {/* LH Ratio */}
-                  <div className="flex flex-col items-center">
-                    <ResponsiveContainer width={120} height={120}>
-                      <PieChart>
-                        <Pie
-                          data={[
-                            { name: "Add", value: (athlete.lhAddAbdRatio / (1 + athlete.lhAddAbdRatio)) * 100 },
-                            { name: "Abd", value: (100 / (1 + athlete.lhAddAbdRatio)) * 100 },
-                          ]}
-                          cx="50%"
-                          cy="50%"
-                          innerRadius={30}
-                          outerRadius={50}
-                          paddingAngle={1}
-                          dataKey="value"
-                        >
-                          <Cell fill="#6366f1" />
-                          <Cell fill="#0ea5e9" />
-                        </Pie>
-                      </PieChart>
-                    </ResponsiveContainer>
-                    <p className="text-xs text-slate-600 mt-1">LH: {athlete.lhAddAbdRatio.toFixed(2)}</p>
-                  </div>
-                  {/* RH Ratio */}
-                  <div className="flex flex-col items-center">
-                    <ResponsiveContainer width={120} height={120}>
-                      <PieChart>
-                        <Pie
-                          data={[
-                            { name: "Add", value: (athlete.rhAddAbdRatio / (1 + athlete.rhAddAbdRatio)) * 100 },
-                            { name: "Abd", value: (100 / (1 + athlete.rhAddAbdRatio)) * 100 },
-                          ]}
-                          cx="50%"
-                          cy="50%"
-                          innerRadius={30}
-                          outerRadius={50}
-                          paddingAngle={1}
-                          dataKey="value"
-                        >
-                          <Cell fill="#f97316" />
-                          <Cell fill="#ec4899" />
-                        </Pie>
-                      </PieChart>
-                    </ResponsiveContainer>
-                    <p className="text-xs text-slate-600 mt-1">RH: {athlete.rhAddAbdRatio.toFixed(2)}</p>
-                  </div>
+              <div key={idx} className="space-y-2">
+                <p className="text-xs font-semibold text-slate-700 text-center">{athlete.name}</p>
+                <div className="bg-gradient-to-br from-indigo-50 to-indigo-100 p-3 rounded-lg border border-indigo-200">
+                  <p className="text-xs text-indigo-700 font-semibold mb-1">LH Ratio</p>
+                  <p className="text-lg font-bold text-indigo-600">{athlete.lhAddAbdRatio.toFixed(2)}</p>
+                  <p className={`text-xs font-semibold mt-1 ${Math.abs(athlete.lhAddAbdRatio - 1) < 0.2 ? "text-green-600" : "text-orange-600"}`}>
+                    {Math.abs(athlete.lhAddAbdRatio - 1) < 0.2 ? "✓ Balanced" : "⚠ Imbalanced"}
+                  </p>
+                </div>
+                <div className="bg-gradient-to-br from-orange-50 to-orange-100 p-3 rounded-lg border border-orange-200">
+                  <p className="text-xs text-orange-700 font-semibold mb-1">RH Ratio</p>
+                  <p className="text-lg font-bold text-orange-600">{athlete.rhAddAbdRatio.toFixed(2)}</p>
+                  <p className={`text-xs font-semibold mt-1 ${Math.abs(athlete.rhAddAbdRatio - 1) < 0.2 ? "text-green-600" : "text-orange-600"}`}>
+                    {Math.abs(athlete.rhAddAbdRatio - 1) < 0.2 ? "✓ Balanced" : "⚠ Imbalanced"}
+                  </p>
                 </div>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Trunk Endurance - Scatter Chart */}
+        {/* Trunk Endurance - Horizontal Bar Chart */}
         <div className="bg-white rounded-lg p-6 shadow-sm border border-slate-100">
           <h3 className="text-lg font-bold text-slate-800 mb-4">Trunk Endurance (seconds)</h3>
-          <ResponsiveContainer width="100%" height={350}>
-            <ScatterChart margin={{ top: 20, right: 30, left: 0, bottom: 80 }}>
+          <ResponsiveContainer width="100%" height={400}>
+            <BarChart data={groupData} layout="vertical" margin={{ top: 20, right: 30, left: 120, bottom: 20 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
-              <XAxis 
-                dataKey="name" 
-                type="category"
-                angle={-45}
-                textAnchor="end"
-                height={100}
-                tick={{ fontSize: 11 }}
-              />
-              <YAxis label={{ value: "sec", angle: -90, position: "insideLeft" }} />
-              <Tooltip contentStyle={{ backgroundColor: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "8px" }} />
+              <XAxis type="number" label={{ value: "sec", position: "insideBottomRight", offset: -10 }} />
+              <YAxis dataKey="name" type="category" width={110} tick={{ fontSize: 10 }} />
+              <Tooltip contentStyle={{ backgroundColor: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "8px" }} formatter={(value: any) => value.toFixed(1)} />
               <Legend />
-              <Scatter name="Flexors" data={groupData.map(d => ({ name: d.name, value: d.flexors }))} fill="#6366f1" />
-              <Scatter name="Extensors" data={groupData.map(d => ({ name: d.name, value: d.extensors }))} fill="#10b981" />
-              <Scatter name="Left Lateral" data={groupData.map(d => ({ name: d.name, value: d.leftLateral }))} fill="#f59e0b" />
-              <Scatter name="Right Lateral" data={groupData.map(d => ({ name: d.name, value: d.rightLateral }))} fill="#ec4899" />
-            </ScatterChart>
+              <Bar dataKey="flexors" fill="#6366f1" name="Flexors" radius={[0, 8, 8, 0]} />
+              <Bar dataKey="extensors" fill="#10b981" name="Extensors" radius={[0, 8, 8, 0]} />
+              <Bar dataKey="leftLateral" fill="#f59e0b" name="Left Lateral" radius={[0, 8, 8, 0]} />
+              <Bar dataKey="rightLateral" fill="#ec4899" name="Right Lateral" radius={[0, 8, 8, 0]} />
+            </BarChart>
           </ResponsiveContainer>
         </div>
 

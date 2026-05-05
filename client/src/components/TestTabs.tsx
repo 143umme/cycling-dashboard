@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, ReferenceLine, PieChart, Pie, Cell, LineChart, Line } from "recharts";
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, ReferenceLine, LineChart, Line, ComposedChart } from "recharts";
 import type { Athlete, AthleteYear, YearKey } from "@/lib/athleteData";
 
 interface TestTabsProps {
@@ -44,7 +44,7 @@ export default function TestTabs({ athlete, yearView, teamAvg2025, teamAvg2026 }
     { name: "Forward Reach", 2025: d25.jointROM.forwardReachingTest, 2026: d26.jointROM.forwardReachingTest, normative: NORMATIVE_VALUES.forwardReach },
   ];
 
-  // Isometric Strength - All 12 measurements with normative values
+  // Isometric Strength - Main measurements (without ratios)
   const isometricData = [
     { name: "LH Flexors", 2025: d25.isometricStrength.lhFlexors, 2026: d26.isometricStrength.lhFlexors, normative: NORMATIVE_VALUES.hipStrength },
     { name: "RH Flexors", 2025: d25.isometricStrength.rhFlexors, 2026: d26.isometricStrength.rhFlexors, normative: NORMATIVE_VALUES.hipStrength },
@@ -54,8 +54,16 @@ export default function TestTabs({ athlete, yearView, teamAvg2025, teamAvg2026 }
     { name: "RH Adductors", 2025: d25.isometricStrength.rhAdductors, 2026: d26.isometricStrength.rhAdductors, normative: NORMATIVE_VALUES.hipStrength },
     { name: "LH Abductors", 2025: d25.isometricStrength.lhAbductors, 2026: d26.isometricStrength.lhAbductors, normative: NORMATIVE_VALUES.hipStrength },
     { name: "RH Abductors", 2025: d25.isometricStrength.rhAbductors, 2026: d26.isometricStrength.rhAbductors, normative: NORMATIVE_VALUES.hipStrength },
-    { name: "LA Plantarflexors", 2025: d25.isometricStrength.laPlantarflexors, 2026: d26.isometricStrength.laPlantarflexors, normative: NORMATIVE_VALUES.ankleStrength },
-    { name: "RA Plantarflexors", 2025: d25.isometricStrength.raPlantarflexors, 2026: d26.isometricStrength.raPlantarflexors, normative: NORMATIVE_VALUES.ankleStrength },
+  ];
+
+  // Ankle Plantarflexors - Separate (different normative)
+  const ankleData = [
+    { name: "L Ankle Plantarflexors", 2025: d25.isometricStrength.laPlantarflexors, 2026: d26.isometricStrength.laPlantarflexors, normative: NORMATIVE_VALUES.ankleStrength },
+    { name: "R Ankle Plantarflexors", 2025: d25.isometricStrength.raPlantarflexors, 2026: d26.isometricStrength.raPlantarflexors, normative: NORMATIVE_VALUES.ankleStrength },
+  ];
+
+  // Add/Abd Ratios - Separate section
+  const ratioData = [
     { name: "LH Add/Abd Ratio", 2025: d25.isometricStrength.lhAddAbdRatio, 2026: d26.isometricStrength.lhAddAbdRatio, normative: NORMATIVE_VALUES.addAbdRatio },
     { name: "RH Add/Abd Ratio", 2025: d25.isometricStrength.rhAddAbdRatio, 2026: d26.isometricStrength.rhAddAbdRatio, normative: NORMATIVE_VALUES.addAbdRatio },
   ];
@@ -107,6 +115,30 @@ export default function TestTabs({ athlete, yearView, teamAvg2025, teamAvg2026 }
     );
   };
 
+  // Ratio Card Component - Simple display
+  const RatioCard = ({ label, value2025, value2026, normative }: any) => {
+    const { change, percent } = calculateChange(value2025, value2026);
+    const isBalanced = Math.abs(value2026 - normative) < 0.2;
+    return (
+      <div className="bg-gradient-to-br from-slate-50 to-slate-100 p-4 rounded-lg border border-slate-200">
+        <p className="text-xs font-semibold text-slate-600 mb-2">{label}</p>
+        <div className="flex justify-between items-center mb-2">
+          <div>
+            <p className="text-sm text-slate-500">2025: <span className="font-bold text-slate-800">{value2025.toFixed(2)}</span></p>
+            <p className="text-sm text-slate-500">2026: <span className="font-bold text-slate-800">{value2026.toFixed(2)}</span></p>
+          </div>
+          <div className={`text-right ${parseFloat(change) >= 0 ? "text-green-600" : "text-red-600"}`}>
+            <p className="text-sm font-bold">{parseFloat(change) >= 0 ? "+" : ""}{change}</p>
+            <p className="text-xs">{parseFloat(change) >= 0 ? "+" : ""}{percent}%</p>
+          </div>
+        </div>
+        <p className={`text-xs font-semibold ${isBalanced ? "text-green-600" : "text-orange-600"}`}>
+          {isBalanced ? "✓ Balanced" : "⚠ Imbalanced"} (Norm: {normative})
+        </p>
+      </div>
+    );
+  };
+
   return (
     <div className="space-y-6">
       {/* Tab Navigation */}
@@ -120,285 +152,216 @@ export default function TestTabs({ athlete, yearView, teamAvg2025, teamAvg2026 }
                 ? "text-white border-b-2"
                 : "text-slate-600 hover:text-slate-800"
             }`}
-            style={
-              activeTab === tab.id
-                ? { background: tab.color, borderBottomColor: tab.color }
-                : {}
-            }
+            style={activeTab === tab.id ? { backgroundColor: tab.color, borderBottomColor: tab.color } : {}}
           >
             {tab.icon} {tab.label}
           </button>
         ))}
       </div>
 
-      {/* Tab Content */}
-      <div className="bg-white rounded-xl p-6 shadow-sm border border-slate-100">
-        {/* Joint ROM & Flexibility - Two separate bar charts */}
-        {activeTab === "jointrom" && (
-          <div className="space-y-8">
-            {/* Chart 1: Hip ROM */}
-            <div>
-              <h3 className="text-lg font-bold text-slate-800 mb-4">Hip Range of Motion (Angles - Degrees)</h3>
-              <ResponsiveContainer width="100%" height={300}>
-                <BarChart data={hipROMData} margin={{ top: 20, right: 30, left: 0, bottom: 20 }}>
-                  <CartesianGrid strokeDasharray="3 3" />
-                  <XAxis dataKey="name" />
-                  <YAxis label={{ value: "Degrees (°)", angle: -90, position: "insideLeft" }} />
-                  <Tooltip />
-                  {yearView === "2025" || yearView === "Compare" ? (
-                    <Bar dataKey="2025" fill="#6366f1" name="2025" />
-                  ) : null}
-                  {yearView === "2026" || yearView === "Compare" ? (
-                    <Bar dataKey="2026" fill="#0ea5e9" name="2026" />
-                  ) : null}
-                  <ReferenceLine y={NORMATIVE_VALUES.hipROM} stroke="#94a3b8" strokeDasharray="5 5" label={{ value: `Normative (${NORMATIVE_VALUES.hipROM}°)`, position: "right", fill: "#64748b", fontSize: 12 }} />
-                </BarChart>
-              </ResponsiveContainer>
+      {/* Joint ROM & Flexibility Tab */}
+      {activeTab === "jointrom" && (
+        <div className="space-y-6">
+          {/* Hip ROM Chart */}
+          <div className="bg-white rounded-lg p-6 shadow-sm border border-slate-100">
+            <h3 className="text-lg font-bold text-slate-800 mb-4">Hip Range of Motion (Degrees)</h3>
+            <ResponsiveContainer width="100%" height={300}>
+              <BarChart data={hipROMData} margin={{ top: 20, right: 30, left: 0, bottom: 60 }}>
+                <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+                <XAxis dataKey="name" angle={-15} textAnchor="end" height={80} tick={{ fontSize: 12 }} />
+                <YAxis label={{ value: "°", angle: -90, position: "insideLeft" }} />
+                <Tooltip contentStyle={{ backgroundColor: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "8px" }} formatter={(value: any) => value.toFixed(1)} />
+                <Legend />
+                <Bar dataKey="2025" fill="#6366f1" name="2025" radius={[8, 8, 0, 0]} />
+                <Bar dataKey="2026" fill="#0ea5e9" name="2026" radius={[8, 8, 0, 0]} />
+                <ReferenceLine y={NORMATIVE_VALUES.hipROM} stroke="#94a3b8" strokeDasharray="5 5" label={{ value: "Normative (90°)", position: "right", fill: "#64748b", fontSize: 11 }} />
+              </BarChart>
+            </ResponsiveContainer>
+          </div>
 
-              {/* Metric Cards for Hip ROM */}
-              <div className="grid grid-cols-2 gap-4 mt-6">
-                <MetricCard
-                  label="L Hip ROM"
-                  value2025={d25.jointROM.hipTotalRomL}
-                  value2026={d26.jointROM.hipTotalRomL}
-                  unit="°"
-                  normative={NORMATIVE_VALUES.hipROM}
-                />
-                <MetricCard
-                  label="R Hip ROM"
-                  value2025={d25.jointROM.hipTotalRomR}
-                  value2026={d26.jointROM.hipTotalRomR}
-                  unit="°"
-                  normative={NORMATIVE_VALUES.hipROM}
-                />
-              </div>
-            </div>
+          {/* Hip ROM Metric Cards */}
+          <div className="grid grid-cols-2 gap-4">
+            {hipROMData.map((item, idx) => (
+              <MetricCard key={idx} label={item.name} value2025={item["2025"]} value2026={item["2026"]} unit="°" normative={item.normative} />
+            ))}
+          </div>
 
-            {/* Chart 2: Forward Reaching Test */}
-            <div className="border-t pt-8">
-              <h3 className="text-lg font-bold text-slate-800 mb-4">Forward Reaching Test (Distance - Centimeters)</h3>
-              <ResponsiveContainer width="100%" height={300}>
-                <BarChart data={forwardReachData} margin={{ top: 20, right: 30, left: 0, bottom: 20 }}>
-                  <CartesianGrid strokeDasharray="3 3" />
-                  <XAxis dataKey="name" />
-                  <YAxis label={{ value: "Distance (cm)", angle: -90, position: "insideLeft" }} />
-                  <Tooltip />
-                  {yearView === "2025" || yearView === "Compare" ? (
-                    <Bar dataKey="2025" fill="#f59e0b" name="2025" />
-                  ) : null}
-                  {yearView === "2026" || yearView === "Compare" ? (
-                    <Bar dataKey="2026" fill="#fbbf24" name="2026" />
-                  ) : null}
-                  <ReferenceLine y={NORMATIVE_VALUES.forwardReach} stroke="#94a3b8" strokeDasharray="5 5" label={{ value: `Normative (${NORMATIVE_VALUES.forwardReach}cm)`, position: "right", fill: "#64748b", fontSize: 12 }} />
-                </BarChart>
-              </ResponsiveContainer>
+          {/* Forward Reach Chart */}
+          <div className="bg-white rounded-lg p-6 shadow-sm border border-slate-100">
+            <h3 className="text-lg font-bold text-slate-800 mb-4">Forward Reaching Test (cm)</h3>
+            <ResponsiveContainer width="100%" height={250}>
+              <BarChart data={forwardReachData} margin={{ top: 20, right: 30, left: 0, bottom: 60 }}>
+                <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+                <XAxis dataKey="name" angle={-15} textAnchor="end" height={80} tick={{ fontSize: 12 }} />
+                <YAxis label={{ value: "cm", angle: -90, position: "insideLeft" }} />
+                <Tooltip contentStyle={{ backgroundColor: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "8px" }} formatter={(value: any) => value.toFixed(1)} />
+                <Legend />
+                <Bar dataKey="2025" fill="#f97316" name="2025" radius={[8, 8, 0, 0]} />
+                <Bar dataKey="2026" fill="#ec4899" name="2026" radius={[8, 8, 0, 0]} />
+                <ReferenceLine y={NORMATIVE_VALUES.forwardReach} stroke="#94a3b8" strokeDasharray="5 5" label={{ value: "Normative (29cm)", position: "right", fill: "#64748b", fontSize: 11 }} />
+              </BarChart>
+            </ResponsiveContainer>
+          </div>
 
-              {/* Metric Card for Forward Reach */}
-              <div className="mt-6 max-w-xs">
-                <MetricCard
-                  label="Forward Reaching Test"
-                  value2025={d25.jointROM.forwardReachingTest}
-                  value2026={d26.jointROM.forwardReachingTest}
-                  unit="cm"
-                  normative={NORMATIVE_VALUES.forwardReach}
-                />
-              </div>
+          {/* Forward Reach Metric Card */}
+          <div className="grid grid-cols-1 gap-4">
+            {forwardReachData.map((item, idx) => (
+              <MetricCard key={idx} label={item.name} value2025={item["2025"]} value2026={item["2026"]} unit="cm" normative={item.normative} />
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Isometric Strength Tab */}
+      {activeTab === "isometric" && (
+        <div className="space-y-6">
+          {/* Main Strength Measurements */}
+          <div className="bg-white rounded-lg p-6 shadow-sm border border-slate-100">
+            <h3 className="text-lg font-bold text-slate-800 mb-4">Hip Strength Measurements (N)</h3>
+            <ResponsiveContainer width="100%" height={350}>
+              <BarChart data={isometricData} margin={{ top: 20, right: 30, left: 0, bottom: 80 }}>
+                <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+                <XAxis dataKey="name" angle={-45} textAnchor="end" height={100} tick={{ fontSize: 11 }} />
+                <YAxis label={{ value: "N", angle: -90, position: "insideLeft" }} />
+                <Tooltip contentStyle={{ backgroundColor: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "8px" }} formatter={(value: any) => value.toFixed(1)} />
+                <Legend />
+                <Bar dataKey="2025" fill="#6366f1" name="2025" radius={[4, 4, 0, 0]} />
+                <Bar dataKey="2026" fill="#0ea5e9" name="2026" radius={[4, 4, 0, 0]} />
+                <ReferenceLine y={NORMATIVE_VALUES.hipStrength} stroke="#94a3b8" strokeDasharray="5 5" label={{ value: "Normative (200N)", position: "right", fill: "#64748b", fontSize: 10 }} />
+              </BarChart>
+            </ResponsiveContainer>
+          </div>
+
+          {/* Metric Cards for Hip Strength */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+            {isometricData.map((item, idx) => (
+              <MetricCard key={idx} label={item.name} value2025={item["2025"]} value2026={item["2026"]} unit="N" normative={item.normative} />
+            ))}
+          </div>
+
+          {/* Ankle Plantarflexors - Separate Chart */}
+          <div className="bg-white rounded-lg p-6 shadow-sm border border-slate-100">
+            <h3 className="text-lg font-bold text-slate-800 mb-4">Ankle Plantarflexors (N)</h3>
+            <ResponsiveContainer width="100%" height={250}>
+              <BarChart data={ankleData} margin={{ top: 20, right: 30, left: 0, bottom: 60 }}>
+                <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+                <XAxis dataKey="name" angle={-15} textAnchor="end" height={80} tick={{ fontSize: 11 }} />
+                <YAxis label={{ value: "N", angle: -90, position: "insideLeft" }} />
+                <Tooltip contentStyle={{ backgroundColor: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "8px" }} formatter={(value: any) => value.toFixed(1)} />
+                <Legend />
+                <Bar dataKey="2025" fill="#10b981" name="2025" radius={[8, 8, 0, 0]} />
+                <Bar dataKey="2026" fill="#f59e0b" name="2026" radius={[8, 8, 0, 0]} />
+                <ReferenceLine y={NORMATIVE_VALUES.ankleStrength} stroke="#94a3b8" strokeDasharray="5 5" label={{ value: "Normative (600N)", position: "right", fill: "#64748b", fontSize: 11 }} />
+              </BarChart>
+            </ResponsiveContainer>
+          </div>
+
+          {/* Ankle Metric Cards */}
+          <div className="grid grid-cols-2 gap-4">
+            {ankleData.map((item, idx) => (
+              <MetricCard key={idx} label={item.name} value2025={item["2025"]} value2026={item["2026"]} unit="N" normative={item.normative} />
+            ))}
+          </div>
+
+          {/* Add/Abd Ratios - Simple Display */}
+          <div className="bg-white rounded-lg p-6 shadow-sm border border-slate-100">
+            <h3 className="text-lg font-bold text-slate-800 mb-4">Add/Abd Ratios (Balance)</h3>
+            <div className="grid grid-cols-2 gap-4">
+              {ratioData.map((item, idx) => (
+                <RatioCard key={idx} label={item.name} value2025={item["2025"]} value2026={item["2026"]} normative={item.normative} />
+              ))}
             </div>
           </div>
-        )}
+        </div>
+      )}
 
-        {/* Isometric Strength - Horizontal bars for main measurements + Pie charts for ratios */}
-        {activeTab === "isometric" && (
-          <div className="space-y-8">
-            {/* Main Strength Measurements - Horizontal Bar Chart */}
-            <div>
-              <h3 className="text-lg font-bold text-slate-800 mb-4">Isometric Strength - Main Measurements (Newtons)</h3>
-              <ResponsiveContainer width="100%" height={400}>
-                <BarChart data={isometricData.slice(0, 10)} layout="vertical" margin={{ top: 10, right: 30, left: 120, bottom: 10 }}>
-                  <CartesianGrid strokeDasharray="3 3" />
-                  <XAxis type="number" label={{ value: "Force (N)", position: "insideBottomRight", offset: -5 }} />
-                  <YAxis dataKey="name" type="category" width={110} />
-                  <Tooltip />
-                  <Legend />
-                  {yearView === "2025" || yearView === "Compare" ? (
-                    <Bar dataKey="2025" fill="#6366f1" name="2025" radius={[0, 8, 8, 0]} />
-                  ) : null}
-                  {yearView === "2026" || yearView === "Compare" ? (
-                    <Bar dataKey="2026" fill="#0ea5e9" name="2026" radius={[0, 8, 8, 0]} />
-                  ) : null}
-                  <ReferenceLine x={NORMATIVE_VALUES.hipStrength} stroke="#94a3b8" strokeDasharray="5 5" label={{ value: `Norm (${NORMATIVE_VALUES.hipStrength}N)`, position: "top", fill: "#64748b", fontSize: 10 }} />
-                </BarChart>
-              </ResponsiveContainer>
-
-              {/* Metric Cards for Main Measurements */}
-              <div className="grid grid-cols-2 gap-4 mt-6">
-                <MetricCard label="LH Flexors" value2025={d25.isometricStrength.lhFlexors} value2026={d26.isometricStrength.lhFlexors} unit="N" normative={NORMATIVE_VALUES.hipStrength} />
-                <MetricCard label="RH Flexors" value2025={d25.isometricStrength.rhFlexors} value2026={d26.isometricStrength.rhFlexors} unit="N" normative={NORMATIVE_VALUES.hipStrength} />
-                <MetricCard label="LH Extensors" value2025={d25.isometricStrength.lhExtensors} value2026={d26.isometricStrength.lhExtensors} unit="N" normative={NORMATIVE_VALUES.hipStrength} />
-                <MetricCard label="RH Extensors" value2025={d25.isometricStrength.rhExtensors} value2026={d26.isometricStrength.rhExtensors} unit="N" normative={NORMATIVE_VALUES.hipStrength} />
-                <MetricCard label="LH Adductors" value2025={d25.isometricStrength.lhAdductors} value2026={d26.isometricStrength.lhAdductors} unit="N" normative={NORMATIVE_VALUES.hipStrength} />
-                <MetricCard label="RH Adductors" value2025={d25.isometricStrength.rhAdductors} value2026={d26.isometricStrength.rhAdductors} unit="N" normative={NORMATIVE_VALUES.hipStrength} />
-                <MetricCard label="LH Abductors" value2025={d25.isometricStrength.lhAbductors} value2026={d26.isometricStrength.lhAbductors} unit="N" normative={NORMATIVE_VALUES.hipStrength} />
-                <MetricCard label="RH Abductors" value2025={d25.isometricStrength.rhAbductors} value2026={d26.isometricStrength.rhAbductors} unit="N" normative={NORMATIVE_VALUES.hipStrength} />
-                <MetricCard label="LA Plantarflexors" value2025={d25.isometricStrength.laPlantarflexors} value2026={d26.isometricStrength.laPlantarflexors} unit="N" normative={NORMATIVE_VALUES.ankleStrength} />
-                <MetricCard label="RA Plantarflexors" value2025={d25.isometricStrength.raPlantarflexors} value2026={d26.isometricStrength.raPlantarflexors} unit="N" normative={NORMATIVE_VALUES.ankleStrength} />
-              </div>
-            </div>
-
-            {/* Add/Abd Ratios - Pie Charts */}
-            <div className="border-t pt-8">
-              <h3 className="text-lg font-bold text-slate-800 mb-6">Adductor/Abductor Ratio (Percentage)</h3>
-              <div className="grid grid-cols-2 gap-8">
-                {/* LH Add/Abd Ratio */}
-                <div className="flex flex-col items-center">
-                  <p className="text-sm font-semibold text-slate-600 mb-4">LH Add/Abd Ratio (2026: {d26.isometricStrength.lhAddAbdRatio.toFixed(2)})</p>
-                  <ResponsiveContainer width="100%" height={250}>
-                    <PieChart>
-                      <Pie
-                        data={[
-                          { name: "Adductors", value: (d26.isometricStrength.lhAddAbdRatio / (1 + d26.isometricStrength.lhAddAbdRatio)) * 100 },
-                          { name: "Abductors", value: (100 / (1 + d26.isometricStrength.lhAddAbdRatio)) * 100 },
-                        ]}
-                        cx="50%"
-                        cy="50%"
-                        innerRadius={60}
-                        outerRadius={90}
-                        paddingAngle={2}
-                        dataKey="value"
-                      >
-                        <Cell fill="#6366f1" />
-                        <Cell fill="#0ea5e9" />
-                      </Pie>
-                      <Tooltip formatter={(value: any) => `${typeof value === 'number' ? value.toFixed(1) : value}%`} />
-                      <Legend />
-                    </PieChart>
-                  </ResponsiveContainer>
-                  <div className="mt-4 text-center">
-                    <p className={`text-sm font-semibold ${d26.isometricStrength.lhAddAbdRatio >= NORMATIVE_VALUES.addAbdRatio ? "text-green-600" : "text-red-600"}`}>
-                      {d26.isometricStrength.lhAddAbdRatio >= NORMATIVE_VALUES.addAbdRatio ? "✓ Balanced" : "✗ Imbalanced"}
-                    </p>
-                    <p className="text-xs text-slate-500 mt-1">Norm: {NORMATIVE_VALUES.addAbdRatio}</p>
-                  </div>
-                </div>
-
-                {/* RH Add/Abd Ratio */}
-                <div className="flex flex-col items-center">
-                  <p className="text-sm font-semibold text-slate-600 mb-4">RH Add/Abd Ratio (2026: {d26.isometricStrength.rhAddAbdRatio.toFixed(2)})</p>
-                  <ResponsiveContainer width="100%" height={250}>
-                    <PieChart>
-                      <Pie
-                        data={[
-                          { name: "Adductors", value: (d26.isometricStrength.rhAddAbdRatio / (1 + d26.isometricStrength.rhAddAbdRatio)) * 100 },
-                          { name: "Abductors", value: (100 / (1 + d26.isometricStrength.rhAddAbdRatio)) * 100 },
-                        ]}
-                        cx="50%"
-                        cy="50%"
-                        innerRadius={60}
-                        outerRadius={90}
-                        paddingAngle={2}
-                        dataKey="value"
-                      >
-                        <Cell fill="#f97316" />
-                        <Cell fill="#ec4899" />
-                      </Pie>
-                      <Tooltip formatter={(value: any) => `${typeof value === 'number' ? value.toFixed(1) : value}%`} />
-                      <Legend />
-                    </PieChart>
-                  </ResponsiveContainer>
-                  <div className="mt-4 text-center">
-                    <p className={`text-sm font-semibold ${d26.isometricStrength.rhAddAbdRatio >= NORMATIVE_VALUES.addAbdRatio ? "text-green-600" : "text-red-600"}`}>
-                      {d26.isometricStrength.rhAddAbdRatio >= NORMATIVE_VALUES.addAbdRatio ? "✓ Balanced" : "✗ Imbalanced"}
-                    </p>
-                    <p className="text-xs text-slate-500 mt-1">Norm: {NORMATIVE_VALUES.addAbdRatio}</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Ratio Metric Cards */}
-              <div className="grid grid-cols-2 gap-4 mt-6">
-                <MetricCard label="LH Add/Abd Ratio" value2025={d25.isometricStrength.lhAddAbdRatio} value2026={d26.isometricStrength.lhAddAbdRatio} unit="" normative={NORMATIVE_VALUES.addAbdRatio} />
-                <MetricCard label="RH Add/Abd Ratio" value2025={d25.isometricStrength.rhAddAbdRatio} value2026={d26.isometricStrength.rhAddAbdRatio} unit="" normative={NORMATIVE_VALUES.addAbdRatio} />
-              </div>
-            </div>
-          </div>
-        )}
-
-        {/* Functional Movement Screen - Gauge */}
-        {activeTab === "fms" && (
-          <div className="space-y-6">
-            <h3 className="text-lg font-bold text-slate-800 mb-4">Functional Movement Screen (FMS)</h3>
+      {/* Functional Movement Tab */}
+      {activeTab === "fms" && (
+        <div className="space-y-6">
+          <div className="bg-white rounded-lg p-6 shadow-sm border border-slate-100">
+            <h3 className="text-lg font-bold text-slate-800 mb-6">Functional Movement Screen Score</h3>
             
-            {/* Gauge for 2026 */}
-            <div className="flex flex-col items-center">
-              <div className="relative w-64 h-32">
-                <svg viewBox="0 0 200 100" className="w-full h-full">
-                  {/* Background arc */}
-                  <path d="M 20 80 A 60 60 0 0 1 180 80" fill="none" stroke="#e5e7eb" strokeWidth="20" />
-                  
-                  {/* Colored arcs */}
-                  <path d="M 20 80 A 60 60 0 0 1 80 20" fill="none" stroke="#ef4444" strokeWidth="20" />
-                  <path d="M 80 20 A 60 60 0 0 1 140 35" fill="none" stroke="#eab308" strokeWidth="20" />
-                  <path d="M 140 35 A 60 60 0 0 1 180 80" fill="none" stroke="#22c55e" strokeWidth="20" />
-                  
-                  {/* Needle */}
-                  <line x1="100" y1="80" x2={100 + 50 * Math.cos((fmsScore26 / 21) * Math.PI - Math.PI)} y2={80 - 50 * Math.sin((fmsScore26 / 21) * Math.PI - Math.PI)} stroke="#334155" strokeWidth="3" strokeLinecap="round" />
-                  <circle cx="100" cy="80" r="6" fill="#334155" />
-                </svg>
+            {/* FMS Gauge-like display using simple cards */}
+            <div className="grid grid-cols-2 gap-6">
+              {/* 2025 Score */}
+              <div className="flex flex-col items-center justify-center p-8 bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg border-2 border-blue-300">
+                <p className="text-sm font-semibold text-blue-700 mb-2">2025 Score</p>
+                <div className="text-5xl font-bold text-blue-600 mb-2">{fmsScore}</div>
+                <p className="text-sm text-blue-600">/21</p>
+                <p className={`text-xs font-semibold mt-3 px-3 py-1 rounded-full ${fmsStatus(fmsScore).color === "#ef4444" ? "bg-red-100 text-red-700" : fmsStatus(fmsScore).color === "#eab308" ? "bg-yellow-100 text-yellow-700" : "bg-green-100 text-green-700"}`}>
+                  {fmsStatus(fmsScore).text}
+                </p>
               </div>
-              <p className="text-3xl font-bold text-slate-800 mt-4">{fmsScore26}/21</p>
-              <p className={`text-lg font-semibold ${fmsStatus(fmsScore26).color}`} style={{ color: fmsStatus(fmsScore26).color }}>
-                {fmsStatus(fmsScore26).text}
-              </p>
-            </div>
 
-            {/* Metric Cards */}
-            <div className="grid grid-cols-2 gap-4 mt-6">
-              <div className="bg-gradient-to-br from-red-50 to-red-100 p-4 rounded-lg border border-red-200">
-                <p className="text-xs font-semibold text-slate-600 mb-2">2025 Score</p>
-                <p className="text-2xl font-bold text-red-600">{fmsScore}/21</p>
-              </div>
-              <div className="bg-gradient-to-br from-green-50 to-green-100 p-4 rounded-lg border border-green-200">
-                <p className="text-xs font-semibold text-slate-600 mb-2">2026 Score</p>
-                <p className="text-2xl font-bold text-green-600">{fmsScore26}/21</p>
-                <p className={`text-sm font-bold mt-1 ${fmsScore26 >= fmsScore ? "text-green-600" : "text-red-600"}`}>
-                  {fmsScore26 >= fmsScore ? "+" : ""}{fmsScore26 - fmsScore}
+              {/* 2026 Score */}
+              <div className="flex flex-col items-center justify-center p-8 bg-gradient-to-br from-cyan-50 to-cyan-100 rounded-lg border-2 border-cyan-300">
+                <p className="text-sm font-semibold text-cyan-700 mb-2">2026 Score</p>
+                <div className="text-5xl font-bold text-cyan-600 mb-2">{fmsScore26}</div>
+                <p className="text-sm text-cyan-600">/21</p>
+                <p className={`text-xs font-semibold mt-3 px-3 py-1 rounded-full ${fmsStatus(fmsScore26).color === "#ef4444" ? "bg-red-100 text-red-700" : fmsStatus(fmsScore26).color === "#eab308" ? "bg-yellow-100 text-yellow-700" : "bg-green-100 text-green-700"}`}>
+                  {fmsStatus(fmsScore26).text}
                 </p>
               </div>
             </div>
-          </div>
-        )}
 
-        {/* Trunk Endurance - Bar Chart */}
-        {activeTab === "trunk" && (
-          <div className="space-y-6">
-            <h3 className="text-lg font-bold text-slate-800 mb-4">Trunk Muscle Endurance (Hold Times - Seconds)</h3>
-            <ResponsiveContainer width="100%" height={350}>
-              <BarChart data={trunkData} margin={{ top: 20, right: 30, left: 0, bottom: 20 }}>
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="name" />
-                <YAxis label={{ value: "Time (seconds)", angle: -90, position: "insideLeft" }} />
-                <Tooltip />
-                <Legend />
-                {yearView === "2025" || yearView === "Compare" ? (
-                  <Bar dataKey="2025" fill="#14b8a6" name="2025" />
-                ) : null}
-                {yearView === "2026" || yearView === "Compare" ? (
-                  <Bar dataKey="2026" fill="#06b6d4" name="2026" />
-                ) : null}
-                <ReferenceLine y={NORMATIVE_VALUES.trunkFlexors} stroke="#94a3b8" strokeDasharray="5 5" label={{ value: "Normative", position: "right", fill: "#64748b", fontSize: 12 }} />
-              </BarChart>
-            </ResponsiveContainer>
+            {/* Change indicator */}
+            <div className="mt-6 p-4 bg-slate-50 rounded-lg border border-slate-200 text-center">
+              <p className="text-sm text-slate-600 mb-2">Year-over-Year Change</p>
+              <p className={`text-2xl font-bold ${fmsScore26 - fmsScore >= 0 ? "text-green-600" : "text-red-600"}`}>
+                {fmsScore26 - fmsScore >= 0 ? "+" : ""}{fmsScore26 - fmsScore}
+              </p>
+            </div>
 
-            {/* Metric Cards */}
-            <div className="grid grid-cols-2 gap-4 mt-6">
-              <MetricCard label="Flexors" value2025={d25.trunkEndurance.flexors} value2026={d26.trunkEndurance.flexors} unit="s" normative={NORMATIVE_VALUES.trunkFlexors} />
-              <MetricCard label="Extensors" value2025={d25.trunkEndurance.extensors} value2026={d26.trunkEndurance.extensors} unit="s" normative={NORMATIVE_VALUES.trunkExtensors} />
-              <MetricCard label="Left Lateral" value2025={d25.trunkEndurance.leftLateral} value2026={d26.trunkEndurance.leftLateral} unit="s" normative={NORMATIVE_VALUES.trunkLateral} />
-              <MetricCard label="Right Lateral" value2025={d25.trunkEndurance.rightLateral} value2026={d26.trunkEndurance.rightLateral} unit="s" normative={NORMATIVE_VALUES.trunkLateral} />
+            {/* Performance Zones */}
+            <div className="mt-6 p-4 bg-slate-50 rounded-lg border border-slate-200">
+              <p className="text-sm font-semibold text-slate-700 mb-3">Performance Zones</p>
+              <div className="space-y-2">
+                <div className="flex items-center gap-3">
+                  <div className="w-4 h-4 rounded bg-red-500"></div>
+                  <p className="text-sm text-slate-700">Poor: &lt; 14</p>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-4 h-4 rounded bg-yellow-500"></div>
+                  <p className="text-sm text-slate-700">Moderate: 14-17</p>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-4 h-4 rounded bg-green-500"></div>
+                  <p className="text-sm text-slate-700">Good: 18-21</p>
+                </div>
+              </div>
             </div>
           </div>
-        )}
-      </div>
+        </div>
+      )}
+
+      {/* Trunk Endurance Tab */}
+      {activeTab === "trunk" && (
+        <div className="space-y-6">
+          {/* Horizontal Bar Chart */}
+          <div className="bg-white rounded-lg p-6 shadow-sm border border-slate-100">
+            <h3 className="text-lg font-bold text-slate-800 mb-4">Trunk Endurance Hold Times (seconds)</h3>
+            <ResponsiveContainer width="100%" height={300}>
+              <BarChart data={trunkData} layout="vertical" margin={{ top: 20, right: 30, left: 120, bottom: 20 }}>
+                <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+                <XAxis type="number" label={{ value: "sec", position: "insideBottomRight", offset: -10 }} />
+                <YAxis dataKey="name" type="category" width={110} tick={{ fontSize: 11 }} />
+                <Tooltip contentStyle={{ backgroundColor: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "8px" }} formatter={(value: any) => value.toFixed(1)} />
+                <Legend />
+                <Bar dataKey="2025" fill="#6366f1" name="2025" radius={[0, 8, 8, 0]} />
+                <Bar dataKey="2026" fill="#0ea5e9" name="2026" radius={[0, 8, 8, 0]} />
+                <ReferenceLine x={NORMATIVE_VALUES.trunkFlexors} stroke="#94a3b8" strokeDasharray="5 5" label={{ value: "Norm", position: "top", fill: "#64748b", fontSize: 10 }} />
+              </BarChart>
+            </ResponsiveContainer>
+          </div>
+
+          {/* Metric Cards */}
+          <div className="grid grid-cols-2 gap-4">
+            {trunkData.map((item, idx) => (
+              <MetricCard key={idx} label={item.name} value2025={item["2025"]} value2026={item["2026"]} unit="sec" normative={item.normative} />
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 }

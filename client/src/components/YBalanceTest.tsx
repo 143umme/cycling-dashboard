@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, ReferenceLine, Label } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, ReferenceLine } from 'recharts';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
@@ -44,7 +44,7 @@ export function YBalanceTest({ athleteName, yBalanceData }: YBalanceTestProps) {
 
   const data = yBalanceData[selectedYear];
 
-  // Prepare chart data with swapped axes
+  // Prepare chart data with proper ordering for line connection
   const chartData = [
     {
       metric: 'Anterior',
@@ -81,26 +81,6 @@ export function YBalanceTest({ athleteName, yBalanceData }: YBalanceTestProps) {
     (d) => !isNaN(d.left) && !isNaN(d.right) && d.left !== null && d.right !== null
   );
 
-  // Custom label component for disbalance percentages
-  const renderCustomLabel = (props: any) => {
-    const { x, y, payload } = props;
-    if (!payload) return null;
-    
-    const disbalanceText = `${payload.disbalance.toFixed(1)}%`;
-    return (
-      <text 
-        x={x} 
-        y={y - 15} 
-        fill="#666" 
-        textAnchor="middle" 
-        fontSize={11}
-        fontWeight="bold"
-      >
-        {disbalanceText}
-      </text>
-    );
-  };
-
   return (
     <div className="space-y-4">
       <Card>
@@ -116,23 +96,23 @@ export function YBalanceTest({ athleteName, yBalanceData }: YBalanceTestProps) {
           </div>
         </CardHeader>
         <CardContent className="space-y-6">
-          {/* Main Chart - Swapped Axes */}
+          {/* Main Chart - Line Chart with Connected Points */}
           <div className="w-full h-96">
             <ResponsiveContainer width="100%" height="100%">
-              <ScatterChart margin={{ top: 20, right: 30, left: 80, bottom: 60 }}>
+              <LineChart data={validData} margin={{ top: 20, right: 30, left: 100, bottom: 60 }}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
                 <XAxis
-                  type="number"
                   dataKey="left"
+                  type="number"
                   name="Reach Percentage (%)"
                   domain={[Math.min(...validData.map((d) => Math.min(d.left, d.right))) - 5, Math.max(...validData.map((d) => Math.max(d.left, d.right))) + 5]}
                   label={{ value: 'Reach Percentage (%)', position: 'insideBottomRight', offset: -10 }}
                 />
                 <YAxis
-                  type="number"
                   dataKey="metricIndex"
-                  name="Test Metric"
+                  type="number"
                   domain={[-0.5, 3.5]}
+                  ticks={[0, 1, 2, 3]}
                   tickFormatter={(value) => {
                     const metrics = ['Anterior', 'Medial', 'Lateral', 'Composite'];
                     return metrics[value] || '';
@@ -164,69 +144,41 @@ export function YBalanceTest({ athleteName, yBalanceData }: YBalanceTestProps) {
                 />
                 <Legend />
                 
-                {/* Left Leg - Blue */}
-                <Scatter
+                {/* Left Leg - Blue Line connecting Anterior -> Medial -> Lateral -> Composite */}
+                <Line
+                  type="monotone"
+                  dataKey="left"
+                  stroke="#3b82f6"
                   name="Left Leg"
-                  data={validData}
-                  fill="#3b82f6"
-                  shape="circle"
-                >
-                  {validData.map((entry, index) => (
-                    <text
-                      key={`left-${index}`}
-                      x={entry.left}
-                      y={entry.metricIndex}
-                      textAnchor="middle"
-                      fill="#3b82f6"
-                      fontSize={12}
-                      fontWeight="bold"
-                    >
-                      ●
-                    </text>
-                  ))}
-                </Scatter>
+                  strokeWidth={2.5}
+                  dot={{ fill: '#3b82f6', r: 6, strokeWidth: 2, stroke: '#fff' }}
+                  connectNulls
+                  isAnimationActive={false}
+                />
 
-                {/* Right Leg - Orange */}
-                <Scatter
+                {/* Right Leg - Orange Line connecting Anterior -> Medial -> Lateral -> Composite */}
+                <Line
+                  type="monotone"
+                  dataKey="right"
+                  stroke="#f97316"
                   name="Right Leg"
-                  data={validData.map((d) => ({ ...d, left: d.right }))}
-                  fill="#f97316"
-                  shape="circle"
-                >
-                  {validData.map((entry, index) => (
-                    <text
-                      key={`right-${index}`}
-                      x={entry.right}
-                      y={entry.metricIndex}
-                      textAnchor="middle"
-                      fill="#f97316"
-                      fontSize={12}
-                      fontWeight="bold"
-                    >
-                      ●
-                    </text>
-                  ))}
-                </Scatter>
-
-                {/* Disbalance labels */}
-                {validData.map((entry, index) => {
-                  const midX = (entry.left + entry.right) / 2;
-                  return (
-                    <text
-                      key={`disbalance-${index}`}
-                      x={midX}
-                      y={entry.metricIndex - 0.35}
-                      textAnchor="middle"
-                      fill="#666"
-                      fontSize={10}
-                      fontWeight="bold"
-                    >
-                      {entry.disbalance.toFixed(1)}%
-                    </text>
-                  );
-                })}
-              </ScatterChart>
+                  strokeWidth={2.5}
+                  dot={{ fill: '#f97316', r: 6, strokeWidth: 2, stroke: '#fff' }}
+                  connectNulls
+                  isAnimationActive={false}
+                />
+              </LineChart>
             </ResponsiveContainer>
+          </div>
+
+          {/* Disbalance Labels */}
+          <div className="text-sm text-gray-600 space-y-1">
+            <p><strong>Disbalance Percentages:</strong></p>
+            {validData.map((item) => (
+              <p key={item.metric}>
+                {item.metric}: <span className={item.disbalance < 4 ? 'text-green-600 font-semibold' : 'text-orange-600 font-semibold'}>{item.disbalance.toFixed(1)}%</span>
+              </p>
+            ))}
           </div>
 
           {/* Detailed Metrics Table */}

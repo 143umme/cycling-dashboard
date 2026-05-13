@@ -1,4 +1,4 @@
-import { BarChart, Bar, LineChart, Line, AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, ReferenceLine, PieChart, Pie, Cell, ScatterChart, Scatter } from "recharts";
+import { BarChart, Bar, LineChart, Line, AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, ReferenceLine, PieChart, Pie, Cell, ScatterChart, Scatter, ComposedChart } from "recharts";
 import { athletes, type GroupType, type Gender, type YearKey } from "@/lib/athleteData";
 import { useState } from "react";
 
@@ -332,7 +332,7 @@ export default function GroupAnalysis({ yearView }: GroupAnalysisProps) {
           <h3 className="text-lg font-bold text-slate-800 mb-4">Y-Balance Test - Composite Scores by Direction & Year</h3>
           <p className="text-sm text-slate-600 mb-4">Bars: Anterior, Medial, Lateral, Composite | Lines: 2025 vs 2026 Trends</p>
           <ResponsiveContainer width="100%" height={400}>
-            <BarChart data={groupData} margin={{ top: 20, right: 30, left: 0, bottom: 100 }}>
+            <ComposedChart data={groupData} margin={{ top: 20, right: 30, left: 60, bottom: 100 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
               <XAxis 
                 dataKey="name" 
@@ -341,7 +341,7 @@ export default function GroupAnalysis({ yearView }: GroupAnalysisProps) {
                 height={120}
                 tick={{ fontSize: 10 }}
               />
-              <YAxis label={{ value: "Reach Percentage (%)", angle: -90, position: "insideLeft" }} domain={[70, 130]} />
+              <YAxis domain={[70, 130]} />
               <Tooltip contentStyle={{ backgroundColor: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "8px" }} formatter={(value: any) => value ? value.toFixed(1) : "N/A"} />
               <Legend />
               {/* Bars for each direction */}
@@ -349,8 +349,11 @@ export default function GroupAnalysis({ yearView }: GroupAnalysisProps) {
               <Bar dataKey="ybalanceMedialLeft" fill="#60a5fa" name="Medial (L)" radius={[2, 2, 0, 0]} />
               <Bar dataKey="ybalanceLateralLeft" fill="#93c5fd" name="Lateral (L)" radius={[2, 2, 0, 0]} />
               <Bar dataKey="ybalanceCompositeLeft" fill="#1e40af" name="Composite (L)" radius={[2, 2, 0, 0]} />
+              {/* Lines for 2025 vs 2026 trends */}
+              <Line type="monotone" dataKey="ybalanceCompositeLeft" stroke="#3b82f6" strokeWidth={2} name="Composite Left 2025" dot={false} />
+              <Line type="monotone" dataKey="ybalanceCompositeRight" stroke="#f97316" strokeWidth={2} name="Composite Right 2026" dot={false} />
               <ReferenceLine y={94} stroke="#ef4444" strokeDasharray="5 5" label={{ value: "Normative (94%)", position: "right", fill: "#dc2626", fontSize: 10 }} />
-            </BarChart>
+            </ComposedChart>
           </ResponsiveContainer>
         </div>
 

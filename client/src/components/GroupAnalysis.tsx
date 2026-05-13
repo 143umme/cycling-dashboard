@@ -318,22 +318,21 @@ export default function GroupAnalysis({ yearView }: GroupAnalysisProps) {
           </ResponsiveContainer>
         </div>
 
-        {/* Y-Balance Test - Group Comparison */}
+        {/* Y-Balance Test - Composite Score Comparison */}
         <div className="bg-white rounded-lg p-6 shadow-sm border border-slate-100">
-          <h3 className="text-lg font-bold text-slate-800 mb-4">Y-Balance Test - Group Comparison</h3>
-          <p className="text-sm text-slate-600 mb-4">Average Left vs Right leg composite scores by athlete</p>
-          <ResponsiveContainer width="100%" height={400}>
-            <BarChart data={groupData} margin={{ top: 20, right: 30, left: 0, bottom: 100 }}>
+          <h3 className="text-lg font-bold text-slate-800 mb-4">Y-Balance Test - Composite Scores (%)</h3>
+          <ResponsiveContainer width="100%" height={350}>
+            <BarChart data={groupData} margin={{ top: 20, right: 30, left: 0, bottom: 80 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
               <XAxis 
                 dataKey="name" 
                 angle={-45} 
                 textAnchor="end" 
-                height={120}
-                tick={{ fontSize: 10 }}
+                height={100}
+                tick={{ fontSize: 11 }}
               />
-              <YAxis label={{ value: "Reach Percentage (%)", angle: -90, position: "insideLeft" }} domain={[70, 130]} />
-              <Tooltip contentStyle={{ backgroundColor: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "8px" }} formatter={(value: any) => value ? `${value.toFixed(1)}%` : "N/A"} />
+              <YAxis label={{ value: "Composite Score (%)", angle: -90, position: "insideLeft" }} domain={[0, 140]} />
+              <Tooltip contentStyle={{ backgroundColor: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "8px" }} formatter={(value: any) => value ? value.toFixed(1) : "N/A"} />
               <Legend />
               <Bar dataKey="ybalanceLeft" fill="#3b82f6" name="Left Leg" radius={[4, 4, 0, 0]} />
               <Bar dataKey="ybalanceRight" fill="#f97316" name="Right Leg" radius={[4, 4, 0, 0]} />
@@ -342,23 +341,22 @@ export default function GroupAnalysis({ yearView }: GroupAnalysisProps) {
           </ResponsiveContainer>
         </div>
 
-        {/* Y-Balance Disbalance Summary */}
+        {/* Y-Balance Disbalance Analysis */}
         <div className="bg-white rounded-lg p-6 shadow-sm border border-slate-100">
-          <h3 className="text-lg font-bold text-slate-800 mb-4">Y-Balance Balance Status</h3>
-          <p className="text-sm text-slate-600 mb-4">Left-Right leg disbalance percentage (lower is better, &lt;4% is balanced)</p>
+          <h3 className="text-lg font-bold text-slate-800 mb-4">Y-Balance Disbalance Analysis (%)</h3>
           <ResponsiveContainer width="100%" height={300}>
-            <BarChart data={groupData} margin={{ top: 20, right: 30, left: 0, bottom: 100 }}>
+            <BarChart data={groupData} margin={{ top: 20, right: 30, left: 0, bottom: 80 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
               <XAxis 
                 dataKey="name" 
                 angle={-45} 
                 textAnchor="end" 
-                height={120}
-                tick={{ fontSize: 10 }}
+                height={100}
+                tick={{ fontSize: 11 }}
               />
               <YAxis label={{ value: "Disbalance (%)", angle: -90, position: "insideLeft" }} />
-              <Tooltip contentStyle={{ backgroundColor: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "8px" }} formatter={(value: any) => value ? `${value.toFixed(1)}%` : "N/A"} />
-              <Bar dataKey="ybalanceDisbalance" fill="#8b5cf6" name="Disbalance" radius={[8, 8, 0, 0]} />
+              <Tooltip contentStyle={{ backgroundColor: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "8px" }} formatter={(value: any) => value ? value.toFixed(1) : "N/A"} />
+              <Bar dataKey="ybalanceDisbalance" fill="#8b5cf6" name="Composite Disbalance" radius={[8, 8, 0, 0]} />
               <ReferenceLine y={4} stroke="#22c55e" strokeDasharray="5 5" label={{ value: "Balanced (<4%)", position: "right", fill: "#16a34a", fontSize: 10 }} />
             </BarChart>
           </ResponsiveContainer>

@@ -1,24 +1,29 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, ReferenceLine } from 'recharts';
-import { Card } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 interface YBalanceData {
-  [year: string]: {
-    anteriorLeft?: number;
-    anteriorRight?: number;
-    medialLeft?: number;
-    medialRight?: number;
-    lateralLeft?: number;
-    lateralRight?: number;
-    leftComposite?: number;
-    rightComposite?: number;
-    compositeDisbalance?: number;
-  };
+  anterior: number;
+  medial: number;
+  lateral: number;
+  leftComposite: number;
+  rightAnterior: number;
+  rightMedial: number;
+  rightLateral: number;
+  rightComposite: number;
+  anteriorDisbalance: number;
+  medialDisbalance: number;
+  lateralDisbalance: number;
+  compositeDisbalance: number;
 }
 
 interface YBalanceTestProps {
   athleteName: string;
-  yBalanceData?: YBalanceData;
+  yBalanceData?: {
+    '2025'?: YBalanceData;
+    '2026'?: YBalanceData;
+  };
 }
 
 export function YBalanceTest({ athleteName, yBalanceData }: YBalanceTestProps) {
@@ -26,254 +31,184 @@ export function YBalanceTest({ athleteName, yBalanceData }: YBalanceTestProps) {
 
   if (!yBalanceData || !yBalanceData[selectedYear]) {
     return (
-      <div className="text-center py-8 text-slate-500">
-        No Y-Balance data available for {selectedYear}
-      </div>
+      <Card>
+        <CardHeader>
+          <CardTitle>🏃 Y-Balance Test</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <p className="text-gray-500">No Y-Balance data available for {selectedYear}</p>
+        </CardContent>
+      </Card>
     );
   }
 
-  const yearData = yBalanceData[selectedYear];
+  const data = yBalanceData[selectedYear];
 
-  // Extract values for the chart - EXACT PYTHON CODE LOGIC
-  const metrics = ['Anterior', 'Medial', 'Lateral', 'Composite'];
-  const leftLegValues = [
-    yearData.anteriorLeft ?? null,
-    yearData.medialLeft ?? null,
-    yearData.lateralLeft ?? null,
-    yearData.leftComposite ?? null,
+  // Prepare chart data
+  const chartData = [
+    {
+      metric: 'Anterior',
+      left: data.anterior,
+      right: data.rightAnterior,
+      disbalance: data.anteriorDisbalance,
+    },
+    {
+      metric: 'Medial',
+      left: data.medial,
+      right: data.rightMedial,
+      disbalance: data.medialDisbalance,
+    },
+    {
+      metric: 'Lateral',
+      left: data.lateral,
+      right: data.rightLateral,
+      disbalance: data.lateralDisbalance,
+    },
+    {
+      metric: 'Composite',
+      left: data.leftComposite,
+      right: data.rightComposite,
+      disbalance: data.compositeDisbalance,
+    },
   ];
-  const rightLegValues = [
-    yearData.anteriorRight ?? null,
-    yearData.medialRight ?? null,
-    yearData.lateralRight ?? null,
-    yearData.rightComposite ?? null,
-  ];
 
-  // Prepare data for chart
-  const chartData = metrics.map((metric, idx) => ({
-    metric,
-    leftLeg: leftLegValues[idx],
-    rightLeg: rightLegValues[idx],
-    disbalance: leftLegValues[idx] !== null && rightLegValues[idx] !== null 
-      ? Math.abs(leftLegValues[idx]! - rightLegValues[idx]!)
-      : null,
-  }));
+  // Filter out NaN values
+  const validData = chartData.filter(
+    (d) => !isNaN(d.left) && !isNaN(d.right) && d.left !== null && d.right !== null
+  );
 
-  // Calculate all valid values for axis range
-  const allValidValues = [...leftLegValues, ...rightLegValues].filter(v => v !== null) as number[];
-  const minValue = allValidValues.length > 0 ? Math.min(...allValidValues) - 8 : 70;
-  const maxValue = allValidValues.length > 0 ? Math.max(...allValidValues) + 8 : 130;
+  // Calculate stats
+  const avgLeftLeg = validData.length > 0 ? (validData.reduce((sum, d) => sum + d.left, 0) / validData.length).toFixed(1) : 'N/A';
+  const avgRightLeg = validData.length > 0 ? (validData.reduce((sum, d) => sum + d.right, 0) / validData.length).toFixed(1) : 'N/A';
+  const avgDisbalance = validData.length > 0 ? (validData.reduce((sum, d) => sum + d.disbalance, 0) / validData.length).toFixed(1) : 'N/A';
 
-  // Calculate overall balance status
-  const disbalances = chartData
-    .map(d => d.disbalance)
-    .filter(d => d !== null) as number[];
-  const avgDisbalance = disbalances.length > 0 
-    ? disbalances.reduce((a, b) => a + b, 0) / disbalances.length 
-    : 0;
-  const isBalanced = avgDisbalance < 4;
+  const isBalanced = validData.every((d) => d.disbalance < 4);
+  const allAboveNorm = validData.every((d) => d.left >= 94 && d.right >= 94);
 
   return (
-    <div className="space-y-6">
-      {/* Year Selector */}
-      <div className="flex gap-2 mb-4">
-        <button
-          onClick={() => setSelectedYear('2025')}
-          className={`px-4 py-2 rounded-lg font-medium transition-colors ${
-            selectedYear === '2025'
-              ? 'bg-blue-600 text-white'
-              : 'bg-slate-200 text-slate-700 hover:bg-slate-300'
-          }`}
-        >
-          2025 Data
-        </button>
-        <button
-          onClick={() => setSelectedYear('2026')}
-          className={`px-4 py-2 rounded-lg font-medium transition-colors ${
-            selectedYear === '2026'
-              ? 'bg-blue-600 text-white'
-              : 'bg-slate-200 text-slate-700 hover:bg-slate-300'
-          }`}
-        >
-          2026 Data
-        </button>
-      </div>
+    <div className="space-y-4">
+      <Card>
+        <CardHeader>
+          <div className="flex items-center justify-between">
+            <CardTitle>🏃 Y-Balance Test</CardTitle>
+            <Tabs value={selectedYear} onValueChange={(v) => setSelectedYear(v as '2025' | '2026')}>
+              <TabsList>
+                <TabsTrigger value="2025">2025</TabsTrigger>
+                <TabsTrigger value="2026">2026</TabsTrigger>
+              </TabsList>
+            </Tabs>
+          </div>
+        </CardHeader>
+        <CardContent className="space-y-6">
+          {/* Main Chart */}
+          <div className="w-full h-96">
+            <ResponsiveContainer width="100%" height="100%">
+              <LineChart data={validData} margin={{ top: 20, right: 30, left: 0, bottom: 60 }}>
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis
+                  dataKey="metric"
+                  angle={-45}
+                  textAnchor="end"
+                  height={80}
+                />
+                <YAxis
+                  label={{ value: 'Reach Percentage (%)', angle: -90, position: 'insideLeft' }}
+                  domain={[Math.min(...validData.map((d) => Math.min(d.left, d.right))) - 8, Math.max(...validData.map((d) => Math.max(d.left, d.right))) + 8]}
+                />
+                <Tooltip
+                  formatter={(value) => typeof value === 'number' ? value.toFixed(1) : 'N/A'}
+                  contentStyle={{ backgroundColor: '#fff', border: '1px solid #ccc' }}
+                />
+                <Legend />
+                <ReferenceLine
+                  y={94}
+                  stroke="#ef4444"
+                  strokeDasharray="5 5"
+                  label={{ value: 'Normative ≥ 94%', position: 'insideTopLeft', offset: 10, fill: '#ef4444' }}
+                />
+                <Line
+                  type="monotone"
+                  dataKey="left"
+                  stroke="#3b82f6"
+                  name="Left Leg"
+                  strokeWidth={3}
+                  dot={{ fill: '#3b82f6', r: 7, strokeWidth: 2, stroke: '#000' }}
+                  connectNulls
+                />
+                <Line
+                  type="monotone"
+                  dataKey="right"
+                  stroke="#f97316"
+                  name="Right Leg"
+                  strokeWidth={3}
+                  dot={{ fill: '#f97316', r: 7, strokeWidth: 2, stroke: '#000' }}
+                  connectNulls
+                />
+              </LineChart>
+            </ResponsiveContainer>
+          </div>
 
-      {/* Main Chart - EXACT PYTHON CODE VISUALIZATION */}
-      <Card className="p-6 bg-white shadow-sm border border-slate-100">
-        <h3 className="text-lg font-bold text-slate-800 mb-6">
-          {athleteName} - Y-Balance Test (20{selectedYear})
-        </h3>
-        
-        <ResponsiveContainer width="100%" height={500}>
-          <LineChart
-            data={chartData}
-            margin={{ top: 40, right: 120, left: 80, bottom: 60 }}
-          >
-            <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
-            <XAxis 
-              dataKey="metric" 
-              label={{ value: 'Test Metric', position: 'bottom', offset: 10, fontSize: 12 }}
-              tick={{ fontSize: 12 }}
-            />
-            <YAxis 
-              label={{ value: 'Reach Percentage (%)', angle: -90, position: 'insideLeft', offset: 10 }}
-              domain={[minValue, maxValue]}
-              tick={{ fontSize: 12 }}
-            />
-            <Tooltip 
-              contentStyle={{ backgroundColor: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: '8px' }}
-              formatter={(value: any) => value !== null ? `${value.toFixed(1)}%` : 'N/A'}
-              labelFormatter={(label) => `${label}`}
-            />
-            <Legend 
-              wrapperStyle={{ paddingTop: '20px' }}
-              iconType="circle"
-              verticalAlign="bottom"
-              height={36}
-            />
-            
-            {/* Normative Reference Line at 94% */}
-            <ReferenceLine 
-              y={94} 
-              stroke="#ef4444" 
-              strokeDasharray="5 5" 
-              strokeWidth={2}
-              label={{ value: 'Normative ≥ 94%', position: 'top', fill: '#dc2626', fontSize: 12, offset: 10 }}
-            />
-            
-            {/* Left Leg - Blue Circles */}
-            <Line
-              type="monotone"
-              dataKey="leftLeg"
-              stroke="#3b82f6"
-              strokeWidth={3}
-              dot={{ fill: '#3b82f6', r: 8, strokeWidth: 2, stroke: '#000' }}
-              name="Left Leg"
-              isAnimationActive={false}
-            />
-            
-            {/* Right Leg - Orange Circles */}
-            <Line
-              type="monotone"
-              dataKey="rightLeg"
-              stroke="#f97316"
-              strokeWidth={3}
-              dot={{ fill: '#f97316', r: 8, strokeWidth: 2, stroke: '#000' }}
-              name="Right Leg"
-              isAnimationActive={false}
-            />
-          </LineChart>
-        </ResponsiveContainer>
+          {/* Stats Grid */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
+              <p className="text-sm text-gray-600">Avg Left Leg</p>
+              <p className="text-2xl font-bold text-blue-600">{avgLeftLeg}%</p>
+            </div>
+            <div className="bg-orange-50 p-4 rounded-lg border border-orange-200">
+              <p className="text-sm text-gray-600">Avg Right Leg</p>
+              <p className="text-2xl font-bold text-orange-600">{avgRightLeg}%</p>
+            </div>
+            <div className={`p-4 rounded-lg border ${isBalanced ? 'bg-green-50 border-green-200' : 'bg-red-50 border-red-200'}`}>
+              <p className="text-sm text-gray-600">Avg Disbalance</p>
+              <p className={`text-2xl font-bold ${isBalanced ? 'text-green-600' : 'text-red-600'}`}>{avgDisbalance}%</p>
+            </div>
+            <div className={`p-4 rounded-lg border ${allAboveNorm ? 'bg-green-50 border-green-200' : 'bg-yellow-50 border-yellow-200'}`}>
+              <p className="text-sm text-gray-600">Status</p>
+              <p className={`text-lg font-bold ${allAboveNorm ? 'text-green-600' : 'text-yellow-600'}`}>
+                {allAboveNorm ? '✓ Above Norm' : isBalanced ? '✓ Balanced' : '⚠ Imbalanced'}
+              </p>
+            </div>
+          </div>
 
-        {/* Disbalance Information - Exact Python Code Style */}
-        <div className="mt-6 p-4 bg-slate-50 rounded-lg border border-slate-200">
-          <p className="text-sm font-medium text-slate-700 mb-3">
-            Difference Normative: &lt;4%
-          </p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-            {chartData.map((item, idx) => (
-              item.disbalance !== null && (
-                <div key={idx} className="text-sm">
-                  <span className="font-medium text-slate-700">{item.metric}:</span>
-                  <span className={`ml-2 font-bold text-lg ${item.disbalance < 4 ? 'text-green-600' : 'text-orange-600'}`}>
-                    {item.disbalance.toFixed(1)}%
+          {/* Detailed Metrics */}
+          <div className="space-y-3">
+            <h3 className="font-semibold text-gray-700">Detailed Metrics</h3>
+            {validData.map((item) => (
+              <div key={item.metric} className="border rounded-lg p-3 bg-gray-50">
+                <div className="flex items-center justify-between mb-2">
+                  <span className="font-medium text-gray-700">{item.metric}</span>
+                  <span className={`text-sm px-2 py-1 rounded ${item.disbalance < 4 ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}>
+                    Disbalance: {item.disbalance.toFixed(1)}%
                   </span>
                 </div>
-              )
+                <div className="flex gap-4 text-sm">
+                  <div>
+                    <span className="text-gray-600">Left: </span>
+                    <span className={`font-semibold ${item.left >= 94 ? 'text-blue-600' : 'text-orange-600'}`}>
+                      {item.left.toFixed(1)}%
+                    </span>
+                  </div>
+                  <div>
+                    <span className="text-gray-600">Right: </span>
+                    <span className={`font-semibold ${item.right >= 94 ? 'text-blue-600' : 'text-orange-600'}`}>
+                      {item.right.toFixed(1)}%
+                    </span>
+                  </div>
+                </div>
+              </div>
             ))}
           </div>
-        </div>
-      </Card>
 
-      {/* Balance Status Cards */}
-      <div className="grid grid-cols-3 gap-4">
-        <Card className="p-4 bg-blue-50 border-blue-200 shadow-sm">
-          <p className="text-xs font-medium text-slate-600 mb-2">Left Leg Average</p>
-          <p className="text-3xl font-bold text-blue-600">
-            {leftLegValues.filter(v => v !== null).length > 0
-              ? (leftLegValues.filter(v => v !== null).reduce((a: any, b: any) => a + b, 0) / leftLegValues.filter(v => v !== null).length).toFixed(1)
-              : 'N/A'}%
-          </p>
-        </Card>
-
-        <Card className="p-4 bg-orange-50 border-orange-200 shadow-sm">
-          <p className="text-xs font-medium text-slate-600 mb-2">Right Leg Average</p>
-          <p className="text-3xl font-bold text-orange-600">
-            {rightLegValues.filter(v => v !== null).length > 0
-              ? (rightLegValues.filter(v => v !== null).reduce((a: any, b: any) => a + b, 0) / rightLegValues.filter(v => v !== null).length).toFixed(1)
-              : 'N/A'}%
-          </p>
-        </Card>
-
-        <Card className={`p-4 shadow-sm ${isBalanced ? 'bg-green-50 border-green-200' : 'bg-red-50 border-red-200'}`}>
-          <p className="text-xs font-medium text-slate-600 mb-2">Balance Status</p>
-          <p className={`text-lg font-bold ${isBalanced ? 'text-green-600' : 'text-red-600'}`}>
-            {isBalanced ? '✓ Balanced' : '⚠ Imbalanced'}
-          </p>
-          <p className="text-xs text-slate-600 mt-1">Avg: {avgDisbalance.toFixed(1)}%</p>
-        </Card>
-      </div>
-
-      {/* Detailed Metrics Table */}
-      <Card className="p-6 bg-white shadow-sm border border-slate-100">
-        <h4 className="font-semibold text-slate-800 mb-4">Detailed Metrics</h4>
-        <div className="overflow-x-auto">
-          <table className="w-full text-sm">
-            <thead>
-              <tr className="border-b-2 border-slate-300 bg-slate-50">
-                <th className="text-left py-3 px-3 font-bold text-slate-700">Test Metric</th>
-                <th className="text-center py-3 px-3 font-bold text-slate-700">Left Leg (%)</th>
-                <th className="text-center py-3 px-3 font-bold text-slate-700">Right Leg (%)</th>
-                <th className="text-center py-3 px-3 font-bold text-slate-700">Disbalance (%)</th>
-                <th className="text-center py-3 px-3 font-bold text-slate-700">Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              {chartData.map((item, idx) => (
-                <tr key={idx} className="border-b border-slate-100 hover:bg-slate-50">
-                  <td className="py-3 px-3 font-semibold text-slate-700">{item.metric}</td>
-                  <td className="text-center py-3 px-3 text-slate-600">
-                    {item.leftLeg !== null ? `${item.leftLeg.toFixed(1)}%` : 'N/A'}
-                  </td>
-                  <td className="text-center py-3 px-3 text-slate-600">
-                    {item.rightLeg !== null ? `${item.rightLeg.toFixed(1)}%` : 'N/A'}
-                  </td>
-                  <td className="text-center py-3 px-3">
-                    {item.disbalance !== null ? (
-                      <span className={`font-bold text-lg ${item.disbalance < 4 ? 'text-green-600' : 'text-orange-600'}`}>
-                        {item.disbalance.toFixed(1)}%
-                      </span>
-                    ) : (
-                      'N/A'
-                    )}
-                  </td>
-                  <td className="text-center py-3 px-3">
-                    {item.disbalance !== null && (
-                      <span className={`px-3 py-1 rounded-full text-xs font-bold ${
-                        item.disbalance < 4
-                          ? 'bg-green-100 text-green-700'
-                          : 'bg-orange-100 text-orange-700'
-                      }`}>
-                        {item.disbalance < 4 ? '✓ Good' : '⚠ Check'}
-                      </span>
-                    )}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </Card>
-
-      {/* Reference Standards */}
-      <Card className="p-4 bg-blue-50 border-blue-200 shadow-sm">
-        <p className="text-sm font-semibold text-slate-700 mb-2">Reference Standards:</p>
-        <ul className="text-sm text-slate-700 space-y-1">
-          <li>• <strong>Normative:</strong> ≥ 94% for all directions</li>
-          <li>• <strong>Balanced:</strong> Left-Right disbalance &lt; 4%</li>
-          <li>• <strong>Composite:</strong> Average of Anterior, Medial, and Lateral</li>
-        </ul>
+          {/* Legend Info */}
+          <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 text-sm text-gray-700">
+            <p className="font-semibold mb-2">Reference Standards:</p>
+            <ul className="space-y-1">
+              <li>• <strong>Normative:</strong> ≥ 94% for all directions</li>
+              <li>• <strong>Balanced:</strong> Left-Right disbalance &lt; 4%</li>
+              <li>• <strong>Composite:</strong> Average of Anterior, Medial, and Lateral</li>
+            </ul>
+          </div>
+        </CardContent>
       </Card>
     </div>
   );

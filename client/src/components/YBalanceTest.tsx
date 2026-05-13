@@ -44,35 +44,27 @@ export function YBalanceTest({ athleteName, yBalanceData }: YBalanceTestProps) {
 
   const data = yBalanceData[selectedYear];
 
-  // Prepare chart data with proper ordering for line connection
+  // Prepare chart data - using metric names as X-axis
   const chartData = [
     {
-      metric: 'Anterior',
-      metricIndex: 0,
+      name: 'Anterior',
       left: data.anterior,
       right: data.rightAnterior,
-      disbalance: data.anteriorDisbalance,
     },
     {
-      metric: 'Medial',
-      metricIndex: 1,
+      name: 'Medial',
       left: data.medial,
       right: data.rightMedial,
-      disbalance: data.medialDisbalance,
     },
     {
-      metric: 'Lateral',
-      metricIndex: 2,
+      name: 'Lateral',
       left: data.lateral,
       right: data.rightLateral,
-      disbalance: data.lateralDisbalance,
     },
     {
-      metric: 'Composite',
-      metricIndex: 3,
+      name: 'Composite',
       left: data.leftComposite,
       right: data.rightComposite,
-      disbalance: data.compositeDisbalance,
     },
   ];
 
@@ -80,6 +72,14 @@ export function YBalanceTest({ athleteName, yBalanceData }: YBalanceTestProps) {
   const validData = chartData.filter(
     (d) => !isNaN(d.left) && !isNaN(d.right) && d.left !== null && d.right !== null
   );
+
+  // Calculate disbalance for each metric
+  const disbalanceData = [
+    { metric: 'Anterior', disbalance: data.anteriorDisbalance },
+    { metric: 'Medial', disbalance: data.medialDisbalance },
+    { metric: 'Lateral', disbalance: data.lateralDisbalance },
+    { metric: 'Composite', disbalance: data.compositeDisbalance },
+  ].filter((d) => !isNaN(d.disbalance) && d.disbalance !== null);
 
   return (
     <div className="space-y-4">
@@ -99,25 +99,13 @@ export function YBalanceTest({ athleteName, yBalanceData }: YBalanceTestProps) {
           {/* Main Chart - Line Chart with Connected Points */}
           <div className="w-full h-96">
             <ResponsiveContainer width="100%" height="100%">
-              <LineChart data={validData} margin={{ top: 20, right: 30, left: 100, bottom: 60 }}>
+              <LineChart data={validData} margin={{ top: 20, right: 30, left: 60, bottom: 20 }}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
                 <XAxis
-                  dataKey="left"
-                  type="number"
-                  name="Reach Percentage (%)"
-                  domain={[Math.min(...validData.map((d) => Math.min(d.left, d.right))) - 5, Math.max(...validData.map((d) => Math.max(d.left, d.right))) + 5]}
-                  label={{ value: 'Reach Percentage (%)', position: 'insideBottomRight', offset: -10 }}
+                  dataKey="name"
                 />
                 <YAxis
-                  dataKey="metricIndex"
-                  type="number"
-                  domain={[-0.5, 3.5]}
-                  ticks={[0, 1, 2, 3]}
-                  tickFormatter={(value) => {
-                    const metrics = ['Anterior', 'Medial', 'Lateral', 'Composite'];
-                    return metrics[value] || '';
-                  }}
-                  label={{ value: 'Test Metric', angle: -90, position: 'insideLeft' }}
+                  domain={[70, 135]}
                 />
                 <Tooltip
                   cursor={{ strokeDasharray: '3 3' }}
@@ -126,10 +114,9 @@ export function YBalanceTest({ athleteName, yBalanceData }: YBalanceTestProps) {
                       const data = payload[0].payload;
                       return (
                         <div className="bg-white p-2 border border-gray-300 rounded shadow">
-                          <p className="text-sm font-semibold">{data.metric}</p>
-                          <p className="text-sm">Left: {data.left.toFixed(1)}%</p>
-                          <p className="text-sm">Right: {data.right.toFixed(1)}%</p>
-                          <p className="text-sm">Disbalance: {data.disbalance.toFixed(1)}%</p>
+                          <p className="text-sm font-semibold">{data.name}</p>
+                          <p className="text-sm text-blue-600">Left: {data.left.toFixed(1)}%</p>
+                          <p className="text-sm text-orange-600">Right: {data.right.toFixed(1)}%</p>
                         </div>
                       );
                     }
@@ -137,10 +124,10 @@ export function YBalanceTest({ athleteName, yBalanceData }: YBalanceTestProps) {
                   }}
                 />
                 <ReferenceLine
-                  x={94}
+                  y={94}
                   stroke="#ef4444"
                   strokeDasharray="5 5"
-                  label={{ value: 'Normative ≥ 94%', position: 'top', fill: '#dc2626', fontSize: 11 }}
+                  label={{ value: 'Normative ≥ 94%', position: 'right', fill: '#dc2626', fontSize: 11 }}
                 />
                 <Legend />
                 
@@ -171,16 +158,6 @@ export function YBalanceTest({ athleteName, yBalanceData }: YBalanceTestProps) {
             </ResponsiveContainer>
           </div>
 
-          {/* Disbalance Labels */}
-          <div className="text-sm text-gray-600 space-y-1">
-            <p><strong>Disbalance Percentages:</strong></p>
-            {validData.map((item) => (
-              <p key={item.metric}>
-                {item.metric}: <span className={item.disbalance < 4 ? 'text-green-600 font-semibold' : 'text-orange-600 font-semibold'}>{item.disbalance.toFixed(1)}%</span>
-              </p>
-            ))}
-          </div>
-
           {/* Detailed Metrics Table */}
           <div className="space-y-3">
             <h3 className="font-semibold text-gray-700">Detailed Metrics</h3>
@@ -196,19 +173,22 @@ export function YBalanceTest({ athleteName, yBalanceData }: YBalanceTestProps) {
                   </tr>
                 </thead>
                 <tbody>
-                  {validData.map((item) => (
-                    <tr key={item.metric} className="border-b border-gray-200 hover:bg-gray-50">
-                      <td className="p-2 font-medium">{item.metric}</td>
-                      <td className="p-2 text-center text-blue-600 font-semibold">{item.left.toFixed(1)}</td>
-                      <td className="p-2 text-center text-orange-600 font-semibold">{item.right.toFixed(1)}</td>
-                      <td className="p-2 text-center font-semibold">{item.disbalance.toFixed(1)}</td>
-                      <td className="p-2 text-center">
-                        <span className={`text-xs px-2 py-1 rounded font-semibold ${item.disbalance < 4 ? 'bg-green-100 text-green-700' : 'bg-orange-100 text-orange-700'}`}>
-                          {item.disbalance < 4 ? '✓ Balanced' : '⚠ Imbalanced'}
-                        </span>
-                      </td>
-                    </tr>
-                  ))}
+                  {validData.map((item) => {
+                    const disbalance = disbalanceData.find((d) => d.metric === item.name)?.disbalance ?? 0;
+                    return (
+                      <tr key={item.name} className="border-b border-gray-200 hover:bg-gray-50">
+                        <td className="p-2 font-medium">{item.name}</td>
+                        <td className="p-2 text-center text-blue-600 font-semibold">{item.left.toFixed(1)}</td>
+                        <td className="p-2 text-center text-orange-600 font-semibold">{item.right.toFixed(1)}</td>
+                        <td className="p-2 text-center font-semibold">{disbalance.toFixed(1)}</td>
+                        <td className="p-2 text-center">
+                          <span className={`text-xs px-2 py-1 rounded font-semibold ${disbalance < 4 ? 'bg-green-100 text-green-700' : 'bg-orange-100 text-orange-700'}`}>
+                            {disbalance < 4 ? '✓ Balanced' : '⚠ Imbalanced'}
+                          </span>
+                        </td>
+                      </tr>
+                    );
+                  })}
                 </tbody>
               </table>
             </div>

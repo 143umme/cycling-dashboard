@@ -46,6 +46,26 @@ export interface TrunkEnduranceData {
   rightLateral: number;
 }
 
+// Y-Balance Test
+export interface YBalanceTestData {
+  anterior?: number | null;
+  medial?: number | null;
+  lateral?: number | null;
+  leftComposite?: number | null;
+  rightAnterior?: number | null;
+  rightMedial?: number | null;
+  rightLateral?: number | null;
+  rightComposite?: number | null;
+  anteriorDisbalance?: number | null;
+  medialDisbalance?: number | null;
+  lateralDisbalance?: number | null;
+  compositeDisbalance?: number | null;
+}
+
+export interface YBalanceData {
+  [key: string]: any;
+}
+
 // Complete year data
 export interface AthleteYear {
   jointROM: JointROMData;
@@ -64,6 +84,7 @@ export interface Athlete {
   data: {
     "2025": AthleteYear;
     "2026": AthleteYear;
+    yBalance?: YBalanceData;
   };
 }
 
@@ -77,6 +98,7 @@ export const athletes: Athlete[] = (realAthleteDataJson as any[]).map((a) => ({
   data: {
     "2025": a.data["2025"],
     "2026": a.data["2026"],
+    yBalance: a.yBalance as any,
   },
 }));
 

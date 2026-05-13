@@ -65,6 +65,10 @@ export default function GroupAnalysis({ yearView }: GroupAnalysisProps) {
         rightLateral: data.trunkEndurance.rightLateral,
         // FMS
         fms: data.functionalMovement.totalScore,
+        // Y-Balance Test
+        ybalanceLeft: a.data.yBalance?.[year]?.leftComposite ?? null,
+        ybalanceRight: a.data.yBalance?.[year]?.rightComposite ?? null,
+        ybalanceDisbalance: a.data.yBalance?.[year]?.compositeDisbalance ?? null,
       };
     });
   };
@@ -310,6 +314,50 @@ export default function GroupAnalysis({ yearView }: GroupAnalysisProps) {
               <Bar dataKey="fms" fill="#8b5cf6" name="FMS Score" radius={[8, 8, 0, 0]} />
               <ReferenceLine y={14} stroke="#ef4444" strokeDasharray="5 5" label={{ value: "Poor (14)", position: "right", fill: "#dc2626", fontSize: 10 }} />
               <ReferenceLine y={18} stroke="#eab308" strokeDasharray="5 5" label={{ value: "Good (18)", position: "right", fill: "#b45309", fontSize: 10 }} />
+            </BarChart>
+          </ResponsiveContainer>
+        </div>
+
+        {/* Y-Balance Test - Composite Score Comparison */}
+        <div className="bg-white rounded-lg p-6 shadow-sm border border-slate-100">
+          <h3 className="text-lg font-bold text-slate-800 mb-4">Y-Balance Test - Composite Scores (%)</h3>
+          <ResponsiveContainer width="100%" height={350}>
+            <BarChart data={groupData} margin={{ top: 20, right: 30, left: 0, bottom: 80 }}>
+              <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+              <XAxis 
+                dataKey="name" 
+                angle={-45} 
+                textAnchor="end" 
+                height={100}
+                tick={{ fontSize: 11 }}
+              />
+              <YAxis label={{ value: "Composite Score (%)", angle: -90, position: "insideLeft" }} domain={[0, 140]} />
+              <Tooltip contentStyle={{ backgroundColor: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "8px" }} formatter={(value: any) => value ? value.toFixed(1) : "N/A"} />
+              <Legend />
+              <Bar dataKey="ybalanceLeft" fill="#3b82f6" name="Left Leg" radius={[4, 4, 0, 0]} />
+              <Bar dataKey="ybalanceRight" fill="#f97316" name="Right Leg" radius={[4, 4, 0, 0]} />
+              <ReferenceLine y={94} stroke="#ef4444" strokeDasharray="5 5" label={{ value: "Normative (94%)", position: "right", fill: "#dc2626", fontSize: 10 }} />
+            </BarChart>
+          </ResponsiveContainer>
+        </div>
+
+        {/* Y-Balance Disbalance Analysis */}
+        <div className="bg-white rounded-lg p-6 shadow-sm border border-slate-100">
+          <h3 className="text-lg font-bold text-slate-800 mb-4">Y-Balance Disbalance Analysis (%)</h3>
+          <ResponsiveContainer width="100%" height={300}>
+            <BarChart data={groupData} margin={{ top: 20, right: 30, left: 0, bottom: 80 }}>
+              <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+              <XAxis 
+                dataKey="name" 
+                angle={-45} 
+                textAnchor="end" 
+                height={100}
+                tick={{ fontSize: 11 }}
+              />
+              <YAxis label={{ value: "Disbalance (%)", angle: -90, position: "insideLeft" }} />
+              <Tooltip contentStyle={{ backgroundColor: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "8px" }} formatter={(value: any) => value ? value.toFixed(1) : "N/A"} />
+              <Bar dataKey="ybalanceDisbalance" fill="#8b5cf6" name="Composite Disbalance" radius={[8, 8, 0, 0]} />
+              <ReferenceLine y={4} stroke="#22c55e" strokeDasharray="5 5" label={{ value: "Balanced (<4%)", position: "right", fill: "#16a34a", fontSize: 10 }} />
             </BarChart>
           </ResponsiveContainer>
         </div>

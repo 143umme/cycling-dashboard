@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, ReferenceLine, LineChart, Line, ComposedChart, ScatterChart, Scatter } from "recharts";
 import type { Athlete, AthleteYear, YearKey } from "@/lib/athleteData";
+import { YBalanceTest } from "./YBalanceTest";
 
 interface TestTabsProps {
   athlete: Athlete;
@@ -14,6 +15,7 @@ const testTabs = [
   { id: "isometric", label: "Isometric Strength", color: "#f97316", icon: "💪" },
   { id: "fms", label: "Functional Movement", color: "#22c55e", icon: "🏃" },
   { id: "trunk", label: "Trunk Endurance", color: "#14b8a6", icon: "🧘" },
+  { id: "ybalance", label: "Y-Balance Test", color: "#8b5cf6", icon: "⚖️" },
 ];
 
 // Normative values for each test
@@ -458,6 +460,13 @@ export default function TestTabs({ athlete, yearView, teamAvg2025, teamAvg2026 }
               <MetricCard key={idx} label={item.name} value2025={item["2025"]} value2026={item["2026"]} unit="sec" normative={item.normative} />
             ))}
           </div>
+        </div>
+      )}
+
+      {/* Y-Balance Test Tab */}
+      {activeTab === "ybalance" && (
+        <div className="space-y-6">
+          <YBalanceTest athleteName={athlete.name} yBalanceData={athlete.data.yBalance} />
         </div>
       )}
     </div>

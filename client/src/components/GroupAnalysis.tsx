@@ -119,7 +119,7 @@ export default function GroupAnalysis({ yearView }: GroupAnalysisProps) {
       <div className="space-y-8">
         {/* Hip ROM - Line Chart */}
         <div className="bg-white rounded-lg p-6 shadow-sm border border-slate-100">
-          <h3 className="text-lg font-bold text-slate-800 mb-4">Hip Range of Motion (Degrees)</h3>
+          <h3 className="text-lg font-bold text-slate-800 mb-4">Hip Range of Motion (Degrees) - 4 Lines</h3>
           <ResponsiveContainer width="100%" height={350}>
             <LineChart data={groupData} margin={{ top: 20, right: 30, left: 0, bottom: 80 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
@@ -135,8 +135,43 @@ export default function GroupAnalysis({ yearView }: GroupAnalysisProps) {
               <Legend />
               <Line type="monotone" dataKey="lHipROM" stroke="#6366f1" name="L Hip ROM" strokeWidth={2} dot={{ r: 4 }} />
               <Line type="monotone" dataKey="rHipROM" stroke="#0ea5e9" name="R Hip ROM" strokeWidth={2} dot={{ r: 4 }} />
+              <Line type="monotone" dataKey="flexors" stroke="#ec4899" name="Flexors" strokeWidth={2} dot={{ r: 4 }} />
+              <Line type="monotone" dataKey="extensors" stroke="#f59e0b" name="Extensors" strokeWidth={2} dot={{ r: 4 }} />
               <ReferenceLine y={NORMATIVE_VALUES.hipROM} stroke="#94a3b8" strokeDasharray="5 5" label={{ value: "Normative (90°)", position: "right", fill: "#64748b", fontSize: 11 }} />
             </LineChart>
+          </ResponsiveContainer>
+        </div>
+
+        {/* Hip ROM Area Chart - 2025 vs 2026 */}
+        <div className="bg-white rounded-lg p-6 shadow-sm border border-slate-100">
+          <h3 className="text-lg font-bold text-slate-800 mb-4">Hip Range of Motion - Area Chart (2025 vs 2026)</h3>
+          <ResponsiveContainer width="100%" height={350}>
+            <AreaChart data={groupData} margin={{ top: 20, right: 30, left: 0, bottom: 80 }}>
+              <defs>
+                <linearGradient id="colorHipROM2025" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="5%" stopColor="#3b82f6" stopOpacity={0.8}/>
+                  <stop offset="95%" stopColor="#3b82f6" stopOpacity={0}/>
+                </linearGradient>
+                <linearGradient id="colorHipROM2026" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="5%" stopColor="#f97316" stopOpacity={0.8}/>
+                  <stop offset="95%" stopColor="#f97316" stopOpacity={0}/>
+                </linearGradient>
+              </defs>
+              <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+              <XAxis 
+                dataKey="name" 
+                angle={-45} 
+                textAnchor="end" 
+                height={100}
+                tick={{ fontSize: 11 }}
+              />
+              <YAxis label={{ value: "°", angle: -90, position: "insideLeft" }} />
+              <Tooltip contentStyle={{ backgroundColor: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "8px" }} formatter={(value: any) => value.toFixed(1)} />
+              <Legend />
+              <Area type="monotone" dataKey="lHipROM" stroke="#3b82f6" fill="url(#colorHipROM2025)" name="2025" />
+              <Area type="monotone" dataKey="rHipROM" stroke="#f97316" fill="url(#colorHipROM2026)" name="2026" />
+              <ReferenceLine y={NORMATIVE_VALUES.hipROM} stroke="#94a3b8" strokeDasharray="5 5" label={{ value: "Normative (90°)", position: "right", fill: "#64748b", fontSize: 11 }} />
+            </AreaChart>
           </ResponsiveContainer>
         </div>
 

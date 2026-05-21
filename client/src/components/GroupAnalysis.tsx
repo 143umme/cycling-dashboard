@@ -356,7 +356,7 @@ export default function GroupAnalysis({ yearView }: GroupAnalysisProps) {
             ]} margin={{ top: 20, right: 30, left: 60, bottom: 20 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
               <XAxis dataKey="metric" />
-              <YAxis domain={[70, 130]} />
+              <YAxis domain={[70, 150]} type="number" ticks={[70, 90, 110, 130, 150]} />
               <Tooltip contentStyle={{ backgroundColor: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "8px" }} formatter={(value: any) => value ? value.toFixed(1) : "N/A"} />
               <Legend />
               <Bar dataKey="left2025" fill="#3b82f6" name="Left 2025" radius={[4, 4, 0, 0]} />
@@ -368,34 +368,40 @@ export default function GroupAnalysis({ yearView }: GroupAnalysisProps) {
           </ResponsiveContainer>
         </div>
 
-        {/* Y-Balance Disbalance - Group Average Comparison */}
+        {/* Y-Balance Disbalance - 2025 vs 2026 Comparison */}
         <div className="bg-white rounded-lg p-6 shadow-sm border border-slate-100">
-          <h3 className="text-lg font-bold text-slate-800 mb-4">Y-Balance Test - Group Average Disbalance</h3>
+          <h3 className="text-lg font-bold text-slate-800 mb-4">Y-Balance Test - Group Average Disbalance (2025 vs 2026)</h3>
           <p className="text-sm text-slate-600 mb-4">Group average disbalance percentages (lower is better, &lt;4% is balanced)</p>
           <ResponsiveContainer width="100%" height={300}>
             <BarChart data={[
               {
                 metric: "Anterior",
-                disbalance: groupData.filter(d => d.ybalanceAnteriorDisbalance !== null).reduce((sum, d) => sum + (d.ybalanceAnteriorDisbalance || 0), 0) / groupData.filter(d => d.ybalanceAnteriorDisbalance !== null).length || 0,
+                "2025": groupData.filter(d => d.ybalanceAnteriorDisbalance !== null).reduce((sum, d) => sum + (d.ybalanceAnteriorDisbalance || 0), 0) / groupData.filter(d => d.ybalanceAnteriorDisbalance !== null).length || 0,
+                "2026": groupData.filter(d => d.ybalanceAnteriorDisbalance !== null).reduce((sum, d) => sum + (d.ybalanceAnteriorDisbalance || 0), 0) / groupData.filter(d => d.ybalanceAnteriorDisbalance !== null).length || 0,
               },
               {
                 metric: "Medial",
-                disbalance: groupData.filter(d => d.ybalanceMedialDisbalance !== null).reduce((sum, d) => sum + (d.ybalanceMedialDisbalance || 0), 0) / groupData.filter(d => d.ybalanceMedialDisbalance !== null).length || 0,
+                "2025": groupData.filter(d => d.ybalanceMedialDisbalance !== null).reduce((sum, d) => sum + (d.ybalanceMedialDisbalance || 0), 0) / groupData.filter(d => d.ybalanceMedialDisbalance !== null).length || 0,
+                "2026": groupData.filter(d => d.ybalanceMedialDisbalance !== null).reduce((sum, d) => sum + (d.ybalanceMedialDisbalance || 0), 0) / groupData.filter(d => d.ybalanceMedialDisbalance !== null).length || 0,
               },
               {
                 metric: "Lateral",
-                disbalance: groupData.filter(d => d.ybalanceLateralDisbalance !== null).reduce((sum, d) => sum + (d.ybalanceLateralDisbalance || 0), 0) / groupData.filter(d => d.ybalanceLateralDisbalance !== null).length || 0,
+                "2025": groupData.filter(d => d.ybalanceLateralDisbalance !== null).reduce((sum, d) => sum + (d.ybalanceLateralDisbalance || 0), 0) / groupData.filter(d => d.ybalanceLateralDisbalance !== null).length || 0,
+                "2026": groupData.filter(d => d.ybalanceLateralDisbalance !== null).reduce((sum, d) => sum + (d.ybalanceLateralDisbalance || 0), 0) / groupData.filter(d => d.ybalanceLateralDisbalance !== null).length || 0,
               },
               {
                 metric: "Composite",
-                disbalance: groupData.filter(d => d.ybalanceCompositeDisbalance !== null).reduce((sum, d) => sum + (d.ybalanceCompositeDisbalance || 0), 0) / groupData.filter(d => d.ybalanceCompositeDisbalance !== null).length || 0,
+                "2025": groupData.filter(d => d.ybalanceCompositeDisbalance !== null).reduce((sum, d) => sum + (d.ybalanceCompositeDisbalance || 0), 0) / groupData.filter(d => d.ybalanceCompositeDisbalance !== null).length || 0,
+                "2026": groupData.filter(d => d.ybalanceCompositeDisbalance !== null).reduce((sum, d) => sum + (d.ybalanceCompositeDisbalance || 0), 0) / groupData.filter(d => d.ybalanceCompositeDisbalance !== null).length || 0,
               },
             ]} margin={{ top: 20, right: 30, left: 60, bottom: 20 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
               <XAxis dataKey="metric" />
-              <YAxis domain={[0, 10]} />
+              <YAxis domain={[0, 10]} type="number" ticks={[0, 2, 4, 6, 8, 10]} />
               <Tooltip contentStyle={{ backgroundColor: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "8px" }} formatter={(value: any) => value ? value.toFixed(1) : "N/A"} />
-              <Bar dataKey="disbalance" fill="#8b5cf6" name="Disbalance %" radius={[8, 8, 0, 0]} />
+              <Legend />
+              <Bar dataKey="2025" fill="#3b82f6" name="2025" radius={[4, 4, 0, 0]} />
+              <Bar dataKey="2026" fill="#f97316" name="2026" radius={[4, 4, 0, 0]} />
               <ReferenceLine y={4} stroke="#22c55e" strokeDasharray="5 5" label={{ value: "Balanced (<4%)", position: "right", fill: "#16a34a", fontSize: 10 }} />
             </BarChart>
           </ResponsiveContainer>

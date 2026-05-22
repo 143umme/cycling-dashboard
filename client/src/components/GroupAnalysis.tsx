@@ -35,49 +35,57 @@ export default function GroupAnalysis({ yearView }: GroupAnalysisProps) {
   // Prepare data for charts - combining same units
   const prepareGroupData = () => {
     return groupAthletes.map(a => {
-      const year = yearView === "2025" ? "2025" : yearView === "2026" ? "2026" : "2026";
-      const data = a.data[year];
+      const data2025 = a.data["2025"];
+      const data2026 = a.data["2026"];
       return {
         name: a.name, // Full name for display
         fullName: a.name,
-        // Joint ROM (angles)
-        lHipROM: data.jointROM.hipTotalRomL,
-        rHipROM: data.jointROM.hipTotalRomR,
-        // Forward Reach (cm)
-        forwardReach: data.jointROM.forwardReachingTest,
-        // Isometric Strength (N)
-        lhFlexors: data.isometricStrength.lhFlexors,
-        rhFlexors: data.isometricStrength.rhFlexors,
-        lhExtensors: data.isometricStrength.lhExtensors,
-        rhExtensors: data.isometricStrength.rhExtensors,
-        lhAdductors: data.isometricStrength.lhAdductors,
-        rhAdductors: data.isometricStrength.rhAdductors,
-        lhAbductors: data.isometricStrength.lhAbductors,
-        rhAbductors: data.isometricStrength.rhAbductors,
-        laPlantarflexors: data.isometricStrength.laPlantarflexors,
-        raPlantarflexors: data.isometricStrength.raPlantarflexors,
-        lhAddAbdRatio: data.isometricStrength.lhAddAbdRatio,
-        rhAddAbdRatio: data.isometricStrength.rhAddAbdRatio,
+        // Joint ROM (angles) - both years
+        lHipROM2025: data2025.jointROM.hipTotalRomL,
+        lHipROM2026: data2026.jointROM.hipTotalRomL,
+        rHipROM2025: data2025.jointROM.hipTotalRomR,
+        rHipROM2026: data2026.jointROM.hipTotalRomR,
+        // Forward Reach (cm) - both years
+        forwardReach2025: data2025.jointROM.forwardReachingTest,
+        forwardReach2026: data2026.jointROM.forwardReachingTest,
+        // Isometric Strength (N) - Flexors & Extensors both years
+        lhFlexors2025: data2025.isometricStrength.lhFlexors,
+        rhFlexors2025: data2025.isometricStrength.rhFlexors,
+        lhFlexors2026: data2026.isometricStrength.lhFlexors,
+        rhFlexors2026: data2026.isometricStrength.rhFlexors,
+        lhExtensors2025: data2025.isometricStrength.lhExtensors,
+        rhExtensors2025: data2025.isometricStrength.rhExtensors,
+        lhExtensors2026: data2026.isometricStrength.lhExtensors,
+        rhExtensors2026: data2026.isometricStrength.rhExtensors,
+        // Isometric Strength - Main measurements (2026)
+        lhAdductors: data2026.isometricStrength.lhAdductors,
+        rhAdductors: data2026.isometricStrength.rhAdductors,
+        lhAbductors: data2026.isometricStrength.lhAbductors,
+        rhAbductors: data2026.isometricStrength.rhAbductors,
+        laPlantarflexors: data2026.isometricStrength.laPlantarflexors,
+        raPlantarflexors: data2026.isometricStrength.raPlantarflexors,
+        lhAddAbdRatio: data2026.isometricStrength.lhAddAbdRatio,
+        rhAddAbdRatio: data2026.isometricStrength.rhAddAbdRatio,
         // Trunk Endurance (seconds)
-        flexors: data.trunkEndurance.flexors,
-        extensors: data.trunkEndurance.extensors,
-        leftLateral: data.trunkEndurance.leftLateral,
-        rightLateral: data.trunkEndurance.rightLateral,
+        flexors: data2026.trunkEndurance.flexors,
+        extensors: data2026.trunkEndurance.extensors,
+        leftLateral: data2026.trunkEndurance.leftLateral,
+        rightLateral: data2026.trunkEndurance.rightLateral,
         // FMS
-        fms: data.functionalMovement.totalScore,
+        fms: data2026.functionalMovement.totalScore,
         // Y-Balance Test - All metrics
-        ybalanceAnteriorLeft: a.data.yBalance?.[year]?.anterior ?? null,
-        ybalanceAnteriorRight: a.data.yBalance?.[year]?.rightAnterior ?? null,
-        ybalanceAnteriorDisbalance: a.data.yBalance?.[year]?.anteriorDisbalance ?? null,
-        ybalanceMedialLeft: a.data.yBalance?.[year]?.medial ?? null,
-        ybalanceMedialRight: a.data.yBalance?.[year]?.rightMedial ?? null,
-        ybalanceMedialDisbalance: a.data.yBalance?.[year]?.medialDisbalance ?? null,
-        ybalanceLateralLeft: a.data.yBalance?.[year]?.lateral ?? null,
-        ybalanceLateralRight: a.data.yBalance?.[year]?.rightLateral ?? null,
-        ybalanceLateralDisbalance: a.data.yBalance?.[year]?.lateralDisbalance ?? null,
-        ybalanceCompositeLeft: a.data.yBalance?.[year]?.leftComposite ?? null,
-        ybalanceCompositeRight: a.data.yBalance?.[year]?.rightComposite ?? null,
-        ybalanceCompositeDisbalance: a.data.yBalance?.[year]?.compositeDisbalance ?? null,
+        ybalanceAnteriorLeft: a.data.yBalance?.["2026"]?.anterior ?? null,
+        ybalanceAnteriorRight: a.data.yBalance?.["2026"]?.rightAnterior ?? null,
+        ybalanceAnteriorDisbalance: a.data.yBalance?.["2026"]?.anteriorDisbalance ?? null,
+        ybalanceMedialLeft: a.data.yBalance?.["2026"]?.medial ?? null,
+        ybalanceMedialRight: a.data.yBalance?.["2026"]?.rightMedial ?? null,
+        ybalanceMedialDisbalance: a.data.yBalance?.["2026"]?.medialDisbalance ?? null,
+        ybalanceLateralLeft: a.data.yBalance?.["2026"]?.lateral ?? null,
+        ybalanceLateralRight: a.data.yBalance?.["2026"]?.rightLateral ?? null,
+        ybalanceLateralDisbalance: a.data.yBalance?.["2026"]?.lateralDisbalance ?? null,
+        ybalanceCompositeLeft: a.data.yBalance?.["2026"]?.leftComposite ?? null,
+        ybalanceCompositeRight: a.data.yBalance?.["2026"]?.rightComposite ?? null,
+        ybalanceCompositeDisbalance: a.data.yBalance?.["2026"]?.compositeDisbalance ?? null,
       };
     });
   };
@@ -117,7 +125,7 @@ export default function GroupAnalysis({ yearView }: GroupAnalysisProps) {
 
       {/* Charts Grid */}
       <div className="space-y-8">
-        {/* Hip ROM - Line Chart */}
+        {/* Hip ROM - Line Chart with 4 Lines (L/R 2025 & 2026) */}
         <div className="bg-white rounded-lg p-6 shadow-sm border border-slate-100">
           <h3 className="text-lg font-bold text-slate-800 mb-4">Hip Range of Motion (Degrees) - 4 Lines</h3>
           <ResponsiveContainer width="100%" height={350}>
@@ -133,59 +141,22 @@ export default function GroupAnalysis({ yearView }: GroupAnalysisProps) {
               <YAxis label={{ value: "°", angle: -90, position: "insideLeft" }} />
               <Tooltip contentStyle={{ backgroundColor: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "8px" }} formatter={(value: any) => value.toFixed(1)} />
               <Legend />
-              <Line type="monotone" dataKey="lHipROM" stroke="#6366f1" name="L Hip ROM" strokeWidth={2} dot={{ r: 4 }} />
-              <Line type="monotone" dataKey="rHipROM" stroke="#0ea5e9" name="R Hip ROM" strokeWidth={2} dot={{ r: 4 }} />
-              <Line type="monotone" dataKey="flexors" stroke="#ec4899" name="Flexors" strokeWidth={2} dot={{ r: 4 }} />
-              <Line type="monotone" dataKey="extensors" stroke="#f59e0b" name="Extensors" strokeWidth={2} dot={{ r: 4 }} />
+              <Line type="monotone" dataKey="lHipROM2025" stroke="#6366f1" strokeDasharray="0" name="L Hip ROM 2025" strokeWidth={2} dot={{ r: 4 }} />
+              <Line type="monotone" dataKey="lHipROM2026" stroke="#6366f1" strokeDasharray="5 5" name="L Hip ROM 2026" strokeWidth={2} dot={{ r: 4 }} />
+              <Line type="monotone" dataKey="rHipROM2025" stroke="#0ea5e9" strokeDasharray="0" name="R Hip ROM 2025" strokeWidth={2} dot={{ r: 4 }} />
+              <Line type="monotone" dataKey="rHipROM2026" stroke="#0ea5e9" strokeDasharray="5 5" name="R Hip ROM 2026" strokeWidth={2} dot={{ r: 4 }} />
               <ReferenceLine y={NORMATIVE_VALUES.hipROM} stroke="#94a3b8" strokeDasharray="5 5" label={{ value: "Normative (90°)", position: "right", fill: "#64748b", fontSize: 11 }} />
             </LineChart>
           </ResponsiveContainer>
         </div>
 
-        {/* Hip ROM Area Chart - 2025 vs 2026 */}
-        <div className="bg-white rounded-lg p-6 shadow-sm border border-slate-100">
-          <h3 className="text-lg font-bold text-slate-800 mb-4">Hip Range of Motion - Area Chart (2025 vs 2026)</h3>
-          <ResponsiveContainer width="100%" height={350}>
-            <AreaChart data={groupData} margin={{ top: 20, right: 30, left: 0, bottom: 80 }}>
-              <defs>
-                <linearGradient id="colorHipROM2025" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor="#3b82f6" stopOpacity={0.8}/>
-                  <stop offset="95%" stopColor="#3b82f6" stopOpacity={0}/>
-                </linearGradient>
-                <linearGradient id="colorHipROM2026" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor="#f97316" stopOpacity={0.8}/>
-                  <stop offset="95%" stopColor="#f97316" stopOpacity={0}/>
-                </linearGradient>
-              </defs>
-              <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
-              <XAxis 
-                dataKey="name" 
-                angle={-45} 
-                textAnchor="end" 
-                height={100}
-                tick={{ fontSize: 11 }}
-              />
-              <YAxis label={{ value: "°", angle: -90, position: "insideLeft" }} />
-              <Tooltip contentStyle={{ backgroundColor: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "8px" }} formatter={(value: any) => value.toFixed(1)} />
-              <Legend />
-              <Area type="monotone" dataKey="lHipROM" stroke="#3b82f6" fill="url(#colorHipROM2025)" name="2025" />
-              <Area type="monotone" dataKey="rHipROM" stroke="#f97316" fill="url(#colorHipROM2026)" name="2026" />
-              <ReferenceLine y={NORMATIVE_VALUES.hipROM} stroke="#94a3b8" strokeDasharray="5 5" label={{ value: "Normative (90°)", position: "right", fill: "#64748b", fontSize: 11 }} />
-            </AreaChart>
-          </ResponsiveContainer>
-        </div>
 
-        {/* Forward Reach - Area Chart */}
+
+        {/* Forward Reach - Line Chart with Both Years */}
         <div className="bg-white rounded-lg p-6 shadow-sm border border-slate-100">
           <h3 className="text-lg font-bold text-slate-800 mb-4">Forward Reaching Test (cm)</h3>
           <ResponsiveContainer width="100%" height={300}>
-            <AreaChart data={groupData} margin={{ top: 20, right: 30, left: 0, bottom: 80 }}>
-              <defs>
-                <linearGradient id="colorReach" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor="#f97316" stopOpacity={0.8}/>
-                  <stop offset="95%" stopColor="#f97316" stopOpacity={0}/>
-                </linearGradient>
-              </defs>
+            <LineChart data={groupData} margin={{ top: 20, right: 30, left: 0, bottom: 80 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
               <XAxis 
                 dataKey="name" 
@@ -196,16 +167,18 @@ export default function GroupAnalysis({ yearView }: GroupAnalysisProps) {
               />
               <YAxis label={{ value: "cm", angle: -90, position: "insideLeft" }} />
               <Tooltip contentStyle={{ backgroundColor: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "8px" }} formatter={(value: any) => value.toFixed(1)} />
-              <Area type="monotone" dataKey="forwardReach" stroke="#f97316" fillOpacity={1} fill="url(#colorReach)" />
+              <Legend />
+              <Line type="monotone" dataKey="forwardReach2025" stroke="#3b82f6" name="2025" strokeWidth={2} dot={{ r: 4 }} />
+              <Line type="monotone" dataKey="forwardReach2026" stroke="#f97316" name="2026" strokeWidth={2} dot={{ r: 4 }} />
               <ReferenceLine y={NORMATIVE_VALUES.forwardReach} stroke="#94a3b8" strokeDasharray="5 5" label={{ value: "Normative (29cm)", position: "right", fill: "#64748b", fontSize: 11 }} />
-            </AreaChart>
+            </LineChart>
           </ResponsiveContainer>
         </div>
 
-        {/* Isometric Strength - Bar Chart */}
+        {/* Isometric Strength - Main Measurements (Adductors, Abductors, Plantarflexors) */}
         <div className="bg-white rounded-lg p-6 shadow-sm border border-slate-100">
           <h3 className="text-lg font-bold text-slate-800 mb-4">Isometric Strength - Main Measurements (N)</h3>
-          <ResponsiveContainer width="100%" height={400}>
+          <ResponsiveContainer width="100%" height={350}>
             <BarChart data={groupData} margin={{ top: 20, right: 30, left: 0, bottom: 80 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
               <XAxis 
@@ -218,10 +191,60 @@ export default function GroupAnalysis({ yearView }: GroupAnalysisProps) {
               <YAxis label={{ value: "N", angle: -90, position: "insideLeft" }} />
               <Tooltip contentStyle={{ backgroundColor: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "8px" }} formatter={(value: any) => value.toFixed(1)} />
               <Legend />
-              <Bar dataKey="lhFlexors" fill="#6366f1" name="LH Flexors" radius={[4, 4, 0, 0]} />
-              <Bar dataKey="rhFlexors" fill="#0ea5e9" name="RH Flexors" radius={[4, 4, 0, 0]} />
-              <Bar dataKey="lhExtensors" fill="#10b981" name="LH Extensors" radius={[4, 4, 0, 0]} />
-              <Bar dataKey="rhExtensors" fill="#f59e0b" name="RH Extensors" radius={[4, 4, 0, 0]} />
+              <Bar dataKey="lhAdductors" fill="#8b5cf6" name="LH Adductors" radius={[4, 4, 0, 0]} />
+              <Bar dataKey="rhAdductors" fill="#6366f1" name="RH Adductors" radius={[4, 4, 0, 0]} />
+              <Bar dataKey="lhAbductors" fill="#0ea5e9" name="LH Abductors" radius={[4, 4, 0, 0]} />
+              <Bar dataKey="rhAbductors" fill="#06b6d4" name="RH Abductors" radius={[4, 4, 0, 0]} />
+              <ReferenceLine y={NORMATIVE_VALUES.hipStrength} stroke="#94a3b8" strokeDasharray="5 5" label={{ value: "Normative (200N)", position: "right", fill: "#64748b", fontSize: 11 }} />
+            </BarChart>
+          </ResponsiveContainer>
+        </div>
+
+        {/* Hip Flexors - Grouped Bar Chart (2025 vs 2026) */}
+        <div className="bg-white rounded-lg p-6 shadow-sm border border-slate-100">
+          <h3 className="text-lg font-bold text-slate-800 mb-4">Hip Flexors (N) - 2025 vs 2026</h3>
+          <ResponsiveContainer width="100%" height={350}>
+            <BarChart data={groupData} margin={{ top: 20, right: 30, left: 0, bottom: 80 }}>
+              <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+              <XAxis 
+                dataKey="name" 
+                angle={-45} 
+                textAnchor="end" 
+                height={100}
+                tick={{ fontSize: 11 }}
+              />
+              <YAxis label={{ value: "N", angle: -90, position: "insideLeft" }} />
+              <Tooltip contentStyle={{ backgroundColor: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "8px" }} formatter={(value: any) => value.toFixed(1)} />
+              <Legend />
+              <Bar dataKey="lhFlexors2025" fill="#6366f1" name="LH Flexors 2025" radius={[4, 4, 0, 0]} />
+              <Bar dataKey="lhFlexors2026" fill="#818cf8" name="LH Flexors 2026" radius={[4, 4, 0, 0]} />
+              <Bar dataKey="rhFlexors2025" fill="#0ea5e9" name="RH Flexors 2025" radius={[4, 4, 0, 0]} />
+              <Bar dataKey="rhFlexors2026" fill="#06b6d4" name="RH Flexors 2026" radius={[4, 4, 0, 0]} />
+              <ReferenceLine y={NORMATIVE_VALUES.hipStrength} stroke="#94a3b8" strokeDasharray="5 5" label={{ value: "Normative (200N)", position: "right", fill: "#64748b", fontSize: 11 }} />
+            </BarChart>
+          </ResponsiveContainer>
+        </div>
+
+        {/* Hip Extensors - Grouped Bar Chart (2025 vs 2026) */}
+        <div className="bg-white rounded-lg p-6 shadow-sm border border-slate-100">
+          <h3 className="text-lg font-bold text-slate-800 mb-4">Hip Extensors (N) - 2025 vs 2026</h3>
+          <ResponsiveContainer width="100%" height={350}>
+            <BarChart data={groupData} margin={{ top: 20, right: 30, left: 0, bottom: 80 }}>
+              <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+              <XAxis 
+                dataKey="name" 
+                angle={-45} 
+                textAnchor="end" 
+                height={100}
+                tick={{ fontSize: 11 }}
+              />
+              <YAxis label={{ value: "N", angle: -90, position: "insideLeft" }} />
+              <Tooltip contentStyle={{ backgroundColor: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "8px" }} formatter={(value: any) => value.toFixed(1)} />
+              <Legend />
+              <Bar dataKey="lhExtensors2025" fill="#10b981" name="LH Extensors 2025" radius={[4, 4, 0, 0]} />
+              <Bar dataKey="lhExtensors2026" fill="#6ee7b7" name="LH Extensors 2026" radius={[4, 4, 0, 0]} />
+              <Bar dataKey="rhExtensors2025" fill="#f59e0b" name="RH Extensors 2025" radius={[4, 4, 0, 0]} />
+              <Bar dataKey="rhExtensors2026" fill="#fcd34d" name="RH Extensors 2026" radius={[4, 4, 0, 0]} />
               <ReferenceLine y={NORMATIVE_VALUES.hipStrength} stroke="#94a3b8" strokeDasharray="5 5" label={{ value: "Normative (200N)", position: "right", fill: "#64748b", fontSize: 11 }} />
             </BarChart>
           </ResponsiveContainer>

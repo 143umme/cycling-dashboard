@@ -1,0 +1,1180 @@
+[
+  {
+    "name": "To Cheuk Hei",
+    "gender": "M",
+    "group": "SD",
+    "hipROM": {
+      "2025": {
+        "left": 90.0,
+        "right": 90.0
+      },
+      "2026": {
+        "left": 95.0,
+        "right": 100.0
+      }
+    },
+    "forwardReach": {
+      "2025": 44.5,
+      "2026": 43.5
+    }
+  },
+  {
+    "name": "Yung Tsun Ho",
+    "gender": "M",
+    "group": "SD",
+    "hipROM": {
+      "2025": {
+        "left": 85.0,
+        "right": 95.0
+      },
+      "2026": {
+        "left": 95.0,
+        "right": 95.0
+      }
+    },
+    "forwardReach": {
+      "2025": 35.0,
+      "2026": 42.5
+    }
+  },
+  {
+    "name": "Mok Tsz Chun",
+    "gender": "M",
+    "group": "SD",
+    "hipROM": {
+      "2025": {
+        "left": 80.0,
+        "right": 80.0
+      },
+      "2026": {
+        "left": 95.0,
+        "right": 95.0
+      }
+    },
+    "forwardReach": {
+      "2025": 44.0,
+      "2026": 43.5
+    }
+  },
+  {
+    "name": "Lai Wing Kin",
+    "gender": "M",
+    "group": "SD",
+    "hipROM": {
+      "2025": {
+        "left": 105.0,
+        "right": 110.0
+      },
+      "2026": {
+        "left": 70.0,
+        "right": 70.0
+      }
+    },
+    "forwardReach": {
+      "2025": 30.0,
+      "2026": 31.5
+    }
+  },
+  {
+    "name": "Ng Po Li ",
+    "gender": "M",
+    "group": "SD",
+    "hipROM": {
+      "2025": {
+        "left": 90.0,
+        "right": 86.0
+      },
+      "2026": {
+        "left": 90.0,
+        "right": 86.0
+      }
+    },
+    "forwardReach": {
+      "2025": 43.5,
+      "2026": 44.0
+    }
+  },
+  {
+    "name": "Yeung Cho Yiu",
+    "gender": "F",
+    "group": "SD",
+    "hipROM": {
+      "2025": {
+        "left": 105.0,
+        "right": 105.0
+      },
+      "2026": {
+        "left": 115.0,
+        "right": 110.0
+      }
+    },
+    "forwardReach": {
+      "2025": 36.5,
+      "2026": 36.5
+    }
+  },
+  {
+    "name": "Ng Sze Wing",
+    "gender": "F",
+    "group": "SD",
+    "hipROM": {
+      "2025": {
+        "left": 95.0,
+        "right": 95.0
+      },
+      "2026": {
+        "left": 90.0,
+        "right": 90.0
+      }
+    },
+    "forwardReach": {
+      "2025": 41.5,
+      "2026": 43.0
+    }
+  },
+  {
+    "name": "Tung Phoebe",
+    "gender": "F",
+    "group": "SD",
+    "hipROM": {
+      "2025": {
+        "left": 95.0,
+        "right": 95.0
+      },
+      "2026": {
+        "left": 95.0,
+        "right": 110.0
+      }
+    },
+    "forwardReach": {
+      "2025": 46.5,
+      "2026": 46.6
+    }
+  },
+  {
+    "name": "Ching Yin Shan",
+    "gender": "F",
+    "group": "SD",
+    "hipROM": {
+      "2025": {
+        "left": 80.0,
+        "right": 80.0
+      },
+      "2026": {
+        "left": 80.0,
+        "right": 80.0
+      }
+    },
+    "forwardReach": {
+      "2025": 42.0,
+      "2026": 42.5
+    }
+  },
+  {
+    "name": "Lau Wan Yau",
+    "gender": "M",
+    "group": "LD",
+    "hipROM": {
+      "2025": {
+        "left": 85.0,
+        "right": 85.0
+      },
+      "2026": {
+        "left": 95.0,
+        "right": 90.0
+      }
+    },
+    "forwardReach": {
+      "2025": 33.0,
+      "2026": 34.0
+    }
+  },
+  {
+    "name": "Mow Ching Yin",
+    "gender": "M",
+    "group": "LD",
+    "hipROM": {
+      "2025": {
+        "left": 90.0,
+        "right": 90.0
+      },
+      "2026": {
+        "left": 110.0,
+        "right": 115.0
+      }
+    },
+    "forwardReach": {
+      "2025": 43.0,
+      "2026": 37.5
+    }
+  },
+  {
+    "name": "Tso Kai Kwong ",
+    "gender": "M",
+    "group": "LD",
+    "hipROM": {
+      "2025": {
+        "left": 90.0,
+        "right": 90.0
+      },
+      "2026": {
+        "left": 100.0,
+        "right": 100.0
+      }
+    },
+    "forwardReach": {
+      "2025": 44.0,
+      "2026": 44.0
+    }
+  },
+  {
+    "name": "Chu Tsun Wai ",
+    "gender": "M",
+    "group": "LD",
+    "hipROM": {
+      "2025": {
+        "left": 80.0,
+        "right": 85.0
+      },
+      "2026": {
+        "left": 90.0,
+        "right": 88.0
+      }
+    },
+    "forwardReach": {
+      "2025": 35.0,
+      "2026": 35.0
+    }
+  },
+  {
+    "name": "Ng Sum Lui",
+    "gender": "M",
+    "group": "LD",
+    "hipROM": {
+      "2025": {
+        "left": 89.0,
+        "right": 90.0
+      },
+      "2026": {
+        "left": 90.0,
+        "right": 90.0
+      }
+    },
+    "forwardReach": {
+      "2025": 37.0,
+      "2026": 38.5
+    }
+  },
+  {
+    "name": "Liang King Hung",
+    "gender": "M",
+    "group": "LD",
+    "hipROM": {
+      "2025": {
+        "left": 90.0,
+        "right": 85.0
+      },
+      "2026": {
+        "left": 90.0,
+        "right": 90.0
+      }
+    },
+    "forwardReach": {
+      "2025": 44.0,
+      "2026": 44.0
+    }
+  },
+  {
+    "name": "Lau Joseph",
+    "gender": "M",
+    "group": "LD",
+    "hipROM": {
+      "2025": {
+        "left": 90.0,
+        "right": 90.0
+      },
+      "2026": {
+        "left": 85.0,
+        "right": 85.0
+      }
+    },
+    "forwardReach": {
+      "2025": 40.5,
+      "2026": 36.0
+    }
+  },
+  {
+    "name": "Siu Ka Chun",
+    "gender": "M",
+    "group": "LD",
+    "hipROM": {
+      "2025": {
+        "left": 85.0,
+        "right": 85.0
+      },
+      "2026": {
+        "left": 95.0,
+        "right": 95.0
+      }
+    },
+    "forwardReach": {
+      "2025": 40.5,
+      "2026": 38.0
+    }
+  },
+  {
+    "name": "Yau Ping Cheung",
+    "gender": "M",
+    "group": "LD",
+    "hipROM": {
+      "2025": {
+        "left": 95.0,
+        "right": 95.0
+      },
+      "2026": {
+        "left": 97.0,
+        "right": 102.0
+      }
+    },
+    "forwardReach": {
+      "2025": 39.0,
+      "2026": 37.5
+    }
+  },
+  {
+    "name": "Kwok Chun Yan",
+    "gender": "M",
+    "group": "LD",
+    "hipROM": {
+      "2025": {
+        "left": 100.0,
+        "right": 100.0
+      },
+      "2026": {
+        "left": 100.0,
+        "right": 115.0
+      }
+    },
+    "forwardReach": {
+      "2025": 44.0,
+      "2026": 40.5
+    }
+  },
+  {
+    "name": "Cheung Shi Ho",
+    "gender": "M",
+    "group": "LD",
+    "hipROM": {
+      "2025": {
+        "left": 95.0,
+        "right": 100.0
+      },
+      "2026": {
+        "left": 108.0,
+        "right": 108.0
+      }
+    },
+    "forwardReach": {
+      "2025": 43.0,
+      "2026": 42.0
+    }
+  },
+  {
+    "name": "Wu Chun Yin",
+    "gender": "M",
+    "group": "LD",
+    "hipROM": {
+      "2025": {
+        "left": 85.0,
+        "right": 85.0
+      },
+      "2026": {
+        "left": 94.0,
+        "right": 92.0
+      }
+    },
+    "forwardReach": {
+      "2025": 49.5,
+      "2026": 49.5
+    }
+  },
+  {
+    "name": "Lai Chun Kin",
+    "gender": "M",
+    "group": "LD",
+    "hipROM": {
+      "2025": {
+        "left": 105.0,
+        "right": 95.0
+      },
+      "2026": {
+        "left": 90.0,
+        "right": 90.0
+      }
+    },
+    "forwardReach": {
+      "2025": 28.5,
+      "2026": 26.5
+    }
+  },
+  {
+    "name": "Leung Wing Yee",
+    "gender": "F",
+    "group": "LD",
+    "hipROM": {
+      "2025": {
+        "left": 112.0,
+        "right": 104.0
+      },
+      "2026": {
+        "left": 105.0,
+        "right": 105.0
+      }
+    },
+    "forwardReach": {
+      "2025": 52.0,
+      "2026": 52.0
+    }
+  },
+  {
+    "name": "Lee Sze Wing",
+    "gender": "F",
+    "group": "LD",
+    "hipROM": {
+      "2025": {
+        "left": 125.0,
+        "right": 125.0
+      },
+      "2026": {
+        "left": 120.0,
+        "right": 114.0
+      }
+    },
+    "forwardReach": {
+      "2025": 40.0,
+      "2026": 36.0
+    }
+  },
+  {
+    "name": "Cheung Li Tong Guardiola ",
+    "gender": "F",
+    "group": "LD",
+    "hipROM": {
+      "2025": {
+        "left": 100.0,
+        "right": 100.0
+      },
+      "2026": {
+        "left": 95.0,
+        "right": 105.0
+      }
+    },
+    "forwardReach": {
+      "2025": 43.5,
+      "2026": 42.5
+    }
+  },
+  {
+    "name": "Kwan Tsz Kwan",
+    "gender": "F",
+    "group": "LD",
+    "hipROM": {
+      "2025": {
+        "left": 95.0,
+        "right": 95.0
+      },
+      "2026": {
+        "left": 90.0,
+        "right": 95.0
+      }
+    },
+    "forwardReach": {
+      "2025": 40.5,
+      "2026": 40.5
+    }
+  },
+  {
+    "name": NaN,
+    "gender": NaN,
+    "group": NaN,
+    "hipROM": {
+      "2025": {
+        "left": NaN,
+        "right": NaN
+      },
+      "2026": {
+        "left": NaN,
+        "right": NaN
+      }
+    },
+    "forwardReach": {
+      "2025": NaN,
+      "2026": NaN
+    }
+  },
+  {
+    "name": NaN,
+    "gender": NaN,
+    "group": NaN,
+    "hipROM": {
+      "2025": {
+        "left": NaN,
+        "right": NaN
+      },
+      "2026": {
+        "left": NaN,
+        "right": NaN
+      }
+    },
+    "forwardReach": {
+      "2025": NaN,
+      "2026": NaN
+    }
+  },
+  {
+    "name": NaN,
+    "gender": NaN,
+    "group": NaN,
+    "hipROM": {
+      "2025": {
+        "left": NaN,
+        "right": NaN
+      },
+      "2026": {
+        "left": NaN,
+        "right": NaN
+      }
+    },
+    "forwardReach": {
+      "2025": NaN,
+      "2026": NaN
+    }
+  },
+  {
+    "name": NaN,
+    "gender": NaN,
+    "group": NaN,
+    "hipROM": {
+      "2025": {
+        "left": NaN,
+        "right": NaN
+      },
+      "2026": {
+        "left": NaN,
+        "right": NaN
+      }
+    },
+    "forwardReach": {
+      "2025": NaN,
+      "2026": NaN
+    }
+  },
+  {
+    "name": NaN,
+    "gender": NaN,
+    "group": NaN,
+    "hipROM": {
+      "2025": {
+        "left": NaN,
+        "right": NaN
+      },
+      "2026": {
+        "left": NaN,
+        "right": NaN
+      }
+    },
+    "forwardReach": {
+      "2025": NaN,
+      "2026": NaN
+    }
+  },
+  {
+    "name": NaN,
+    "gender": NaN,
+    "group": NaN,
+    "hipROM": {
+      "2025": {
+        "left": NaN,
+        "right": NaN
+      },
+      "2026": {
+        "left": NaN,
+        "right": NaN
+      }
+    },
+    "forwardReach": {
+      "2025": NaN,
+      "2026": NaN
+    }
+  },
+  {
+    "name": NaN,
+    "gender": NaN,
+    "group": NaN,
+    "hipROM": {
+      "2025": {
+        "left": NaN,
+        "right": NaN
+      },
+      "2026": {
+        "left": NaN,
+        "right": NaN
+      }
+    },
+    "forwardReach": {
+      "2025": NaN,
+      "2026": NaN
+    }
+  },
+  {
+    "name": NaN,
+    "gender": NaN,
+    "group": NaN,
+    "hipROM": {
+      "2025": {
+        "left": NaN,
+        "right": NaN
+      },
+      "2026": {
+        "left": NaN,
+        "right": NaN
+      }
+    },
+    "forwardReach": {
+      "2025": NaN,
+      "2026": NaN
+    }
+  },
+  {
+    "name": NaN,
+    "gender": NaN,
+    "group": NaN,
+    "hipROM": {
+      "2025": {
+        "left": NaN,
+        "right": NaN
+      },
+      "2026": {
+        "left": NaN,
+        "right": NaN
+      }
+    },
+    "forwardReach": {
+      "2025": NaN,
+      "2026": NaN
+    }
+  },
+  {
+    "name": NaN,
+    "gender": NaN,
+    "group": NaN,
+    "hipROM": {
+      "2025": {
+        "left": NaN,
+        "right": NaN
+      },
+      "2026": {
+        "left": NaN,
+        "right": NaN
+      }
+    },
+    "forwardReach": {
+      "2025": NaN,
+      "2026": NaN
+    }
+  },
+  {
+    "name": NaN,
+    "gender": NaN,
+    "group": NaN,
+    "hipROM": {
+      "2025": {
+        "left": NaN,
+        "right": NaN
+      },
+      "2026": {
+        "left": NaN,
+        "right": NaN
+      }
+    },
+    "forwardReach": {
+      "2025": NaN,
+      "2026": NaN
+    }
+  },
+  {
+    "name": NaN,
+    "gender": NaN,
+    "group": NaN,
+    "hipROM": {
+      "2025": {
+        "left": NaN,
+        "right": NaN
+      },
+      "2026": {
+        "left": NaN,
+        "right": NaN
+      }
+    },
+    "forwardReach": {
+      "2025": NaN,
+      "2026": NaN
+    }
+  },
+  {
+    "name": NaN,
+    "gender": NaN,
+    "group": NaN,
+    "hipROM": {
+      "2025": {
+        "left": NaN,
+        "right": NaN
+      },
+      "2026": {
+        "left": NaN,
+        "right": NaN
+      }
+    },
+    "forwardReach": {
+      "2025": NaN,
+      "2026": NaN
+    }
+  },
+  {
+    "name": NaN,
+    "gender": NaN,
+    "group": NaN,
+    "hipROM": {
+      "2025": {
+        "left": NaN,
+        "right": NaN
+      },
+      "2026": {
+        "left": NaN,
+        "right": NaN
+      }
+    },
+    "forwardReach": {
+      "2025": NaN,
+      "2026": NaN
+    }
+  },
+  {
+    "name": NaN,
+    "gender": NaN,
+    "group": NaN,
+    "hipROM": {
+      "2025": {
+        "left": NaN,
+        "right": NaN
+      },
+      "2026": {
+        "left": NaN,
+        "right": NaN
+      }
+    },
+    "forwardReach": {
+      "2025": NaN,
+      "2026": NaN
+    }
+  },
+  {
+    "name": NaN,
+    "gender": NaN,
+    "group": NaN,
+    "hipROM": {
+      "2025": {
+        "left": NaN,
+        "right": NaN
+      },
+      "2026": {
+        "left": NaN,
+        "right": NaN
+      }
+    },
+    "forwardReach": {
+      "2025": NaN,
+      "2026": NaN
+    }
+  },
+  {
+    "name": NaN,
+    "gender": NaN,
+    "group": NaN,
+    "hipROM": {
+      "2025": {
+        "left": NaN,
+        "right": NaN
+      },
+      "2026": {
+        "left": NaN,
+        "right": NaN
+      }
+    },
+    "forwardReach": {
+      "2025": NaN,
+      "2026": NaN
+    }
+  },
+  {
+    "name": NaN,
+    "gender": NaN,
+    "group": NaN,
+    "hipROM": {
+      "2025": {
+        "left": NaN,
+        "right": NaN
+      },
+      "2026": {
+        "left": NaN,
+        "right": NaN
+      }
+    },
+    "forwardReach": {
+      "2025": NaN,
+      "2026": NaN
+    }
+  },
+  {
+    "name": NaN,
+    "gender": NaN,
+    "group": NaN,
+    "hipROM": {
+      "2025": {
+        "left": NaN,
+        "right": NaN
+      },
+      "2026": {
+        "left": NaN,
+        "right": NaN
+      }
+    },
+    "forwardReach": {
+      "2025": NaN,
+      "2026": NaN
+    }
+  },
+  {
+    "name": NaN,
+    "gender": NaN,
+    "group": NaN,
+    "hipROM": {
+      "2025": {
+        "left": NaN,
+        "right": NaN
+      },
+      "2026": {
+        "left": NaN,
+        "right": NaN
+      }
+    },
+    "forwardReach": {
+      "2025": NaN,
+      "2026": NaN
+    }
+  },
+  {
+    "name": NaN,
+    "gender": NaN,
+    "group": NaN,
+    "hipROM": {
+      "2025": {
+        "left": NaN,
+        "right": NaN
+      },
+      "2026": {
+        "left": NaN,
+        "right": NaN
+      }
+    },
+    "forwardReach": {
+      "2025": NaN,
+      "2026": NaN
+    }
+  },
+  {
+    "name": NaN,
+    "gender": NaN,
+    "group": NaN,
+    "hipROM": {
+      "2025": {
+        "left": NaN,
+        "right": NaN
+      },
+      "2026": {
+        "left": NaN,
+        "right": NaN
+      }
+    },
+    "forwardReach": {
+      "2025": NaN,
+      "2026": NaN
+    }
+  },
+  {
+    "name": NaN,
+    "gender": NaN,
+    "group": NaN,
+    "hipROM": {
+      "2025": {
+        "left": NaN,
+        "right": NaN
+      },
+      "2026": {
+        "left": NaN,
+        "right": NaN
+      }
+    },
+    "forwardReach": {
+      "2025": NaN,
+      "2026": NaN
+    }
+  },
+  {
+    "name": NaN,
+    "gender": NaN,
+    "group": NaN,
+    "hipROM": {
+      "2025": {
+        "left": NaN,
+        "right": NaN
+      },
+      "2026": {
+        "left": NaN,
+        "right": NaN
+      }
+    },
+    "forwardReach": {
+      "2025": NaN,
+      "2026": NaN
+    }
+  },
+  {
+    "name": NaN,
+    "gender": NaN,
+    "group": NaN,
+    "hipROM": {
+      "2025": {
+        "left": NaN,
+        "right": NaN
+      },
+      "2026": {
+        "left": NaN,
+        "right": NaN
+      }
+    },
+    "forwardReach": {
+      "2025": NaN,
+      "2026": NaN
+    }
+  },
+  {
+    "name": NaN,
+    "gender": NaN,
+    "group": NaN,
+    "hipROM": {
+      "2025": {
+        "left": NaN,
+        "right": NaN
+      },
+      "2026": {
+        "left": NaN,
+        "right": NaN
+      }
+    },
+    "forwardReach": {
+      "2025": NaN,
+      "2026": NaN
+    }
+  },
+  {
+    "name": NaN,
+    "gender": NaN,
+    "group": NaN,
+    "hipROM": {
+      "2025": {
+        "left": NaN,
+        "right": NaN
+      },
+      "2026": {
+        "left": NaN,
+        "right": NaN
+      }
+    },
+    "forwardReach": {
+      "2025": NaN,
+      "2026": NaN
+    }
+  },
+  {
+    "name": NaN,
+    "gender": NaN,
+    "group": NaN,
+    "hipROM": {
+      "2025": {
+        "left": NaN,
+        "right": NaN
+      },
+      "2026": {
+        "left": NaN,
+        "right": NaN
+      }
+    },
+    "forwardReach": {
+      "2025": NaN,
+      "2026": NaN
+    }
+  },
+  {
+    "name": NaN,
+    "gender": NaN,
+    "group": NaN,
+    "hipROM": {
+      "2025": {
+        "left": NaN,
+        "right": NaN
+      },
+      "2026": {
+        "left": NaN,
+        "right": NaN
+      }
+    },
+    "forwardReach": {
+      "2025": NaN,
+      "2026": NaN
+    }
+  },
+  {
+    "name": NaN,
+    "gender": NaN,
+    "group": NaN,
+    "hipROM": {
+      "2025": {
+        "left": NaN,
+        "right": NaN
+      },
+      "2026": {
+        "left": NaN,
+        "right": NaN
+      }
+    },
+    "forwardReach": {
+      "2025": NaN,
+      "2026": NaN
+    }
+  },
+  {
+    "name": NaN,
+    "gender": NaN,
+    "group": NaN,
+    "hipROM": {
+      "2025": {
+        "left": NaN,
+        "right": NaN
+      },
+      "2026": {
+        "left": NaN,
+        "right": NaN
+      }
+    },
+    "forwardReach": {
+      "2025": NaN,
+      "2026": NaN
+    }
+  },
+  {
+    "name": NaN,
+    "gender": NaN,
+    "group": NaN,
+    "hipROM": {
+      "2025": {
+        "left": NaN,
+        "right": NaN
+      },
+      "2026": {
+        "left": NaN,
+        "right": NaN
+      }
+    },
+    "forwardReach": {
+      "2025": NaN,
+      "2026": NaN
+    }
+  },
+  {
+    "name": NaN,
+    "gender": NaN,
+    "group": NaN,
+    "hipROM": {
+      "2025": {
+        "left": NaN,
+        "right": NaN
+      },
+      "2026": {
+        "left": NaN,
+        "right": NaN
+      }
+    },
+    "forwardReach": {
+      "2025": NaN,
+      "2026": NaN
+    }
+  },
+  {
+    "name": NaN,
+    "gender": NaN,
+    "group": NaN,
+    "hipROM": {
+      "2025": {
+        "left": NaN,
+        "right": NaN
+      },
+      "2026": {
+        "left": NaN,
+        "right": NaN
+      }
+    },
+    "forwardReach": {
+      "2025": NaN,
+      "2026": NaN
+    }
+  },
+  {
+    "name": NaN,
+    "gender": NaN,
+    "group": NaN,
+    "hipROM": {
+      "2025": {
+        "left": NaN,
+        "right": NaN
+      },
+      "2026": {
+        "left": NaN,
+        "right": NaN
+      }
+    },
+    "forwardReach": {
+      "2025": NaN,
+      "2026": NaN
+    }
+  },
+  {
+    "name": NaN,
+    "gender": NaN,
+    "group": NaN,
+    "hipROM": {
+      "2025": {
+        "left": NaN,
+        "right": NaN
+      },
+      "2026": {
+        "left": NaN,
+        "right": NaN
+      }
+    },
+    "forwardReach": {
+      "2025": NaN,
+      "2026": NaN
+    }
+  }
+]

@@ -77,13 +77,18 @@ export default function GroupAnalysis({ yearView }: GroupAnalysisProps) {
         rhAddAbdRatio2025: data2025.isometricStrength.rhAddAbdRatio,
         lhAddAbdRatio2026: data2026.isometricStrength.lhAddAbdRatio,
         rhAddAbdRatio2026: data2026.isometricStrength.rhAddAbdRatio,
-        // Trunk Endurance (seconds)
-        flexors: data2026.trunkEndurance.flexors,
-        extensors: data2026.trunkEndurance.extensors,
-        leftLateral: data2026.trunkEndurance.leftLateral,
-        rightLateral: data2026.trunkEndurance.rightLateral,
-        // FMS
-        fms: data2026.functionalMovement.totalScore,
+        // Trunk Endurance (seconds) - both years
+        flexors2025: data2025.trunkEndurance.flexors,
+        extensors2025: data2025.trunkEndurance.extensors,
+        leftLateral2025: data2025.trunkEndurance.leftLateral,
+        rightLateral2025: data2025.trunkEndurance.rightLateral,
+        flexors2026: data2026.trunkEndurance.flexors,
+        extensors2026: data2026.trunkEndurance.extensors,
+        leftLateral2026: data2026.trunkEndurance.leftLateral,
+        rightLateral2026: data2026.trunkEndurance.rightLateral,
+        // FMS - both years
+        fms2025: data2025.functionalMovement.totalScore,
+        fms2026: data2026.functionalMovement.totalScore,
         // Y-Balance Test - All metrics
         ybalanceAnteriorLeft: a.data.yBalance?.["2026"]?.anterior ?? null,
         ybalanceAnteriorRight: a.data.yBalance?.["2026"]?.rightAnterior ?? null,
@@ -456,29 +461,52 @@ export default function GroupAnalysis({ yearView }: GroupAnalysisProps) {
           </div>
         </div>
 
-        {/* Trunk Endurance - Horizontal Bar Chart */}
+        {/* Trunk Endurance - Side by Side 2025 vs 2026 */}
         <div className="bg-white rounded-lg p-6 shadow-sm border border-slate-100">
           <h3 className="text-lg font-bold text-slate-800 mb-4">Trunk Endurance (seconds)</h3>
-          <ResponsiveContainer width="100%" height={400}>
-            <BarChart data={groupData} layout="vertical" margin={{ top: 20, right: 30, left: 120, bottom: 20 }}>
-              <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
-              <XAxis type="number" label={{ value: "sec", position: "insideBottomRight", offset: -10 }} />
-              <YAxis dataKey="name" type="category" width={110} tick={{ fontSize: 10 }} />
-              <Tooltip contentStyle={{ backgroundColor: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "8px" }} formatter={(value: any) => value.toFixed(1)} />
-              <Legend />
-              <Bar dataKey="flexors" fill="#6366f1" name="Flexors" radius={[0, 8, 8, 0]} />
-              <Bar dataKey="extensors" fill="#10b981" name="Extensors" radius={[0, 8, 8, 0]} />
-              <Bar dataKey="leftLateral" fill="#f59e0b" name="Left Lateral" radius={[0, 8, 8, 0]} />
-              <Bar dataKey="rightLateral" fill="#ec4899" name="Right Lateral" radius={[0, 8, 8, 0]} />
-            </BarChart>
-          </ResponsiveContainer>
+          <div className="grid grid-cols-2 gap-6">
+            {/* 2025 Chart */}
+            <div>
+              <h4 className="text-sm font-semibold text-slate-700 mb-3 text-center">2025</h4>
+              <ResponsiveContainer width="100%" height={350}>
+                <BarChart data={groupData} layout="vertical" margin={{ top: 20, right: 30, left: 100, bottom: 20 }}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+                  <XAxis type="number" label={{ value: "sec", position: "insideBottomRight", offset: -10 }} tick={{ fontSize: 10 }} />
+                  <YAxis dataKey="name" type="category" width={90} tick={{ fontSize: 9 }} />
+                  <Tooltip contentStyle={{ backgroundColor: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "8px" }} formatter={(value: any) => value.toFixed(1)} />
+                  <Legend wrapperStyle={{ fontSize: 11 }} />
+                  <Bar dataKey="flexors2025" fill="#6366f1" name="Flexors" radius={[0, 8, 8, 0]} />
+                  <Bar dataKey="extensors2025" fill="#10b981" name="Extensors" radius={[0, 8, 8, 0]} />
+                  <Bar dataKey="leftLateral2025" fill="#f59e0b" name="Left Lateral" radius={[0, 8, 8, 0]} />
+                  <Bar dataKey="rightLateral2025" fill="#ec4899" name="Right Lateral" radius={[0, 8, 8, 0]} />
+                </BarChart>
+              </ResponsiveContainer>
+            </div>
+            {/* 2026 Chart */}
+            <div>
+              <h4 className="text-sm font-semibold text-slate-700 mb-3 text-center">2026</h4>
+              <ResponsiveContainer width="100%" height={350}>
+                <BarChart data={groupData} layout="vertical" margin={{ top: 20, right: 30, left: 100, bottom: 20 }}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+                  <XAxis type="number" label={{ value: "sec", position: "insideBottomRight", offset: -10 }} tick={{ fontSize: 10 }} />
+                  <YAxis dataKey="name" type="category" width={90} tick={{ fontSize: 9 }} />
+                  <Tooltip contentStyle={{ backgroundColor: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "8px" }} formatter={(value: any) => value.toFixed(1)} />
+                  <Legend wrapperStyle={{ fontSize: 11 }} />
+                  <Bar dataKey="flexors2026" fill="#6366f1" name="Flexors" radius={[0, 8, 8, 0]} />
+                  <Bar dataKey="extensors2026" fill="#10b981" name="Extensors" radius={[0, 8, 8, 0]} />
+                  <Bar dataKey="leftLateral2026" fill="#f59e0b" name="Left Lateral" radius={[0, 8, 8, 0]} />
+                  <Bar dataKey="rightLateral2026" fill="#ec4899" name="Right Lateral" radius={[0, 8, 8, 0]} />
+                </BarChart>
+              </ResponsiveContainer>
+            </div>
+          </div>
         </div>
 
-        {/* FMS Scores - Bar Chart */}
+        {/* FMS Scores - Composed Chart with both years */}
         <div className="bg-white rounded-lg p-6 shadow-sm border border-slate-100">
-          <h3 className="text-lg font-bold text-slate-800 mb-4">Functional Movement Screen (out of 21)</h3>
-          <ResponsiveContainer width="100%" height={300}>
-            <BarChart data={groupData} margin={{ top: 20, right: 30, left: 0, bottom: 80 }}>
+          <h3 className="text-lg font-bold text-slate-800 mb-4">Functional Movement Screen (out of 21) - 2025 vs 2026</h3>
+          <ResponsiveContainer width="100%" height={350}>
+            <ComposedChart data={groupData} margin={{ top: 20, right: 30, left: 0, bottom: 80 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
               <XAxis 
                 dataKey="name" 
@@ -489,10 +517,12 @@ export default function GroupAnalysis({ yearView }: GroupAnalysisProps) {
               />
               <YAxis domain={[0, 21]} label={{ value: "Score", angle: -90, position: "insideLeft" }} />
               <Tooltip contentStyle={{ backgroundColor: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "8px" }} formatter={(value: any) => value.toFixed(0)} />
-              <Bar dataKey="fms" fill="#8b5cf6" name="FMS Score" radius={[8, 8, 0, 0]} />
+              <Legend />
+              <Bar dataKey="fms2025" fill="#6366f1" name="FMS 2025" radius={[8, 8, 0, 0]} />
+              <Bar dataKey="fms2026" fill="#f97316" name="FMS 2026" radius={[8, 8, 0, 0]} />
               <ReferenceLine y={14} stroke="#ef4444" strokeDasharray="5 5" label={{ value: "Poor (14)", position: "right", fill: "#dc2626", fontSize: 10 }} />
               <ReferenceLine y={18} stroke="#eab308" strokeDasharray="5 5" label={{ value: "Good (18)", position: "right", fill: "#b45309", fontSize: 10 }} />
-            </BarChart>
+            </ComposedChart>
           </ResponsiveContainer>
         </div>
 

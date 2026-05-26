@@ -175,9 +175,9 @@ export default function GroupAnalysis({ yearView }: GroupAnalysisProps) {
           </ResponsiveContainer>
         </div>
 
-        {/* Isometric Strength - Main Measurements (Adductors, Abductors, Plantarflexors) */}
+        {/* Isometric Strength - Main Measurements (Adductors, Abductors) - 2025 vs 2026 */}
         <div className="bg-white rounded-lg p-6 shadow-sm border border-slate-100">
-          <h3 className="text-lg font-bold text-slate-800 mb-4">Isometric Strength - Main Measurements (N)</h3>
+          <h3 className="text-lg font-bold text-slate-800 mb-4">Isometric Strength - Main Measurements (N) - 2025 vs 2026</h3>
           <ResponsiveContainer width="100%" height={350}>
             <BarChart data={groupData} margin={{ top: 20, right: 30, left: 0, bottom: 80 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
@@ -191,10 +191,14 @@ export default function GroupAnalysis({ yearView }: GroupAnalysisProps) {
               <YAxis label={{ value: "N", angle: -90, position: "insideLeft" }} />
               <Tooltip contentStyle={{ backgroundColor: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "8px" }} formatter={(value: any) => value.toFixed(1)} />
               <Legend />
-              <Bar dataKey="lhAdductors" fill="#8b5cf6" name="LH Adductors" radius={[4, 4, 0, 0]} />
-              <Bar dataKey="rhAdductors" fill="#6366f1" name="RH Adductors" radius={[4, 4, 0, 0]} />
-              <Bar dataKey="lhAbductors" fill="#0ea5e9" name="LH Abductors" radius={[4, 4, 0, 0]} />
-              <Bar dataKey="rhAbductors" fill="#06b6d4" name="RH Abductors" radius={[4, 4, 0, 0]} />
+              <Bar dataKey="lhAdductors2025" fill="#8b5cf6" name="LH Adductors 2025" radius={[4, 4, 0, 0]} />
+              <Bar dataKey="lhAdductors2026" fill="#c4b5fd" name="LH Adductors 2026" radius={[4, 4, 0, 0]} />
+              <Bar dataKey="rhAdductors2025" fill="#6366f1" name="RH Adductors 2025" radius={[4, 4, 0, 0]} />
+              <Bar dataKey="rhAdductors2026" fill="#818cf8" name="RH Adductors 2026" radius={[4, 4, 0, 0]} />
+              <Bar dataKey="lhAbductors2025" fill="#0ea5e9" name="LH Abductors 2025" radius={[4, 4, 0, 0]} />
+              <Bar dataKey="lhAbductors2026" fill="#06b6d4" name="LH Abductors 2026" radius={[4, 4, 0, 0]} />
+              <Bar dataKey="rhAbductors2025" fill="#0284c7" name="RH Abductors 2025" radius={[4, 4, 0, 0]} />
+              <Bar dataKey="rhAbductors2026" fill="#38bdf8" name="RH Abductors 2026" radius={[4, 4, 0, 0]} />
               <ReferenceLine y={NORMATIVE_VALUES.hipStrength} stroke="#94a3b8" strokeDasharray="5 5" label={{ value: "Normative (200N)", position: "right", fill: "#64748b", fontSize: 11 }} />
             </BarChart>
           </ResponsiveContainer>
@@ -250,10 +254,10 @@ export default function GroupAnalysis({ yearView }: GroupAnalysisProps) {
           </ResponsiveContainer>
         </div>
 
-        {/* Ankle Plantarflexors - Separate Chart */}
+        {/* Ankle Plantarflexors - 2025 vs 2026 */}
         <div className="bg-white rounded-lg p-6 shadow-sm border border-slate-100">
-          <h3 className="text-lg font-bold text-slate-800 mb-4">Ankle Plantarflexors (N)</h3>
-          <ResponsiveContainer width="100%" height={300}>
+          <h3 className="text-lg font-bold text-slate-800 mb-4">Ankle Plantarflexors (N) - 2025 vs 2026</h3>
+          <ResponsiveContainer width="100%" height={350}>
             <BarChart data={groupData} margin={{ top: 20, right: 30, left: 0, bottom: 80 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
               <XAxis 
@@ -266,83 +270,158 @@ export default function GroupAnalysis({ yearView }: GroupAnalysisProps) {
               <YAxis label={{ value: "N", angle: -90, position: "insideLeft" }} />
               <Tooltip contentStyle={{ backgroundColor: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "8px" }} formatter={(value: any) => value.toFixed(1)} />
               <Legend />
-              <Bar dataKey="laPlantarflexors" fill="#10b981" name="L Ankle Plantarflexors" radius={[4, 4, 0, 0]} />
-              <Bar dataKey="raPlantarflexors" fill="#f59e0b" name="R Ankle Plantarflexors" radius={[4, 4, 0, 0]} />
+              <Bar dataKey="laPlantarflexors2025" fill="#10b981" name="L Ankle Plantarflexors 2025" radius={[4, 4, 0, 0]} />
+              <Bar dataKey="laPlantarflexors2026" fill="#6ee7b7" name="L Ankle Plantarflexors 2026" radius={[4, 4, 0, 0]} />
+              <Bar dataKey="raPlantarflexors2025" fill="#f59e0b" name="R Ankle Plantarflexors 2025" radius={[4, 4, 0, 0]} />
+              <Bar dataKey="raPlantarflexors2026" fill="#fcd34d" name="R Ankle Plantarflexors 2026" radius={[4, 4, 0, 0]} />
               <ReferenceLine y={600} stroke="#94a3b8" strokeDasharray="5 5" label={{ value: "Normative (600N)", position: "right", fill: "#64748b", fontSize: 11 }} />
             </BarChart>
           </ResponsiveContainer>
         </div>
 
-        {/* Isometric Strength Ratios - Horizontal Dumbbell Chart */}
+        {/* Add/Abd Ratios - Two Side-by-Side Horizontal Dumbbell Charts (2025 vs 2026) */}
         <div className="bg-white rounded-lg p-6 shadow-sm border border-slate-100">
           <h3 className="text-lg font-bold text-slate-800 mb-4">Add/Abd Ratios - Horizontal Dumbbell Chart</h3>
-          <ResponsiveContainer width="100%" height={Math.max(300, groupData.length * 40)}>
-            <ScatterChart margin={{ top: 20, right: 30, left: 120, bottom: 20 }}>
-              <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
-              <XAxis 
-                type="number" 
-                dataKey="ratio" 
-                name="Ratio Value"
-                domain={[0.6, 1.5]}
-                label={{ value: "Ratio Value", position: "insideBottomRight", offset: -10 }}
-                tick={{ fontSize: 11 }}
-              />
-              <YAxis 
-                type="category" 
-                dataKey="name" 
-                name="Athlete"
-                width={110}
-                tick={{ fontSize: 10 }}
-              />
-              <Tooltip 
-                contentStyle={{ backgroundColor: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "8px" }}
-                cursor={{ strokeDasharray: "3 3" }}
-                content={({ active, payload }) => {
-                  if (active && payload && payload.length) {
-                    const data = payload[0].payload;
-                    return (
-                      <div className="bg-white p-2 rounded border border-slate-200 text-xs">
-                        <p className="font-semibold">{data.name}</p>
-                        <p className="text-slate-600">{data.side}: {data.ratio.toFixed(2)}</p>
-                      </div>
-                    );
-                  }
-                  return null;
-                }}
-              />
-              <Legend />
-              <ReferenceLine 
-                x={1} 
-                stroke="#ef4444" 
-                strokeDasharray="5 5" 
-                label={{ value: "Normative (1.0)", position: "top", fill: "#64748b", fontSize: 11 }} 
-              />
-              {/* Left Leg Dumbbells */}
-              <Scatter 
-                name="Left Leg" 
-                data={groupData.map((a, idx) => ({ 
-                  name: a.name, 
-                  ratio: a.lhAddAbdRatio, 
-                  side: "LH",
-                  y: idx 
-                }))} 
-                fill="#6366f1" 
-                shape="circle"
-              />
-              {/* Right Leg Dumbbells */}
-              <Scatter 
-                name="Right Leg" 
-                data={groupData.map((a, idx) => ({ 
-                  name: a.name, 
-                  ratio: a.rhAddAbdRatio, 
-                  side: "RH",
-                  y: idx 
-                }))} 
-                fill="#f97316" 
-                shape="circle"
-              />
-            </ScatterChart>
-          </ResponsiveContainer>
+          <div className="grid grid-cols-2 gap-6">
+            {/* 2025 Chart */}
+            <div>
+              <h4 className="text-sm font-semibold text-slate-700 mb-3 text-center">2025</h4>
+              <ResponsiveContainer width="100%" height={Math.max(300, groupData.length * 40)}>
+                <ScatterChart margin={{ top: 20, right: 30, left: 120, bottom: 20 }}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+                  <XAxis 
+                    type="number" 
+                    dataKey="ratio" 
+                    name="Ratio Value"
+                    domain={[0.6, 1.5]}
+                    label={{ value: "Ratio Value", position: "insideBottomRight", offset: -10 }}
+                    tick={{ fontSize: 11 }}
+                  />
+                  <YAxis 
+                    type="category" 
+                    dataKey="name" 
+                    name="Athlete"
+                    width={110}
+                    tick={{ fontSize: 10 }}
+                  />
+                  <Tooltip 
+                    contentStyle={{ backgroundColor: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "8px" }}
+                    cursor={{ strokeDasharray: "3 3" }}
+                    content={({ active, payload }) => {
+                      if (active && payload && payload.length) {
+                        const data = payload[0].payload;
+                        return (
+                          <div className="bg-white p-2 rounded border border-slate-200 text-xs">
+                            <p className="font-semibold">{data.name}</p>
+                            <p className="text-slate-600">{data.side}: {data.ratio.toFixed(2)}</p>
+                          </div>
+                        );
+                      }
+                      return null;
+                    }}
+                  />
+                  <Legend />
+                  <ReferenceLine 
+                    x={1} 
+                    stroke="#ef4444" 
+                    strokeDasharray="5 5" 
+                    label={{ value: "Normative (1.0)", position: "top", fill: "#64748b", fontSize: 11 }} 
+                  />
+                  <Scatter 
+                    name="Left Leg" 
+                    data={groupData.map((a, idx) => ({ 
+                      name: a.name, 
+                      ratio: a.lhAddAbdRatio, 
+                      side: "LH",
+                      y: idx 
+                    }))} 
+                    fill="#6366f1" 
+                    shape="circle"
+                  />
+                  <Scatter 
+                    name="Right Leg" 
+                    data={groupData.map((a, idx) => ({ 
+                      name: a.name, 
+                      ratio: a.rhAddAbdRatio, 
+                      side: "RH",
+                      y: idx 
+                    }))} 
+                    fill="#f97316" 
+                    shape="circle"
+                  />
+                </ScatterChart>
+              </ResponsiveContainer>
+            </div>
+            {/* 2026 Chart */}
+            <div>
+              <h4 className="text-sm font-semibold text-slate-700 mb-3 text-center">2026</h4>
+              <ResponsiveContainer width="100%" height={Math.max(300, groupData.length * 40)}>
+                <ScatterChart margin={{ top: 20, right: 30, left: 120, bottom: 20 }}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+                  <XAxis 
+                    type="number" 
+                    dataKey="ratio" 
+                    name="Ratio Value"
+                    domain={[0.6, 1.5]}
+                    label={{ value: "Ratio Value", position: "insideBottomRight", offset: -10 }}
+                    tick={{ fontSize: 11 }}
+                  />
+                  <YAxis 
+                    type="category" 
+                    dataKey="name" 
+                    name="Athlete"
+                    width={110}
+                    tick={{ fontSize: 10 }}
+                  />
+                  <Tooltip 
+                    contentStyle={{ backgroundColor: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "8px" }}
+                    cursor={{ strokeDasharray: "3 3" }}
+                    content={({ active, payload }) => {
+                      if (active && payload && payload.length) {
+                        const data = payload[0].payload;
+                        return (
+                          <div className="bg-white p-2 rounded border border-slate-200 text-xs">
+                            <p className="font-semibold">{data.name}</p>
+                            <p className="text-slate-600">{data.side}: {data.ratio.toFixed(2)}</p>
+                          </div>
+                        );
+                      }
+                      return null;
+                    }}
+                  />
+                  <Legend />
+                  <ReferenceLine 
+                    x={1} 
+                    stroke="#ef4444" 
+                    strokeDasharray="5 5" 
+                    label={{ value: "Normative (1.0)", position: "top", fill: "#64748b", fontSize: 11 }} 
+                  />
+                  <Scatter 
+                    name="Left Leg" 
+                    data={groupData.map((a, idx) => ({ 
+                      name: a.name, 
+                      ratio: a.lhAddAbdRatio, 
+                      side: "LH",
+                      y: idx 
+                    }))} 
+                    fill="#6366f1" 
+                    shape="circle"
+                  />
+                  <Scatter 
+                    name="Right Leg" 
+                    data={groupData.map((a, idx) => ({ 
+                      name: a.name, 
+                      ratio: a.rhAddAbdRatio, 
+                      side: "RH",
+                      y: idx 
+                    }))} 
+                    fill="#f97316" 
+                    shape="circle"
+                  />
+                </ScatterChart>
+              </ResponsiveContainer>
+            </div>
+          </div>
         </div>
 
         {/* Trunk Endurance - Horizontal Bar Chart */}

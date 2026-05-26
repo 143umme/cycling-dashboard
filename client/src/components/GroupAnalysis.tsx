@@ -57,15 +57,26 @@ export default function GroupAnalysis({ yearView }: GroupAnalysisProps) {
         rhExtensors2025: data2025.isometricStrength.rhExtensors,
         lhExtensors2026: data2026.isometricStrength.lhExtensors,
         rhExtensors2026: data2026.isometricStrength.rhExtensors,
-        // Isometric Strength - Main measurements (2026)
-        lhAdductors: data2026.isometricStrength.lhAdductors,
-        rhAdductors: data2026.isometricStrength.rhAdductors,
-        lhAbductors: data2026.isometricStrength.lhAbductors,
-        rhAbductors: data2026.isometricStrength.rhAbductors,
-        laPlantarflexors: data2026.isometricStrength.laPlantarflexors,
-        raPlantarflexors: data2026.isometricStrength.raPlantarflexors,
-        lhAddAbdRatio: data2026.isometricStrength.lhAddAbdRatio,
-        rhAddAbdRatio: data2026.isometricStrength.rhAddAbdRatio,
+        // Isometric Strength - Adductors (both years)
+        lhAdductors2025: data2025.isometricStrength.lhAdductors,
+        rhAdductors2025: data2025.isometricStrength.rhAdductors,
+        lhAdductors2026: data2026.isometricStrength.lhAdductors,
+        rhAdductors2026: data2026.isometricStrength.rhAdductors,
+        // Isometric Strength - Abductors (both years)
+        lhAbductors2025: data2025.isometricStrength.lhAbductors,
+        rhAbductors2025: data2025.isometricStrength.rhAbductors,
+        lhAbductors2026: data2026.isometricStrength.lhAbductors,
+        rhAbductors2026: data2026.isometricStrength.rhAbductors,
+        // Isometric Strength - Plantarflexors (both years)
+        laPlantarflexors2025: data2025.isometricStrength.laPlantarflexors,
+        raPlantarflexors2025: data2025.isometricStrength.raPlantarflexors,
+        laPlantarflexors2026: data2026.isometricStrength.laPlantarflexors,
+        raPlantarflexors2026: data2026.isometricStrength.raPlantarflexors,
+        // Add/Abd Ratios (both years)
+        lhAddAbdRatio2025: data2025.isometricStrength.lhAddAbdRatio,
+        rhAddAbdRatio2025: data2025.isometricStrength.rhAddAbdRatio,
+        lhAddAbdRatio2026: data2026.isometricStrength.lhAddAbdRatio,
+        rhAddAbdRatio2026: data2026.isometricStrength.rhAddAbdRatio,
         // Trunk Endurance (seconds)
         flexors: data2026.trunkEndurance.flexors,
         extensors: data2026.trunkEndurance.extensors,
@@ -291,8 +302,10 @@ export default function GroupAnalysis({ yearView }: GroupAnalysisProps) {
               <YAxis label={{ value: "N", angle: -90, position: "insideLeft" }} />
               <Tooltip contentStyle={{ backgroundColor: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "8px" }} formatter={(value: any) => value.toFixed(1)} />
               <Legend />
-              <Bar dataKey="laPlantarflexors" fill="#10b981" name="L Ankle Plantarflexors 2025" radius={[4, 4, 0, 0]} />
-              <Bar dataKey="raPlantarflexors" fill="#f59e0b" name="R Ankle Plantarflexors 2025" radius={[4, 4, 0, 0]} />
+              <Bar dataKey="laPlantarflexors2025" fill="#10b981" name="L Ankle Plantarflexors 2025" radius={[4, 4, 0, 0]} />
+              <Bar dataKey="laPlantarflexors2026" fill="#86efac" name="L Ankle Plantarflexors 2026" radius={[4, 4, 0, 0]} />
+              <Bar dataKey="raPlantarflexors2025" fill="#f59e0b" name="R Ankle Plantarflexors 2025" radius={[4, 4, 0, 0]} />
+              <Bar dataKey="raPlantarflexors2026" fill="#fcd34d" name="R Ankle Plantarflexors 2026" radius={[4, 4, 0, 0]} />
               <ReferenceLine y={600} stroke="#94a3b8" strokeDasharray="5 5" label={{ value: "Normative (600N)", position: "right", fill: "#64748b", fontSize: 11 }} />
             </BarChart>
           </ResponsiveContainer>
@@ -350,7 +363,7 @@ export default function GroupAnalysis({ yearView }: GroupAnalysisProps) {
                     name="Left Leg" 
                     data={groupData.map((a, idx) => ({ 
                       name: a.name, 
-                      ratio: a.lhAddAbdRatio, 
+                      ratio: a.lhAddAbdRatio2025, 
                       side: "LH",
                       y: idx 
                     }))} 
@@ -361,7 +374,7 @@ export default function GroupAnalysis({ yearView }: GroupAnalysisProps) {
                     name="Right Leg" 
                     data={groupData.map((a, idx) => ({ 
                       name: a.name, 
-                      ratio: a.rhAddAbdRatio, 
+                      ratio: a.rhAddAbdRatio2025, 
                       side: "RH",
                       y: idx 
                     }))} 
@@ -371,7 +384,7 @@ export default function GroupAnalysis({ yearView }: GroupAnalysisProps) {
                 </ScatterChart>
               </ResponsiveContainer>
             </div>
-            {/* 2026 Chart - Note: Using same data as 2025 since separate 2026 data not available */}
+            {/* 2026 Chart */}
             <div>
               <h4 className="text-sm font-semibold text-slate-700 mb-3 text-center">2026</h4>
               <ResponsiveContainer width="100%" height={Math.max(300, groupData.length * 40)}>
@@ -419,7 +432,7 @@ export default function GroupAnalysis({ yearView }: GroupAnalysisProps) {
                     name="Left Leg" 
                     data={groupData.map((a, idx) => ({ 
                       name: a.name, 
-                      ratio: a.lhAddAbdRatio, 
+                      ratio: a.lhAddAbdRatio2026, 
                       side: "LH",
                       y: idx 
                     }))} 
@@ -430,7 +443,7 @@ export default function GroupAnalysis({ yearView }: GroupAnalysisProps) {
                     name="Right Leg" 
                     data={groupData.map((a, idx) => ({ 
                       name: a.name, 
-                      ratio: a.rhAddAbdRatio, 
+                      ratio: a.rhAddAbdRatio2026, 
                       side: "RH",
                       y: idx 
                     }))} 

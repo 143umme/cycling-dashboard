@@ -526,85 +526,200 @@ export default function GroupAnalysis({ yearView }: GroupAnalysisProps) {
           </ResponsiveContainer>
         </div>
 
-        {/* Y-Balance Test - Group Average Scores by Direction */}
+        {/* Y-Balance Test - Anterior Direction */}
         <div className="bg-white rounded-lg p-6 shadow-sm border border-slate-100">
-          <h3 className="text-lg font-bold text-slate-800 mb-4">Y-Balance Test - Group Average Scores by Direction</h3>
-          <p className="text-sm text-slate-600 mb-4">Group average reach percentages (higher is better, ≥94% is normative)</p>
-          <ResponsiveContainer width="100%" height={350}>
-            <ComposedChart data={[
-              {
-                metric: "Anterior",
-                left2025: groupData.filter(d => d.ybalanceAnteriorLeft !== null).reduce((sum, d) => sum + (d.ybalanceAnteriorLeft || 0), 0) / groupData.filter(d => d.ybalanceAnteriorLeft !== null).length || 0,
-                right2026: groupData.filter(d => d.ybalanceAnteriorRight !== null).reduce((sum, d) => sum + (d.ybalanceAnteriorRight || 0), 0) / groupData.filter(d => d.ybalanceAnteriorRight !== null).length || 0,
-              },
-              {
-                metric: "Medial",
-                left2025: groupData.filter(d => d.ybalanceMedialLeft !== null).reduce((sum, d) => sum + (d.ybalanceMedialLeft || 0), 0) / groupData.filter(d => d.ybalanceMedialLeft !== null).length || 0,
-                right2026: groupData.filter(d => d.ybalanceMedialRight !== null).reduce((sum, d) => sum + (d.ybalanceMedialRight || 0), 0) / groupData.filter(d => d.ybalanceMedialRight !== null).length || 0,
-              },
-              {
-                metric: "Lateral",
-                left2025: groupData.filter(d => d.ybalanceLateralLeft !== null).reduce((sum, d) => sum + (d.ybalanceLateralLeft || 0), 0) / groupData.filter(d => d.ybalanceLateralLeft !== null).length || 0,
-                right2026: groupData.filter(d => d.ybalanceLateralRight !== null).reduce((sum, d) => sum + (d.ybalanceLateralRight || 0), 0) / groupData.filter(d => d.ybalanceLateralRight !== null).length || 0,
-              },
-              {
-                metric: "Composite",
-                left2025: groupData.filter(d => d.ybalanceCompositeLeft !== null).reduce((sum, d) => sum + (d.ybalanceCompositeLeft || 0), 0) / groupData.filter(d => d.ybalanceCompositeLeft !== null).length || 0,
-                right2026: groupData.filter(d => d.ybalanceCompositeRight !== null).reduce((sum, d) => sum + (d.ybalanceCompositeRight || 0), 0) / groupData.filter(d => d.ybalanceCompositeRight !== null).length || 0,
-              },
-            ]} margin={{ top: 20, right: 30, left: 60, bottom: 20 }}>
-              <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
-              <XAxis dataKey="metric" />
-              <YAxis domain={[70, 150]} type="number" ticks={[70, 90, 110, 130, 150]} />
-              <Tooltip contentStyle={{ backgroundColor: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "8px" }} formatter={(value: any) => value ? value.toFixed(1) : "N/A"} />
-              <Legend />
-              <Bar dataKey="left2025" fill="#3b82f6" name="Left 2025" radius={[4, 4, 0, 0]} />
-              <Bar dataKey="right2026" fill="#f97316" name="Right 2026" radius={[4, 4, 0, 0]} />
-              <Line type="monotone" dataKey="left2025" stroke="#3b82f6" strokeWidth={2} dot={false} name="Left 2025 Trend" />
-              <Line type="monotone" dataKey="right2026" stroke="#f97316" strokeWidth={2} dot={false} name="Right 2026 Trend" />
-              <ReferenceLine y={94} stroke="#ef4444" strokeDasharray="5 5" label={{ value: "Normative (94%)", position: "right", fill: "#dc2626", fontSize: 10 }} />
-            </ComposedChart>
-          </ResponsiveContainer>
+          <h3 className="text-lg font-bold text-slate-800 mb-2">Y-Balance Test - Anterior Direction</h3>
+          <p className="text-xs text-slate-500 mb-4">Individual athlete reach percentages (higher is better, ≥94% is normative)</p>
+          <div className="grid grid-cols-2 gap-6">
+            {/* 2025 Anterior */}
+            <div>
+              <h4 className="text-sm font-semibold text-slate-700 mb-3 text-center">2025</h4>
+              <ResponsiveContainer width="100%" height={300}>
+                <ScatterChart margin={{ top: 20, right: 20, left: 20, bottom: 60 }}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+                  <XAxis dataKey="name" angle={-45} textAnchor="end" height={80} tick={{ fontSize: 9 }} />
+                  <YAxis domain={[70, 130]} type="number" label={{ value: "%", angle: -90, position: "insideLeft" }} />
+                  <Tooltip contentStyle={{ backgroundColor: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "8px" }} formatter={(value: any) => value ? value.toFixed(1) : "N/A"} />
+                  <ReferenceLine y={94} stroke="#10b981" strokeDasharray="5 5" label={{ value: "Norm", position: "right", fill: "#059669", fontSize: 9 }} />
+                  <Scatter dataKey="ybalanceAnteriorLeft" fill="#6366f1" name="Anterior 2025" />
+                </ScatterChart>
+              </ResponsiveContainer>
+            </div>
+            {/* 2026 Anterior */}
+            <div>
+              <h4 className="text-sm font-semibold text-slate-700 mb-3 text-center">2026</h4>
+              <ResponsiveContainer width="100%" height={300}>
+                <ScatterChart margin={{ top: 20, right: 20, left: 20, bottom: 60 }}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+                  <XAxis dataKey="name" angle={-45} textAnchor="end" height={80} tick={{ fontSize: 9 }} />
+                  <YAxis domain={[70, 130]} type="number" label={{ value: "%", angle: -90, position: "insideLeft" }} />
+                  <Tooltip contentStyle={{ backgroundColor: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "8px" }} formatter={(value: any) => value ? value.toFixed(1) : "N/A"} />
+                  <ReferenceLine y={94} stroke="#10b981" strokeDasharray="5 5" label={{ value: "Norm", position: "right", fill: "#059669", fontSize: 9 }} />
+                  <Scatter dataKey="ybalanceAnteriorRight" fill="#f97316" name="Anterior 2026" />
+                </ScatterChart>
+              </ResponsiveContainer>
+            </div>
+          </div>
+        </div>
+
+        {/* Y-Balance Test - Medial Direction */}
+        <div className="bg-white rounded-lg p-6 shadow-sm border border-slate-100">
+          <h3 className="text-lg font-bold text-slate-800 mb-2">Y-Balance Test - Medial Direction</h3>
+          <p className="text-xs text-slate-500 mb-4">Individual athlete reach percentages (higher is better, ≥94% is normative)</p>
+          <div className="grid grid-cols-2 gap-6">
+            {/* 2025 Medial */}
+            <div>
+              <h4 className="text-sm font-semibold text-slate-700 mb-3 text-center">2025</h4>
+              <ResponsiveContainer width="100%" height={300}>
+                <ScatterChart margin={{ top: 20, right: 20, left: 20, bottom: 60 }}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+                  <XAxis dataKey="name" angle={-45} textAnchor="end" height={80} tick={{ fontSize: 9 }} />
+                  <YAxis domain={[70, 130]} type="number" label={{ value: "%", angle: -90, position: "insideLeft" }} />
+                  <Tooltip contentStyle={{ backgroundColor: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "8px" }} formatter={(value: any) => value ? value.toFixed(1) : "N/A"} />
+                  <ReferenceLine y={94} stroke="#10b981" strokeDasharray="5 5" label={{ value: "Norm", position: "right", fill: "#059669", fontSize: 9 }} />
+                  <Scatter dataKey="ybalanceMedialLeft" fill="#8b5cf6" name="Medial 2025" />
+                </ScatterChart>
+              </ResponsiveContainer>
+            </div>
+            {/* 2026 Medial */}
+            <div>
+              <h4 className="text-sm font-semibold text-slate-700 mb-3 text-center">2026</h4>
+              <ResponsiveContainer width="100%" height={300}>
+                <ScatterChart margin={{ top: 20, right: 20, left: 20, bottom: 60 }}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+                  <XAxis dataKey="name" angle={-45} textAnchor="end" height={80} tick={{ fontSize: 9 }} />
+                  <YAxis domain={[70, 130]} type="number" label={{ value: "%", angle: -90, position: "insideLeft" }} />
+                  <Tooltip contentStyle={{ backgroundColor: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "8px" }} formatter={(value: any) => value ? value.toFixed(1) : "N/A"} />
+                  <ReferenceLine y={94} stroke="#10b981" strokeDasharray="5 5" label={{ value: "Norm", position: "right", fill: "#059669", fontSize: 9 }} />
+                  <Scatter dataKey="ybalanceMedialRight" fill="#ec4899" name="Medial 2026" />
+                </ScatterChart>
+              </ResponsiveContainer>
+            </div>
+          </div>
+        </div>
+
+        {/* Y-Balance Test - Lateral Direction */}
+        <div className="bg-white rounded-lg p-6 shadow-sm border border-slate-100">
+          <h3 className="text-lg font-bold text-slate-800 mb-2">Y-Balance Test - Lateral Direction</h3>
+          <p className="text-xs text-slate-500 mb-4">Individual athlete reach percentages (higher is better, ≥94% is normative)</p>
+          <div className="grid grid-cols-2 gap-6">
+            {/* 2025 Lateral */}
+            <div>
+              <h4 className="text-sm font-semibold text-slate-700 mb-3 text-center">2025</h4>
+              <ResponsiveContainer width="100%" height={300}>
+                <ScatterChart margin={{ top: 20, right: 20, left: 20, bottom: 60 }}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+                  <XAxis dataKey="name" angle={-45} textAnchor="end" height={80} tick={{ fontSize: 9 }} />
+                  <YAxis domain={[70, 130]} type="number" label={{ value: "%", angle: -90, position: "insideLeft" }} />
+                  <Tooltip contentStyle={{ backgroundColor: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "8px" }} formatter={(value: any) => value ? value.toFixed(1) : "N/A"} />
+                  <ReferenceLine y={94} stroke="#10b981" strokeDasharray="5 5" label={{ value: "Norm", position: "right", fill: "#059669", fontSize: 9 }} />
+                  <Scatter dataKey="ybalanceLateralLeft" fill="#14b8a6" name="Lateral 2025" />
+                </ScatterChart>
+              </ResponsiveContainer>
+            </div>
+            {/* 2026 Lateral */}
+            <div>
+              <h4 className="text-sm font-semibold text-slate-700 mb-3 text-center">2026</h4>
+              <ResponsiveContainer width="100%" height={300}>
+                <ScatterChart margin={{ top: 20, right: 20, left: 20, bottom: 60 }}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+                  <XAxis dataKey="name" angle={-45} textAnchor="end" height={80} tick={{ fontSize: 9 }} />
+                  <YAxis domain={[70, 130]} type="number" label={{ value: "%", angle: -90, position: "insideLeft" }} />
+                  <Tooltip contentStyle={{ backgroundColor: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "8px" }} formatter={(value: any) => value ? value.toFixed(1) : "N/A"} />
+                  <ReferenceLine y={94} stroke="#10b981" strokeDasharray="5 5" label={{ value: "Norm", position: "right", fill: "#059669", fontSize: 9 }} />
+                  <Scatter dataKey="ybalanceLateralRight" fill="#f59e0b" name="Lateral 2026" />
+                </ScatterChart>
+              </ResponsiveContainer>
+            </div>
+          </div>
+        </div>
+
+        {/* Y-Balance Test - Composite Score */}
+        <div className="bg-white rounded-lg p-6 shadow-sm border border-slate-100">
+          <h3 className="text-lg font-bold text-slate-800 mb-2">Y-Balance Test - Composite Score</h3>
+          <p className="text-xs text-slate-500 mb-4">Individual athlete composite reach percentages (higher is better, ≥94% is normative)</p>
+          <div className="grid grid-cols-2 gap-6">
+            {/* 2025 Composite */}
+            <div>
+              <h4 className="text-sm font-semibold text-slate-700 mb-3 text-center">2025</h4>
+              <ResponsiveContainer width="100%" height={300}>
+                <ScatterChart margin={{ top: 20, right: 20, left: 20, bottom: 60 }}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+                  <XAxis dataKey="name" angle={-45} textAnchor="end" height={80} tick={{ fontSize: 9 }} />
+                  <YAxis domain={[70, 130]} type="number" label={{ value: "%", angle: -90, position: "insideLeft" }} />
+                  <Tooltip contentStyle={{ backgroundColor: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "8px" }} formatter={(value: any) => value ? value.toFixed(1) : "N/A"} />
+                  <ReferenceLine y={94} stroke="#10b981" strokeDasharray="5 5" label={{ value: "Norm", position: "right", fill: "#059669", fontSize: 9 }} />
+                  <Scatter dataKey="ybalanceCompositeLeft" fill="#06b6d4" name="Composite 2025" />
+                </ScatterChart>
+              </ResponsiveContainer>
+            </div>
+            {/* 2026 Composite */}
+            <div>
+              <h4 className="text-sm font-semibold text-slate-700 mb-3 text-center">2026</h4>
+              <ResponsiveContainer width="100%" height={300}>
+                <ScatterChart margin={{ top: 20, right: 20, left: 20, bottom: 60 }}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+                  <XAxis dataKey="name" angle={-45} textAnchor="end" height={80} tick={{ fontSize: 9 }} />
+                  <YAxis domain={[70, 130]} type="number" label={{ value: "%", angle: -90, position: "insideLeft" }} />
+                  <Tooltip contentStyle={{ backgroundColor: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "8px" }} formatter={(value: any) => value ? value.toFixed(1) : "N/A"} />
+                  <ReferenceLine y={94} stroke="#10b981" strokeDasharray="5 5" label={{ value: "Norm", position: "right", fill: "#059669", fontSize: 9 }} />
+                  <Scatter dataKey="ybalanceCompositeRight" fill="#d946ef" name="Composite 2026" />
+                </ScatterChart>
+              </ResponsiveContainer>
+            </div>
+          </div>
         </div>
 
         {/* Y-Balance Disbalance - 2025 vs 2026 Comparison */}
         <div className="bg-white rounded-lg p-6 shadow-sm border border-slate-100">
-          <h3 className="text-lg font-bold text-slate-800 mb-4">Y-Balance Test - Group Average Disbalance (2025 vs 2026)</h3>
-          <p className="text-sm text-slate-600 mb-4">Group average disbalance percentages (lower is better, &lt;4% is balanced)</p>
-          <ResponsiveContainer width="100%" height={300}>
-            <BarChart data={[
-              {
-                metric: "Anterior",
-                "2025": groupData.filter(d => d.ybalanceAnteriorDisbalance !== null).reduce((sum, d) => sum + (d.ybalanceAnteriorDisbalance || 0), 0) / groupData.filter(d => d.ybalanceAnteriorDisbalance !== null).length || 0,
-                "2026": groupData.filter(d => d.ybalanceAnteriorDisbalance !== null).reduce((sum, d) => sum + (d.ybalanceAnteriorDisbalance || 0), 0) / groupData.filter(d => d.ybalanceAnteriorDisbalance !== null).length || 0,
-              },
-              {
-                metric: "Medial",
-                "2025": groupData.filter(d => d.ybalanceMedialDisbalance !== null).reduce((sum, d) => sum + (d.ybalanceMedialDisbalance || 0), 0) / groupData.filter(d => d.ybalanceMedialDisbalance !== null).length || 0,
-                "2026": groupData.filter(d => d.ybalanceMedialDisbalance !== null).reduce((sum, d) => sum + (d.ybalanceMedialDisbalance || 0), 0) / groupData.filter(d => d.ybalanceMedialDisbalance !== null).length || 0,
-              },
-              {
-                metric: "Lateral",
-                "2025": groupData.filter(d => d.ybalanceLateralDisbalance !== null).reduce((sum, d) => sum + (d.ybalanceLateralDisbalance || 0), 0) / groupData.filter(d => d.ybalanceLateralDisbalance !== null).length || 0,
-                "2026": groupData.filter(d => d.ybalanceLateralDisbalance !== null).reduce((sum, d) => sum + (d.ybalanceLateralDisbalance || 0), 0) / groupData.filter(d => d.ybalanceLateralDisbalance !== null).length || 0,
-              },
-              {
-                metric: "Composite",
-                "2025": groupData.filter(d => d.ybalanceCompositeDisbalance !== null).reduce((sum, d) => sum + (d.ybalanceCompositeDisbalance || 0), 0) / groupData.filter(d => d.ybalanceCompositeDisbalance !== null).length || 0,
-                "2026": groupData.filter(d => d.ybalanceCompositeDisbalance !== null).reduce((sum, d) => sum + (d.ybalanceCompositeDisbalance || 0), 0) / groupData.filter(d => d.ybalanceCompositeDisbalance !== null).length || 0,
-              },
-            ]} margin={{ top: 20, right: 30, left: 60, bottom: 20 }}>
-              <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
-              <XAxis dataKey="metric" />
-              <YAxis domain={[0, 10]} type="number" ticks={[0, 2, 4, 6, 8, 10]} />
-              <Tooltip contentStyle={{ backgroundColor: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "8px" }} formatter={(value: any) => value ? value.toFixed(1) : "N/A"} />
-              <Legend />
-              <Bar dataKey="2025" fill="#3b82f6" name="2025" radius={[4, 4, 0, 0]} />
-              <Bar dataKey="2026" fill="#f97316" name="2026" radius={[4, 4, 0, 0]} />
-              <ReferenceLine y={4} stroke="#22c55e" strokeDasharray="5 5" label={{ value: "Balanced (<4%)", position: "right", fill: "#16a34a", fontSize: 10 }} />
-            </BarChart>
-          </ResponsiveContainer>
+          <h3 className="text-lg font-bold text-slate-800 mb-2">Y-Balance Test - Disbalance Index</h3>
+          <p className="text-xs text-slate-500 mb-4">Individual athlete disbalance percentages by direction (lower is better, &lt;4% is balanced)</p>
+          <div className="grid grid-cols-3 gap-4">
+            {/* Anterior Disbalance */}
+            <div>
+              <h4 className="text-xs font-semibold text-slate-700 mb-2 text-center">Anterior</h4>
+              <ResponsiveContainer width="100%" height={250}>
+                <BarChart data={groupData} margin={{ top: 10, right: 10, left: 10, bottom: 50 }}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+                  <XAxis dataKey="name" angle={-45} textAnchor="end" height={70} tick={{ fontSize: 8 }} />
+                  <YAxis domain={[0, 10]} type="number" tick={{ fontSize: 8 }} />
+                  <Tooltip contentStyle={{ backgroundColor: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "8px" }} formatter={(value: any) => value ? value.toFixed(1) : "N/A"} />
+                  <Bar dataKey="ybalanceAnteriorDisbalance" fill="#6366f1" radius={[4, 4, 0, 0]} />
+                  <ReferenceLine y={4} stroke="#ef4444" strokeDasharray="5 5" label={{ value: "4%", position: "top", fill: "#dc2626", fontSize: 8 }} />
+                </BarChart>
+              </ResponsiveContainer>
+            </div>
+            {/* Medial Disbalance */}
+            <div>
+              <h4 className="text-xs font-semibold text-slate-700 mb-2 text-center">Medial</h4>
+              <ResponsiveContainer width="100%" height={250}>
+                <BarChart data={groupData} margin={{ top: 10, right: 10, left: 10, bottom: 50 }}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+                  <XAxis dataKey="name" angle={-45} textAnchor="end" height={70} tick={{ fontSize: 8 }} />
+                  <YAxis domain={[0, 10]} type="number" tick={{ fontSize: 8 }} />
+                  <Tooltip contentStyle={{ backgroundColor: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "8px" }} formatter={(value: any) => value ? value.toFixed(1) : "N/A"} />
+                  <Bar dataKey="ybalanceMedialDisbalance" fill="#8b5cf6" radius={[4, 4, 0, 0]} />
+                  <ReferenceLine y={4} stroke="#ef4444" strokeDasharray="5 5" label={{ value: "4%", position: "top", fill: "#dc2626", fontSize: 8 }} />
+                </BarChart>
+              </ResponsiveContainer>
+            </div>
+            {/* Lateral Disbalance */}
+            <div>
+              <h4 className="text-xs font-semibold text-slate-700 mb-2 text-center">Lateral</h4>
+              <ResponsiveContainer width="100%" height={250}>
+                <BarChart data={groupData} margin={{ top: 10, right: 10, left: 10, bottom: 50 }}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+                  <XAxis dataKey="name" angle={-45} textAnchor="end" height={70} tick={{ fontSize: 8 }} />
+                  <YAxis domain={[0, 10]} type="number" tick={{ fontSize: 8 }} />
+                  <Tooltip contentStyle={{ backgroundColor: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "8px" }} formatter={(value: any) => value ? value.toFixed(1) : "N/A"} />
+                  <Bar dataKey="ybalanceLateralDisbalance" fill="#14b8a6" radius={[4, 4, 0, 0]} />
+                  <ReferenceLine y={4} stroke="#ef4444" strokeDasharray="5 5" label={{ value: "4%", position: "top", fill: "#dc2626", fontSize: 8 }} />
+                </BarChart>
+              </ResponsiveContainer>
+            </div>
+          </div>
         </div>
+
       </div>
     </div>
   );

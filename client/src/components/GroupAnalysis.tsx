@@ -89,19 +89,35 @@ export default function GroupAnalysis({ yearView }: GroupAnalysisProps) {
         // FMS - both years
         fms2025: data2025.functionalMovement.totalScore,
         fms2026: data2026.functionalMovement.totalScore,
-        // Y-Balance Test - All metrics
-        ybalanceAnteriorLeft: a.data.yBalance?.["2026"]?.anterior ?? null,
-        ybalanceAnteriorRight: a.data.yBalance?.["2026"]?.rightAnterior ?? null,
-        ybalanceAnteriorDisbalance: a.data.yBalance?.["2026"]?.anteriorDisbalance ?? null,
-        ybalanceMedialLeft: a.data.yBalance?.["2026"]?.medial ?? null,
-        ybalanceMedialRight: a.data.yBalance?.["2026"]?.rightMedial ?? null,
-        ybalanceMedialDisbalance: a.data.yBalance?.["2026"]?.medialDisbalance ?? null,
-        ybalanceLateralLeft: a.data.yBalance?.["2026"]?.lateral ?? null,
-        ybalanceLateralRight: a.data.yBalance?.["2026"]?.rightLateral ?? null,
-        ybalanceLateralDisbalance: a.data.yBalance?.["2026"]?.lateralDisbalance ?? null,
-        ybalanceCompositeLeft: a.data.yBalance?.["2026"]?.leftComposite ?? null,
-        ybalanceCompositeRight: a.data.yBalance?.["2026"]?.rightComposite ?? null,
-        ybalanceCompositeDisbalance: a.data.yBalance?.["2026"]?.compositeDisbalance ?? null,
+        // Y-Balance Test - All metrics for both years
+        // Anterior
+        ybalanceAnteriorLeft2025: a.data.yBalance?.["2025"]?.anterior ?? null,
+        ybalanceAnteriorRight2025: a.data.yBalance?.["2025"]?.rightAnterior ?? null,
+        ybalanceAnteriorLeft2026: a.data.yBalance?.["2026"]?.anterior ?? null,
+        ybalanceAnteriorRight2026: a.data.yBalance?.["2026"]?.rightAnterior ?? null,
+        ybalanceAnteriorDisbalance2025: a.data.yBalance?.["2025"]?.anteriorDisbalance ?? null,
+        ybalanceAnteriorDisbalance2026: a.data.yBalance?.["2026"]?.anteriorDisbalance ?? null,
+        // Medial
+        ybalanceMedialLeft2025: a.data.yBalance?.["2025"]?.medial ?? null,
+        ybalanceMedialRight2025: a.data.yBalance?.["2025"]?.rightMedial ?? null,
+        ybalanceMedialLeft2026: a.data.yBalance?.["2026"]?.medial ?? null,
+        ybalanceMedialRight2026: a.data.yBalance?.["2026"]?.rightMedial ?? null,
+        ybalanceMedialDisbalance2025: a.data.yBalance?.["2025"]?.medialDisbalance ?? null,
+        ybalanceMedialDisbalance2026: a.data.yBalance?.["2026"]?.medialDisbalance ?? null,
+        // Lateral
+        ybalanceLateralLeft2025: a.data.yBalance?.["2025"]?.lateral ?? null,
+        ybalanceLateralRight2025: a.data.yBalance?.["2025"]?.rightLateral ?? null,
+        ybalanceLateralLeft2026: a.data.yBalance?.["2026"]?.lateral ?? null,
+        ybalanceLateralRight2026: a.data.yBalance?.["2026"]?.rightLateral ?? null,
+        ybalanceLateralDisbalance2025: a.data.yBalance?.["2025"]?.lateralDisbalance ?? null,
+        ybalanceLateralDisbalance2026: a.data.yBalance?.["2026"]?.lateralDisbalance ?? null,
+        // Composite
+        ybalanceCompositeLeft2025: a.data.yBalance?.["2025"]?.leftComposite ?? null,
+        ybalanceCompositeRight2025: a.data.yBalance?.["2025"]?.rightComposite ?? null,
+        ybalanceCompositeLeft2026: a.data.yBalance?.["2026"]?.leftComposite ?? null,
+        ybalanceCompositeRight2026: a.data.yBalance?.["2026"]?.rightComposite ?? null,
+        ybalanceCompositeDisbalance2025: a.data.yBalance?.["2025"]?.compositeDisbalance ?? null,
+        ybalanceCompositeDisbalance2026: a.data.yBalance?.["2026"]?.compositeDisbalance ?? null,
       };
     });
   };
@@ -541,7 +557,7 @@ export default function GroupAnalysis({ yearView }: GroupAnalysisProps) {
                   <YAxis domain={[70, 130]} type="number" label={{ value: "%", angle: -90, position: "insideLeft" }} />
                   <Tooltip contentStyle={{ backgroundColor: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "8px" }} formatter={(value: any) => value ? value.toFixed(1) : "N/A"} />
                   <ReferenceLine y={94} stroke="#10b981" strokeDasharray="5 5" label={{ value: "Norm", position: "right", fill: "#059669", fontSize: 9 }} />
-                  <Scatter dataKey="ybalanceAnteriorLeft" fill="#6366f1" name="Anterior 2025" />
+                  <Scatter dataKey="ybalanceAnteriorLeft2025" fill="#6366f1" name="Anterior 2025" />
                 </ScatterChart>
               </ResponsiveContainer>
             </div>
@@ -555,7 +571,7 @@ export default function GroupAnalysis({ yearView }: GroupAnalysisProps) {
                   <YAxis domain={[70, 130]} type="number" label={{ value: "%", angle: -90, position: "insideLeft" }} />
                   <Tooltip contentStyle={{ backgroundColor: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "8px" }} formatter={(value: any) => value ? value.toFixed(1) : "N/A"} />
                   <ReferenceLine y={94} stroke="#10b981" strokeDasharray="5 5" label={{ value: "Norm", position: "right", fill: "#059669", fontSize: 9 }} />
-                  <Scatter dataKey="ybalanceAnteriorRight" fill="#f97316" name="Anterior 2026" />
+                  <Scatter dataKey="ybalanceAnteriorLeft2026" fill="#f97316" name="Anterior 2026" />
                 </ScatterChart>
               </ResponsiveContainer>
             </div>
@@ -577,7 +593,7 @@ export default function GroupAnalysis({ yearView }: GroupAnalysisProps) {
                   <YAxis domain={[70, 130]} type="number" label={{ value: "%", angle: -90, position: "insideLeft" }} />
                   <Tooltip contentStyle={{ backgroundColor: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "8px" }} formatter={(value: any) => value ? value.toFixed(1) : "N/A"} />
                   <ReferenceLine y={94} stroke="#10b981" strokeDasharray="5 5" label={{ value: "Norm", position: "right", fill: "#059669", fontSize: 9 }} />
-                  <Scatter dataKey="ybalanceMedialLeft" fill="#8b5cf6" name="Medial 2025" />
+                  <Scatter dataKey="ybalanceMedialLeft2025" fill="#8b5cf6" name="Medial 2025" />
                 </ScatterChart>
               </ResponsiveContainer>
             </div>
@@ -591,7 +607,7 @@ export default function GroupAnalysis({ yearView }: GroupAnalysisProps) {
                   <YAxis domain={[70, 130]} type="number" label={{ value: "%", angle: -90, position: "insideLeft" }} />
                   <Tooltip contentStyle={{ backgroundColor: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "8px" }} formatter={(value: any) => value ? value.toFixed(1) : "N/A"} />
                   <ReferenceLine y={94} stroke="#10b981" strokeDasharray="5 5" label={{ value: "Norm", position: "right", fill: "#059669", fontSize: 9 }} />
-                  <Scatter dataKey="ybalanceMedialRight" fill="#ec4899" name="Medial 2026" />
+                  <Scatter dataKey="ybalanceMedialLeft2026" fill="#ec4899" name="Medial 2026" />
                 </ScatterChart>
               </ResponsiveContainer>
             </div>
@@ -613,7 +629,7 @@ export default function GroupAnalysis({ yearView }: GroupAnalysisProps) {
                   <YAxis domain={[70, 130]} type="number" label={{ value: "%", angle: -90, position: "insideLeft" }} />
                   <Tooltip contentStyle={{ backgroundColor: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "8px" }} formatter={(value: any) => value ? value.toFixed(1) : "N/A"} />
                   <ReferenceLine y={94} stroke="#10b981" strokeDasharray="5 5" label={{ value: "Norm", position: "right", fill: "#059669", fontSize: 9 }} />
-                  <Scatter dataKey="ybalanceLateralLeft" fill="#14b8a6" name="Lateral 2025" />
+                  <Scatter dataKey="ybalanceLateralLeft2025" fill="#14b8a6" name="Lateral 2025" />
                 </ScatterChart>
               </ResponsiveContainer>
             </div>
@@ -627,7 +643,7 @@ export default function GroupAnalysis({ yearView }: GroupAnalysisProps) {
                   <YAxis domain={[70, 130]} type="number" label={{ value: "%", angle: -90, position: "insideLeft" }} />
                   <Tooltip contentStyle={{ backgroundColor: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "8px" }} formatter={(value: any) => value ? value.toFixed(1) : "N/A"} />
                   <ReferenceLine y={94} stroke="#10b981" strokeDasharray="5 5" label={{ value: "Norm", position: "right", fill: "#059669", fontSize: 9 }} />
-                  <Scatter dataKey="ybalanceLateralRight" fill="#f59e0b" name="Lateral 2026" />
+                  <Scatter dataKey="ybalanceLateralLeft2026" fill="#f59e0b" name="Lateral 2026" />
                 </ScatterChart>
               </ResponsiveContainer>
             </div>
@@ -649,7 +665,7 @@ export default function GroupAnalysis({ yearView }: GroupAnalysisProps) {
                   <YAxis domain={[70, 130]} type="number" label={{ value: "%", angle: -90, position: "insideLeft" }} />
                   <Tooltip contentStyle={{ backgroundColor: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "8px" }} formatter={(value: any) => value ? value.toFixed(1) : "N/A"} />
                   <ReferenceLine y={94} stroke="#10b981" strokeDasharray="5 5" label={{ value: "Norm", position: "right", fill: "#059669", fontSize: 9 }} />
-                  <Scatter dataKey="ybalanceCompositeLeft" fill="#06b6d4" name="Composite 2025" />
+                  <Scatter dataKey="ybalanceCompositeLeft2025" fill="#06b6d4" name="Composite 2025" />
                 </ScatterChart>
               </ResponsiveContainer>
             </div>
@@ -663,7 +679,7 @@ export default function GroupAnalysis({ yearView }: GroupAnalysisProps) {
                   <YAxis domain={[70, 130]} type="number" label={{ value: "%", angle: -90, position: "insideLeft" }} />
                   <Tooltip contentStyle={{ backgroundColor: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "8px" }} formatter={(value: any) => value ? value.toFixed(1) : "N/A"} />
                   <ReferenceLine y={94} stroke="#10b981" strokeDasharray="5 5" label={{ value: "Norm", position: "right", fill: "#059669", fontSize: 9 }} />
-                  <Scatter dataKey="ybalanceCompositeRight" fill="#d946ef" name="Composite 2026" />
+                  <Scatter dataKey="ybalanceCompositeLeft2026" fill="#d946ef" name="Composite 2026" />
                 </ScatterChart>
               </ResponsiveContainer>
             </div>
@@ -675,7 +691,7 @@ export default function GroupAnalysis({ yearView }: GroupAnalysisProps) {
           <h3 className="text-lg font-bold text-slate-800 mb-2">Y-Balance Test - Disbalance Index</h3>
           <p className="text-xs text-slate-500 mb-4">Individual athlete disbalance percentages by direction (lower is better, &lt;4% is balanced)</p>
           <div className="grid grid-cols-3 gap-4">
-            {/* Anterior Disbalance */}
+            {/* Anterior Disbalance - 2025 vs 2026 */}
             <div>
               <h4 className="text-xs font-semibold text-slate-700 mb-2 text-center">Anterior</h4>
               <ResponsiveContainer width="100%" height={250}>
@@ -684,12 +700,14 @@ export default function GroupAnalysis({ yearView }: GroupAnalysisProps) {
                   <XAxis dataKey="name" angle={-45} textAnchor="end" height={70} tick={{ fontSize: 8 }} />
                   <YAxis domain={[0, 10]} type="number" tick={{ fontSize: 8 }} />
                   <Tooltip contentStyle={{ backgroundColor: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "8px" }} formatter={(value: any) => value ? value.toFixed(1) : "N/A"} />
-                  <Bar dataKey="ybalanceAnteriorDisbalance" fill="#6366f1" radius={[4, 4, 0, 0]} />
+                  <Bar dataKey="ybalanceAnteriorDisbalance2025" fill="#6366f1" name="2025" radius={[4, 4, 0, 0]} />
+                  <Bar dataKey="ybalanceAnteriorDisbalance2026" fill="#f97316" name="2026" radius={[4, 4, 0, 0]} />
+                  <Legend />
                   <ReferenceLine y={4} stroke="#ef4444" strokeDasharray="5 5" label={{ value: "4%", position: "top", fill: "#dc2626", fontSize: 8 }} />
                 </BarChart>
               </ResponsiveContainer>
             </div>
-            {/* Medial Disbalance */}
+            {/* Medial Disbalance - 2025 vs 2026 */}
             <div>
               <h4 className="text-xs font-semibold text-slate-700 mb-2 text-center">Medial</h4>
               <ResponsiveContainer width="100%" height={250}>
@@ -698,12 +716,14 @@ export default function GroupAnalysis({ yearView }: GroupAnalysisProps) {
                   <XAxis dataKey="name" angle={-45} textAnchor="end" height={70} tick={{ fontSize: 8 }} />
                   <YAxis domain={[0, 10]} type="number" tick={{ fontSize: 8 }} />
                   <Tooltip contentStyle={{ backgroundColor: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "8px" }} formatter={(value: any) => value ? value.toFixed(1) : "N/A"} />
-                  <Bar dataKey="ybalanceMedialDisbalance" fill="#8b5cf6" radius={[4, 4, 0, 0]} />
+                  <Bar dataKey="ybalanceMedialDisbalance2025" fill="#8b5cf6" name="2025" radius={[4, 4, 0, 0]} />
+                  <Bar dataKey="ybalanceMedialDisbalance2026" fill="#ec4899" name="2026" radius={[4, 4, 0, 0]} />
+                  <Legend />
                   <ReferenceLine y={4} stroke="#ef4444" strokeDasharray="5 5" label={{ value: "4%", position: "top", fill: "#dc2626", fontSize: 8 }} />
                 </BarChart>
               </ResponsiveContainer>
             </div>
-            {/* Lateral Disbalance */}
+            {/* Lateral Disbalance - 2025 vs 2026 */}
             <div>
               <h4 className="text-xs font-semibold text-slate-700 mb-2 text-center">Lateral</h4>
               <ResponsiveContainer width="100%" height={250}>
@@ -712,7 +732,9 @@ export default function GroupAnalysis({ yearView }: GroupAnalysisProps) {
                   <XAxis dataKey="name" angle={-45} textAnchor="end" height={70} tick={{ fontSize: 8 }} />
                   <YAxis domain={[0, 10]} type="number" tick={{ fontSize: 8 }} />
                   <Tooltip contentStyle={{ backgroundColor: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "8px" }} formatter={(value: any) => value ? value.toFixed(1) : "N/A"} />
-                  <Bar dataKey="ybalanceLateralDisbalance" fill="#14b8a6" radius={[4, 4, 0, 0]} />
+                  <Bar dataKey="ybalanceLateralDisbalance2025" fill="#14b8a6" name="2025" radius={[4, 4, 0, 0]} />
+                  <Bar dataKey="ybalanceLateralDisbalance2026" fill="#f59e0b" name="2026" radius={[4, 4, 0, 0]} />
+                  <Legend />
                   <ReferenceLine y={4} stroke="#ef4444" strokeDasharray="5 5" label={{ value: "4%", position: "top", fill: "#dc2626", fontSize: 8 }} />
                 </BarChart>
               </ResponsiveContainer>

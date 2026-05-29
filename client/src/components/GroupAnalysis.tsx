@@ -686,6 +686,66 @@ export default function GroupAnalysis({ yearView }: GroupAnalysisProps) {
           </div>
         </div>
 
+        {/* Isokinetic Knee Test - Group Analysis */}
+        <div className="bg-white rounded-lg p-6 shadow-sm border border-slate-100">
+          <h3 className="text-lg font-bold text-slate-800 mb-2">Isokinetic Knee Test - Peak Torque (ft-lb)</h3>
+          <p className="text-xs text-slate-500 mb-4">Individual athlete flexor vs extensor torque comparison at 60 °/s (2025 vs 2026)</p>
+          
+          {/* Grid of scatter plots - 2 per row */}
+          <div className="grid grid-cols-2 gap-6">
+            {/* 2025 Scatter Plot */}
+            <div>
+              <h4 className="text-sm font-semibold text-slate-700 mb-3 text-center">2025 Data</h4>
+              <ResponsiveContainer width="100%" height={300}>
+                <ScatterChart margin={{ top: 10, right: 20, bottom: 50, left: 60 }}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+                  <XAxis dataKey="flexor" name="Flexor (ft-lb)" label={{ value: "Flexor (ft-lb)", position: "insideBottomRight", offset: -10 }} type="number" />
+                  <YAxis dataKey="extensor" name="Extensor (ft-lb)" label={{ value: "Extensor (ft-lb)", angle: -90, position: "insideLeft" }} type="number" />
+                  <Tooltip contentStyle={{ backgroundColor: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "8px" }} cursor={{ strokeDasharray: "3 3" }} />
+                  <Scatter name="Athletes" data={groupAthletes.map(a => ({
+                    flexor: ((a.isokinetic?.['2025']?.speed60?.lFlexors || 0) + (a.isokinetic?.['2025']?.speed60?.rFlexors || 0)) / 2,
+                    extensor: ((a.isokinetic?.['2025']?.speed60?.lExtensors || 0) + (a.isokinetic?.['2025']?.speed60?.rExtensors || 0)) / 2,
+                    name: a.name
+                  }))} fill="#1f77b4" />
+                </ScatterChart>
+              </ResponsiveContainer>
+            </div>
+
+            {/* 2026 Scatter Plot */}
+            <div>
+              <h4 className="text-sm font-semibold text-slate-700 mb-3 text-center">2026 Data</h4>
+              <ResponsiveContainer width="100%" height={300}>
+                <ScatterChart margin={{ top: 10, right: 20, bottom: 50, left: 60 }}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+                  <XAxis dataKey="flexor" name="Flexor (ft-lb)" label={{ value: "Flexor (ft-lb)", position: "insideBottomRight", offset: -10 }} type="number" />
+                  <YAxis dataKey="extensor" name="Extensor (ft-lb)" label={{ value: "Extensor (ft-lb)", angle: -90, position: "insideLeft" }} type="number" />
+                  <Tooltip contentStyle={{ backgroundColor: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "8px" }} cursor={{ strokeDasharray: "3 3" }} />
+                  <Scatter name="Athletes" data={groupAthletes.map(a => ({
+                    flexor: ((a.isokinetic?.['2026']?.speed60?.lFlexors || 0) + (a.isokinetic?.['2026']?.speed60?.rFlexors || 0)) / 2,
+                    extensor: ((a.isokinetic?.['2026']?.speed60?.lExtensors || 0) + (a.isokinetic?.['2026']?.speed60?.rExtensors || 0)) / 2,
+                    name: a.name
+                  }))} fill="#0ea5e9" />
+                </ScatterChart>
+              </ResponsiveContainer>
+            </div>
+          </div>
+
+          {/* H/Q Ratio Comparison */}
+          <div className="mt-6 p-4 bg-slate-50 rounded-lg border border-slate-200">
+            <h4 className="text-sm font-semibold text-slate-700 mb-3">Hamstring/Quadriceps Ratio (60 °/s) - Group Summary</h4>
+            <div className="grid grid-cols-2 gap-4">
+              <div>
+                <p className="text-xs text-slate-600 mb-2">2025 Average</p>
+                <p className="text-lg font-bold text-blue-600">{(groupAthletes.reduce((sum, a) => sum + (a.isokinetic?.['2025']?.speed60?.lHQRatio || 0), 0) / groupAthletes.length).toFixed(1)}%</p>
+              </div>
+              <div>
+                <p className="text-xs text-slate-600 mb-2">2026 Average</p>
+                <p className="text-lg font-bold text-cyan-600">{(groupAthletes.reduce((sum, a) => sum + (a.isokinetic?.['2026']?.speed60?.lHQRatio || 0), 0) / groupAthletes.length).toFixed(1)}%</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   );

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, ReferenceLine, LineChart, Line, ComposedChart, ScatterChart, Scatter } from "recharts";
 import type { Athlete, AthleteYear, YearKey } from "@/lib/athleteData";
 import { YBalanceTest } from "./YBalanceTest";
+import IsokineticsChart from "./IsokineticsChart";
 
 interface TestTabsProps {
   athlete: Athlete;
@@ -16,6 +17,7 @@ const testTabs = [
   { id: "fms", label: "Functional Movement", color: "#22c55e", icon: "🏃" },
   { id: "trunk", label: "Trunk Endurance", color: "#14b8a6", icon: "🧘" },
   { id: "ybalance", label: "Y-Balance Test", color: "#8b5cf6", icon: "⚖️" },
+  { id: "isokinetic", label: "Isokinetic Knee Test", color: "#ec4899", icon: "🦵" },
 ];
 
 // Normative values for each test
@@ -467,6 +469,31 @@ export default function TestTabs({ athlete, yearView, teamAvg2025, teamAvg2026 }
       {activeTab === "ybalance" && (
         <div className="space-y-6">
           <YBalanceTest athleteName={athlete.name} yBalanceData={athlete.data.yBalance} />
+        </div>
+      )}
+
+      {/* Isokinetic Knee Test Tab */}
+      {activeTab === "isokinetic" && (
+        <div className="space-y-6">
+          <IsokineticsChart athlete={athlete} year="2025" />
+          <IsokineticsChart athlete={athlete} year="2026" />
+
+          {/* H/Q Ratio Metrics */}
+          <div className="bg-white rounded-lg p-6 shadow-sm border border-slate-100">
+            <h3 className="text-lg font-bold text-slate-800 mb-4">Hamstring/Quadriceps Ratio (60 °/s)</h3>
+            <div className="grid grid-cols-2 gap-4">
+              <div className="p-4 bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg border border-blue-200">
+                <p className="text-sm text-slate-600 mb-1">Left H/Q Ratio</p>
+                <p className="text-2xl font-bold text-blue-600">{athlete.isokinetic?.['2026']?.speed60?.lHQRatio?.toFixed(1) || "N/A"}%</p>
+                <p className="text-xs text-slate-500 mt-2">2025: {athlete.isokinetic?.['2025']?.speed60?.lHQRatio?.toFixed(1) || "N/A"}%</p>
+              </div>
+              <div className="p-4 bg-gradient-to-br from-cyan-50 to-cyan-100 rounded-lg border border-cyan-200">
+                <p className="text-sm text-slate-600 mb-1">Right H/Q Ratio</p>
+                <p className="text-2xl font-bold text-cyan-600">{athlete.isokinetic?.['2026']?.speed60?.rHQRatio?.toFixed(1) || "N/A"}%</p>
+                <p className="text-xs text-slate-500 mt-2">2025: {athlete.isokinetic?.['2025']?.speed60?.rHQRatio?.toFixed(1) || "N/A"}%</p>
+              </div>
+            </div>
+          </div>
         </div>
       )}
     </div>

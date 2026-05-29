@@ -96,6 +96,52 @@
         "lateralDisbalance": 3.2,
         "compositeDisbalance": 0.5
       }
+    },
+    "isokinetic": {
+      "2026": {
+        "speed60": {
+          "lExtensors": 149.0,
+          "rExtensors": 156.0,
+          "lFlexors": 93.0,
+          "rFlexors": 96.0,
+          "lHQRatio": 62.0,
+          "rHQRatio": 60.0
+        },
+        "speed180": {
+          "lExtensors": 115.0,
+          "rExtensors": 122.0,
+          "lFlexors": 81.0,
+          "rFlexors": 75.0
+        },
+        "speed240": {
+          "lExtensors": 96.0,
+          "rExtensors": 108.0,
+          "lFlexors": 73.0,
+          "rFlexors": 78.0
+        }
+      },
+      "2025": {
+        "speed60": {
+          "lExtensors": 162.0,
+          "rExtensors": 167.0,
+          "lFlexors": 100.0,
+          "rFlexors": 96.0,
+          "lHQRatio": 61.7,
+          "rHQRatio": 57.5
+        },
+        "speed180": {
+          "lExtensors": 130.0,
+          "rExtensors": 123.0,
+          "lFlexors": 84.0,
+          "rFlexors": 81.0
+        },
+        "speed240": {
+          "lExtensors": 113.0,
+          "rExtensors": 109.0,
+          "lFlexors": 74.0,
+          "rFlexors": 70.0
+        }
+      }
     }
   },
   {
@@ -194,6 +240,52 @@
         "medialDisbalance": 5.7,
         "lateralDisbalance": 3.3,
         "compositeDisbalance": 3.0
+      }
+    },
+    "isokinetic": {
+      "2026": {
+        "speed60": {
+          "lExtensors": 119.0,
+          "rExtensors": 109.0,
+          "lFlexors": 69.0,
+          "rFlexors": 71.0,
+          "lHQRatio": 58.0,
+          "rHQRatio": 65.0
+        },
+        "speed180": {
+          "lExtensors": 83.0,
+          "rExtensors": 83.0,
+          "lFlexors": 63.0,
+          "rFlexors": 64.0
+        },
+        "speed240": {
+          "lExtensors": 71.0,
+          "rExtensors": 75.0,
+          "lFlexors": 55.0,
+          "rFlexors": 60.0
+        }
+      },
+      "2025": {
+        "speed60": {
+          "lExtensors": 147.0,
+          "rExtensors": 134.0,
+          "lFlexors": 87.0,
+          "rFlexors": 95.0,
+          "lHQRatio": 59.2,
+          "rHQRatio": 70.9
+        },
+        "speed180": {
+          "lExtensors": 107.0,
+          "rExtensors": 104.0,
+          "lFlexors": 68.0,
+          "rFlexors": 76.0
+        },
+        "speed240": {
+          "lExtensors": 92.0,
+          "rExtensors": 91.0,
+          "lFlexors": 66.0,
+          "rFlexors": 67.0
+        }
       }
     }
   },
@@ -294,6 +386,52 @@
         "lateralDisbalance": 3.4,
         "compositeDisbalance": 3.0
       }
+    },
+    "isokinetic": {
+      "2026": {
+        "speed60": {
+          "lExtensors": 125.0,
+          "rExtensors": 126.0,
+          "lFlexors": 72.0,
+          "rFlexors": 74.0,
+          "lHQRatio": 58.0,
+          "rHQRatio": 59.0
+        },
+        "speed180": {
+          "lExtensors": 101.0,
+          "rExtensors": 104.0,
+          "lFlexors": 69.0,
+          "rFlexors": 64.0
+        },
+        "speed240": {
+          "lExtensors": 96.0,
+          "rExtensors": 93.0,
+          "lFlexors": 58.0,
+          "rFlexors": 64.0
+        }
+      },
+      "2025": {
+        "speed60": {
+          "lExtensors": 132.0,
+          "rExtensors": 135.0,
+          "lFlexors": 73.0,
+          "rFlexors": 71.0,
+          "lHQRatio": 55.3,
+          "rHQRatio": 52.6
+        },
+        "speed180": {
+          "lExtensors": 105.0,
+          "rExtensors": 99.0,
+          "lFlexors": 65.0,
+          "rFlexors": 66.0
+        },
+        "speed240": {
+          "lExtensors": 91.0,
+          "rExtensors": 93.0,
+          "lFlexors": 59.0,
+          "rFlexors": 66.0
+        }
+      }
     }
   },
   {
@@ -392,6 +530,52 @@
         "medialDisbalance": 3.2,
         "lateralDisbalance": 7.6,
         "compositeDisbalance": 8.0
+      }
+    },
+    "isokinetic": {
+      "2026": {
+        "speed60": {
+          "lExtensors": 152.0,
+          "rExtensors": 156.0,
+          "lFlexors": 92.0,
+          "rFlexors": 86.0,
+          "lHQRatio": 61.0,
+          "rHQRatio": 55.0
+        },
+        "speed180": {
+          "lExtensors": 101.0,
+          "rExtensors": 110.0,
+          "lFlexors": 72.0,
+          "rFlexors": 70.0
+        },
+        "speed240": {
+          "lExtensors": 92.0,
+          "rExtensors": 103.0,
+          "lFlexors": 65.0,
+          "rFlexors": 65.0
+        }
+      },
+      "2025": {
+        "speed60": {
+          "lExtensors": 212.0,
+          "rExtensors": 224.0,
+          "lFlexors": 114.0,
+          "rFlexors": 91.0,
+          "lHQRatio": 53.8,
+          "rHQRatio": 40.6
+        },
+        "speed180": {
+          "lExtensors": 151.0,
+          "rExtensors": 176.0,
+          "lFlexors": 89.0,
+          "rFlexors": 68.0
+        },
+        "speed240": {
+          "lExtensors": 121.0,
+          "rExtensors": 153.0,
+          "lFlexors": 88.0,
+          "rFlexors": 69.0
+        }
       }
     }
   },
@@ -492,6 +676,52 @@
         "lateralDisbalance": 0.6,
         "compositeDisbalance": 1.0
       }
+    },
+    "isokinetic": {
+      "2026": {
+        "speed60": {
+          "lExtensors": 154.0,
+          "rExtensors": 148.0,
+          "lFlexors": 114.0,
+          "rFlexors": 102.0,
+          "lHQRatio": 74.0,
+          "rHQRatio": 69.0
+        },
+        "speed180": {
+          "lExtensors": 91.0,
+          "rExtensors": 87.0,
+          "lFlexors": 71.0,
+          "rFlexors": 76.0
+        },
+        "speed240": {
+          "lExtensors": 91.0,
+          "rExtensors": 76.0,
+          "lFlexors": 68.0,
+          "rFlexors": 72.0
+        }
+      },
+      "2025": {
+        "speed60": {
+          "lExtensors": 124.0,
+          "rExtensors": 134.0,
+          "lFlexors": 71.0,
+          "rFlexors": 89.0,
+          "lHQRatio": 57.3,
+          "rHQRatio": 66.4
+        },
+        "speed180": {
+          "lExtensors": 92.0,
+          "rExtensors": 98.0,
+          "lFlexors": 65.0,
+          "rFlexors": 67.0
+        },
+        "speed240": {
+          "lExtensors": 78.0,
+          "rExtensors": 83.0,
+          "lFlexors": 59.0,
+          "rFlexors": 66.0
+        }
+      }
     }
   },
   {
@@ -590,6 +820,52 @@
         "medialDisbalance": 6.4,
         "lateralDisbalance": 3.5,
         "compositeDisbalance": 8.8
+      }
+    },
+    "isokinetic": {
+      "2026": {
+        "speed60": {
+          "lExtensors": 78.0,
+          "rExtensors": 106.0,
+          "lFlexors": 46.0,
+          "rFlexors": 59.0,
+          "lHQRatio": 56.0,
+          "rHQRatio": 59.0
+        },
+        "speed180": {
+          "lExtensors": 56.0,
+          "rExtensors": 66.0,
+          "lFlexors": 40.0,
+          "rFlexors": 44.0
+        },
+        "speed240": {
+          "lExtensors": 52.0,
+          "rExtensors": 60.0,
+          "lFlexors": 35.0,
+          "rFlexors": 41.0
+        }
+      },
+      "2025": {
+        "speed60": {
+          "lExtensors": 112.0,
+          "rExtensors": 119.0,
+          "lFlexors": 57.0,
+          "rFlexors": 67.0,
+          "lHQRatio": 50.9,
+          "rHQRatio": 56.3
+        },
+        "speed180": {
+          "lExtensors": 78.0,
+          "rExtensors": 84.0,
+          "lFlexors": 49.0,
+          "rFlexors": 58.0
+        },
+        "speed240": {
+          "lExtensors": 69.0,
+          "rExtensors": 71.0,
+          "lFlexors": 47.0,
+          "rFlexors": 48.0
+        }
       }
     }
   },
@@ -690,6 +966,52 @@
         "lateralDisbalance": 1.2,
         "compositeDisbalance": 2.3
       }
+    },
+    "isokinetic": {
+      "2026": {
+        "speed60": {
+          "lExtensors": 115.0,
+          "rExtensors": 123.0,
+          "lFlexors": 60.0,
+          "rFlexors": 68.0,
+          "lHQRatio": 52.0,
+          "rHQRatio": 55.0
+        },
+        "speed180": {
+          "lExtensors": 52.0,
+          "rExtensors": 65.0,
+          "lFlexors": 41.0,
+          "rFlexors": 47.0
+        },
+        "speed240": {
+          "lExtensors": 56.0,
+          "rExtensors": 47.0,
+          "lFlexors": 49.0,
+          "rFlexors": 38.0
+        }
+      },
+      "2025": {
+        "speed60": {
+          "lExtensors": 116.0,
+          "rExtensors": 100.0,
+          "lFlexors": 63.0,
+          "rFlexors": 52.0,
+          "lHQRatio": 54.3,
+          "rHQRatio": 52.0
+        },
+        "speed180": {
+          "lExtensors": 80.0,
+          "rExtensors": 80.0,
+          "lFlexors": 51.0,
+          "rFlexors": 50.0
+        },
+        "speed240": {
+          "lExtensors": 65.0,
+          "rExtensors": 70.0,
+          "lFlexors": 49.0,
+          "rFlexors": 48.0
+        }
+      }
     }
   },
   {
@@ -788,6 +1110,52 @@
         "medialDisbalance": 6.3,
         "lateralDisbalance": 2.1,
         "compositeDisbalance": 1.0
+      }
+    },
+    "isokinetic": {
+      "2026": {
+        "speed60": {
+          "lExtensors": 100.0,
+          "rExtensors": 103.0,
+          "lFlexors": 53.0,
+          "rFlexors": 53.0,
+          "lHQRatio": 53.0,
+          "rHQRatio": 51.0
+        },
+        "speed180": {
+          "lExtensors": 71.0,
+          "rExtensors": 78.0,
+          "lFlexors": 47.0,
+          "rFlexors": 46.0
+        },
+        "speed240": {
+          "lExtensors": 58.0,
+          "rExtensors": 66.0,
+          "lFlexors": 46.0,
+          "rFlexors": 46.0
+        }
+      },
+      "2025": {
+        "speed60": {
+          "lExtensors": 102.0,
+          "rExtensors": 100.0,
+          "lFlexors": 60.0,
+          "rFlexors": 68.0,
+          "lHQRatio": 58.8,
+          "rHQRatio": 68.0
+        },
+        "speed180": {
+          "lExtensors": 77.0,
+          "rExtensors": 70.0,
+          "lFlexors": 49.0,
+          "rFlexors": 50.0
+        },
+        "speed240": {
+          "lExtensors": 62.0,
+          "rExtensors": 62.0,
+          "lFlexors": 49.0,
+          "rFlexors": 47.0
+        }
       }
     }
   },
@@ -888,6 +1256,52 @@
         "lateralDisbalance": 1.3,
         "compositeDisbalance": 0.0
       }
+    },
+    "isokinetic": {
+      "2026": {
+        "speed60": {
+          "lExtensors": 122.0,
+          "rExtensors": 119.0,
+          "lFlexors": 64.0,
+          "rFlexors": 60.0,
+          "lHQRatio": 52.0,
+          "rHQRatio": 50.0
+        },
+        "speed180": {
+          "lExtensors": 72.0,
+          "rExtensors": 75.0,
+          "lFlexors": 40.0,
+          "rFlexors": 41.0
+        },
+        "speed240": {
+          "lExtensors": 53.0,
+          "rExtensors": 57.0,
+          "lFlexors": 38.0,
+          "rFlexors": 35.0
+        }
+      },
+      "2025": {
+        "speed60": {
+          "lExtensors": 88.0,
+          "rExtensors": 104.0,
+          "lFlexors": 57.0,
+          "rFlexors": 43.0,
+          "lHQRatio": 64.8,
+          "rHQRatio": 41.3
+        },
+        "speed180": {
+          "lExtensors": 84.0,
+          "rExtensors": 94.0,
+          "lFlexors": 42.0,
+          "rFlexors": 42.0
+        },
+        "speed240": {
+          "lExtensors": 72.0,
+          "rExtensors": 79.0,
+          "lFlexors": 37.0,
+          "rFlexors": 37.0
+        }
+      }
     }
   },
   {
@@ -986,6 +1400,52 @@
         "medialDisbalance": 1.1,
         "lateralDisbalance": 0.0,
         "compositeDisbalance": 0.0
+      }
+    },
+    "isokinetic": {
+      "2026": {
+        "speed60": {
+          "lExtensors": 104.0,
+          "rExtensors": 90.0,
+          "lFlexors": 65.0,
+          "rFlexors": 60.0,
+          "lHQRatio": 62.0,
+          "rHQRatio": 67.0
+        },
+        "speed180": {
+          "lExtensors": 75.0,
+          "rExtensors": 68.0,
+          "lFlexors": 57.0,
+          "rFlexors": 56.0
+        },
+        "speed240": {
+          "lExtensors": 59.0,
+          "rExtensors": 57.0,
+          "lFlexors": 51.0,
+          "rFlexors": 47.0
+        }
+      },
+      "2025": {
+        "speed60": {
+          "lExtensors": 133.0,
+          "rExtensors": 146.0,
+          "lFlexors": 89.0,
+          "rFlexors": 108.0,
+          "lHQRatio": 66.9,
+          "rHQRatio": 74.0
+        },
+        "speed180": {
+          "lExtensors": 96.0,
+          "rExtensors": 98.0,
+          "lFlexors": 69.0,
+          "rFlexors": 80.0
+        },
+        "speed240": {
+          "lExtensors": 74.0,
+          "rExtensors": 85.0,
+          "lFlexors": 57.0,
+          "rFlexors": 70.0
+        }
       }
     }
   },
@@ -1086,6 +1546,52 @@
         "lateralDisbalance": 6.9,
         "compositeDisbalance": 2.0
       }
+    },
+    "isokinetic": {
+      "2026": {
+        "speed60": {
+          "lExtensors": 88.0,
+          "rExtensors": 119.0,
+          "lFlexors": 50.0,
+          "rFlexors": 61.0,
+          "lHQRatio": 57.0,
+          "rHQRatio": 51.0
+        },
+        "speed180": {
+          "lExtensors": 71.0,
+          "rExtensors": 57.0,
+          "lFlexors": 39.0,
+          "rFlexors": 35.0
+        },
+        "speed240": {
+          "lExtensors": 53.0,
+          "rExtensors": 49.0,
+          "lFlexors": 30.0,
+          "rFlexors": 34.0
+        }
+      },
+      "2025": {
+        "speed60": {
+          "lExtensors": 105.0,
+          "rExtensors": 83.0,
+          "lFlexors": 52.0,
+          "rFlexors": 68.0,
+          "lHQRatio": 49.5,
+          "rHQRatio": 81.9
+        },
+        "speed180": {
+          "lExtensors": 68.0,
+          "rExtensors": 71.0,
+          "lFlexors": 42.0,
+          "rFlexors": 45.0
+        },
+        "speed240": {
+          "lExtensors": 50.0,
+          "rExtensors": 46.0,
+          "lFlexors": 35.0,
+          "rFlexors": 41.0
+        }
+      }
     }
   },
   {
@@ -1184,6 +1690,52 @@
         "medialDisbalance": 0.0,
         "lateralDisbalance": 4.6,
         "compositeDisbalance": 0.0
+      }
+    },
+    "isokinetic": {
+      "2026": {
+        "speed60": {
+          "lExtensors": 101.0,
+          "rExtensors": 122.0,
+          "lFlexors": 56.0,
+          "rFlexors": 72.0,
+          "lHQRatio": 55.0,
+          "rHQRatio": 59.0
+        },
+        "speed180": {
+          "lExtensors": 86.0,
+          "rExtensors": 96.0,
+          "lFlexors": 46.0,
+          "rFlexors": 57.0
+        },
+        "speed240": {
+          "lExtensors": 71.0,
+          "rExtensors": 85.0,
+          "lFlexors": 44.0,
+          "rFlexors": 47.0
+        }
+      },
+      "2025": {
+        "speed60": {
+          "lExtensors": 107.0,
+          "rExtensors": 130.0,
+          "lFlexors": 66.0,
+          "rFlexors": 73.0,
+          "lHQRatio": 61.7,
+          "rHQRatio": 56.2
+        },
+        "speed180": {
+          "lExtensors": 86.0,
+          "rExtensors": 94.0,
+          "lFlexors": 58.0,
+          "rFlexors": 55.0
+        },
+        "speed240": {
+          "lExtensors": 69.0,
+          "rExtensors": 81.0,
+          "lFlexors": 47.0,
+          "rFlexors": 51.0
+        }
       }
     }
   },
@@ -1284,6 +1836,52 @@
         "lateralDisbalance": 1.1,
         "compositeDisbalance": 1.0
       }
+    },
+    "isokinetic": {
+      "2026": {
+        "speed60": {
+          "lExtensors": 0.0,
+          "rExtensors": 0.0,
+          "lFlexors": 0.0,
+          "rFlexors": 0.0,
+          "lHQRatio": 0.0,
+          "rHQRatio": 0.0
+        },
+        "speed180": {
+          "lExtensors": 0.0,
+          "rExtensors": 0.0,
+          "lFlexors": 0.0,
+          "rFlexors": 0.0
+        },
+        "speed240": {
+          "lExtensors": 0.0,
+          "rExtensors": 0.0,
+          "lFlexors": 0.0,
+          "rFlexors": 0.0
+        }
+      },
+      "2025": {
+        "speed60": {
+          "lExtensors": 128.0,
+          "rExtensors": 137.0,
+          "lFlexors": 77.0,
+          "rFlexors": 76.0,
+          "lHQRatio": 60.2,
+          "rHQRatio": 55.5
+        },
+        "speed180": {
+          "lExtensors": 81.0,
+          "rExtensors": 83.0,
+          "lFlexors": 60.0,
+          "rFlexors": 61.0
+        },
+        "speed240": {
+          "lExtensors": 69.0,
+          "rExtensors": 71.0,
+          "lFlexors": 57.0,
+          "rFlexors": 62.0
+        }
+      }
     }
   },
   {
@@ -1382,6 +1980,52 @@
         "medialDisbalance": 0.0,
         "lateralDisbalance": 1.1,
         "compositeDisbalance": 3.0
+      }
+    },
+    "isokinetic": {
+      "2026": {
+        "speed60": {
+          "lExtensors": 134.0,
+          "rExtensors": 128.0,
+          "lFlexors": 67.0,
+          "rFlexors": 72.0,
+          "lHQRatio": 50.0,
+          "rHQRatio": 56.0
+        },
+        "speed180": {
+          "lExtensors": 97.0,
+          "rExtensors": 104.0,
+          "lFlexors": 63.0,
+          "rFlexors": 63.0
+        },
+        "speed240": {
+          "lExtensors": 76.0,
+          "rExtensors": 85.0,
+          "lFlexors": 59.0,
+          "rFlexors": 65.0
+        }
+      },
+      "2025": {
+        "speed60": {
+          "lExtensors": 130.0,
+          "rExtensors": 127.0,
+          "lFlexors": 88.0,
+          "rFlexors": 86.0,
+          "lHQRatio": 67.7,
+          "rHQRatio": 67.7
+        },
+        "speed180": {
+          "lExtensors": 83.0,
+          "rExtensors": 89.0,
+          "lFlexors": 66.0,
+          "rFlexors": 65.0
+        },
+        "speed240": {
+          "lExtensors": 71.0,
+          "rExtensors": 78.0,
+          "lFlexors": 62.0,
+          "rFlexors": 55.0
+        }
       }
     }
   },
@@ -1482,6 +2126,52 @@
         "lateralDisbalance": 4.6,
         "compositeDisbalance": 3.0
       }
+    },
+    "isokinetic": {
+      "2026": {
+        "speed60": {
+          "lExtensors": 131.0,
+          "rExtensors": 124.0,
+          "lFlexors": 67.0,
+          "rFlexors": 70.0,
+          "lHQRatio": 51.0,
+          "rHQRatio": 56.0
+        },
+        "speed180": {
+          "lExtensors": 71.0,
+          "rExtensors": 88.0,
+          "lFlexors": 48.0,
+          "rFlexors": 51.0
+        },
+        "speed240": {
+          "lExtensors": 59.0,
+          "rExtensors": 83.0,
+          "lFlexors": 46.0,
+          "rFlexors": 48.0
+        }
+      },
+      "2025": {
+        "speed60": {
+          "lExtensors": 139.0,
+          "rExtensors": 139.0,
+          "lFlexors": 68.0,
+          "rFlexors": 79.0,
+          "lHQRatio": 48.9,
+          "rHQRatio": 56.8
+        },
+        "speed180": {
+          "lExtensors": 83.0,
+          "rExtensors": 86.0,
+          "lFlexors": 42.0,
+          "rFlexors": 49.0
+        },
+        "speed240": {
+          "lExtensors": 68.0,
+          "rExtensors": 68.0,
+          "lFlexors": 40.0,
+          "rFlexors": 42.0
+        }
+      }
     }
   },
   {
@@ -1580,6 +2270,52 @@
         "medialDisbalance": 7.8,
         "lateralDisbalance": 7.7,
         "compositeDisbalance": 5.0
+      }
+    },
+    "isokinetic": {
+      "2026": {
+        "speed60": {
+          "lExtensors": 111.0,
+          "rExtensors": 114.0,
+          "lFlexors": 54.0,
+          "rFlexors": 55.0,
+          "lHQRatio": 49.0,
+          "rHQRatio": 48.0
+        },
+        "speed180": {
+          "lExtensors": 88.0,
+          "rExtensors": 88.0,
+          "lFlexors": 46.0,
+          "rFlexors": 49.0
+        },
+        "speed240": {
+          "lExtensors": 76.0,
+          "rExtensors": 83.0,
+          "lFlexors": 49.0,
+          "rFlexors": 46.0
+        }
+      },
+      "2025": {
+        "speed60": {
+          "lExtensors": 146.0,
+          "rExtensors": 135.0,
+          "lFlexors": 50.0,
+          "rFlexors": 60.0,
+          "lHQRatio": 34.2,
+          "rHQRatio": 44.4
+        },
+        "speed180": {
+          "lExtensors": 99.0,
+          "rExtensors": 98.0,
+          "lFlexors": 53.0,
+          "rFlexors": 51.0
+        },
+        "speed240": {
+          "lExtensors": 76.0,
+          "rExtensors": 85.0,
+          "lFlexors": 50.0,
+          "rFlexors": 44.0
+        }
       }
     }
   },
@@ -1680,6 +2416,52 @@
         "lateralDisbalance": 2.3,
         "compositeDisbalance": 1.0
       }
+    },
+    "isokinetic": {
+      "2026": {
+        "speed60": {
+          "lExtensors": 113.0,
+          "rExtensors": 123.0,
+          "lFlexors": 79.0,
+          "rFlexors": 92.0,
+          "lHQRatio": 70.0,
+          "rHQRatio": 75.0
+        },
+        "speed180": {
+          "lExtensors": 84.0,
+          "rExtensors": 94.0,
+          "lFlexors": 68.0,
+          "rFlexors": 83.0
+        },
+        "speed240": {
+          "lExtensors": 77.0,
+          "rExtensors": 81.0,
+          "lFlexors": 64.0,
+          "rFlexors": 71.0
+        }
+      },
+      "2025": {
+        "speed60": {
+          "lExtensors": 115.0,
+          "rExtensors": 125.0,
+          "lFlexors": 63.0,
+          "rFlexors": 84.0,
+          "lHQRatio": 54.8,
+          "rHQRatio": 67.2
+        },
+        "speed180": {
+          "lExtensors": 83.0,
+          "rExtensors": 88.0,
+          "lFlexors": 49.0,
+          "rFlexors": 64.0
+        },
+        "speed240": {
+          "lExtensors": 64.0,
+          "rExtensors": 75.0,
+          "lFlexors": 43.0,
+          "rFlexors": 53.0
+        }
+      }
     }
   },
   {
@@ -1778,6 +2560,52 @@
         "medialDisbalance": 12.1,
         "lateralDisbalance": 3.3,
         "compositeDisbalance": 1.0
+      }
+    },
+    "isokinetic": {
+      "2026": {
+        "speed60": {
+          "lExtensors": 119.0,
+          "rExtensors": 132.0,
+          "lFlexors": 89.0,
+          "rFlexors": 91.0,
+          "lHQRatio": 75.0,
+          "rHQRatio": 69.0
+        },
+        "speed180": {
+          "lExtensors": 71.0,
+          "rExtensors": 96.0,
+          "lFlexors": 72.0,
+          "rFlexors": 73.0
+        },
+        "speed240": {
+          "lExtensors": 67.0,
+          "rExtensors": 90.0,
+          "lFlexors": 60.0,
+          "rFlexors": 63.0
+        }
+      },
+      "2025": {
+        "speed60": {
+          "lExtensors": 126.0,
+          "rExtensors": 132.0,
+          "lFlexors": 79.0,
+          "rFlexors": 68.0,
+          "lHQRatio": 62.7,
+          "rHQRatio": 51.5
+        },
+        "speed180": {
+          "lExtensors": 88.0,
+          "rExtensors": 98.0,
+          "lFlexors": 57.0,
+          "rFlexors": 64.0
+        },
+        "speed240": {
+          "lExtensors": 77.0,
+          "rExtensors": 81.0,
+          "lFlexors": 51.0,
+          "rFlexors": 62.0
+        }
       }
     }
   },
@@ -1878,6 +2706,52 @@
         "lateralDisbalance": 2.3,
         "compositeDisbalance": 0.0
       }
+    },
+    "isokinetic": {
+      "2026": {
+        "speed60": {
+          "lExtensors": 130.0,
+          "rExtensors": 140.0,
+          "lFlexors": 72.0,
+          "rFlexors": 80.0,
+          "lHQRatio": 57.0,
+          "rHQRatio": 55.0
+        },
+        "speed180": {
+          "lExtensors": 91.0,
+          "rExtensors": 112.0,
+          "lFlexors": 64.0,
+          "rFlexors": 71.0
+        },
+        "speed240": {
+          "lExtensors": 92.0,
+          "rExtensors": 97.0,
+          "lFlexors": 65.0,
+          "rFlexors": 66.0
+        }
+      },
+      "2025": {
+        "speed60": {
+          "lExtensors": 123.0,
+          "rExtensors": 142.0,
+          "lFlexors": 68.0,
+          "rFlexors": 95.0,
+          "lHQRatio": 55.3,
+          "rHQRatio": 66.9
+        },
+        "speed180": {
+          "lExtensors": 92.0,
+          "rExtensors": 105.0,
+          "lFlexors": 49.0,
+          "rFlexors": 68.0
+        },
+        "speed240": {
+          "lExtensors": 83.0,
+          "rExtensors": 88.0,
+          "lFlexors": 51.0,
+          "rFlexors": 61.0
+        }
+      }
     }
   },
   {
@@ -1976,6 +2850,52 @@
         "medialDisbalance": 6.2,
         "lateralDisbalance": 6.2,
         "compositeDisbalance": 4.0
+      }
+    },
+    "isokinetic": {
+      "2026": {
+        "speed60": {
+          "lExtensors": 107.0,
+          "rExtensors": 146.0,
+          "lFlexors": 65.0,
+          "rFlexors": 93.0,
+          "lHQRatio": 61.0,
+          "rHQRatio": 64.0
+        },
+        "speed180": {
+          "lExtensors": 76.0,
+          "rExtensors": 104.0,
+          "lFlexors": 53.0,
+          "rFlexors": 70.0
+        },
+        "speed240": {
+          "lExtensors": 69.0,
+          "rExtensors": 92.0,
+          "lFlexors": 49.0,
+          "rFlexors": 59.0
+        }
+      },
+      "2025": {
+        "speed60": {
+          "lExtensors": 122.0,
+          "rExtensors": 123.0,
+          "lFlexors": 76.0,
+          "rFlexors": 84.0,
+          "lHQRatio": 62.3,
+          "rHQRatio": 68.3
+        },
+        "speed180": {
+          "lExtensors": 78.0,
+          "rExtensors": 84.0,
+          "lFlexors": 64.0,
+          "rFlexors": 69.0
+        },
+        "speed240": {
+          "lExtensors": 66.0,
+          "rExtensors": 70.0,
+          "lFlexors": 56.0,
+          "rFlexors": 61.0
+        }
       }
     }
   },
@@ -2076,6 +2996,52 @@
         "lateralDisbalance": 2.2,
         "compositeDisbalance": 4.0
       }
+    },
+    "isokinetic": {
+      "2026": {
+        "speed60": {
+          "lExtensors": 183.0,
+          "rExtensors": 156.0,
+          "lFlexors": 89.0,
+          "rFlexors": 87.0,
+          "lHQRatio": 49.0,
+          "rHQRatio": 56.0
+        },
+        "speed180": {
+          "lExtensors": 115.0,
+          "rExtensors": 109.0,
+          "lFlexors": 80.0,
+          "rFlexors": 76.0
+        },
+        "speed240": {
+          "lExtensors": 99.0,
+          "rExtensors": 97.0,
+          "lFlexors": 82.0,
+          "rFlexors": 64.0
+        }
+      },
+      "2025": {
+        "speed60": {
+          "lExtensors": 139.0,
+          "rExtensors": 135.0,
+          "lFlexors": 86.0,
+          "rFlexors": 70.0,
+          "lHQRatio": 61.9,
+          "rHQRatio": 51.9
+        },
+        "speed180": {
+          "lExtensors": 85.0,
+          "rExtensors": 84.0,
+          "lFlexors": 57.0,
+          "rFlexors": 52.0
+        },
+        "speed240": {
+          "lExtensors": 75.0,
+          "rExtensors": 69.0,
+          "lFlexors": 53.0,
+          "rFlexors": 45.0
+        }
+      }
     }
   },
   {
@@ -2174,6 +3140,52 @@
         "medialDisbalance": 0.1,
         "lateralDisbalance": 6.8,
         "compositeDisbalance": 1.5
+      }
+    },
+    "isokinetic": {
+      "2026": {
+        "speed60": {
+          "lExtensors": 94.0,
+          "rExtensors": 117.0,
+          "lFlexors": 72.0,
+          "rFlexors": 73.0,
+          "lHQRatio": 77.0,
+          "rHQRatio": 62.0
+        },
+        "speed180": {
+          "lExtensors": 79.0,
+          "rExtensors": 72.0,
+          "lFlexors": 52.0,
+          "rFlexors": 51.0
+        },
+        "speed240": {
+          "lExtensors": 75.0,
+          "rExtensors": 86.0,
+          "lFlexors": 53.0,
+          "rFlexors": 56.0
+        }
+      },
+      "2025": {
+        "speed60": {
+          "lExtensors": 112.0,
+          "rExtensors": 130.0,
+          "lFlexors": 78.0,
+          "rFlexors": 75.0,
+          "lHQRatio": 69.6,
+          "rHQRatio": 57.7
+        },
+        "speed180": {
+          "lExtensors": 92.0,
+          "rExtensors": 98.0,
+          "lFlexors": 63.0,
+          "rFlexors": 41.0
+        },
+        "speed240": {
+          "lExtensors": 82.0,
+          "rExtensors": 85.0,
+          "lFlexors": 54.0,
+          "rFlexors": 53.0
+        }
       }
     }
   },
@@ -2274,6 +3286,52 @@
         "lateralDisbalance": 12.5,
         "compositeDisbalance": 6.0
       }
+    },
+    "isokinetic": {
+      "2026": {
+        "speed60": {
+          "lExtensors": 87.0,
+          "rExtensors": 95.0,
+          "lFlexors": 54.0,
+          "rFlexors": 54.0,
+          "lHQRatio": 62.0,
+          "rHQRatio": 57.0
+        },
+        "speed180": {
+          "lExtensors": 53.0,
+          "rExtensors": 52.0,
+          "lFlexors": 36.0,
+          "rFlexors": 36.0
+        },
+        "speed240": {
+          "lExtensors": 39.0,
+          "rExtensors": 42.0,
+          "lFlexors": 29.0,
+          "rFlexors": 29.0
+        }
+      },
+      "2025": {
+        "speed60": {
+          "lExtensors": 59.0,
+          "rExtensors": 75.0,
+          "lFlexors": 41.0,
+          "rFlexors": 54.0,
+          "lHQRatio": 69.5,
+          "rHQRatio": 72.0
+        },
+        "speed180": {
+          "lExtensors": 42.0,
+          "rExtensors": 46.0,
+          "lFlexors": 36.0,
+          "rFlexors": 39.0
+        },
+        "speed240": {
+          "lExtensors": 35.0,
+          "rExtensors": 34.0,
+          "lFlexors": 30.0,
+          "rFlexors": 37.0
+        }
+      }
     }
   },
   {
@@ -2372,6 +3430,52 @@
         "medialDisbalance": 0.0,
         "lateralDisbalance": 0.0,
         "compositeDisbalance": 4.0
+      }
+    },
+    "isokinetic": {
+      "2026": {
+        "speed60": {
+          "lExtensors": 0.0,
+          "rExtensors": 0.0,
+          "lFlexors": 0.0,
+          "rFlexors": 0.0,
+          "lHQRatio": 0.0,
+          "rHQRatio": 0.0
+        },
+        "speed180": {
+          "lExtensors": 0.0,
+          "rExtensors": 0.0,
+          "lFlexors": 0.0,
+          "rFlexors": 0.0
+        },
+        "speed240": {
+          "lExtensors": 0.0,
+          "rExtensors": 0.0,
+          "lFlexors": 0.0,
+          "rFlexors": 0.0
+        }
+      },
+      "2025": {
+        "speed60": {
+          "lExtensors": 113.0,
+          "rExtensors": 96.0,
+          "lFlexors": 65.0,
+          "rFlexors": 63.0,
+          "lHQRatio": 57.5,
+          "rHQRatio": 65.6
+        },
+        "speed180": {
+          "lExtensors": 78.0,
+          "rExtensors": 68.0,
+          "lFlexors": 50.0,
+          "rFlexors": 47.0
+        },
+        "speed240": {
+          "lExtensors": 59.0,
+          "rExtensors": 48.0,
+          "lFlexors": 37.0,
+          "rFlexors": 33.0
+        }
       }
     }
   },
@@ -2472,6 +3576,52 @@
         "lateralDisbalance": 10.5,
         "compositeDisbalance": 3.0
       }
+    },
+    "isokinetic": {
+      "2026": {
+        "speed60": {
+          "lExtensors": 73.0,
+          "rExtensors": 78.0,
+          "lFlexors": 37.0,
+          "rFlexors": 41.0,
+          "lHQRatio": 51.0,
+          "rHQRatio": 53.0
+        },
+        "speed180": {
+          "lExtensors": 44.0,
+          "rExtensors": 50.0,
+          "lFlexors": 31.0,
+          "rFlexors": 31.0
+        },
+        "speed240": {
+          "lExtensors": 37.0,
+          "rExtensors": 43.0,
+          "lFlexors": 29.0,
+          "rFlexors": 30.0
+        }
+      },
+      "2025": {
+        "speed60": {
+          "lExtensors": 82.0,
+          "rExtensors": 93.0,
+          "lFlexors": 44.0,
+          "rFlexors": 48.0,
+          "lHQRatio": 53.7,
+          "rHQRatio": 51.6
+        },
+        "speed180": {
+          "lExtensors": 50.0,
+          "rExtensors": 60.0,
+          "lFlexors": 32.0,
+          "rFlexors": 39.0
+        },
+        "speed240": {
+          "lExtensors": 41.0,
+          "rExtensors": 47.0,
+          "lFlexors": 30.0,
+          "rFlexors": 31.0
+        }
+      }
     }
   },
   {
@@ -2570,6 +3720,52 @@
         "medialDisbalance": 4.9,
         "lateralDisbalance": 1.1,
         "compositeDisbalance": 3.0
+      }
+    },
+    "isokinetic": {
+      "2026": {
+        "speed60": {
+          "lExtensors": 120.0,
+          "rExtensors": 99.0,
+          "lFlexors": 58.0,
+          "rFlexors": 58.0,
+          "lHQRatio": 48.0,
+          "rHQRatio": 59.0
+        },
+        "speed180": {
+          "lExtensors": 71.0,
+          "rExtensors": 77.0,
+          "lFlexors": 43.0,
+          "rFlexors": 43.0
+        },
+        "speed240": {
+          "lExtensors": 62.0,
+          "rExtensors": 59.0,
+          "lFlexors": 40.0,
+          "rFlexors": 36.0
+        }
+      },
+      "2025": {
+        "speed60": {
+          "lExtensors": 109.0,
+          "rExtensors": 108.0,
+          "lFlexors": 49.0,
+          "rFlexors": 54.0,
+          "lHQRatio": 45.0,
+          "rHQRatio": 50.0
+        },
+        "speed180": {
+          "lExtensors": 79.0,
+          "rExtensors": 84.0,
+          "lFlexors": 41.0,
+          "rFlexors": 46.0
+        },
+        "speed240": {
+          "lExtensors": 67.0,
+          "rExtensors": 65.0,
+          "lFlexors": 37.0,
+          "rFlexors": 39.0
+        }
       }
     }
   }

@@ -66,6 +66,27 @@ export interface YBalanceData {
   [key: string]: any;
 }
 
+// Isokinetic Knee Test
+export interface IsokineticsSpeedData {
+  lExtensors: number;
+  rExtensors: number;
+  lFlexors: number;
+  rFlexors: number;
+  lHQRatio?: number;
+  rHQRatio?: number;
+}
+
+export interface IsokineticsYearData {
+  speed60: IsokineticsSpeedData;
+  speed180: IsokineticsSpeedData;
+  speed240: IsokineticsSpeedData;
+}
+
+export interface IsokineticsData {
+  '2025': IsokineticsYearData;
+  '2026': IsokineticsYearData;
+}
+
 // Complete year data
 export interface AthleteYear {
   jointROM: JointROMData;
@@ -86,6 +107,7 @@ export interface Athlete {
     "2026": AthleteYear;
     yBalance?: YBalanceData;
   };
+  isokinetic?: IsokineticsData;
 }
 
 // Load real data from JSON
@@ -100,6 +122,7 @@ export const athletes: Athlete[] = (realAthleteDataJson as any[]).map((a) => ({
     "2026": a.data["2026"],
     yBalance: a.yBalance as any,
   },
+  isokinetic: a.isokinetic as IsokineticsData | undefined,
 }));
 
 export const TEAM_SIZE = athletes.length;

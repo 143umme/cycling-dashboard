@@ -68,33 +68,33 @@
       }
     },
     "yBalance": {
-      "2025": {
-        "anterior": 78.3,
-        "medial": 127.2,
-        "lateral": 129.3,
-        "leftComposite": 114.0,
-        "rightAnterior": 81.0,
-        "rightMedial": 126.1,
-        "rightLateral": 126.1,
-        "rightComposite": 113.5,
-        "anteriorDisbalance": 2.7,
-        "medialDisbalance": 1.1,
-        "lateralDisbalance": 3.2,
-        "compositeDisbalance": 0.5
-      },
       "2026": {
         "anterior": 73.9,
         "medial": 121.7,
         "lateral": 127.2,
-        "leftComposite": 108.0,
         "rightAnterior": 81.5,
         "rightMedial": 122.8,
         "rightLateral": 125.0,
+        "leftComposite": 108.0,
         "rightComposite": 109.7,
         "anteriorDisbalance": 7.6,
         "medialDisbalance": 1.1,
         "lateralDisbalance": 2.2,
         "compositeDisbalance": 1.7
+      },
+      "2025": {
+        "anterior": 78.3,
+        "medial": 127.2,
+        "lateral": 129.3,
+        "rightAnterior": 81.0,
+        "rightMedial": 126.1,
+        "rightLateral": 126.1,
+        "leftComposite": 114.0,
+        "rightComposite": 113.5,
+        "anteriorDisbalance": 2.7,
+        "medialDisbalance": 1.1,
+        "lateralDisbalance": 3.2,
+        "compositeDisbalance": 0.5
       }
     }
   },
@@ -167,33 +167,33 @@
       }
     },
     "yBalance": {
-      "2025": {
-        "anterior": 88.1,
-        "medial": 126.8,
-        "lateral": 126.8,
-        "leftComposite": 116.0,
-        "rightAnterior": 90.4,
-        "rightMedial": 132.5,
-        "rightLateral": 130.1,
-        "rightComposite": 119.0,
-        "anteriorDisbalance": 2.3,
-        "medialDisbalance": 5.7,
-        "lateralDisbalance": 3.3,
-        "compositeDisbalance": 3.0
-      },
       "2026": {
         "anterior": 91.7,
         "medial": 129.8,
         "lateral": 125.0,
-        "leftComposite": 116.0,
         "rightAnterior": 92.8,
         "rightMedial": 131.9,
         "rightLateral": 122.9,
+        "leftComposite": 116.0,
         "rightComposite": 116.0,
         "anteriorDisbalance": 1.1,
         "medialDisbalance": 2.1,
         "lateralDisbalance": 2.1,
         "compositeDisbalance": 0.0
+      },
+      "2025": {
+        "anterior": 88.1,
+        "medial": 126.8,
+        "lateral": 126.8,
+        "rightAnterior": 90.4,
+        "rightMedial": 132.5,
+        "rightLateral": 130.1,
+        "leftComposite": 116.0,
+        "rightComposite": 119.0,
+        "anteriorDisbalance": 2.3,
+        "medialDisbalance": 5.7,
+        "lateralDisbalance": 3.3,
+        "compositeDisbalance": 3.0
       }
     }
   },
@@ -266,33 +266,33 @@
       }
     },
     "yBalance": {
-      "2025": {
-        "anterior": 91.0,
-        "medial": 128.1,
-        "lateral": 129.2,
-        "leftComposite": 116.0,
-        "rightAnterior": 85.4,
-        "rightMedial": 127.0,
-        "rightLateral": 125.8,
-        "rightComposite": 113.0,
-        "anteriorDisbalance": 5.6,
-        "medialDisbalance": 1.1,
-        "lateralDisbalance": 3.4,
-        "compositeDisbalance": 3.0
-      },
       "2026": {
         "anterior": 88.8,
         "medial": 119.1,
         "lateral": 119.1,
-        "leftComposite": 109.0,
         "rightAnterior": 80.9,
         "rightMedial": 121.3,
         "rightLateral": 122.5,
+        "leftComposite": 109.0,
         "rightComposite": 108.0,
         "anteriorDisbalance": 7.9,
         "medialDisbalance": 2.2,
         "lateralDisbalance": 3.4,
         "compositeDisbalance": 1.0
+      },
+      "2025": {
+        "anterior": 91.0,
+        "medial": 128.1,
+        "lateral": 129.2,
+        "rightAnterior": 85.4,
+        "rightMedial": 127.0,
+        "rightLateral": 125.8,
+        "leftComposite": 116.0,
+        "rightComposite": 113.0,
+        "anteriorDisbalance": 5.6,
+        "medialDisbalance": 1.1,
+        "lateralDisbalance": 3.4,
+        "compositeDisbalance": 3.0
       }
     }
   },
@@ -365,33 +365,33 @@
       }
     },
     "yBalance": {
-      "2025": {
-        "anterior": 66.8,
-        "medial": 112.0,
-        "lateral": 118.5,
-        "leftComposite": 96.7,
-        "rightAnterior": 72.8,
-        "rightMedial": 115.2,
-        "rightLateral": 126.1,
-        "rightComposite": 104.7,
-        "anteriorDisbalance": 6.0,
-        "medialDisbalance": 3.2,
-        "lateralDisbalance": 7.6,
-        "compositeDisbalance": 8.0
-      },
       "2026": {
         "anterior": 79.9,
         "medial": 115.2,
         "lateral": 124.5,
-        "leftComposite": 106.5,
         "rightAnterior": 82.1,
         "rightMedial": 122.8,
         "rightLateral": 122.8,
+        "leftComposite": 106.5,
         "rightComposite": 109.0,
         "anteriorDisbalance": 2.2,
         "medialDisbalance": 7.6,
         "lateralDisbalance": 1.7,
         "compositeDisbalance": 2.5
+      },
+      "2025": {
+        "anterior": 66.8,
+        "medial": 112.0,
+        "lateral": 118.5,
+        "rightAnterior": 72.8,
+        "rightMedial": 115.2,
+        "rightLateral": 126.1,
+        "leftComposite": 96.7,
+        "rightComposite": 104.7,
+        "anteriorDisbalance": 6.0,
+        "medialDisbalance": 3.2,
+        "lateralDisbalance": 7.6,
+        "compositeDisbalance": 8.0
       }
     }
   },
@@ -464,33 +464,33 @@
       }
     },
     "yBalance": {
-      "2025": {
-        "anterior": 89.0,
-        "medial": 140.2,
-        "lateral": 139.0,
-        "leftComposite": 123.0,
-        "rightAnterior": 91.5,
-        "rightMedial": 136.0,
-        "rightLateral": 138.4,
-        "rightComposite": 122.0,
-        "anteriorDisbalance": 2.5,
-        "medialDisbalance": 4.2,
-        "lateralDisbalance": 0.6,
-        "compositeDisbalance": 1.0
-      },
       "2026": {
         "anterior": 86.6,
         "medial": 131.7,
         "lateral": 134.1,
-        "leftComposite": 117.0,
         "rightAnterior": 93.9,
         "rightMedial": 142.7,
         "rightLateral": 146.3,
+        "leftComposite": 117.0,
         "rightComposite": 127.0,
         "anteriorDisbalance": 7.3,
         "medialDisbalance": 11.0,
         "lateralDisbalance": 12.2,
         "compositeDisbalance": 10.0
+      },
+      "2025": {
+        "anterior": 89.0,
+        "medial": 140.2,
+        "lateral": 139.0,
+        "rightAnterior": 91.5,
+        "rightMedial": 136.0,
+        "rightLateral": 138.4,
+        "leftComposite": 123.0,
+        "rightComposite": 122.0,
+        "anteriorDisbalance": 2.5,
+        "medialDisbalance": 4.2,
+        "lateralDisbalance": 0.6,
+        "compositeDisbalance": 1.0
       }
     }
   },
@@ -563,33 +563,33 @@
       }
     },
     "yBalance": {
-      "2025": {
-        "anterior": 79.7,
-        "medial": 115.7,
-        "lateral": 120.9,
-        "leftComposite": 103.0,
-        "rightAnterior": 64.0,
-        "rightMedial": 109.3,
-        "rightLateral": 117.4,
-        "rightComposite": 94.2,
-        "anteriorDisbalance": 15.7,
-        "medialDisbalance": 6.4,
-        "lateralDisbalance": 3.5,
-        "compositeDisbalance": 8.8
-      },
       "2026": {
         "anterior": 86.6,
         "medial": 131.7,
         "lateral": 134.1,
-        "leftComposite": 100.0,
         "rightAnterior": 93.9,
         "rightMedial": 142.7,
         "rightLateral": 146.3,
+        "leftComposite": 100.0,
         "rightComposite": 99.6,
         "anteriorDisbalance": 1.2,
         "medialDisbalance": 1.7,
         "lateralDisbalance": 1.8,
         "compositeDisbalance": 0.4
+      },
+      "2025": {
+        "anterior": 79.7,
+        "medial": 115.7,
+        "lateral": 120.9,
+        "rightAnterior": 64.0,
+        "rightMedial": 109.3,
+        "rightLateral": 117.4,
+        "leftComposite": 103.0,
+        "rightComposite": 94.2,
+        "anteriorDisbalance": 15.7,
+        "medialDisbalance": 6.4,
+        "lateralDisbalance": 3.5,
+        "compositeDisbalance": 8.8
       }
     }
   },
@@ -662,33 +662,33 @@
       }
     },
     "yBalance": {
-      "2025": {
-        "anterior": 75.0,
-        "medial": 122.6,
-        "lateral": 126.2,
-        "leftComposite": 107.0,
-        "rightAnterior": 77.4,
-        "rightMedial": 115.5,
-        "rightLateral": 125.0,
-        "rightComposite": 104.7,
-        "anteriorDisbalance": 2.4,
-        "medialDisbalance": 7.1,
-        "lateralDisbalance": 1.2,
-        "compositeDisbalance": 2.3
-      },
       "2026": {
         "anterior": 77.4,
         "medial": 131.0,
         "lateral": 126.2,
-        "leftComposite": 109.0,
         "rightAnterior": 79.3,
         "rightMedial": 129.3,
         "rightLateral": 126.8,
+        "leftComposite": 109.0,
         "rightComposite": 109.0,
         "anteriorDisbalance": 0.0,
         "medialDisbalance": 1.2,
         "lateralDisbalance": 0.0,
         "compositeDisbalance": 0.0
+      },
+      "2025": {
+        "anterior": 75.0,
+        "medial": 122.6,
+        "lateral": 126.2,
+        "rightAnterior": 77.4,
+        "rightMedial": 115.5,
+        "rightLateral": 125.0,
+        "leftComposite": 107.0,
+        "rightComposite": 104.7,
+        "anteriorDisbalance": 2.4,
+        "medialDisbalance": 7.1,
+        "lateralDisbalance": 1.2,
+        "compositeDisbalance": 2.3
       }
     }
   },
@@ -761,33 +761,33 @@
       }
     },
     "yBalance": {
-      "2025": {
-        "anterior": 78.3,
-        "medial": 121.7,
-        "lateral": 125.3,
-        "leftComposite": 109.0,
-        "rightAnterior": 74.4,
-        "rightMedial": 128.0,
-        "rightLateral": 127.4,
-        "rightComposite": 110.0,
-        "anteriorDisbalance": 3.9,
-        "medialDisbalance": 6.3,
-        "lateralDisbalance": 2.1,
-        "compositeDisbalance": 1.0
-      },
       "2026": {
         "anterior": 80.7,
         "medial": 120.5,
         "lateral": 120.5,
-        "leftComposite": 109.0,
         "rightAnterior": 77.9,
         "rightMedial": 129.9,
         "rightLateral": 126.0,
+        "leftComposite": 109.0,
         "rightComposite": 109.0,
         "anteriorDisbalance": 2.7,
         "medialDisbalance": 8.7,
         "lateralDisbalance": 4.5,
         "compositeDisbalance": 0.0
+      },
+      "2025": {
+        "anterior": 78.3,
+        "medial": 121.7,
+        "lateral": 125.3,
+        "rightAnterior": 74.4,
+        "rightMedial": 128.0,
+        "rightLateral": 127.4,
+        "leftComposite": 109.0,
+        "rightComposite": 110.0,
+        "anteriorDisbalance": 3.9,
+        "medialDisbalance": 6.3,
+        "lateralDisbalance": 2.1,
+        "compositeDisbalance": 1.0
       }
     }
   },
@@ -860,33 +860,33 @@
       }
     },
     "yBalance": {
-      "2025": {
-        "anterior": 68.8,
-        "medial": 124.7,
-        "lateral": 122.1,
-        "leftComposite": 105.0,
-        "rightAnterior": 68.8,
-        "rightMedial": 124.7,
-        "rightLateral": 123.4,
-        "rightComposite": 105.0,
-        "anteriorDisbalance": 0.0,
-        "medialDisbalance": 0.0,
-        "lateralDisbalance": 1.3,
-        "compositeDisbalance": 0.0
-      },
       "2026": {
         "anterior": 68.8,
         "medial": 123.4,
         "lateral": 127.3,
-        "leftComposite": 107.0,
         "rightAnterior": 68.8,
         "rightMedial": 123.4,
         "rightLateral": 126.0,
+        "leftComposite": 107.0,
         "rightComposite": 106.0,
         "anteriorDisbalance": 1.3,
         "medialDisbalance": 0.6,
         "lateralDisbalance": 2.0,
         "compositeDisbalance": 1.0
+      },
+      "2025": {
+        "anterior": 68.8,
+        "medial": 124.7,
+        "lateral": 122.1,
+        "rightAnterior": 68.8,
+        "rightMedial": 124.7,
+        "rightLateral": 123.4,
+        "leftComposite": 105.0,
+        "rightComposite": 105.0,
+        "anteriorDisbalance": 0.0,
+        "medialDisbalance": 0.0,
+        "lateralDisbalance": 1.3,
+        "compositeDisbalance": 0.0
       }
     }
   },
@@ -959,33 +959,33 @@
       }
     },
     "yBalance": {
-      "2025": {
-        "anterior": 68.4,
-        "medial": 114.7,
-        "lateral": 120.0,
-        "leftComposite": 100.0,
-        "rightAnterior": 66.3,
-        "rightMedial": 115.8,
-        "rightLateral": 120.0,
-        "rightComposite": 100.0,
-        "anteriorDisbalance": 2.1,
-        "medialDisbalance": 1.1,
-        "lateralDisbalance": 0.0,
-        "compositeDisbalance": 0.0
-      },
       "2026": {
         "anterior": 73.7,
         "medial": 109.5,
         "lateral": 118.9,
-        "leftComposite": 100.0,
         "rightAnterior": 71.6,
         "rightMedial": 115.8,
         "rightLateral": 123.2,
+        "leftComposite": 100.0,
         "rightComposite": 102.0,
         "anteriorDisbalance": 2.1,
         "medialDisbalance": 6.3,
         "lateralDisbalance": 0.0,
         "compositeDisbalance": 2.0
+      },
+      "2025": {
+        "anterior": 68.4,
+        "medial": 114.7,
+        "lateral": 120.0,
+        "rightAnterior": 66.3,
+        "rightMedial": 115.8,
+        "rightLateral": 120.0,
+        "leftComposite": 100.0,
+        "rightComposite": 100.0,
+        "anteriorDisbalance": 2.1,
+        "medialDisbalance": 1.1,
+        "lateralDisbalance": 0.0,
+        "compositeDisbalance": 0.0
       }
     }
   },
@@ -1058,33 +1058,33 @@
       }
     },
     "yBalance": {
-      "2025": {
-        "anterior": 77.8,
-        "medial": 106.7,
-        "lateral": 120.6,
-        "leftComposite": 106.0,
-        "rightAnterior": 78.0,
-        "rightMedial": 129.7,
-        "rightLateral": 127.5,
-        "rightComposite": 104.0,
-        "anteriorDisbalance": 0.2,
-        "medialDisbalance": 23.0,
-        "lateralDisbalance": 6.9,
-        "compositeDisbalance": 2.0
-      },
       "2026": {
         "anterior": 73.7,
         "medial": 109.5,
         "lateral": 118.9,
-        "leftComposite": 100.0,
         "rightAnterior": 71.6,
         "rightMedial": 115.8,
         "rightLateral": 123.2,
+        "leftComposite": 100.0,
         "rightComposite": 99.0,
         "anteriorDisbalance": 5.5,
         "medialDisbalance": 5.6,
         "lateralDisbalance": 0.0,
         "compositeDisbalance": 1.0
+      },
+      "2025": {
+        "anterior": 77.8,
+        "medial": 106.7,
+        "lateral": 120.6,
+        "rightAnterior": 78.0,
+        "rightMedial": 129.7,
+        "rightLateral": 127.5,
+        "leftComposite": 106.0,
+        "rightComposite": 104.0,
+        "anteriorDisbalance": 0.2,
+        "medialDisbalance": 23.0,
+        "lateralDisbalance": 6.9,
+        "compositeDisbalance": 2.0
       }
     }
   },
@@ -1157,33 +1157,33 @@
       }
     },
     "yBalance": {
-      "2025": {
-        "anterior": 71.6,
-        "medial": 133.0,
-        "lateral": 136.4,
-        "leftComposite": 114.0,
-        "rightAnterior": 80.7,
-        "rightMedial": 133.0,
-        "rightLateral": 131.8,
-        "rightComposite": 114.0,
-        "anteriorDisbalance": 9.1,
-        "medialDisbalance": 0.0,
-        "lateralDisbalance": 4.6,
-        "compositeDisbalance": 0.0
-      },
       "2026": {
         "anterior": 74.5,
         "medial": 117.0,
         "lateral": 126.6,
-        "leftComposite": 116.0,
         "rightAnterior": 80.9,
         "rightMedial": 121.3,
         "rightLateral": 128.7,
+        "leftComposite": 116.0,
         "rightComposite": 117.0,
         "anteriorDisbalance": 8.0,
         "medialDisbalance": 3.5,
         "lateralDisbalance": 2.3,
         "compositeDisbalance": 1.0
+      },
+      "2025": {
+        "anterior": 71.6,
+        "medial": 133.0,
+        "lateral": 136.4,
+        "rightAnterior": 80.7,
+        "rightMedial": 133.0,
+        "rightLateral": 131.8,
+        "leftComposite": 114.0,
+        "rightComposite": 114.0,
+        "anteriorDisbalance": 9.1,
+        "medialDisbalance": 0.0,
+        "lateralDisbalance": 4.6,
+        "compositeDisbalance": 0.0
       }
     }
   },
@@ -1256,33 +1256,33 @@
       }
     },
     "yBalance": {
-      "2025": {
-        "anterior": 90.6,
-        "medial": 13.3,
-        "lateral": 128.9,
-        "leftComposite": 113.0,
-        "rightAnterior": 85.6,
-        "rightMedial": 126.7,
-        "rightLateral": 127.8,
-        "rightComposite": 114.0,
-        "anteriorDisbalance": 5.0,
-        "medialDisbalance": 113.4,
-        "lateralDisbalance": 1.1,
-        "compositeDisbalance": 1.0
-      },
       "2026": {
         "anterior": 75.0,
         "medial": 125.0,
         "lateral": 131.8,
-        "leftComposite": 113.0,
         "rightAnterior": 76.1,
         "rightMedial": 122.7,
         "rightLateral": 136.4,
+        "leftComposite": 113.0,
         "rightComposite": 113.0,
         "anteriorDisbalance": 3.3,
         "medialDisbalance": 1.1,
         "lateralDisbalance": 2.2,
         "compositeDisbalance": 0.0
+      },
+      "2025": {
+        "anterior": 90.6,
+        "medial": 13.3,
+        "lateral": 128.9,
+        "rightAnterior": 85.6,
+        "rightMedial": 126.7,
+        "rightLateral": 127.8,
+        "leftComposite": 113.0,
+        "rightComposite": 114.0,
+        "anteriorDisbalance": 5.0,
+        "medialDisbalance": 113.4,
+        "lateralDisbalance": 1.1,
+        "compositeDisbalance": 1.0
       }
     }
   },
@@ -1355,33 +1355,33 @@
       }
     },
     "yBalance": {
-      "2025": {
-        "anterior": 82.2,
-        "medial": 125.6,
-        "lateral": 126.7,
-        "leftComposite": 109.0,
-        "rightAnterior": 75.6,
-        "rightMedial": 125.6,
-        "rightLateral": 125.6,
-        "rightComposite": 112.0,
-        "anteriorDisbalance": 6.6,
-        "medialDisbalance": 0.0,
-        "lateralDisbalance": 1.1,
-        "compositeDisbalance": 3.0
-      },
       "2026": {
         "anterior": 73.9,
         "medial": 120.5,
         "lateral": 127.3,
-        "leftComposite": 113.0,
         "rightAnterior": 75.0,
         "rightMedial": 119.3,
         "rightLateral": 130.7,
+        "leftComposite": 113.0,
         "rightComposite": 112.0,
         "anteriorDisbalance": 0.0,
         "medialDisbalance": 2.3,
         "lateralDisbalance": 3.3,
         "compositeDisbalance": 1.0
+      },
+      "2025": {
+        "anterior": 82.2,
+        "medial": 125.6,
+        "lateral": 126.7,
+        "rightAnterior": 75.6,
+        "rightMedial": 125.6,
+        "rightLateral": 125.6,
+        "leftComposite": 109.0,
+        "rightComposite": 112.0,
+        "anteriorDisbalance": 6.6,
+        "medialDisbalance": 0.0,
+        "lateralDisbalance": 1.1,
+        "compositeDisbalance": 3.0
       }
     }
   },
@@ -1454,33 +1454,33 @@
       }
     },
     "yBalance": {
-      "2025": {
-        "anterior": 80.7,
-        "medial": 121.6,
-        "lateral": 122.7,
-        "leftComposite": 108.0,
-        "rightAnterior": 80.7,
-        "rightMedial": 126.1,
-        "rightLateral": 127.3,
-        "rightComposite": 105.0,
-        "anteriorDisbalance": 0.0,
-        "medialDisbalance": 4.5,
-        "lateralDisbalance": 4.6,
-        "compositeDisbalance": 3.0
-      },
       "2026": {
         "anterior": 63.3,
         "medial": 122.2,
         "lateral": 120.0,
-        "leftComposite": 108.0,
         "rightAnterior": 68.9,
         "rightMedial": 115.6,
         "rightLateral": 120.0,
+        "leftComposite": 108.0,
         "rightComposite": 109.0,
         "anteriorDisbalance": 2.2,
         "medialDisbalance": 0.0,
         "lateralDisbalance": 0.0,
         "compositeDisbalance": 1.0
+      },
+      "2025": {
+        "anterior": 80.7,
+        "medial": 121.6,
+        "lateral": 122.7,
+        "rightAnterior": 80.7,
+        "rightMedial": 126.1,
+        "rightLateral": 127.3,
+        "leftComposite": 108.0,
+        "rightComposite": 105.0,
+        "anteriorDisbalance": 0.0,
+        "medialDisbalance": 4.5,
+        "lateralDisbalance": 4.6,
+        "compositeDisbalance": 3.0
       }
     }
   },
@@ -1553,32 +1553,32 @@
       }
     },
     "yBalance": {
-      "2025": {
-        "anterior": 74.4,
-        "medial": 117.8,
-        "lateral": 116.7,
-        "leftComposite": 103.0,
-        "rightAnterior": 75.6,
-        "rightMedial": 125.6,
-        "rightLateral": 124.4,
-        "rightComposite": 108.0,
-        "anteriorDisbalance": 1.2,
-        "medialDisbalance": 7.8,
-        "lateralDisbalance": 7.7,
-        "compositeDisbalance": 5.0
-      },
       "2026": {
         "anterior": 83.5,
         "medial": 131.9,
         "lateral": 133.0,
-        "leftComposite": 102.0,
         "rightAnterior": 78.0,
         "rightMedial": 116.5,
         "rightLateral": 123.1,
+        "leftComposite": 102.0,
         "rightComposite": 107.0,
         "anteriorDisbalance": 3.4,
         "medialDisbalance": 10.0,
         "lateralDisbalance": 3.3,
+        "compositeDisbalance": 5.0
+      },
+      "2025": {
+        "anterior": 74.4,
+        "medial": 117.8,
+        "lateral": 116.7,
+        "rightAnterior": 75.6,
+        "rightMedial": 125.6,
+        "rightLateral": 124.4,
+        "leftComposite": 103.0,
+        "rightComposite": 108.0,
+        "anteriorDisbalance": 1.2,
+        "medialDisbalance": 7.8,
+        "lateralDisbalance": 7.7,
         "compositeDisbalance": 5.0
       }
     }
@@ -1652,33 +1652,33 @@
       }
     },
     "yBalance": {
-      "2025": {
-        "anterior": 64.0,
-        "medial": 120.9,
-        "lateral": 118.6,
-        "leftComposite": 101.0,
-        "rightAnterior": 64.0,
-        "rightMedial": 117.4,
-        "rightLateral": 120.9,
-        "rightComposite": 100.0,
-        "anteriorDisbalance": 0.0,
-        "medialDisbalance": 3.5,
-        "lateralDisbalance": 2.3,
-        "compositeDisbalance": 1.0
-      },
       "2026": {
         "anterior": 70.1,
         "medial": 116.1,
         "lateral": 118.4,
-        "leftComposite": 107.0,
         "rightAnterior": 72.4,
         "rightMedial": 109.2,
         "rightLateral": 124.1,
+        "leftComposite": 107.0,
         "rightComposite": 107.0,
         "anteriorDisbalance": 2.3,
         "medialDisbalance": 7.0,
         "lateralDisbalance": 3.5,
         "compositeDisbalance": 0.0
+      },
+      "2025": {
+        "anterior": 64.0,
+        "medial": 120.9,
+        "lateral": 118.6,
+        "rightAnterior": 64.0,
+        "rightMedial": 117.4,
+        "rightLateral": 120.9,
+        "leftComposite": 101.0,
+        "rightComposite": 100.0,
+        "anteriorDisbalance": 0.0,
+        "medialDisbalance": 3.5,
+        "lateralDisbalance": 2.3,
+        "compositeDisbalance": 1.0
       }
     }
   },
@@ -1751,33 +1751,33 @@
       }
     },
     "yBalance": {
-      "2025": {
-        "anterior": 79.1,
-        "medial": 115.4,
-        "lateral": 123.1,
-        "leftComposite": 106.0,
-        "rightAnterior": 71.4,
-        "rightMedial": 127.5,
-        "rightLateral": 126.4,
-        "rightComposite": 105.0,
-        "anteriorDisbalance": 7.7,
-        "medialDisbalance": 12.1,
-        "lateralDisbalance": 3.3,
-        "compositeDisbalance": 1.0
-      },
       "2026": {
         "anterior": 66.3,
         "medial": 119.6,
         "lateral": 119.6,
-        "leftComposite": 116.0,
         "rightAnterior": 76.1,
         "rightMedial": 119.6,
         "rightLateral": 119.6,
+        "leftComposite": 116.0,
         "rightComposite": 106.0,
         "anteriorDisbalance": 5.5,
         "medialDisbalance": 15.4,
         "lateralDisbalance": 9.9,
         "compositeDisbalance": 10.0
+      },
+      "2025": {
+        "anterior": 79.1,
+        "medial": 115.4,
+        "lateral": 123.1,
+        "rightAnterior": 71.4,
+        "rightMedial": 127.5,
+        "rightLateral": 126.4,
+        "leftComposite": 106.0,
+        "rightComposite": 105.0,
+        "anteriorDisbalance": 7.7,
+        "medialDisbalance": 12.1,
+        "lateralDisbalance": 3.3,
+        "compositeDisbalance": 1.0
       }
     }
   },
@@ -1850,32 +1850,32 @@
       }
     },
     "yBalance": {
-      "2025": {
-        "anterior": 70.1,
-        "medial": 117.2,
-        "lateral": 127.6,
-        "leftComposite": 105.0,
-        "rightAnterior": 70.1,
-        "rightMedial": 118.4,
-        "rightLateral": 125.3,
-        "rightComposite": 105.0,
-        "anteriorDisbalance": 0.0,
-        "medialDisbalance": 1.2,
-        "lateralDisbalance": 2.3,
-        "compositeDisbalance": 0.0
-      },
       "2026": {
         "anterior": 83.5,
         "medial": 131.9,
         "lateral": 133.0,
-        "leftComposite": 102.0,
         "rightAnterior": 78.0,
         "rightMedial": 116.5,
         "rightLateral": 123.1,
+        "leftComposite": 102.0,
         "rightComposite": 102.0,
         "anteriorDisbalance": 2.3,
         "medialDisbalance": 6.9,
         "lateralDisbalance": 4.6,
+        "compositeDisbalance": 0.0
+      },
+      "2025": {
+        "anterior": 70.1,
+        "medial": 117.2,
+        "lateral": 127.6,
+        "rightAnterior": 70.1,
+        "rightMedial": 118.4,
+        "rightLateral": 125.3,
+        "leftComposite": 105.0,
+        "rightComposite": 105.0,
+        "anteriorDisbalance": 0.0,
+        "medialDisbalance": 1.2,
+        "lateralDisbalance": 2.3,
         "compositeDisbalance": 0.0
       }
     }
@@ -1949,33 +1949,33 @@
       }
     },
     "yBalance": {
-      "2025": {
-        "anterior": 86.0,
-        "medial": 131.4,
-        "lateral": 127.9,
-        "leftComposite": 116.0,
-        "rightAnterior": 88.2,
-        "rightMedial": 137.6,
-        "rightLateral": 134.1,
-        "rightComposite": 120.0,
-        "anteriorDisbalance": 2.2,
-        "medialDisbalance": 6.2,
-        "lateralDisbalance": 6.2,
-        "compositeDisbalance": 4.0
-      },
       "2026": {
         "anterior": 92.0,
         "medial": 126.4,
         "lateral": 126.4,
-        "leftComposite": 120.0,
         "rightAnterior": 78.2,
         "rightMedial": 119.5,
         "rightLateral": 120.7,
+        "leftComposite": 120.0,
         "rightComposite": 117.0,
         "anteriorDisbalance": 6.0,
         "medialDisbalance": 3.1,
         "lateralDisbalance": 2.7,
         "compositeDisbalance": 3.0
+      },
+      "2025": {
+        "anterior": 86.0,
+        "medial": 131.4,
+        "lateral": 127.9,
+        "rightAnterior": 88.2,
+        "rightMedial": 137.6,
+        "rightLateral": 134.1,
+        "leftComposite": 116.0,
+        "rightComposite": 120.0,
+        "anteriorDisbalance": 2.2,
+        "medialDisbalance": 6.2,
+        "lateralDisbalance": 6.2,
+        "compositeDisbalance": 4.0
       }
     }
   },
@@ -2048,32 +2048,32 @@
       }
     },
     "yBalance": {
-      "2025": {
-        "anterior": 68.1,
-        "medial": 121.3,
-        "lateral": 119.1,
-        "leftComposite": 103.0,
-        "rightAnterior": 71.3,
-        "rightMedial": 127.7,
-        "rightLateral": 121.3,
-        "rightComposite": 107.0,
-        "anteriorDisbalance": 3.2,
-        "medialDisbalance": 6.4,
-        "lateralDisbalance": 2.2,
-        "compositeDisbalance": 4.0
-      },
       "2026": {
         "anterior": 81.9,
         "medial": 127.7,
         "lateral": 127.7,
-        "leftComposite": 110.0,
         "rightAnterior": 71.3,
         "rightMedial": 117.0,
         "rightLateral": 134.0,
+        "leftComposite": 110.0,
         "rightComposite": 114.0,
         "anteriorDisbalance": 7.4,
         "medialDisbalance": 8.5,
         "lateralDisbalance": 12.8,
+        "compositeDisbalance": 4.0
+      },
+      "2025": {
+        "anterior": 68.1,
+        "medial": 121.3,
+        "lateral": 119.1,
+        "rightAnterior": 71.3,
+        "rightMedial": 127.7,
+        "rightLateral": 121.3,
+        "leftComposite": 103.0,
+        "rightComposite": 107.0,
+        "anteriorDisbalance": 3.2,
+        "medialDisbalance": 6.4,
+        "lateralDisbalance": 2.2,
         "compositeDisbalance": 4.0
       }
     }
@@ -2147,33 +2147,33 @@
       }
     },
     "yBalance": {
-      "2025": {
-        "anterior": 56.7,
-        "medial": 103.3,
-        "lateral": 106.7,
-        "leftComposite": 89.9,
-        "rightAnterior": 57.3,
-        "rightMedial": 103.4,
-        "rightLateral": 113.5,
-        "rightComposite": 91.4,
-        "anteriorDisbalance": 0.6,
-        "medialDisbalance": 0.1,
-        "lateralDisbalance": 6.8,
-        "compositeDisbalance": 1.5
-      },
       "2026": {
         "anterior": 57.3,
         "medial": 106.7,
         "lateral": 120.2,
-        "leftComposite": 94.0,
         "rightAnterior": 61.8,
         "rightMedial": 107.9,
         "rightLateral": 114.6,
+        "leftComposite": 94.0,
         "rightComposite": 95.0,
         "anteriorDisbalance": 5.1,
         "medialDisbalance": 2.3,
         "lateralDisbalance": 4.3,
         "compositeDisbalance": 1.0
+      },
+      "2025": {
+        "anterior": 56.7,
+        "medial": 103.3,
+        "lateral": 106.7,
+        "rightAnterior": 57.3,
+        "rightMedial": 103.4,
+        "rightLateral": 113.5,
+        "leftComposite": 89.9,
+        "rightComposite": 91.4,
+        "anteriorDisbalance": 0.6,
+        "medialDisbalance": 0.1,
+        "lateralDisbalance": 6.8,
+        "compositeDisbalance": 1.5
       }
     }
   },
@@ -2246,33 +2246,33 @@
       }
     },
     "yBalance": {
-      "2025": {
-        "anterior": 69.6,
-        "medial": 119.0,
-        "lateral": 121.4,
-        "leftComposite": 104.0,
-        "rightAnterior": 71.4,
-        "rightMedial": 117.4,
-        "rightLateral": 133.9,
-        "rightComposite": 110.0,
-        "anteriorDisbalance": 1.8,
-        "medialDisbalance": 1.6,
-        "lateralDisbalance": 12.5,
-        "compositeDisbalance": 6.0
-      },
       "2026": {
         "anterior": 78.6,
         "medial": 121.4,
         "lateral": 133.3,
-        "leftComposite": 111.0,
         "rightAnterior": 76.2,
         "rightMedial": 136.9,
         "rightLateral": 136.9,
+        "leftComposite": 111.0,
         "rightComposite": 112.0,
         "anteriorDisbalance": 2.4,
         "medialDisbalance": 0.0,
         "lateralDisbalance": 4.8,
         "compositeDisbalance": 1.0
+      },
+      "2025": {
+        "anterior": 69.6,
+        "medial": 119.0,
+        "lateral": 121.4,
+        "rightAnterior": 71.4,
+        "rightMedial": 117.4,
+        "rightLateral": 133.9,
+        "leftComposite": 104.0,
+        "rightComposite": 110.0,
+        "anteriorDisbalance": 1.8,
+        "medialDisbalance": 1.6,
+        "lateralDisbalance": 12.5,
+        "compositeDisbalance": 6.0
       }
     }
   },
@@ -2345,33 +2345,33 @@
       }
     },
     "yBalance": {
-      "2025": {
-        "anterior": null,
-        "medial": null,
-        "lateral": null,
-        "leftComposite": 113.0,
-        "rightAnterior": null,
-        "rightMedial": null,
-        "rightLateral": null,
-        "rightComposite": 109.0,
-        "anteriorDisbalance": null,
-        "medialDisbalance": null,
-        "lateralDisbalance": null,
-        "compositeDisbalance": 4.0
-      },
       "2026": {
-        "anterior": null,
-        "medial": null,
-        "lateral": null,
-        "leftComposite": null,
-        "rightAnterior": null,
-        "rightMedial": null,
-        "rightLateral": null,
-        "rightComposite": null,
-        "anteriorDisbalance": null,
-        "medialDisbalance": null,
-        "lateralDisbalance": null,
-        "compositeDisbalance": null
+        "anterior": 0.0,
+        "medial": 0.0,
+        "lateral": 0.0,
+        "rightAnterior": 0.0,
+        "rightMedial": 0.0,
+        "rightLateral": 0.0,
+        "leftComposite": 0.0,
+        "rightComposite": 0.0,
+        "anteriorDisbalance": 0.0,
+        "medialDisbalance": 0.0,
+        "lateralDisbalance": 0.0,
+        "compositeDisbalance": 0.0
+      },
+      "2025": {
+        "anterior": 0.0,
+        "medial": 0.0,
+        "lateral": 0.0,
+        "rightAnterior": 0.0,
+        "rightMedial": 0.0,
+        "rightLateral": 0.0,
+        "leftComposite": 113.0,
+        "rightComposite": 109.0,
+        "anteriorDisbalance": 0.0,
+        "medialDisbalance": 0.0,
+        "lateralDisbalance": 0.0,
+        "compositeDisbalance": 4.0
       }
     }
   },
@@ -2444,33 +2444,33 @@
       }
     },
     "yBalance": {
-      "2025": {
-        "anterior": 77.1,
-        "medial": 127.7,
-        "lateral": 114.5,
-        "leftComposite": 106.0,
-        "rightAnterior": 77.4,
-        "rightMedial": 126.2,
-        "rightLateral": 125.0,
-        "rightComposite": 109.0,
-        "anteriorDisbalance": 0.3,
-        "medialDisbalance": 1.5,
-        "lateralDisbalance": 10.5,
-        "compositeDisbalance": 3.0
-      },
       "2026": {
         "anterior": 72.3,
         "medial": 125.3,
         "lateral": 114.5,
-        "leftComposite": 104.0,
         "rightAnterior": 71.4,
         "rightMedial": 116.7,
         "rightLateral": 117.9,
+        "leftComposite": 104.0,
         "rightComposite": 102.0,
         "anteriorDisbalance": 0.9,
         "medialDisbalance": 8.6,
         "lateralDisbalance": 3.4,
         "compositeDisbalance": 2.0
+      },
+      "2025": {
+        "anterior": 77.1,
+        "medial": 127.7,
+        "lateral": 114.5,
+        "rightAnterior": 77.4,
+        "rightMedial": 126.2,
+        "rightLateral": 125.0,
+        "leftComposite": 106.0,
+        "rightComposite": 109.0,
+        "anteriorDisbalance": 0.3,
+        "medialDisbalance": 1.5,
+        "lateralDisbalance": 10.5,
+        "compositeDisbalance": 3.0
       }
     }
   },
@@ -2543,33 +2543,33 @@
       }
     },
     "yBalance": {
-      "2025": {
-        "anterior": 69.6,
-        "medial": 109.8,
-        "lateral": 125.0,
-        "leftComposite": 103.0,
-        "rightAnterior": 73.4,
-        "rightMedial": 114.7,
-        "rightLateral": 126.1,
-        "rightComposite": 106.0,
-        "anteriorDisbalance": 3.8,
-        "medialDisbalance": 4.9,
-        "lateralDisbalance": 1.1,
-        "compositeDisbalance": 3.0
-      },
       "2026": {
         "anterior": 75.0,
         "medial": 113.0,
         "lateral": 126.1,
-        "leftComposite": 105.0,
         "rightAnterior": 80.4,
         "rightMedial": 106.5,
         "rightLateral": 126.1,
+        "leftComposite": 105.0,
         "rightComposite": 104.0,
         "anteriorDisbalance": 5.4,
         "medialDisbalance": 6.5,
         "lateralDisbalance": 0.0,
         "compositeDisbalance": 1.0
+      },
+      "2025": {
+        "anterior": 69.6,
+        "medial": 109.8,
+        "lateral": 125.0,
+        "rightAnterior": 73.4,
+        "rightMedial": 114.7,
+        "rightLateral": 126.1,
+        "leftComposite": 103.0,
+        "rightComposite": 106.0,
+        "anteriorDisbalance": 3.8,
+        "medialDisbalance": 4.9,
+        "lateralDisbalance": 1.1,
+        "compositeDisbalance": 3.0
       }
     }
   }

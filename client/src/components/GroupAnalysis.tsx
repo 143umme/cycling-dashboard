@@ -545,145 +545,73 @@ export default function GroupAnalysis({ yearView }: GroupAnalysisProps) {
         {/* Y-Balance Test - Anterior Direction */}
         <div className="bg-white rounded-lg p-6 shadow-sm border border-slate-100">
           <h3 className="text-lg font-bold text-slate-800 mb-2">Y-Balance Test - Anterior Direction</h3>
-          <p className="text-xs text-slate-500 mb-4">Individual athlete reach percentages (higher is better, ≥94% is normative)</p>
-          <div className="grid grid-cols-2 gap-6">
-            {/* 2025 Anterior */}
-            <div>
-              <h4 className="text-sm font-semibold text-slate-700 mb-3 text-center">2025</h4>
-              <ResponsiveContainer width="100%" height={300}>
-                <ScatterChart margin={{ top: 20, right: 20, left: 20, bottom: 60 }}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
-                  <XAxis dataKey="name" angle={-45} textAnchor="end" height={80} tick={{ fontSize: 9 }} />
-                  <YAxis domain={[70, 130]} type="number" label={{ value: "%", angle: -90, position: "insideLeft" }} />
-                  <Tooltip contentStyle={{ backgroundColor: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "8px" }} formatter={(value: any) => value ? value.toFixed(1) : "N/A"} />
-                  <ReferenceLine y={94} stroke="#10b981" strokeDasharray="5 5" label={{ value: "Norm", position: "right", fill: "#059669", fontSize: 9 }} />
-                  <Scatter dataKey="ybalanceAnteriorLeft2025" fill="#6366f1" name="Anterior 2025" />
-                </ScatterChart>
-              </ResponsiveContainer>
-            </div>
-            {/* 2026 Anterior */}
-            <div>
-              <h4 className="text-sm font-semibold text-slate-700 mb-3 text-center">2026</h4>
-              <ResponsiveContainer width="100%" height={300}>
-                <ScatterChart margin={{ top: 20, right: 20, left: 20, bottom: 60 }}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
-                  <XAxis dataKey="name" angle={-45} textAnchor="end" height={80} tick={{ fontSize: 9 }} />
-                  <YAxis domain={[70, 130]} type="number" label={{ value: "%", angle: -90, position: "insideLeft" }} />
-                  <Tooltip contentStyle={{ backgroundColor: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "8px" }} formatter={(value: any) => value ? value.toFixed(1) : "N/A"} />
-                  <ReferenceLine y={94} stroke="#10b981" strokeDasharray="5 5" label={{ value: "Norm", position: "right", fill: "#059669", fontSize: 9 }} />
-                  <Scatter dataKey="ybalanceAnteriorLeft2026" fill="#f97316" name="Anterior 2026" />
-                </ScatterChart>
-              </ResponsiveContainer>
-            </div>
-          </div>
+          <p className="text-xs text-slate-500 mb-4">Individual athlete reach percentages (higher is better, ≥94% is normative) - 2025 vs 2026</p>
+          <ResponsiveContainer width="100%" height={350}>
+            <BarChart data={groupData} margin={{ top: 20, right: 30, left: 0, bottom: 80 }}>
+              <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+              <XAxis dataKey="name" angle={-45} textAnchor="end" height={100} tick={{ fontSize: 10 }} />
+              <YAxis domain={[60, 140]} label={{ value: "%", angle: -90, position: "insideLeft" }} />
+              <Tooltip contentStyle={{ backgroundColor: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "8px" }} formatter={(value: any) => value ? value.toFixed(1) : "N/A"} />
+              <Legend />
+              <Bar dataKey="ybalanceAnteriorLeft2025" fill="#6366f1" name="Anterior 2025" radius={[8, 8, 0, 0]} />
+              <Bar dataKey="ybalanceAnteriorLeft2026" fill="#f97316" name="Anterior 2026" radius={[8, 8, 0, 0]} />
+              <ReferenceLine y={94} stroke="#10b981" strokeDasharray="5 5" label={{ value: "Norm (94%)", position: "right", fill: "#059669", fontSize: 9 }} />
+            </BarChart>
+          </ResponsiveContainer>
         </div>
 
         {/* Y-Balance Test - Medial Direction */}
         <div className="bg-white rounded-lg p-6 shadow-sm border border-slate-100">
           <h3 className="text-lg font-bold text-slate-800 mb-2">Y-Balance Test - Medial Direction</h3>
-          <p className="text-xs text-slate-500 mb-4">Individual athlete reach percentages (higher is better, ≥94% is normative)</p>
-          <div className="grid grid-cols-2 gap-6">
-            {/* 2025 Medial */}
-            <div>
-              <h4 className="text-sm font-semibold text-slate-700 mb-3 text-center">2025</h4>
-              <ResponsiveContainer width="100%" height={300}>
-                <ScatterChart margin={{ top: 20, right: 20, left: 20, bottom: 60 }}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
-                  <XAxis dataKey="name" angle={-45} textAnchor="end" height={80} tick={{ fontSize: 9 }} />
-                  <YAxis domain={[70, 130]} type="number" label={{ value: "%", angle: -90, position: "insideLeft" }} />
-                  <Tooltip contentStyle={{ backgroundColor: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "8px" }} formatter={(value: any) => value ? value.toFixed(1) : "N/A"} />
-                  <ReferenceLine y={94} stroke="#10b981" strokeDasharray="5 5" label={{ value: "Norm", position: "right", fill: "#059669", fontSize: 9 }} />
-                  <Scatter dataKey="ybalanceMedialLeft2025" fill="#8b5cf6" name="Medial 2025" />
-                </ScatterChart>
-              </ResponsiveContainer>
-            </div>
-            {/* 2026 Medial */}
-            <div>
-              <h4 className="text-sm font-semibold text-slate-700 mb-3 text-center">2026</h4>
-              <ResponsiveContainer width="100%" height={300}>
-                <ScatterChart margin={{ top: 20, right: 20, left: 20, bottom: 60 }}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
-                  <XAxis dataKey="name" angle={-45} textAnchor="end" height={80} tick={{ fontSize: 9 }} />
-                  <YAxis domain={[70, 130]} type="number" label={{ value: "%", angle: -90, position: "insideLeft" }} />
-                  <Tooltip contentStyle={{ backgroundColor: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "8px" }} formatter={(value: any) => value ? value.toFixed(1) : "N/A"} />
-                  <ReferenceLine y={94} stroke="#10b981" strokeDasharray="5 5" label={{ value: "Norm", position: "right", fill: "#059669", fontSize: 9 }} />
-                  <Scatter dataKey="ybalanceMedialLeft2026" fill="#ec4899" name="Medial 2026" />
-                </ScatterChart>
-              </ResponsiveContainer>
-            </div>
-          </div>
+          <p className="text-xs text-slate-500 mb-4">Individual athlete reach percentages (higher is better, ≥94% is normative) - 2025 vs 2026</p>
+          <ResponsiveContainer width="100%" height={350}>
+            <BarChart data={groupData} margin={{ top: 20, right: 30, left: 0, bottom: 80 }}>
+              <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+              <XAxis dataKey="name" angle={-45} textAnchor="end" height={100} tick={{ fontSize: 10 }} />
+              <YAxis domain={[60, 140]} label={{ value: "%", angle: -90, position: "insideLeft" }} />
+              <Tooltip contentStyle={{ backgroundColor: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "8px" }} formatter={(value: any) => value ? value.toFixed(1) : "N/A"} />
+              <Legend />
+              <Bar dataKey="ybalanceMedialLeft2025" fill="#8b5cf6" name="Medial 2025" radius={[8, 8, 0, 0]} />
+              <Bar dataKey="ybalanceMedialLeft2026" fill="#ec4899" name="Medial 2026" radius={[8, 8, 0, 0]} />
+              <ReferenceLine y={94} stroke="#10b981" strokeDasharray="5 5" label={{ value: "Norm (94%)", position: "right", fill: "#059669", fontSize: 9 }} />
+            </BarChart>
+          </ResponsiveContainer>
         </div>
 
         {/* Y-Balance Test - Lateral Direction */}
         <div className="bg-white rounded-lg p-6 shadow-sm border border-slate-100">
           <h3 className="text-lg font-bold text-slate-800 mb-2">Y-Balance Test - Lateral Direction</h3>
-          <p className="text-xs text-slate-500 mb-4">Individual athlete reach percentages (higher is better, ≥94% is normative)</p>
-          <div className="grid grid-cols-2 gap-6">
-            {/* 2025 Lateral */}
-            <div>
-              <h4 className="text-sm font-semibold text-slate-700 mb-3 text-center">2025</h4>
-              <ResponsiveContainer width="100%" height={300}>
-                <ScatterChart margin={{ top: 20, right: 20, left: 20, bottom: 60 }}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
-                  <XAxis dataKey="name" angle={-45} textAnchor="end" height={80} tick={{ fontSize: 9 }} />
-                  <YAxis domain={[70, 130]} type="number" label={{ value: "%", angle: -90, position: "insideLeft" }} />
-                  <Tooltip contentStyle={{ backgroundColor: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "8px" }} formatter={(value: any) => value ? value.toFixed(1) : "N/A"} />
-                  <ReferenceLine y={94} stroke="#10b981" strokeDasharray="5 5" label={{ value: "Norm", position: "right", fill: "#059669", fontSize: 9 }} />
-                  <Scatter dataKey="ybalanceLateralLeft2025" fill="#14b8a6" name="Lateral 2025" />
-                </ScatterChart>
-              </ResponsiveContainer>
-            </div>
-            {/* 2026 Lateral */}
-            <div>
-              <h4 className="text-sm font-semibold text-slate-700 mb-3 text-center">2026</h4>
-              <ResponsiveContainer width="100%" height={300}>
-                <ScatterChart margin={{ top: 20, right: 20, left: 20, bottom: 60 }}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
-                  <XAxis dataKey="name" angle={-45} textAnchor="end" height={80} tick={{ fontSize: 9 }} />
-                  <YAxis domain={[70, 130]} type="number" label={{ value: "%", angle: -90, position: "insideLeft" }} />
-                  <Tooltip contentStyle={{ backgroundColor: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "8px" }} formatter={(value: any) => value ? value.toFixed(1) : "N/A"} />
-                  <ReferenceLine y={94} stroke="#10b981" strokeDasharray="5 5" label={{ value: "Norm", position: "right", fill: "#059669", fontSize: 9 }} />
-                  <Scatter dataKey="ybalanceLateralLeft2026" fill="#f59e0b" name="Lateral 2026" />
-                </ScatterChart>
-              </ResponsiveContainer>
-            </div>
-          </div>
+          <p className="text-xs text-slate-500 mb-4">Individual athlete reach percentages (higher is better, ≥94% is normative) - 2025 vs 2026</p>
+          <ResponsiveContainer width="100%" height={350}>
+            <BarChart data={groupData} margin={{ top: 20, right: 30, left: 0, bottom: 80 }}>
+              <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+              <XAxis dataKey="name" angle={-45} textAnchor="end" height={100} tick={{ fontSize: 10 }} />
+              <YAxis domain={[60, 140]} label={{ value: "%", angle: -90, position: "insideLeft" }} />
+              <Tooltip contentStyle={{ backgroundColor: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "8px" }} formatter={(value: any) => value ? value.toFixed(1) : "N/A"} />
+              <Legend />
+              <Bar dataKey="ybalanceLateralLeft2025" fill="#14b8a6" name="Lateral 2025" radius={[8, 8, 0, 0]} />
+              <Bar dataKey="ybalanceLateralLeft2026" fill="#f59e0b" name="Lateral 2026" radius={[8, 8, 0, 0]} />
+              <ReferenceLine y={94} stroke="#10b981" strokeDasharray="5 5" label={{ value: "Norm (94%)", position: "right", fill: "#059669", fontSize: 9 }} />
+            </BarChart>
+          </ResponsiveContainer>
         </div>
 
         {/* Y-Balance Test - Composite Score */}
         <div className="bg-white rounded-lg p-6 shadow-sm border border-slate-100">
           <h3 className="text-lg font-bold text-slate-800 mb-2">Y-Balance Test - Composite Score</h3>
-          <p className="text-xs text-slate-500 mb-4">Individual athlete composite reach percentages (higher is better, ≥94% is normative)</p>
-          <div className="grid grid-cols-2 gap-6">
-            {/* 2025 Composite */}
-            <div>
-              <h4 className="text-sm font-semibold text-slate-700 mb-3 text-center">2025</h4>
-              <ResponsiveContainer width="100%" height={300}>
-                <ScatterChart margin={{ top: 20, right: 20, left: 20, bottom: 60 }}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
-                  <XAxis dataKey="name" angle={-45} textAnchor="end" height={80} tick={{ fontSize: 9 }} />
-                  <YAxis domain={[70, 130]} type="number" label={{ value: "%", angle: -90, position: "insideLeft" }} />
-                  <Tooltip contentStyle={{ backgroundColor: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "8px" }} formatter={(value: any) => value ? value.toFixed(1) : "N/A"} />
-                  <ReferenceLine y={94} stroke="#10b981" strokeDasharray="5 5" label={{ value: "Norm", position: "right", fill: "#059669", fontSize: 9 }} />
-                  <Scatter dataKey="ybalanceCompositeLeft2025" fill="#06b6d4" name="Composite 2025" />
-                </ScatterChart>
-              </ResponsiveContainer>
-            </div>
-            {/* 2026 Composite */}
-            <div>
-              <h4 className="text-sm font-semibold text-slate-700 mb-3 text-center">2026</h4>
-              <ResponsiveContainer width="100%" height={300}>
-                <ScatterChart margin={{ top: 20, right: 20, left: 20, bottom: 60 }}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
-                  <XAxis dataKey="name" angle={-45} textAnchor="end" height={80} tick={{ fontSize: 9 }} />
-                  <YAxis domain={[70, 130]} type="number" label={{ value: "%", angle: -90, position: "insideLeft" }} />
-                  <Tooltip contentStyle={{ backgroundColor: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "8px" }} formatter={(value: any) => value ? value.toFixed(1) : "N/A"} />
-                  <ReferenceLine y={94} stroke="#10b981" strokeDasharray="5 5" label={{ value: "Norm", position: "right", fill: "#059669", fontSize: 9 }} />
-                  <Scatter dataKey="ybalanceCompositeLeft2026" fill="#d946ef" name="Composite 2026" />
-                </ScatterChart>
-              </ResponsiveContainer>
-            </div>
-          </div>
+          <p className="text-xs text-slate-500 mb-4">Individual athlete composite reach percentages (higher is better, ≥94% is normative) - 2025 vs 2026</p>
+          <ResponsiveContainer width="100%" height={350}>
+            <BarChart data={groupData} margin={{ top: 20, right: 30, left: 0, bottom: 80 }}>
+              <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+              <XAxis dataKey="name" angle={-45} textAnchor="end" height={100} tick={{ fontSize: 10 }} />
+              <YAxis domain={[60, 140]} label={{ value: "%", angle: -90, position: "insideLeft" }} />
+              <Tooltip contentStyle={{ backgroundColor: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "8px" }} formatter={(value: any) => value ? value.toFixed(1) : "N/A"} />
+              <Legend />
+              <Bar dataKey="ybalanceCompositeLeft2025" fill="#06b6d4" name="Composite 2025" radius={[8, 8, 0, 0]} />
+              <Bar dataKey="ybalanceCompositeLeft2026" fill="#d946ef" name="Composite 2026" radius={[8, 8, 0, 0]} />
+              <ReferenceLine y={94} stroke="#10b981" strokeDasharray="5 5" label={{ value: "Norm (94%)", position: "right", fill: "#059669", fontSize: 9 }} />
+            </BarChart>
+          </ResponsiveContainer>
         </div>
 
         {/* Y-Balance Disbalance - 2025 vs 2026 Comparison */}

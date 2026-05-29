@@ -34,6 +34,20 @@
           "extensors": 110.0,
           "leftLateral": 120.0,
           "rightLateral": 120.0
+        },
+        "yBalance": {
+          "anteriorReach": 78.3,
+          "medialReach": 127.2,
+          "lateralReach": 129.3,
+          "rAnteriorReach": 81.0,
+          "rMedialReach": 126.1,
+          "rLateralReach": 126.1,
+          "compositeScore": 114.0,
+          "rCompositeScore": 113.5,
+          "anteriorDisbalance": 2.7,
+          "medialDisbalance": 1.1,
+          "lateralDisbalance": 3.2,
+          "compositeDisbalance": 0.5
         }
       },
       "2026": {
@@ -64,6 +78,20 @@
           "extensors": 180.0,
           "leftLateral": 120.0,
           "rightLateral": 120.0
+        },
+        "yBalance": {
+          "anteriorReach": 73.9,
+          "medialReach": 121.7,
+          "lateralReach": 127.2,
+          "rAnteriorReach": 81.5,
+          "rMedialReach": 122.8,
+          "rLateralReach": 125.0,
+          "compositeScore": 108.0,
+          "rCompositeScore": 109.7,
+          "anteriorDisbalance": 7.6,
+          "medialDisbalance": 1.1,
+          "lateralDisbalance": 2.2,
+          "compositeDisbalance": 1.7
         }
       }
     },
@@ -179,6 +207,20 @@
           "extensors": 120.0,
           "leftLateral": 120.0,
           "rightLateral": 120.0
+        },
+        "yBalance": {
+          "anteriorReach": 88.1,
+          "medialReach": 126.8,
+          "lateralReach": 126.8,
+          "rAnteriorReach": 90.4,
+          "rMedialReach": 132.5,
+          "rLateralReach": 130.1,
+          "compositeScore": 116.0,
+          "rCompositeScore": 119.0,
+          "anteriorDisbalance": 2.3,
+          "medialDisbalance": 5.7,
+          "lateralDisbalance": 3.3,
+          "compositeDisbalance": 3.0
         }
       },
       "2026": {
@@ -209,6 +251,20 @@
           "extensors": 120.0,
           "leftLateral": 0,
           "rightLateral": 120.0
+        },
+        "yBalance": {
+          "anteriorReach": 91.7,
+          "medialReach": 129.8,
+          "lateralReach": 125.0,
+          "rAnteriorReach": 92.8,
+          "rMedialReach": 131.9,
+          "rLateralReach": 122.9,
+          "compositeScore": 116.0,
+          "rCompositeScore": 116.0,
+          "anteriorDisbalance": 1.1,
+          "medialDisbalance": 2.1,
+          "lateralDisbalance": 2.1,
+          "compositeDisbalance": 0.0
         }
       }
     },
@@ -324,6 +380,20 @@
           "extensors": 161.0,
           "leftLateral": 120.0,
           "rightLateral": 120.0
+        },
+        "yBalance": {
+          "anteriorReach": 91.0,
+          "medialReach": 128.1,
+          "lateralReach": 129.2,
+          "rAnteriorReach": 85.4,
+          "rMedialReach": 127.0,
+          "rLateralReach": 125.8,
+          "compositeScore": 116.0,
+          "rCompositeScore": 113.0,
+          "anteriorDisbalance": 5.6,
+          "medialDisbalance": 1.1,
+          "lateralDisbalance": 3.4,
+          "compositeDisbalance": 3.0
         }
       },
       "2026": {
@@ -354,6 +424,20 @@
           "extensors": 180.0,
           "leftLateral": 120.0,
           "rightLateral": 120.0
+        },
+        "yBalance": {
+          "anteriorReach": 88.8,
+          "medialReach": 119.1,
+          "lateralReach": 119.1,
+          "rAnteriorReach": 80.9,
+          "rMedialReach": 121.3,
+          "rLateralReach": 122.5,
+          "compositeScore": 109.0,
+          "rCompositeScore": 108.0,
+          "anteriorDisbalance": 7.9,
+          "medialDisbalance": 2.2,
+          "lateralDisbalance": 3.4,
+          "compositeDisbalance": 1.0
         }
       }
     },
@@ -469,6 +553,20 @@
           "extensors": 180.0,
           "leftLateral": 120.0,
           "rightLateral": 120.0
+        },
+        "yBalance": {
+          "anteriorReach": 66.8,
+          "medialReach": 112.0,
+          "lateralReach": 118.5,
+          "rAnteriorReach": 72.8,
+          "rMedialReach": 115.2,
+          "rLateralReach": 126.1,
+          "compositeScore": 96.7,
+          "rCompositeScore": 104.7,
+          "anteriorDisbalance": 6.0,
+          "medialDisbalance": 3.2,
+          "lateralDisbalance": 7.6,
+          "compositeDisbalance": 8.0
         }
       },
       "2026": {
@@ -499,6 +597,20 @@
           "extensors": 180.0,
           "leftLateral": 120.0,
           "rightLateral": 120.0
+        },
+        "yBalance": {
+          "anteriorReach": 79.9,
+          "medialReach": 115.2,
+          "lateralReach": 124.5,
+          "rAnteriorReach": 82.1,
+          "rMedialReach": 122.8,
+          "rLateralReach": 122.8,
+          "compositeScore": 106.5,
+          "rCompositeScore": 109.0,
+          "anteriorDisbalance": 2.2,
+          "medialDisbalance": 7.6,
+          "lateralDisbalance": 1.7,
+          "compositeDisbalance": 2.5
         }
       }
     },
@@ -614,6 +726,20 @@
           "extensors": 128.0,
           "leftLateral": 120.0,
           "rightLateral": 120.0
+        },
+        "yBalance": {
+          "anteriorReach": 89.0,
+          "medialReach": 140.2,
+          "lateralReach": 139.0,
+          "rAnteriorReach": 91.5,
+          "rMedialReach": 136.0,
+          "rLateralReach": 138.4,
+          "compositeScore": 123.0,
+          "rCompositeScore": 122.0,
+          "anteriorDisbalance": 2.5,
+          "medialDisbalance": 4.2,
+          "lateralDisbalance": 0.6,
+          "compositeDisbalance": 1.0
         }
       },
       "2026": {
@@ -644,6 +770,20 @@
           "extensors": 134.0,
           "leftLateral": 120.0,
           "rightLateral": 120.0
+        },
+        "yBalance": {
+          "anteriorReach": 86.6,
+          "medialReach": 131.7,
+          "lateralReach": 134.1,
+          "rAnteriorReach": 93.9,
+          "rMedialReach": 142.7,
+          "rLateralReach": 146.3,
+          "compositeScore": 117.0,
+          "rCompositeScore": 127.0,
+          "anteriorDisbalance": 7.3,
+          "medialDisbalance": 11.0,
+          "lateralDisbalance": 12.2,
+          "compositeDisbalance": 10.0
         }
       }
     },
@@ -759,6 +899,20 @@
           "extensors": 180.0,
           "leftLateral": 120.0,
           "rightLateral": 120.0
+        },
+        "yBalance": {
+          "anteriorReach": 79.7,
+          "medialReach": 115.7,
+          "lateralReach": 120.9,
+          "rAnteriorReach": 64.0,
+          "rMedialReach": 109.3,
+          "rLateralReach": 117.4,
+          "compositeScore": 103.0,
+          "rCompositeScore": 94.2,
+          "anteriorDisbalance": 15.7,
+          "medialDisbalance": 6.4,
+          "lateralDisbalance": 3.5,
+          "compositeDisbalance": 8.8
         }
       },
       "2026": {
@@ -789,6 +943,20 @@
           "extensors": 180.0,
           "leftLateral": 120.0,
           "rightLateral": 120.0
+        },
+        "yBalance": {
+          "anteriorReach": 86.6,
+          "medialReach": 131.7,
+          "lateralReach": 134.1,
+          "rAnteriorReach": 93.9,
+          "rMedialReach": 142.7,
+          "rLateralReach": 146.3,
+          "compositeScore": 100.0,
+          "rCompositeScore": 99.6,
+          "anteriorDisbalance": 1.2,
+          "medialDisbalance": 1.7,
+          "lateralDisbalance": 1.8,
+          "compositeDisbalance": 0.4
         }
       }
     },
@@ -904,6 +1072,20 @@
           "extensors": 180.0,
           "leftLateral": 120.0,
           "rightLateral": 120.0
+        },
+        "yBalance": {
+          "anteriorReach": 75.0,
+          "medialReach": 122.6,
+          "lateralReach": 126.2,
+          "rAnteriorReach": 77.4,
+          "rMedialReach": 115.5,
+          "rLateralReach": 125.0,
+          "compositeScore": 107.0,
+          "rCompositeScore": 104.7,
+          "anteriorDisbalance": 2.4,
+          "medialDisbalance": 7.1,
+          "lateralDisbalance": 1.2,
+          "compositeDisbalance": 2.3
         }
       },
       "2026": {
@@ -934,6 +1116,20 @@
           "extensors": 180.0,
           "leftLateral": 120.0,
           "rightLateral": 120.0
+        },
+        "yBalance": {
+          "anteriorReach": 77.4,
+          "medialReach": 131.0,
+          "lateralReach": 126.2,
+          "rAnteriorReach": 79.3,
+          "rMedialReach": 129.3,
+          "rLateralReach": 126.8,
+          "compositeScore": 109.0,
+          "rCompositeScore": 109.0,
+          "anteriorDisbalance": 0.0,
+          "medialDisbalance": 1.2,
+          "lateralDisbalance": 0.0,
+          "compositeDisbalance": 0.0
         }
       }
     },
@@ -1049,6 +1245,20 @@
           "extensors": 104.0,
           "leftLateral": 120.0,
           "rightLateral": 120.0
+        },
+        "yBalance": {
+          "anteriorReach": 78.3,
+          "medialReach": 121.7,
+          "lateralReach": 125.3,
+          "rAnteriorReach": 74.4,
+          "rMedialReach": 128.0,
+          "rLateralReach": 127.4,
+          "compositeScore": 109.0,
+          "rCompositeScore": 110.0,
+          "anteriorDisbalance": 3.9,
+          "medialDisbalance": 6.3,
+          "lateralDisbalance": 2.1,
+          "compositeDisbalance": 1.0
         }
       },
       "2026": {
@@ -1079,6 +1289,20 @@
           "extensors": 90.0,
           "leftLateral": 120.0,
           "rightLateral": 120.0
+        },
+        "yBalance": {
+          "anteriorReach": 80.7,
+          "medialReach": 120.5,
+          "lateralReach": 120.5,
+          "rAnteriorReach": 77.9,
+          "rMedialReach": 129.9,
+          "rLateralReach": 126.0,
+          "compositeScore": 109.0,
+          "rCompositeScore": 109.0,
+          "anteriorDisbalance": 2.7,
+          "medialDisbalance": 8.7,
+          "lateralDisbalance": 4.5,
+          "compositeDisbalance": 0.0
         }
       }
     },
@@ -1194,6 +1418,20 @@
           "extensors": 143.0,
           "leftLateral": 120.0,
           "rightLateral": 120.0
+        },
+        "yBalance": {
+          "anteriorReach": 68.8,
+          "medialReach": 124.7,
+          "lateralReach": 122.1,
+          "rAnteriorReach": 68.8,
+          "rMedialReach": 124.7,
+          "rLateralReach": 123.4,
+          "compositeScore": 105.0,
+          "rCompositeScore": 105.0,
+          "anteriorDisbalance": 0.0,
+          "medialDisbalance": 0.0,
+          "lateralDisbalance": 1.3,
+          "compositeDisbalance": 0.0
         }
       },
       "2026": {
@@ -1224,6 +1462,20 @@
           "extensors": 103.0,
           "leftLateral": 120.0,
           "rightLateral": 120.0
+        },
+        "yBalance": {
+          "anteriorReach": 68.8,
+          "medialReach": 123.4,
+          "lateralReach": 127.3,
+          "rAnteriorReach": 68.8,
+          "rMedialReach": 123.4,
+          "rLateralReach": 126.0,
+          "compositeScore": 107.0,
+          "rCompositeScore": 106.0,
+          "anteriorDisbalance": 1.3,
+          "medialDisbalance": 0.6,
+          "lateralDisbalance": 2.0,
+          "compositeDisbalance": 1.0
         }
       }
     },
@@ -1339,6 +1591,20 @@
           "extensors": 90.0,
           "leftLateral": 120.0,
           "rightLateral": 120.0
+        },
+        "yBalance": {
+          "anteriorReach": 68.4,
+          "medialReach": 114.7,
+          "lateralReach": 120.0,
+          "rAnteriorReach": 66.3,
+          "rMedialReach": 115.8,
+          "rLateralReach": 120.0,
+          "compositeScore": 100.0,
+          "rCompositeScore": 100.0,
+          "anteriorDisbalance": 2.1,
+          "medialDisbalance": 1.1,
+          "lateralDisbalance": 0.0,
+          "compositeDisbalance": 0.0
         }
       },
       "2026": {
@@ -1369,6 +1635,20 @@
           "extensors": 180.0,
           "leftLateral": 120.0,
           "rightLateral": 120.0
+        },
+        "yBalance": {
+          "anteriorReach": 73.7,
+          "medialReach": 109.5,
+          "lateralReach": 118.9,
+          "rAnteriorReach": 71.6,
+          "rMedialReach": 115.8,
+          "rLateralReach": 123.2,
+          "compositeScore": 100.0,
+          "rCompositeScore": 102.0,
+          "anteriorDisbalance": 2.1,
+          "medialDisbalance": 6.3,
+          "lateralDisbalance": 0.0,
+          "compositeDisbalance": 2.0
         }
       }
     },
@@ -1484,6 +1764,20 @@
           "extensors": 180.0,
           "leftLateral": 120.0,
           "rightLateral": 120.0
+        },
+        "yBalance": {
+          "anteriorReach": 77.8,
+          "medialReach": 106.7,
+          "lateralReach": 120.6,
+          "rAnteriorReach": 78.0,
+          "rMedialReach": 129.7,
+          "rLateralReach": 127.5,
+          "compositeScore": 106.0,
+          "rCompositeScore": 104.0,
+          "anteriorDisbalance": 0.2,
+          "medialDisbalance": 23.0,
+          "lateralDisbalance": 6.9,
+          "compositeDisbalance": 2.0
         }
       },
       "2026": {
@@ -1514,6 +1808,20 @@
           "extensors": 180.0,
           "leftLateral": 120.0,
           "rightLateral": 120.0
+        },
+        "yBalance": {
+          "anteriorReach": 73.7,
+          "medialReach": 109.5,
+          "lateralReach": 118.9,
+          "rAnteriorReach": 71.6,
+          "rMedialReach": 115.8,
+          "rLateralReach": 123.2,
+          "compositeScore": 100.0,
+          "rCompositeScore": 99.0,
+          "anteriorDisbalance": 5.5,
+          "medialDisbalance": 5.6,
+          "lateralDisbalance": 0.0,
+          "compositeDisbalance": 1.0
         }
       }
     },
@@ -1629,6 +1937,20 @@
           "extensors": 180.0,
           "leftLateral": 120.0,
           "rightLateral": 120.0
+        },
+        "yBalance": {
+          "anteriorReach": 71.6,
+          "medialReach": 133.0,
+          "lateralReach": 136.4,
+          "rAnteriorReach": 80.7,
+          "rMedialReach": 133.0,
+          "rLateralReach": 131.8,
+          "compositeScore": 114.0,
+          "rCompositeScore": 114.0,
+          "anteriorDisbalance": 9.1,
+          "medialDisbalance": 0.0,
+          "lateralDisbalance": 4.6,
+          "compositeDisbalance": 0.0
         }
       },
       "2026": {
@@ -1659,6 +1981,20 @@
           "extensors": 180.0,
           "leftLateral": 120.0,
           "rightLateral": 120.0
+        },
+        "yBalance": {
+          "anteriorReach": 74.5,
+          "medialReach": 117.0,
+          "lateralReach": 126.6,
+          "rAnteriorReach": 80.9,
+          "rMedialReach": 121.3,
+          "rLateralReach": 128.7,
+          "compositeScore": 116.0,
+          "rCompositeScore": 117.0,
+          "anteriorDisbalance": 8.0,
+          "medialDisbalance": 3.5,
+          "lateralDisbalance": 2.3,
+          "compositeDisbalance": 1.0
         }
       }
     },
@@ -1774,6 +2110,20 @@
           "extensors": 180.0,
           "leftLateral": 120.0,
           "rightLateral": 120.0
+        },
+        "yBalance": {
+          "anteriorReach": 90.6,
+          "medialReach": 13.3,
+          "lateralReach": 128.9,
+          "rAnteriorReach": 85.6,
+          "rMedialReach": 126.7,
+          "rLateralReach": 127.8,
+          "compositeScore": 113.0,
+          "rCompositeScore": 114.0,
+          "anteriorDisbalance": 5.0,
+          "medialDisbalance": 7.8,
+          "lateralDisbalance": 1.1,
+          "compositeDisbalance": 1.0
         }
       },
       "2026": {
@@ -1804,6 +2154,20 @@
           "extensors": 140.0,
           "leftLateral": 120.0,
           "rightLateral": 120.0
+        },
+        "yBalance": {
+          "anteriorReach": 75.0,
+          "medialReach": 125.0,
+          "lateralReach": 131.8,
+          "rAnteriorReach": 76.1,
+          "rMedialReach": 122.7,
+          "rLateralReach": 136.4,
+          "compositeScore": 113.0,
+          "rCompositeScore": 113.0,
+          "anteriorDisbalance": 3.3,
+          "medialDisbalance": 1.1,
+          "lateralDisbalance": 2.2,
+          "compositeDisbalance": 0.0
         }
       }
     },
@@ -1919,6 +2283,20 @@
           "extensors": 180.0,
           "leftLateral": 120.0,
           "rightLateral": 120.0
+        },
+        "yBalance": {
+          "anteriorReach": 82.2,
+          "medialReach": 125.6,
+          "lateralReach": 126.7,
+          "rAnteriorReach": 75.6,
+          "rMedialReach": 125.6,
+          "rLateralReach": 125.6,
+          "compositeScore": 109.0,
+          "rCompositeScore": 112.0,
+          "anteriorDisbalance": 6.6,
+          "medialDisbalance": 0.0,
+          "lateralDisbalance": 1.1,
+          "compositeDisbalance": 3.0
         }
       },
       "2026": {
@@ -1949,6 +2327,20 @@
           "extensors": 180.0,
           "leftLateral": 120.0,
           "rightLateral": 120.0
+        },
+        "yBalance": {
+          "anteriorReach": 73.9,
+          "medialReach": 120.5,
+          "lateralReach": 127.3,
+          "rAnteriorReach": 75.0,
+          "rMedialReach": 119.3,
+          "rLateralReach": 130.7,
+          "compositeScore": 113.0,
+          "rCompositeScore": 112.0,
+          "anteriorDisbalance": 0.0,
+          "medialDisbalance": 2.3,
+          "lateralDisbalance": 3.3,
+          "compositeDisbalance": 1.0
         }
       }
     },
@@ -2064,6 +2456,20 @@
           "extensors": 143.0,
           "leftLateral": 120.0,
           "rightLateral": 120.0
+        },
+        "yBalance": {
+          "anteriorReach": 80.7,
+          "medialReach": 121.6,
+          "lateralReach": 122.7,
+          "rAnteriorReach": 80.7,
+          "rMedialReach": 126.1,
+          "rLateralReach": 127.3,
+          "compositeScore": 108.0,
+          "rCompositeScore": 105.0,
+          "anteriorDisbalance": 0.0,
+          "medialDisbalance": 4.5,
+          "lateralDisbalance": 4.6,
+          "compositeDisbalance": 3.0
         }
       },
       "2026": {
@@ -2094,6 +2500,20 @@
           "extensors": 180.0,
           "leftLateral": 120.0,
           "rightLateral": 120.0
+        },
+        "yBalance": {
+          "anteriorReach": 63.3,
+          "medialReach": 122.2,
+          "lateralReach": 120.0,
+          "rAnteriorReach": 68.9,
+          "rMedialReach": 115.6,
+          "rLateralReach": 120.0,
+          "compositeScore": 108.0,
+          "rCompositeScore": 109.0,
+          "anteriorDisbalance": 2.2,
+          "medialDisbalance": 0.0,
+          "lateralDisbalance": 0.0,
+          "compositeDisbalance": 1.0
         }
       }
     },
@@ -2209,6 +2629,20 @@
           "extensors": 180.0,
           "leftLateral": 120.0,
           "rightLateral": 120.0
+        },
+        "yBalance": {
+          "anteriorReach": 74.4,
+          "medialReach": 117.8,
+          "lateralReach": 116.7,
+          "rAnteriorReach": 75.6,
+          "rMedialReach": 125.6,
+          "rLateralReach": 124.4,
+          "compositeScore": 103.0,
+          "rCompositeScore": 108.0,
+          "anteriorDisbalance": 1.2,
+          "medialDisbalance": 7.8,
+          "lateralDisbalance": 7.7,
+          "compositeDisbalance": 5.0
         }
       },
       "2026": {
@@ -2239,6 +2673,20 @@
           "extensors": 180.0,
           "leftLateral": 120.0,
           "rightLateral": 120.0
+        },
+        "yBalance": {
+          "anteriorReach": 83.5,
+          "medialReach": 131.9,
+          "lateralReach": 133.0,
+          "rAnteriorReach": 78.0,
+          "rMedialReach": 116.5,
+          "rLateralReach": 123.1,
+          "compositeScore": 102.0,
+          "rCompositeScore": 107.0,
+          "anteriorDisbalance": 3.4,
+          "medialDisbalance": 10.0,
+          "lateralDisbalance": 3.3,
+          "compositeDisbalance": 5.0
         }
       }
     },
@@ -2354,6 +2802,20 @@
           "extensors": 180.0,
           "leftLateral": 120.0,
           "rightLateral": 120.0
+        },
+        "yBalance": {
+          "anteriorReach": 64.0,
+          "medialReach": 120.9,
+          "lateralReach": 118.6,
+          "rAnteriorReach": 64.0,
+          "rMedialReach": 117.4,
+          "rLateralReach": 120.9,
+          "compositeScore": 101.0,
+          "rCompositeScore": 100.0,
+          "anteriorDisbalance": 0.0,
+          "medialDisbalance": 3.5,
+          "lateralDisbalance": 2.3,
+          "compositeDisbalance": 1.0
         }
       },
       "2026": {
@@ -2384,6 +2846,20 @@
           "extensors": 180.0,
           "leftLateral": 120.0,
           "rightLateral": 120.0
+        },
+        "yBalance": {
+          "anteriorReach": 70.1,
+          "medialReach": 116.1,
+          "lateralReach": 118.4,
+          "rAnteriorReach": 72.4,
+          "rMedialReach": 109.2,
+          "rLateralReach": 124.1,
+          "compositeScore": 107.0,
+          "rCompositeScore": 107.0,
+          "anteriorDisbalance": 2.3,
+          "medialDisbalance": 7.0,
+          "lateralDisbalance": 3.5,
+          "compositeDisbalance": 0.0
         }
       }
     },
@@ -2499,6 +2975,20 @@
           "extensors": 165.0,
           "leftLateral": 120.0,
           "rightLateral": 120.0
+        },
+        "yBalance": {
+          "anteriorReach": 79.1,
+          "medialReach": 115.4,
+          "lateralReach": 123.1,
+          "rAnteriorReach": 71.4,
+          "rMedialReach": 127.5,
+          "rLateralReach": 126.4,
+          "compositeScore": 106.0,
+          "rCompositeScore": 105.0,
+          "anteriorDisbalance": 7.7,
+          "medialDisbalance": 12.1,
+          "lateralDisbalance": 3.3,
+          "compositeDisbalance": 1.0
         }
       },
       "2026": {
@@ -2529,6 +3019,20 @@
           "extensors": 120.0,
           "leftLateral": 100.0,
           "rightLateral": 100.0
+        },
+        "yBalance": {
+          "anteriorReach": 66.3,
+          "medialReach": 119.6,
+          "lateralReach": 119.6,
+          "rAnteriorReach": 76.1,
+          "rMedialReach": 119.6,
+          "rLateralReach": 119.6,
+          "compositeScore": 116.0,
+          "rCompositeScore": 106.0,
+          "anteriorDisbalance": 5.5,
+          "medialDisbalance": 15.4,
+          "lateralDisbalance": 9.9,
+          "compositeDisbalance": 10.0
         }
       }
     },
@@ -2644,6 +3148,20 @@
           "extensors": 180.0,
           "leftLateral": 120.0,
           "rightLateral": 120.0
+        },
+        "yBalance": {
+          "anteriorReach": 70.1,
+          "medialReach": 117.2,
+          "lateralReach": 127.6,
+          "rAnteriorReach": 70.1,
+          "rMedialReach": 118.4,
+          "rLateralReach": 125.3,
+          "compositeScore": 105.0,
+          "rCompositeScore": 105.0,
+          "anteriorDisbalance": 0.0,
+          "medialDisbalance": 1.2,
+          "lateralDisbalance": 2.3,
+          "compositeDisbalance": 0.0
         }
       },
       "2026": {
@@ -2674,6 +3192,20 @@
           "extensors": 180.0,
           "leftLateral": 120.0,
           "rightLateral": 120.0
+        },
+        "yBalance": {
+          "anteriorReach": 83.5,
+          "medialReach": 131.9,
+          "lateralReach": 133.0,
+          "rAnteriorReach": 78.0,
+          "rMedialReach": 116.5,
+          "rLateralReach": 123.1,
+          "compositeScore": 102.0,
+          "rCompositeScore": 102.0,
+          "anteriorDisbalance": 2.3,
+          "medialDisbalance": 6.9,
+          "lateralDisbalance": 4.6,
+          "compositeDisbalance": 0.0
         }
       }
     },
@@ -2789,6 +3321,20 @@
           "extensors": 180.0,
           "leftLateral": 120.0,
           "rightLateral": 120.0
+        },
+        "yBalance": {
+          "anteriorReach": 86.0,
+          "medialReach": 131.4,
+          "lateralReach": 127.9,
+          "rAnteriorReach": 88.2,
+          "rMedialReach": 137.6,
+          "rLateralReach": 134.1,
+          "compositeScore": 116.0,
+          "rCompositeScore": 120.0,
+          "anteriorDisbalance": 2.2,
+          "medialDisbalance": 6.2,
+          "lateralDisbalance": 6.2,
+          "compositeDisbalance": 4.0
         }
       },
       "2026": {
@@ -2819,6 +3365,20 @@
           "extensors": 180.0,
           "leftLateral": 120.0,
           "rightLateral": 120.0
+        },
+        "yBalance": {
+          "anteriorReach": 92.0,
+          "medialReach": 126.4,
+          "lateralReach": 126.4,
+          "rAnteriorReach": 78.2,
+          "rMedialReach": 119.5,
+          "rLateralReach": 120.7,
+          "compositeScore": 120.0,
+          "rCompositeScore": 117.0,
+          "anteriorDisbalance": 6.0,
+          "medialDisbalance": 3.1,
+          "lateralDisbalance": 2.7,
+          "compositeDisbalance": 3.0
         }
       }
     },
@@ -2934,6 +3494,20 @@
           "extensors": 180.0,
           "leftLateral": 120.0,
           "rightLateral": 120.0
+        },
+        "yBalance": {
+          "anteriorReach": 68.1,
+          "medialReach": 121.3,
+          "lateralReach": 119.1,
+          "rAnteriorReach": 71.3,
+          "rMedialReach": 127.7,
+          "rLateralReach": 121.3,
+          "compositeScore": 103.0,
+          "rCompositeScore": 107.0,
+          "anteriorDisbalance": 3.2,
+          "medialDisbalance": 6.4,
+          "lateralDisbalance": 2.2,
+          "compositeDisbalance": 4.0
         }
       },
       "2026": {
@@ -2964,6 +3538,20 @@
           "extensors": 180.0,
           "leftLateral": 120.0,
           "rightLateral": 120.0
+        },
+        "yBalance": {
+          "anteriorReach": 81.9,
+          "medialReach": 127.7,
+          "lateralReach": 127.7,
+          "rAnteriorReach": 71.3,
+          "rMedialReach": 117.0,
+          "rLateralReach": 134.0,
+          "compositeScore": 110.0,
+          "rCompositeScore": 114.0,
+          "anteriorDisbalance": 7.4,
+          "medialDisbalance": 8.5,
+          "lateralDisbalance": 12.8,
+          "compositeDisbalance": 4.0
         }
       }
     },
@@ -3079,6 +3667,20 @@
           "extensors": 150.0,
           "leftLateral": 120.0,
           "rightLateral": 120.0
+        },
+        "yBalance": {
+          "anteriorReach": 56.7,
+          "medialReach": 103.3,
+          "lateralReach": 106.7,
+          "rAnteriorReach": 57.3,
+          "rMedialReach": 103.4,
+          "rLateralReach": 113.5,
+          "compositeScore": 89.9,
+          "rCompositeScore": 91.4,
+          "anteriorDisbalance": 0.6,
+          "medialDisbalance": 0.1,
+          "lateralDisbalance": 6.8,
+          "compositeDisbalance": 1.5
         }
       },
       "2026": {
@@ -3109,6 +3711,20 @@
           "extensors": 180.0,
           "leftLateral": 120.0,
           "rightLateral": 120.0
+        },
+        "yBalance": {
+          "anteriorReach": 57.3,
+          "medialReach": 106.7,
+          "lateralReach": 120.2,
+          "rAnteriorReach": 61.8,
+          "rMedialReach": 107.9,
+          "rLateralReach": 114.6,
+          "compositeScore": 94.0,
+          "rCompositeScore": 95.0,
+          "anteriorDisbalance": 5.1,
+          "medialDisbalance": 2.3,
+          "lateralDisbalance": 4.3,
+          "compositeDisbalance": 1.0
         }
       }
     },
@@ -3224,6 +3840,20 @@
           "extensors": 180.0,
           "leftLateral": 120.0,
           "rightLateral": 120.0
+        },
+        "yBalance": {
+          "anteriorReach": 69.6,
+          "medialReach": 119.0,
+          "lateralReach": 121.4,
+          "rAnteriorReach": 71.4,
+          "rMedialReach": 117.4,
+          "rLateralReach": 133.9,
+          "compositeScore": 104.0,
+          "rCompositeScore": 110.0,
+          "anteriorDisbalance": 1.8,
+          "medialDisbalance": 1.6,
+          "lateralDisbalance": 12.5,
+          "compositeDisbalance": 6.0
         }
       },
       "2026": {
@@ -3254,6 +3884,20 @@
           "extensors": 180.0,
           "leftLateral": 120.0,
           "rightLateral": 120.0
+        },
+        "yBalance": {
+          "anteriorReach": 78.6,
+          "medialReach": 121.4,
+          "lateralReach": 133.3,
+          "rAnteriorReach": 76.2,
+          "rMedialReach": 136.9,
+          "rLateralReach": 136.9,
+          "compositeScore": 111.0,
+          "rCompositeScore": 112.0,
+          "anteriorDisbalance": 2.4,
+          "medialDisbalance": 0.0,
+          "lateralDisbalance": 4.8,
+          "compositeDisbalance": 1.0
         }
       }
     },
@@ -3369,6 +4013,20 @@
           "extensors": 180.0,
           "leftLateral": 120.0,
           "rightLateral": 120.0
+        },
+        "yBalance": {
+          "anteriorReach": 0,
+          "medialReach": 0,
+          "lateralReach": 0,
+          "rAnteriorReach": 0,
+          "rMedialReach": 0,
+          "rLateralReach": 0,
+          "compositeScore": 113.0,
+          "rCompositeScore": 109.0,
+          "anteriorDisbalance": 0,
+          "medialDisbalance": 0,
+          "lateralDisbalance": 0,
+          "compositeDisbalance": 4.0
         }
       },
       "2026": {
@@ -3399,6 +4057,20 @@
           "extensors": 0,
           "leftLateral": 0,
           "rightLateral": 0
+        },
+        "yBalance": {
+          "anteriorReach": 0,
+          "medialReach": 0,
+          "lateralReach": 0,
+          "rAnteriorReach": 0,
+          "rMedialReach": 0,
+          "rLateralReach": 0,
+          "compositeScore": 0,
+          "rCompositeScore": 0,
+          "anteriorDisbalance": 0,
+          "medialDisbalance": 0,
+          "lateralDisbalance": 0,
+          "compositeDisbalance": 0
         }
       }
     },
@@ -3514,6 +4186,20 @@
           "extensors": 180.0,
           "leftLateral": 120.0,
           "rightLateral": 103.0
+        },
+        "yBalance": {
+          "anteriorReach": 77.1,
+          "medialReach": 127.7,
+          "lateralReach": 114.5,
+          "rAnteriorReach": 77.4,
+          "rMedialReach": 126.2,
+          "rLateralReach": 125.0,
+          "compositeScore": 106.0,
+          "rCompositeScore": 109.0,
+          "anteriorDisbalance": 0.3,
+          "medialDisbalance": 1.5,
+          "lateralDisbalance": 10.5,
+          "compositeDisbalance": 3.0
         }
       },
       "2026": {
@@ -3544,6 +4230,20 @@
           "extensors": 180.0,
           "leftLateral": 90.0,
           "rightLateral": 70.0
+        },
+        "yBalance": {
+          "anteriorReach": 72.3,
+          "medialReach": 125.3,
+          "lateralReach": 114.5,
+          "rAnteriorReach": 71.4,
+          "rMedialReach": 116.7,
+          "rLateralReach": 117.9,
+          "compositeScore": 104.0,
+          "rCompositeScore": 102.0,
+          "anteriorDisbalance": 0.9,
+          "medialDisbalance": 8.6,
+          "lateralDisbalance": 3.4,
+          "compositeDisbalance": 2.0
         }
       }
     },
@@ -3659,6 +4359,20 @@
           "extensors": 180.0,
           "leftLateral": 120.0,
           "rightLateral": 120.0
+        },
+        "yBalance": {
+          "anteriorReach": 69.6,
+          "medialReach": 109.8,
+          "lateralReach": 125.0,
+          "rAnteriorReach": 73.4,
+          "rMedialReach": 114.7,
+          "rLateralReach": 126.1,
+          "compositeScore": 103.0,
+          "rCompositeScore": 106.0,
+          "anteriorDisbalance": 3.8,
+          "medialDisbalance": 4.9,
+          "lateralDisbalance": 1.1,
+          "compositeDisbalance": 3.0
         }
       },
       "2026": {
@@ -3689,6 +4403,20 @@
           "extensors": 180.0,
           "leftLateral": 120.0,
           "rightLateral": 120.0
+        },
+        "yBalance": {
+          "anteriorReach": 75.0,
+          "medialReach": 113.0,
+          "lateralReach": 126.1,
+          "rAnteriorReach": 80.4,
+          "rMedialReach": 106.5,
+          "rLateralReach": 126.1,
+          "compositeScore": 105.0,
+          "rCompositeScore": 104.0,
+          "anteriorDisbalance": 5.4,
+          "medialDisbalance": 6.5,
+          "lateralDisbalance": 0.0,
+          "compositeDisbalance": 1.0
         }
       }
     },

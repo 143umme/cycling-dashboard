@@ -621,13 +621,78 @@ export default function GroupAnalysis({ yearView }: GroupAnalysisProps) {
           </div>
         </div>
 
-        {/* Isokinetic Knee Test - Group Analysis */}
+        {/* Isokinetic Knee Test - Comprehensive Table */}
         <div className="bg-white rounded-lg p-6 shadow-sm border border-slate-100">
-          <h3 className="text-lg font-bold text-slate-800 mb-2">Isokinetic Knee Test - Peak Torque (ft-lb)</h3>
-          <p className="text-xs text-slate-500 mb-4">Individual athlete flexor vs extensor torque comparison at 60 °/s (2025 vs 2026)</p>
+          <h3 className="text-lg font-bold text-slate-800 mb-4">Isokinetic Knee Test - Peak Torque (ft-lb)</h3>
+          <div className="overflow-x-auto">
+            <table className="w-full text-xs border-collapse">
+              <thead>
+                <tr className="bg-slate-100 border-b-2 border-slate-300">
+                  <th className="px-2 py-2 text-left font-semibold text-slate-700">Athlete</th>
+                  <th colSpan={4} className="px-2 py-2 text-center font-semibold text-slate-700 border-l border-slate-300">60°/s</th>
+                  <th colSpan={4} className="px-2 py-2 text-center font-semibold text-slate-700 border-l border-slate-300">180°/s</th>
+                  <th colSpan={4} className="px-2 py-2 text-center font-semibold text-slate-700 border-l border-slate-300">240°/s</th>
+                </tr>
+                <tr className="bg-slate-50 border-b border-slate-300">
+                  <th className="px-2 py-1 text-left font-semibold text-slate-600"></th>
+                  <th className="px-2 py-1 text-center font-semibold text-slate-600">L Ext</th>
+                  <th className="px-2 py-1 text-center font-semibold text-slate-600">R Ext</th>
+                  <th className="px-2 py-1 text-center font-semibold text-slate-600">L Flx</th>
+                  <th className="px-2 py-1 text-center font-semibold text-slate-600 border-l border-slate-300">R Flx</th>
+                  <th className="px-2 py-1 text-center font-semibold text-slate-600">L Ext</th>
+                  <th className="px-2 py-1 text-center font-semibold text-slate-600">R Ext</th>
+                  <th className="px-2 py-1 text-center font-semibold text-slate-600">L Flx</th>
+                  <th className="px-2 py-1 text-center font-semibold text-slate-600 border-l border-slate-300">R Flx</th>
+                  <th className="px-2 py-1 text-center font-semibold text-slate-600">L Ext</th>
+                  <th className="px-2 py-1 text-center font-semibold text-slate-600">R Ext</th>
+                  <th className="px-2 py-1 text-center font-semibold text-slate-600">L Flx</th>
+                  <th className="px-2 py-1 text-center font-semibold text-slate-600 border-l border-slate-300">R Flx</th>
+                </tr>
+              </thead>
+              <tbody>
+                {groupAthletes.map((athlete, idx) => {
+                  const renderCell = (val2025: number | undefined, val2026: number | undefined) => {
+                    if (!val2025 || !val2026) return <td className="px-2 py-1 text-center text-slate-400 text-xs">-</td>;
+                    const change = val2026 - val2025;
+                    const changePercent = ((change / val2025) * 100).toFixed(1);
+                    const isIncrease = change > 0;
+                    return (
+                      <td className="px-2 py-1 text-center text-xs">
+                        <div className="font-semibold">{val2026.toFixed(0)}</div>
+                        <div className={`text-xs font-bold ${isIncrease ? 'text-green-600' : 'text-red-600'}`}>
+                          {isIncrease ? '↑' : '↓'} {Math.abs(parseFloat(changePercent))}%
+                        </div>
+                      </td>
+                    );
+                  };
+                  return (
+                    <tr key={idx} className={idx % 2 === 0 ? 'bg-white' : 'bg-slate-50'} style={{ borderBottom: '1px solid #e2e8f0' }}>
+                      <td className="px-2 py-1 font-semibold text-slate-700 text-xs">{athlete.name}</td>
+                      {/* 60°/s */}
+                      {renderCell(athlete.isokinetic?.['2025']?.speed60?.lExtensors, athlete.isokinetic?.['2026']?.speed60?.lExtensors)}
+                      {renderCell(athlete.isokinetic?.['2025']?.speed60?.rExtensors, athlete.isokinetic?.['2026']?.speed60?.rExtensors)}
+                      {renderCell(athlete.isokinetic?.['2025']?.speed60?.lFlexors, athlete.isokinetic?.['2026']?.speed60?.lFlexors)}
+                      {renderCell(athlete.isokinetic?.['2025']?.speed60?.rFlexors, athlete.isokinetic?.['2026']?.speed60?.rFlexors)}
+                      {/* 180°/s */}
+                      {renderCell(athlete.isokinetic?.['2025']?.speed180?.lExtensors, athlete.isokinetic?.['2026']?.speed180?.lExtensors)}
+                      {renderCell(athlete.isokinetic?.['2025']?.speed180?.rExtensors, athlete.isokinetic?.['2026']?.speed180?.rExtensors)}
+                      {renderCell(athlete.isokinetic?.['2025']?.speed180?.lFlexors, athlete.isokinetic?.['2026']?.speed180?.lFlexors)}
+                      {renderCell(athlete.isokinetic?.['2025']?.speed180?.rFlexors, athlete.isokinetic?.['2026']?.speed180?.rFlexors)}
+                      {/* 240°/s */}
+                      {renderCell(athlete.isokinetic?.['2025']?.speed240?.lExtensors, athlete.isokinetic?.['2026']?.speed240?.lExtensors)}
+                      {renderCell(athlete.isokinetic?.['2025']?.speed240?.rExtensors, athlete.isokinetic?.['2026']?.speed240?.rExtensors)}
+                      {renderCell(athlete.isokinetic?.['2025']?.speed240?.lFlexors, athlete.isokinetic?.['2026']?.speed240?.lFlexors)}
+                      {renderCell(athlete.isokinetic?.['2025']?.speed240?.rFlexors, athlete.isokinetic?.['2026']?.speed240?.rFlexors)}
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+          <p className="text-xs text-slate-500 mt-3">↑ = Improvement | ↓ = Decline | L=Left, R=Right | Ext=Extensors, Flx=Flexors | Values show 2026 data with % change from 2025</p>
           
           {/* Grid of scatter plots - 2 per row */}
-          <div className="grid grid-cols-2 gap-6">
+          <div className="grid grid-cols-2 gap-6" style={{display: 'none'}}>
             {/* 2025 Scatter Plot */}
             <div>
               <h4 className="text-sm font-semibold text-slate-700 mb-3 text-center">2025 Data</h4>
@@ -662,21 +727,6 @@ export default function GroupAnalysis({ yearView }: GroupAnalysisProps) {
                   }))} fill="#0ea5e9" />
                 </ScatterChart>
               </ResponsiveContainer>
-            </div>
-          </div>
-
-          {/* H/Q Ratio Comparison */}
-          <div className="mt-6 p-4 bg-slate-50 rounded-lg border border-slate-200">
-            <h4 className="text-sm font-semibold text-slate-700 mb-3">Hamstring/Quadriceps Ratio (60 °/s) - Group Summary</h4>
-            <div className="grid grid-cols-2 gap-4">
-              <div>
-                <p className="text-xs text-slate-600 mb-2">2025 Average</p>
-                <p className="text-lg font-bold text-blue-600">{(groupAthletes.reduce((sum, a) => sum + (a.isokinetic?.['2025']?.speed60?.lHQRatio || 0), 0) / groupAthletes.length).toFixed(1)}%</p>
-              </div>
-              <div>
-                <p className="text-xs text-slate-600 mb-2">2026 Average</p>
-                <p className="text-lg font-bold text-cyan-600">{(groupAthletes.reduce((sum, a) => sum + (a.isokinetic?.['2026']?.speed60?.lHQRatio || 0), 0) / groupAthletes.length).toFixed(1)}%</p>
-              </div>
             </div>
           </div>
         </div>

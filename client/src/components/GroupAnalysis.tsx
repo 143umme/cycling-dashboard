@@ -618,7 +618,7 @@ export default function GroupAnalysis({ yearView }: GroupAnalysisProps) {
         <div className="bg-white rounded-lg p-6 shadow-sm border border-slate-100">
           <h3 className="text-lg font-bold text-slate-800 mb-2">Y-Balance Test - Disbalance Index</h3>
           <p className="text-xs text-slate-500 mb-4">Individual athlete disbalance percentages by direction (lower is better, &lt;4% is balanced)</p>
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid grid-cols-2 gap-4">
             {/* Anterior Disbalance - 2025 vs 2026 */}
             <div>
               <h4 className="text-xs font-semibold text-slate-700 mb-2 text-center">Anterior</h4>
@@ -662,6 +662,22 @@ export default function GroupAnalysis({ yearView }: GroupAnalysisProps) {
                   <Tooltip contentStyle={{ backgroundColor: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "8px" }} formatter={(value: any) => value ? value.toFixed(1) : "N/A"} />
                   <Bar dataKey="ybalanceLateralDisbalance2025" fill="#14b8a6" name="2025" radius={[4, 4, 0, 0]} />
                   <Bar dataKey="ybalanceLateralDisbalance2026" fill="#f59e0b" name="2026" radius={[4, 4, 0, 0]} />
+                  <Legend />
+                  <ReferenceLine y={4} stroke="#ef4444" strokeDasharray="5 5" label={{ value: "4%", position: "top", fill: "#dc2626", fontSize: 8 }} />
+                </BarChart>
+              </ResponsiveContainer>
+            </div>
+            {/* Composite Disbalance - 2025 vs 2026 */}
+            <div>
+              <h4 className="text-xs font-semibold text-slate-700 mb-2 text-center">Composite</h4>
+              <ResponsiveContainer width="100%" height={250}>
+                <BarChart data={groupData} margin={{ top: 10, right: 10, left: 10, bottom: 50 }}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+                  <XAxis dataKey="name" angle={-45} textAnchor="end" height={70} tick={{ fontSize: 8 }} />
+                  <YAxis domain={[0, 10]} type="number" tick={{ fontSize: 8 }} />
+                  <Tooltip contentStyle={{ backgroundColor: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "8px" }} formatter={(value: any) => value ? value.toFixed(1) : "N/A"} />
+                  <Bar dataKey="ybalanceCompositeDisbalance2025" fill="#06b6d4" name="2025" radius={[4, 4, 0, 0]} />
+                  <Bar dataKey="ybalanceCompositeDisbalance2026" fill="#d946ef" name="2026" radius={[4, 4, 0, 0]} />
                   <Legend />
                   <ReferenceLine y={4} stroke="#ef4444" strokeDasharray="5 5" label={{ value: "4%", position: "top", fill: "#dc2626", fontSize: 8 }} />
                 </BarChart>

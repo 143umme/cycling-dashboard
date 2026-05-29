@@ -207,129 +207,64 @@ export default function GroupAnalysis({ yearView }: GroupAnalysisProps) {
           </ResponsiveContainer>
         </div>
 
-        {/* Isometric Strength - Adductors (LH & RH) - 2025 vs 2026 */}
+        {/* Isometric Strength - Comprehensive Table */}
         <div className="bg-white rounded-lg p-6 shadow-sm border border-slate-100">
-          <h3 className="text-lg font-bold text-slate-800 mb-4">Isometric Strength - Adductors (N) - 2025 vs 2026</h3>
-          <ResponsiveContainer width="100%" height={350}>
-            <BarChart data={groupData} margin={{ top: 20, right: 30, left: 0, bottom: 80 }}>
-              <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
-              <XAxis 
-                dataKey="name" 
-                angle={-45} 
-                textAnchor="end" 
-                height={100}
-                tick={{ fontSize: 11 }}
-              />
-              <YAxis label={{ value: "N", angle: -90, position: "insideLeft" }} />
-              <Tooltip contentStyle={{ backgroundColor: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "8px" }} formatter={(value: any) => value.toFixed(1)} />
-              <Legend />
-              <Bar dataKey="lhAdductors2025" fill="#8b5cf6" name="LH Adductors 2025" radius={[4, 4, 0, 0]} />
-              <Bar dataKey="lhAdductors2026" fill="#c4b5fd" name="LH Adductors 2026" radius={[4, 4, 0, 0]} />
-              <Bar dataKey="rhAdductors2025" fill="#6366f1" name="RH Adductors 2025" radius={[4, 4, 0, 0]} />
-              <Bar dataKey="rhAdductors2026" fill="#818cf8" name="RH Adductors 2026" radius={[4, 4, 0, 0]} />
-              <ReferenceLine y={NORMATIVE_VALUES.hipStrength} stroke="#94a3b8" strokeDasharray="5 5" label={{ value: "Normative (200N)", position: "right", fill: "#64748b", fontSize: 11 }} />
-            </BarChart>
-          </ResponsiveContainer>
-        </div>
-
-        {/* Isometric Strength - Abductors (LH & RH) - 2025 vs 2026 */}
-        <div className="bg-white rounded-lg p-6 shadow-sm border border-slate-100">
-          <h3 className="text-lg font-bold text-slate-800 mb-4">Isometric Strength - Abductors (N) - 2025 vs 2026</h3>
-          <ResponsiveContainer width="100%" height={350}>
-            <BarChart data={groupData} margin={{ top: 20, right: 30, left: 0, bottom: 80 }}>
-              <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
-              <XAxis 
-                dataKey="name" 
-                angle={-45} 
-                textAnchor="end" 
-                height={100}
-                tick={{ fontSize: 11 }}
-              />
-              <YAxis label={{ value: "N", angle: -90, position: "insideLeft" }} />
-              <Tooltip contentStyle={{ backgroundColor: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "8px" }} formatter={(value: any) => value.toFixed(1)} />
-              <Legend />
-              <Bar dataKey="lhAbductors2025" fill="#0ea5e9" name="LH Abductors 2025" radius={[4, 4, 0, 0]} />
-              <Bar dataKey="lhAbductors2026" fill="#06b6d4" name="LH Abductors 2026" radius={[4, 4, 0, 0]} />
-              <Bar dataKey="rhAbductors2025" fill="#0284c7" name="RH Abductors 2025" radius={[4, 4, 0, 0]} />
-              <Bar dataKey="rhAbductors2026" fill="#38bdf8" name="RH Abductors 2026" radius={[4, 4, 0, 0]} />
-              <ReferenceLine y={NORMATIVE_VALUES.hipStrength} stroke="#94a3b8" strokeDasharray="5 5" label={{ value: "Normative (200N)", position: "right", fill: "#64748b", fontSize: 11 }} />
-            </BarChart>
-          </ResponsiveContainer>
-        </div>
-
-        {/* Hip Flexors - Grouped Bar Chart (2025 vs 2026) */}
-        <div className="bg-white rounded-lg p-6 shadow-sm border border-slate-100">
-          <h3 className="text-lg font-bold text-slate-800 mb-4">Hip Flexors (N) - 2025 vs 2026</h3>
-          <ResponsiveContainer width="100%" height={350}>
-            <BarChart data={groupData} margin={{ top: 20, right: 30, left: 0, bottom: 80 }}>
-              <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
-              <XAxis 
-                dataKey="name" 
-                angle={-45} 
-                textAnchor="end" 
-                height={100}
-                tick={{ fontSize: 11 }}
-              />
-              <YAxis label={{ value: "N", angle: -90, position: "insideLeft" }} />
-              <Tooltip contentStyle={{ backgroundColor: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "8px" }} formatter={(value: any) => value.toFixed(1)} />
-              <Legend />
-              <Bar dataKey="lhFlexors2025" fill="#6366f1" name="LH Flexors 2025" radius={[4, 4, 0, 0]} />
-              <Bar dataKey="lhFlexors2026" fill="#818cf8" name="LH Flexors 2026" radius={[4, 4, 0, 0]} />
-              <Bar dataKey="rhFlexors2025" fill="#0ea5e9" name="RH Flexors 2025" radius={[4, 4, 0, 0]} />
-              <Bar dataKey="rhFlexors2026" fill="#06b6d4" name="RH Flexors 2026" radius={[4, 4, 0, 0]} />
-              <ReferenceLine y={NORMATIVE_VALUES.hipStrength} stroke="#94a3b8" strokeDasharray="5 5" label={{ value: "Normative (200N)", position: "right", fill: "#64748b", fontSize: 11 }} />
-            </BarChart>
-          </ResponsiveContainer>
-        </div>
-
-        {/* Hip Extensors - Grouped Bar Chart (2025 vs 2026) */}
-        <div className="bg-white rounded-lg p-6 shadow-sm border border-slate-100">
-          <h3 className="text-lg font-bold text-slate-800 mb-4">Hip Extensors (N) - 2025 vs 2026</h3>
-          <ResponsiveContainer width="100%" height={350}>
-            <BarChart data={groupData} margin={{ top: 20, right: 30, left: 0, bottom: 80 }}>
-              <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
-              <XAxis 
-                dataKey="name" 
-                angle={-45} 
-                textAnchor="end" 
-                height={100}
-                tick={{ fontSize: 11 }}
-              />
-              <YAxis label={{ value: "N", angle: -90, position: "insideLeft" }} />
-              <Tooltip contentStyle={{ backgroundColor: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "8px" }} formatter={(value: any) => value.toFixed(1)} />
-              <Legend />
-              <Bar dataKey="lhExtensors2025" fill="#10b981" name="LH Extensors 2025" radius={[4, 4, 0, 0]} />
-              <Bar dataKey="lhExtensors2026" fill="#6ee7b7" name="LH Extensors 2026" radius={[4, 4, 0, 0]} />
-              <Bar dataKey="rhExtensors2025" fill="#f59e0b" name="RH Extensors 2025" radius={[4, 4, 0, 0]} />
-              <Bar dataKey="rhExtensors2026" fill="#fcd34d" name="RH Extensors 2026" radius={[4, 4, 0, 0]} />
-              <ReferenceLine y={NORMATIVE_VALUES.hipStrength} stroke="#94a3b8" strokeDasharray="5 5" label={{ value: "Normative (200N)", position: "right", fill: "#64748b", fontSize: 11 }} />
-            </BarChart>
-          </ResponsiveContainer>
-        </div>
-
-        {/* Ankle Plantarflexors - 2025 vs 2026 */}
-        <div className="bg-white rounded-lg p-6 shadow-sm border border-slate-100">
-          <h3 className="text-lg font-bold text-slate-800 mb-4">Ankle Plantarflexors (N) - 2025 vs 2026</h3>
-          <ResponsiveContainer width="100%" height={350}>
-            <BarChart data={groupData} margin={{ top: 20, right: 30, left: 0, bottom: 80 }}>
-              <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
-              <XAxis 
-                dataKey="name" 
-                angle={-45} 
-                textAnchor="end" 
-                height={100}
-                tick={{ fontSize: 11 }}
-              />
-              <YAxis label={{ value: "N", angle: -90, position: "insideLeft" }} />
-              <Tooltip contentStyle={{ backgroundColor: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "8px" }} formatter={(value: any) => value.toFixed(1)} />
-              <Legend />
-              <Bar dataKey="laPlantarflexors2025" fill="#10b981" name="L Ankle Plantarflexors 2025" radius={[4, 4, 0, 0]} />
-              <Bar dataKey="laPlantarflexors2026" fill="#86efac" name="L Ankle Plantarflexors 2026" radius={[4, 4, 0, 0]} />
-              <Bar dataKey="raPlantarflexors2025" fill="#f59e0b" name="R Ankle Plantarflexors 2025" radius={[4, 4, 0, 0]} />
-              <Bar dataKey="raPlantarflexors2026" fill="#fcd34d" name="R Ankle Plantarflexors 2026" radius={[4, 4, 0, 0]} />
-              <ReferenceLine y={600} stroke="#94a3b8" strokeDasharray="5 5" label={{ value: "Normative (600N)", position: "right", fill: "#64748b", fontSize: 11 }} />
-            </BarChart>
-          </ResponsiveContainer>
+          <h3 className="text-lg font-bold text-slate-800 mb-4">Isometric Strength - All Metrics (N)</h3>
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm border-collapse">
+              <thead>
+                <tr className="bg-slate-100 border-b-2 border-slate-300">
+                  <th className="px-3 py-2 text-left font-semibold text-slate-700">Athlete</th>
+                  <th className="px-3 py-2 text-center font-semibold text-slate-700">Adductors L</th>
+                  <th className="px-3 py-2 text-center font-semibold text-slate-700">Adductors R</th>
+                  <th className="px-3 py-2 text-center font-semibold text-slate-700">Abductors L</th>
+                  <th className="px-3 py-2 text-center font-semibold text-slate-700">Abductors R</th>
+                  <th className="px-3 py-2 text-center font-semibold text-slate-700">Flexors L</th>
+                  <th className="px-3 py-2 text-center font-semibold text-slate-700">Flexors R</th>
+                  <th className="px-3 py-2 text-center font-semibold text-slate-700">Extensors L</th>
+                  <th className="px-3 py-2 text-center font-semibold text-slate-700">Extensors R</th>
+                  <th className="px-3 py-2 text-center font-semibold text-slate-700">Plantarflexors L</th>
+                  <th className="px-3 py-2 text-center font-semibold text-slate-700">Plantarflexors R</th>
+                </tr>
+              </thead>
+              <tbody>
+                {groupData.map((athlete, idx) => {
+                  const renderCell = (val2025: number | null, val2026: number | null) => {
+                    if (!val2025 || !val2026) return <td className="px-3 py-2 text-center text-slate-400">-</td>;
+                    const change = val2026 - val2025;
+                    const changePercent = ((change / val2025) * 100).toFixed(1);
+                    const isIncrease = change > 0;
+                    return (
+                      <td className="px-3 py-2 text-center">
+                        <div className="text-xs">
+                          <div className="font-semibold">{val2026.toFixed(0)}</div>
+                          <div className={`text-xs font-bold ${isIncrease ? 'text-green-600' : 'text-red-600'}`}>
+                            {isIncrease ? '↑' : '↓'} {Math.abs(parseFloat(changePercent))}%
+                          </div>
+                        </div>
+                      </td>
+                    );
+                  };
+                  return (
+                    <tr key={idx} className={idx % 2 === 0 ? 'bg-white' : 'bg-slate-50'} style={{ borderBottom: '1px solid #e2e8f0' }}>
+                      <td className="px-3 py-2 font-semibold text-slate-700">{athlete.name}</td>
+                      {renderCell(athlete.lhAdductors2025, athlete.lhAdductors2026)}
+                      {renderCell(athlete.rhAdductors2025, athlete.rhAdductors2026)}
+                      {renderCell(athlete.lhAbductors2025, athlete.lhAbductors2026)}
+                      {renderCell(athlete.rhAbductors2025, athlete.rhAbductors2026)}
+                      {renderCell(athlete.lhFlexors2025, athlete.lhFlexors2026)}
+                      {renderCell(athlete.rhFlexors2025, athlete.rhFlexors2026)}
+                      {renderCell(athlete.lhExtensors2025, athlete.lhExtensors2026)}
+                      {renderCell(athlete.rhExtensors2025, athlete.rhExtensors2026)}
+                      {renderCell(athlete.laPlantarflexors2025, athlete.laPlantarflexors2026)}
+                      {renderCell(athlete.raPlantarflexors2025, athlete.raPlantarflexors2026)}
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+          <p className="text-xs text-slate-500 mt-3">↑ = Improvement | ↓ = Decline | Values show 2026 data with % change from 2025</p>
         </div>
 
         {/* Add/Abd Ratios - Two Side-by-Side Horizontal Dumbbell Charts (2025 vs 2026) */}

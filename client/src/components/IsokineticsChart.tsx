@@ -124,18 +124,34 @@ export default function IsokineticsChart({ athlete, year }: IsokineticsChartProp
         </ScatterChart>
       </ResponsiveContainer>
 
-      {/* Legend */}
+      {/* Simplified Legend */}
       <div className="mt-4 p-4 bg-slate-50 rounded-lg border border-slate-200">
         <p className="text-xs font-semibold text-slate-700 mb-3">Legend</p>
-        <div className="grid grid-cols-2 gap-2 text-xs text-slate-600">
-          <div>● Right 60°/s (Blue Circle)</div>
-          <div>■ Left 60°/s (Blue Square)</div>
-          <div>● Right 180°/s (Green Circle)</div>
-          <div>■ Left 180°/s (Green Square)</div>
-          <div>● Right 240°/s (Red Circle)</div>
-          <div>■ Left 240°/s (Red Square)</div>
-          <div>- - Normative Flexor ({normFlexorFtLb} ft-lb)</div>
-          <div>- - Normative Extensor ({normExtensorFtLb} ft-lb)</div>
+        <div className="grid grid-cols-3 gap-3 text-xs text-slate-600">
+          <div className="flex items-center gap-2">
+            <div className="w-3 h-3 rounded-full bg-blue-500"></div>
+            <span>60°/s (Blue)</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <div className="w-3 h-3 rounded-full bg-green-500"></div>
+            <span>180°/s (Green)</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <div className="w-3 h-3 rounded-full bg-red-500"></div>
+            <span>240°/s (Red)</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <span className="text-lg">●</span>
+            <span>Right (Extensor)</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <span className="text-lg">■</span>
+            <span>Left (Flexor)</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <span className="text-slate-400">- -</span>
+            <span>Normative</span>
+          </div>
         </div>
       </div>
     </div>

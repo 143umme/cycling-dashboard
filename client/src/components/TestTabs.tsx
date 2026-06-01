@@ -476,28 +476,14 @@ export default function TestTabs({ athlete, yearView, teamAvg2025, teamAvg2026 }
       {/* Isokinetic Knee Test Tab */}
       {activeTab === "isokinetic" && (
         <div className="space-y-6">
-          <IsokineticsChart athlete={athlete} year="2025" />
-          <IsokineticsChart athlete={athlete} year="2026" />
+          {/* Side by side charts for 2025 and 2026 */}
+          <div className="grid grid-cols-2 gap-6">
+            <IsokineticsChart athlete={athlete} year="2025" />
+            <IsokineticsChart athlete={athlete} year="2026" />
+          </div>
 
           {/* IKT Metrics Summary - 2025 and 2026 */}
           <IKTMetricsSummary athlete={athlete} />
-
-          {/* H/Q Ratio Metrics */}
-          <div className="bg-white rounded-lg p-6 shadow-sm border border-slate-100">
-            <h3 className="text-lg font-bold text-slate-800 mb-4">Hamstring/Quadriceps Ratio (60 °/s)</h3>
-            <div className="grid grid-cols-2 gap-4">
-              <div className="p-4 bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg border border-blue-200">
-                <p className="text-sm text-slate-600 mb-1">Left H/Q Ratio</p>
-                <p className="text-2xl font-bold text-blue-600">{athlete.isokinetic?.['2026']?.speed60?.lHQRatio?.toFixed(1) || "N/A"}%</p>
-                <p className="text-xs text-slate-500 mt-2">2025: {athlete.isokinetic?.['2025']?.speed60?.lHQRatio?.toFixed(1) || "N/A"}%</p>
-              </div>
-              <div className="p-4 bg-gradient-to-br from-cyan-50 to-cyan-100 rounded-lg border border-cyan-200">
-                <p className="text-sm text-slate-600 mb-1">Right H/Q Ratio</p>
-                <p className="text-2xl font-bold text-cyan-600">{athlete.isokinetic?.['2026']?.speed60?.rHQRatio?.toFixed(1) || "N/A"}%</p>
-                <p className="text-xs text-slate-500 mt-2">2025: {athlete.isokinetic?.['2025']?.speed60?.rHQRatio?.toFixed(1) || "N/A"}%</p>
-              </div>
-            </div>
-          </div>
         </div>
       )}
     </div>

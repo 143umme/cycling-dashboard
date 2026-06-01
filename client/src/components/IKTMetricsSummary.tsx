@@ -47,23 +47,23 @@ export default function IKTMetricsSummary({ athlete }: IKTMetricsSummaryProps) {
         <div className="bg-white rounded-lg p-6 shadow-sm border border-slate-100">
           <h3 className="text-lg font-bold text-slate-800 mb-6 text-center">{year} Isokinetic Metrics (60°/s)</h3>
           
-          <div className="grid grid-cols-1 gap-6">
+          <div className="grid grid-cols-3 gap-4">
             {/* Box 1: Peak Torque (Normalized) */}
             <div className="border-2 border-slate-300 rounded-lg p-4 bg-slate-50">
-              <h4 className="text-center font-bold text-slate-700 mb-4">Peak Torque (Normalized, N·m/kg)</h4>
+              <h4 className="text-center font-bold text-slate-700 mb-4 text-sm">Peak Torque (Normalized, N·m/kg)</h4>
               
               <div className="mb-4">
-                <p className="text-center text-sm font-semibold text-slate-600 mb-2">Extensor</p>
+                <p className="text-center text-xs font-semibold text-slate-600 mb-2">Extensor</p>
                 <div className="flex justify-between gap-2">
                   <div className="flex-1">
                     <p className="text-xs text-slate-500 text-center mb-1">L</p>
-                    <div className={`${getColor(nvL_Ext, 1.5)} rounded-lg p-3 text-center font-bold text-lg border border-slate-300`}>
+                    <div className={`${getColor(nvL_Ext, 1.5)} rounded-lg p-3 text-center font-bold text-sm border border-slate-300`}>
                       {nvL_Ext?.toFixed(2) || "N/A"}
                     </div>
                   </div>
                   <div className="flex-1">
                     <p className="text-xs text-slate-500 text-center mb-1">R</p>
-                    <div className={`${getColor(nvR_Ext, 1.5)} rounded-lg p-3 text-center font-bold text-lg border border-slate-300`}>
+                    <div className={`${getColor(nvR_Ext, 1.5)} rounded-lg p-3 text-center font-bold text-sm border border-slate-300`}>
                       {nvR_Ext?.toFixed(2) || "N/A"}
                     </div>
                   </div>
@@ -71,17 +71,17 @@ export default function IKTMetricsSummary({ athlete }: IKTMetricsSummaryProps) {
               </div>
 
               <div>
-                <p className="text-center text-sm font-semibold text-slate-600 mb-2">Flexor</p>
+                <p className="text-center text-xs font-semibold text-slate-600 mb-2">Flexor</p>
                 <div className="flex justify-between gap-2">
                   <div className="flex-1">
                     <p className="text-xs text-slate-500 text-center mb-1">L</p>
-                    <div className={`${getColor(nvL_Flx, 0.8)} rounded-lg p-3 text-center font-bold text-lg border border-slate-300`}>
+                    <div className={`${getColor(nvL_Flx, 0.8)} rounded-lg p-3 text-center font-bold text-sm border border-slate-300`}>
                       {nvL_Flx?.toFixed(2) || "N/A"}
                     </div>
                   </div>
                   <div className="flex-1">
                     <p className="text-xs text-slate-500 text-center mb-1">R</p>
-                    <div className={`${getColor(nvR_Flx, 0.8)} rounded-lg p-3 text-center font-bold text-lg border border-slate-300`}>
+                    <div className={`${getColor(nvR_Flx, 0.8)} rounded-lg p-3 text-center font-bold text-sm border border-slate-300`}>
                       {nvR_Flx?.toFixed(2) || "N/A"}
                     </div>
                   </div>
@@ -91,18 +91,18 @@ export default function IKTMetricsSummary({ athlete }: IKTMetricsSummaryProps) {
 
             {/* Box 2: Leg Asymmetry */}
             <div className="border-2 border-slate-300 rounded-lg p-4 bg-slate-50">
-              <h4 className="text-center font-bold text-slate-700 mb-4">Leg Asymmetry (%)</h4>
+              <h4 className="text-center font-bold text-slate-700 mb-4 text-sm">Leg Asymmetry (%)</h4>
               
               <div className="mb-4">
-                <p className="text-center text-sm font-semibold text-slate-600 mb-3">Extensor</p>
-                <div className={`${getColor(asymExt, 10)} rounded-lg p-4 text-center font-bold text-2xl border border-slate-300`}>
+                <p className="text-center text-xs font-semibold text-slate-600 mb-3">Extensor</p>
+                <div className={`${getColor(asymExt, 10)} rounded-lg p-4 text-center font-bold text-xl border border-slate-300`}>
                   {asymExt?.toFixed(1) || "N/A"}%
                 </div>
               </div>
 
               <div>
-                <p className="text-center text-sm font-semibold text-slate-600 mb-3">Flexor</p>
-                <div className={`${getColor(asymFlx, 10)} rounded-lg p-4 text-center font-bold text-2xl border border-slate-300`}>
+                <p className="text-center text-xs font-semibold text-slate-600 mb-3">Flexor</p>
+                <div className={`${getColor(asymFlx, 10)} rounded-lg p-4 text-center font-bold text-xl border border-slate-300`}>
                   {asymFlx?.toFixed(1) || "N/A"}%
                 </div>
               </div>
@@ -110,18 +110,18 @@ export default function IKTMetricsSummary({ athlete }: IKTMetricsSummaryProps) {
 
             {/* Box 3: H/Q Ratio */}
             <div className="border-2 border-slate-300 rounded-lg p-4 bg-slate-50">
-              <h4 className="text-center font-bold text-slate-700 mb-4">H/Q Ratio (%)</h4>
+              <h4 className="text-center font-bold text-slate-700 mb-4 text-sm">H/Q Ratio (%)</h4>
               
               <div className="mb-4">
-                <p className="text-center text-sm font-semibold text-slate-600 mb-3">Left</p>
-                <div className={`${getColor(hqL, 50, true)} rounded-lg p-4 text-center font-bold text-2xl border border-slate-300`}>
+                <p className="text-center text-xs font-semibold text-slate-600 mb-3">Left</p>
+                <div className={`${getColor(hqL, 50, true)} rounded-lg p-4 text-center font-bold text-xl border border-slate-300`}>
                   {hqL?.toFixed(1) || "N/A"}
                 </div>
               </div>
 
               <div>
-                <p className="text-center text-sm font-semibold text-slate-600 mb-3">Right</p>
-                <div className={`${getColor(hqR, 50, true)} rounded-lg p-4 text-center font-bold text-2xl border border-slate-300`}>
+                <p className="text-center text-xs font-semibold text-slate-600 mb-3">Right</p>
+                <div className={`${getColor(hqR, 50, true)} rounded-lg p-4 text-center font-bold text-xl border border-slate-300`}>
                   {hqR?.toFixed(1) || "N/A"}
                 </div>
               </div>
@@ -159,23 +159,23 @@ export default function IKTMetricsSummary({ athlete }: IKTMetricsSummaryProps) {
         <div className="bg-white rounded-lg p-6 shadow-sm border border-slate-100">
           <h3 className="text-lg font-bold text-slate-800 mb-6 text-center">{year} Isokinetic Metrics (60°/s)</h3>
           
-          <div className="grid grid-cols-1 gap-6">
+          <div className="grid grid-cols-3 gap-4">
             {/* Box 1: Peak Torque (Normalized) */}
             <div className="border-2 border-slate-300 rounded-lg p-4 bg-slate-50">
-              <h4 className="text-center font-bold text-slate-700 mb-4">Peak Torque (Normalized, N·m/kg)</h4>
+              <h4 className="text-center font-bold text-slate-700 mb-4 text-sm">Peak Torque (Normalized, N·m/kg)</h4>
               
               <div className="mb-4">
-                <p className="text-center text-sm font-semibold text-slate-600 mb-2">Extensor</p>
+                <p className="text-center text-xs font-semibold text-slate-600 mb-2">Extensor</p>
                 <div className="flex justify-between gap-2">
                   <div className="flex-1">
                     <p className="text-xs text-slate-500 text-center mb-1">L</p>
-                    <div className={`${getColor(nvL_Ext, 1.5)} rounded-lg p-3 text-center font-bold text-lg border border-slate-300`}>
+                    <div className={`${getColor(nvL_Ext, 1.5)} rounded-lg p-3 text-center font-bold text-sm border border-slate-300`}>
                       {nvL_Ext?.toFixed(2) || "N/A"}
                     </div>
                   </div>
                   <div className="flex-1">
                     <p className="text-xs text-slate-500 text-center mb-1">R</p>
-                    <div className={`${getColor(nvR_Ext, 1.5)} rounded-lg p-3 text-center font-bold text-lg border border-slate-300`}>
+                    <div className={`${getColor(nvR_Ext, 1.5)} rounded-lg p-3 text-center font-bold text-sm border border-slate-300`}>
                       {nvR_Ext?.toFixed(2) || "N/A"}
                     </div>
                   </div>
@@ -183,17 +183,17 @@ export default function IKTMetricsSummary({ athlete }: IKTMetricsSummaryProps) {
               </div>
 
               <div>
-                <p className="text-center text-sm font-semibold text-slate-600 mb-2">Flexor</p>
+                <p className="text-center text-xs font-semibold text-slate-600 mb-2">Flexor</p>
                 <div className="flex justify-between gap-2">
                   <div className="flex-1">
                     <p className="text-xs text-slate-500 text-center mb-1">L</p>
-                    <div className={`${getColor(nvL_Flx, 0.8)} rounded-lg p-3 text-center font-bold text-lg border border-slate-300`}>
+                    <div className={`${getColor(nvL_Flx, 0.8)} rounded-lg p-3 text-center font-bold text-sm border border-slate-300`}>
                       {nvL_Flx?.toFixed(2) || "N/A"}
                     </div>
                   </div>
                   <div className="flex-1">
                     <p className="text-xs text-slate-500 text-center mb-1">R</p>
-                    <div className={`${getColor(nvR_Flx, 0.8)} rounded-lg p-3 text-center font-bold text-lg border border-slate-300`}>
+                    <div className={`${getColor(nvR_Flx, 0.8)} rounded-lg p-3 text-center font-bold text-sm border border-slate-300`}>
                       {nvR_Flx?.toFixed(2) || "N/A"}
                     </div>
                   </div>
@@ -203,18 +203,18 @@ export default function IKTMetricsSummary({ athlete }: IKTMetricsSummaryProps) {
 
             {/* Box 2: Leg Asymmetry */}
             <div className="border-2 border-slate-300 rounded-lg p-4 bg-slate-50">
-              <h4 className="text-center font-bold text-slate-700 mb-4">Leg Asymmetry (%)</h4>
+              <h4 className="text-center font-bold text-slate-700 mb-4 text-sm">Leg Asymmetry (%)</h4>
               
               <div className="mb-4">
-                <p className="text-center text-sm font-semibold text-slate-600 mb-3">Extensor</p>
-                <div className={`${getColor(asymExt, 10)} rounded-lg p-4 text-center font-bold text-2xl border border-slate-300`}>
+                <p className="text-center text-xs font-semibold text-slate-600 mb-3">Extensor</p>
+                <div className={`${getColor(asymExt, 10)} rounded-lg p-4 text-center font-bold text-xl border border-slate-300`}>
                   {asymExt?.toFixed(1) || "N/A"}%
                 </div>
               </div>
 
               <div>
-                <p className="text-center text-sm font-semibold text-slate-600 mb-3">Flexor</p>
-                <div className={`${getColor(asymFlx, 10)} rounded-lg p-4 text-center font-bold text-2xl border border-slate-300`}>
+                <p className="text-center text-xs font-semibold text-slate-600 mb-3">Flexor</p>
+                <div className={`${getColor(asymFlx, 10)} rounded-lg p-4 text-center font-bold text-xl border border-slate-300`}>
                   {asymFlx?.toFixed(1) || "N/A"}%
                 </div>
               </div>
@@ -222,18 +222,18 @@ export default function IKTMetricsSummary({ athlete }: IKTMetricsSummaryProps) {
 
             {/* Box 3: H/Q Ratio */}
             <div className="border-2 border-slate-300 rounded-lg p-4 bg-slate-50">
-              <h4 className="text-center font-bold text-slate-700 mb-4">H/Q Ratio (%)</h4>
+              <h4 className="text-center font-bold text-slate-700 mb-4 text-sm">H/Q Ratio (%)</h4>
               
               <div className="mb-4">
-                <p className="text-center text-sm font-semibold text-slate-600 mb-3">Left</p>
-                <div className={`${getColor(hqL, 50, true)} rounded-lg p-4 text-center font-bold text-2xl border border-slate-300`}>
+                <p className="text-center text-xs font-semibold text-slate-600 mb-3">Left</p>
+                <div className={`${getColor(hqL, 50, true)} rounded-lg p-4 text-center font-bold text-xl border border-slate-300`}>
                   {hqL?.toFixed(1) || "N/A"}
                 </div>
               </div>
 
               <div>
-                <p className="text-center text-sm font-semibold text-slate-600 mb-3">Right</p>
-                <div className={`${getColor(hqR, 50, true)} rounded-lg p-4 text-center font-bold text-2xl border border-slate-300`}>
+                <p className="text-center text-xs font-semibold text-slate-600 mb-3">Right</p>
+                <div className={`${getColor(hqR, 50, true)} rounded-lg p-4 text-center font-bold text-xl border border-slate-300`}>
                   {hqR?.toFixed(1) || "N/A"}
                 </div>
               </div>
@@ -261,11 +261,11 @@ export default function IKTMetricsSummary({ athlete }: IKTMetricsSummaryProps) {
 
   return (
     <div className="space-y-6">
-      {/* 2025 Row */}
-      {renderMetricsRow("2025")}
-      
       {/* 2026 Row */}
       {renderMetricsRow("2026")}
+      
+      {/* 2025 Row */}
+      {renderMetricsRow("2025")}
     </div>
   );
 }

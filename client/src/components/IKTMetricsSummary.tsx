@@ -17,6 +17,11 @@ export default function IKTMetricsSummary({ athlete }: IKTMetricsSummaryProps) {
     );
   }
 
+  // Gender-specific thresholds for Peak Torque
+  const isMale = athlete.gender === "Male";
+  const extensorThreshold = isMale ? 1.0 : 0.8;
+  const flexorThreshold = isMale ? 0.6 : 0.5;
+
   const getColor = (value: number | undefined, threshold: number, isRatio: boolean = false): string => {
     if (value === undefined || isNaN(value)) return "bg-gray-100";
     
@@ -57,13 +62,13 @@ export default function IKTMetricsSummary({ athlete }: IKTMetricsSummaryProps) {
                 <div className="flex justify-between gap-2">
                   <div className="flex-1">
                     <p className="text-xs text-slate-500 text-center mb-1">L</p>
-                    <div className={`${getColor(nvL_Ext, 1.5)} rounded-lg p-3 text-center font-bold text-sm border border-slate-300`}>
+                    <div className={`${getColor(nvL_Ext, extensorThreshold)} rounded-lg p-3 text-center font-bold text-sm border border-slate-300`}>
                       {nvL_Ext?.toFixed(2) || "N/A"}
                     </div>
                   </div>
                   <div className="flex-1">
                     <p className="text-xs text-slate-500 text-center mb-1">R</p>
-                    <div className={`${getColor(nvR_Ext, 1.5)} rounded-lg p-3 text-center font-bold text-sm border border-slate-300`}>
+                    <div className={`${getColor(nvR_Ext, extensorThreshold)} rounded-lg p-3 text-center font-bold text-sm border border-slate-300`}>
                       {nvR_Ext?.toFixed(2) || "N/A"}
                     </div>
                   </div>
@@ -75,13 +80,13 @@ export default function IKTMetricsSummary({ athlete }: IKTMetricsSummaryProps) {
                 <div className="flex justify-between gap-2">
                   <div className="flex-1">
                     <p className="text-xs text-slate-500 text-center mb-1">L</p>
-                    <div className={`${getColor(nvL_Flx, 0.8)} rounded-lg p-3 text-center font-bold text-sm border border-slate-300`}>
+                    <div className={`${getColor(nvL_Flx, flexorThreshold)} rounded-lg p-3 text-center font-bold text-sm border border-slate-300`}>
                       {nvL_Flx?.toFixed(2) || "N/A"}
                     </div>
                   </div>
                   <div className="flex-1">
                     <p className="text-xs text-slate-500 text-center mb-1">R</p>
-                    <div className={`${getColor(nvR_Flx, 0.8)} rounded-lg p-3 text-center font-bold text-sm border border-slate-300`}>
+                    <div className={`${getColor(nvR_Flx, flexorThreshold)} rounded-lg p-3 text-center font-bold text-sm border border-slate-300`}>
                       {nvR_Flx?.toFixed(2) || "N/A"}
                     </div>
                   </div>
@@ -169,13 +174,13 @@ export default function IKTMetricsSummary({ athlete }: IKTMetricsSummaryProps) {
                 <div className="flex justify-between gap-2">
                   <div className="flex-1">
                     <p className="text-xs text-slate-500 text-center mb-1">L</p>
-                    <div className={`${getColor(nvL_Ext, 1.5)} rounded-lg p-3 text-center font-bold text-sm border border-slate-300`}>
+                    <div className={`${getColor(nvL_Ext, extensorThreshold)} rounded-lg p-3 text-center font-bold text-sm border border-slate-300`}>
                       {nvL_Ext?.toFixed(2) || "N/A"}
                     </div>
                   </div>
                   <div className="flex-1">
                     <p className="text-xs text-slate-500 text-center mb-1">R</p>
-                    <div className={`${getColor(nvR_Ext, 1.5)} rounded-lg p-3 text-center font-bold text-sm border border-slate-300`}>
+                    <div className={`${getColor(nvR_Ext, extensorThreshold)} rounded-lg p-3 text-center font-bold text-sm border border-slate-300`}>
                       {nvR_Ext?.toFixed(2) || "N/A"}
                     </div>
                   </div>
@@ -187,13 +192,13 @@ export default function IKTMetricsSummary({ athlete }: IKTMetricsSummaryProps) {
                 <div className="flex justify-between gap-2">
                   <div className="flex-1">
                     <p className="text-xs text-slate-500 text-center mb-1">L</p>
-                    <div className={`${getColor(nvL_Flx, 0.8)} rounded-lg p-3 text-center font-bold text-sm border border-slate-300`}>
+                    <div className={`${getColor(nvL_Flx, flexorThreshold)} rounded-lg p-3 text-center font-bold text-sm border border-slate-300`}>
                       {nvL_Flx?.toFixed(2) || "N/A"}
                     </div>
                   </div>
                   <div className="flex-1">
                     <p className="text-xs text-slate-500 text-center mb-1">R</p>
-                    <div className={`${getColor(nvR_Flx, 0.8)} rounded-lg p-3 text-center font-bold text-sm border border-slate-300`}>
+                    <div className={`${getColor(nvR_Flx, flexorThreshold)} rounded-lg p-3 text-center font-bold text-sm border border-slate-300`}>
                       {nvR_Flx?.toFixed(2) || "N/A"}
                     </div>
                   </div>

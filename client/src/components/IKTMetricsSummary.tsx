@@ -27,17 +27,17 @@ export default function IKTMetricsSummary({ athlete }: IKTMetricsSummaryProps) {
       // For asymmetry: lower is better (<10% is good)
       return value < 10 ? "bg-green-200" : "bg-red-200";
     } else {
-      // For torque: higher is better
+      // For normalized torque: higher is better
       return value >= threshold ? "bg-green-200" : "bg-red-200";
     }
   };
 
   const renderMetricsRow = (year: "2025" | "2026") => {
     if (year === "2026") {
-      const peakTorqueL_Ext = iktData.peakTorqueL_Ext_26;
-      const peakTorqueR_Ext = iktData.peakTorqueR_Ext_26;
-      const peakTorqueL_Flx = iktData.peakTorqueL_Flex_26;
-      const peakTorqueR_Flx = iktData.peakTorqueR_Flex_26;
+      const nvL_Ext = iktData.nvL_Extensors_26;
+      const nvR_Ext = iktData.nvR_Extensors_26;
+      const nvL_Flx = iktData.nvL_Flexor_26;
+      const nvR_Flx = iktData.nvR_Flexor_26;
       const asymExt = iktData.extensor60Assy_26;
       const asymFlx = iktData.flexor60Assy_26;
       const hqL = iktData.hqL60_26;
@@ -48,23 +48,23 @@ export default function IKTMetricsSummary({ athlete }: IKTMetricsSummaryProps) {
           <h3 className="text-lg font-bold text-slate-800 mb-6 text-center">{year} Isokinetic Metrics (60°/s)</h3>
           
           <div className="grid grid-cols-1 gap-6">
-            {/* Box 1: Peak Torque */}
+            {/* Box 1: Peak Torque (Normalized) */}
             <div className="border-2 border-slate-300 rounded-lg p-4 bg-slate-50">
-              <h4 className="text-center font-bold text-slate-700 mb-4">Peak Torque (ft-lb)</h4>
+              <h4 className="text-center font-bold text-slate-700 mb-4">Peak Torque (Normalized, N·m/kg)</h4>
               
               <div className="mb-4">
                 <p className="text-center text-sm font-semibold text-slate-600 mb-2">Extensor</p>
                 <div className="flex justify-between gap-2">
                   <div className="flex-1">
                     <p className="text-xs text-slate-500 text-center mb-1">L</p>
-                    <div className={`${getColor(peakTorqueL_Ext, 150)} rounded-lg p-3 text-center font-bold text-lg border border-slate-300`}>
-                      {peakTorqueL_Ext?.toFixed(0) || "N/A"}
+                    <div className={`${getColor(nvL_Ext, 1.5)} rounded-lg p-3 text-center font-bold text-lg border border-slate-300`}>
+                      {nvL_Ext?.toFixed(2) || "N/A"}
                     </div>
                   </div>
                   <div className="flex-1">
                     <p className="text-xs text-slate-500 text-center mb-1">R</p>
-                    <div className={`${getColor(peakTorqueR_Ext, 150)} rounded-lg p-3 text-center font-bold text-lg border border-slate-300`}>
-                      {peakTorqueR_Ext?.toFixed(0) || "N/A"}
+                    <div className={`${getColor(nvR_Ext, 1.5)} rounded-lg p-3 text-center font-bold text-lg border border-slate-300`}>
+                      {nvR_Ext?.toFixed(2) || "N/A"}
                     </div>
                   </div>
                 </div>
@@ -75,14 +75,14 @@ export default function IKTMetricsSummary({ athlete }: IKTMetricsSummaryProps) {
                 <div className="flex justify-between gap-2">
                   <div className="flex-1">
                     <p className="text-xs text-slate-500 text-center mb-1">L</p>
-                    <div className={`${getColor(peakTorqueL_Flx, 80)} rounded-lg p-3 text-center font-bold text-lg border border-slate-300`}>
-                      {peakTorqueL_Flx?.toFixed(0) || "N/A"}
+                    <div className={`${getColor(nvL_Flx, 0.8)} rounded-lg p-3 text-center font-bold text-lg border border-slate-300`}>
+                      {nvL_Flx?.toFixed(2) || "N/A"}
                     </div>
                   </div>
                   <div className="flex-1">
                     <p className="text-xs text-slate-500 text-center mb-1">R</p>
-                    <div className={`${getColor(peakTorqueR_Flx, 80)} rounded-lg p-3 text-center font-bold text-lg border border-slate-300`}>
-                      {peakTorqueR_Flx?.toFixed(0) || "N/A"}
+                    <div className={`${getColor(nvR_Flx, 0.8)} rounded-lg p-3 text-center font-bold text-lg border border-slate-300`}>
+                      {nvR_Flx?.toFixed(2) || "N/A"}
                     </div>
                   </div>
                 </div>
@@ -146,10 +146,10 @@ export default function IKTMetricsSummary({ athlete }: IKTMetricsSummaryProps) {
       );
     } else {
       // 2025 data
-      const peakTorqueL_Ext = iktData.peakTorqueL_Ext_25;
-      const peakTorqueR_Ext = iktData.peakTorqueR_Ext_25;
-      const peakTorqueL_Flx = iktData.peakTorqueL_Flex_25;
-      const peakTorqueR_Flx = iktData.peakTorqueR_Flex_25;
+      const nvL_Ext = iktData.nvL_Extensors_25;
+      const nvR_Ext = iktData.nvR_Extensors_25;
+      const nvL_Flx = iktData.nvL_Flexor_25;
+      const nvR_Flx = iktData.nvR_Flexor_25;
       const asymExt = iktData.extensor60Assy_25;
       const asymFlx = iktData.flexor60Assy_25;
       const hqL = iktData.hqL60_25;
@@ -160,23 +160,23 @@ export default function IKTMetricsSummary({ athlete }: IKTMetricsSummaryProps) {
           <h3 className="text-lg font-bold text-slate-800 mb-6 text-center">{year} Isokinetic Metrics (60°/s)</h3>
           
           <div className="grid grid-cols-1 gap-6">
-            {/* Box 1: Peak Torque */}
+            {/* Box 1: Peak Torque (Normalized) */}
             <div className="border-2 border-slate-300 rounded-lg p-4 bg-slate-50">
-              <h4 className="text-center font-bold text-slate-700 mb-4">Peak Torque (ft-lb)</h4>
+              <h4 className="text-center font-bold text-slate-700 mb-4">Peak Torque (Normalized, N·m/kg)</h4>
               
               <div className="mb-4">
                 <p className="text-center text-sm font-semibold text-slate-600 mb-2">Extensor</p>
                 <div className="flex justify-between gap-2">
                   <div className="flex-1">
                     <p className="text-xs text-slate-500 text-center mb-1">L</p>
-                    <div className={`${getColor(peakTorqueL_Ext, 150)} rounded-lg p-3 text-center font-bold text-lg border border-slate-300`}>
-                      {peakTorqueL_Ext?.toFixed(0) || "N/A"}
+                    <div className={`${getColor(nvL_Ext, 1.5)} rounded-lg p-3 text-center font-bold text-lg border border-slate-300`}>
+                      {nvL_Ext?.toFixed(2) || "N/A"}
                     </div>
                   </div>
                   <div className="flex-1">
                     <p className="text-xs text-slate-500 text-center mb-1">R</p>
-                    <div className={`${getColor(peakTorqueR_Ext, 150)} rounded-lg p-3 text-center font-bold text-lg border border-slate-300`}>
-                      {peakTorqueR_Ext?.toFixed(0) || "N/A"}
+                    <div className={`${getColor(nvR_Ext, 1.5)} rounded-lg p-3 text-center font-bold text-lg border border-slate-300`}>
+                      {nvR_Ext?.toFixed(2) || "N/A"}
                     </div>
                   </div>
                 </div>
@@ -187,14 +187,14 @@ export default function IKTMetricsSummary({ athlete }: IKTMetricsSummaryProps) {
                 <div className="flex justify-between gap-2">
                   <div className="flex-1">
                     <p className="text-xs text-slate-500 text-center mb-1">L</p>
-                    <div className={`${getColor(peakTorqueL_Flx, 80)} rounded-lg p-3 text-center font-bold text-lg border border-slate-300`}>
-                      {peakTorqueL_Flx?.toFixed(0) || "N/A"}
+                    <div className={`${getColor(nvL_Flx, 0.8)} rounded-lg p-3 text-center font-bold text-lg border border-slate-300`}>
+                      {nvL_Flx?.toFixed(2) || "N/A"}
                     </div>
                   </div>
                   <div className="flex-1">
                     <p className="text-xs text-slate-500 text-center mb-1">R</p>
-                    <div className={`${getColor(peakTorqueR_Flx, 80)} rounded-lg p-3 text-center font-bold text-lg border border-slate-300`}>
-                      {peakTorqueR_Flx?.toFixed(0) || "N/A"}
+                    <div className={`${getColor(nvR_Flx, 0.8)} rounded-lg p-3 text-center font-bold text-lg border border-slate-300`}>
+                      {nvR_Flx?.toFixed(2) || "N/A"}
                     </div>
                   </div>
                 </div>

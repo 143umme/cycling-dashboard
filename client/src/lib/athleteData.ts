@@ -74,6 +74,12 @@ export interface IsokineticsSpeedData {
   rFlexors: number;
   lHQRatio?: number;
   rHQRatio?: number;
+  lExtensor?: number;
+  rExtensor?: number;
+  lFlexor?: number;
+  rFlexor?: number;
+  extensorAsymmetry?: number;
+  flexorAsymmetry?: number;
 }
 
 export interface IsokineticsYearData {

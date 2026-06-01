@@ -3,6 +3,7 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Responsive
 import type { Athlete, AthleteYear, YearKey } from "@/lib/athleteData";
 import { YBalanceTest } from "./YBalanceTest";
 import IsokineticsChart from "./IsokineticsChart";
+import IKTMetricsSummary from "./IKTMetricsSummary";
 
 interface TestTabsProps {
   athlete: Athlete;
@@ -477,6 +478,9 @@ export default function TestTabs({ athlete, yearView, teamAvg2025, teamAvg2026 }
         <div className="space-y-6">
           <IsokineticsChart athlete={athlete} year="2025" />
           <IsokineticsChart athlete={athlete} year="2026" />
+
+          {/* IKT Metrics Summary - 2025 and 2026 */}
+          <IKTMetricsSummary athlete={athlete} />
 
           {/* H/Q Ratio Metrics */}
           <div className="bg-white rounded-lg p-6 shadow-sm border border-slate-100">

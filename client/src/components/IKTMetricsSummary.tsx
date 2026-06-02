@@ -55,7 +55,7 @@ export default function IKTMetricsSummary({ athlete }: IKTMetricsSummaryProps) {
           <div className="grid grid-cols-3 gap-4">
             {/* Box 1: Peak Torque (Normalized) */}
             <div className="border-2 border-slate-300 rounded-lg p-4 bg-slate-50">
-              <h4 className="text-center font-bold text-slate-700 mb-4 text-sm">Peak Torque (Normalized, N·m/kg)</h4>
+              <h4 className="text-center font-bold text-slate-700 mb-4 text-sm">Peak Torque (Normalized, ft-lb/lb)</h4>
               
               <div className="mb-4">
                 <p className="text-center text-xs font-semibold text-slate-600 mb-2">Extensor</p>
@@ -167,7 +167,7 @@ export default function IKTMetricsSummary({ athlete }: IKTMetricsSummaryProps) {
           <div className="grid grid-cols-3 gap-4">
             {/* Box 1: Peak Torque (Normalized) */}
             <div className="border-2 border-slate-300 rounded-lg p-4 bg-slate-50">
-              <h4 className="text-center font-bold text-slate-700 mb-4 text-sm">Peak Torque (Normalized, N·m/kg)</h4>
+              <h4 className="text-center font-bold text-slate-700 mb-4 text-sm">Peak Torque (Normalized, ft-lb/lb)</h4>
               
               <div className="mb-4">
                 <p className="text-center text-xs font-semibold text-slate-600 mb-2">Extensor</p>

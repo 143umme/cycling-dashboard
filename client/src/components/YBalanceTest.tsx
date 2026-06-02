@@ -1,7 +1,5 @@
-import { useState } from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, ReferenceLine } from 'recharts';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 interface YBalanceData {
   anterior: number;
@@ -27,85 +25,84 @@ interface YBalanceTestProps {
 }
 
 export function YBalanceTest({ athleteName, yBalanceData }: YBalanceTestProps) {
-  const [selectedYear, setSelectedYear] = useState<'2025' | '2026'>('2025');
-
-  if (!yBalanceData || !yBalanceData[selectedYear]) {
+  if (!yBalanceData) {
     return (
       <Card>
         <CardHeader>
           <CardTitle>⚖️ Y-Balance Test</CardTitle>
         </CardHeader>
         <CardContent>
-          <p className="text-gray-500">No Y-Balance data available for {selectedYear}</p>
+          <p className="text-gray-500">No Y-Balance data available</p>
         </CardContent>
       </Card>
     );
   }
 
-  const data = yBalanceData[selectedYear];
+  const renderYearContent = (year: '2025' | '2026') => {
+    const data = yBalanceData[year];
+    
+    if (!data) {
+      return (
+        <div className="text-center text-gray-500 py-8">
+          No data available for {year}
+        </div>
+      );
+    }
 
-  // Prepare chart data - using metric names as X-axis
-  const chartData = [
-    {
-      name: 'Anterior',
-      left: data.anterior,
-      right: data.rightAnterior,
-    },
-    {
-      name: 'Medial',
-      left: data.medial,
-      right: data.rightMedial,
-    },
-    {
-      name: 'Lateral',
-      left: data.lateral,
-      right: data.rightLateral,
-    },
-    {
-      name: 'Composite',
-      left: data.leftComposite,
-      right: data.rightComposite,
-    },
-  ];
+    // Prepare chart data - using metric names as X-axis
+    const chartData = [
+      {
+        name: 'Anterior',
+        left: data.anterior,
+        right: data.rightAnterior,
+      },
+      {
+        name: 'Medial',
+        left: data.medial,
+        right: data.rightMedial,
+      },
+      {
+        name: 'Lateral',
+        left: data.lateral,
+        right: data.rightLateral,
+      },
+      {
+        name: 'Composite',
+        left: data.leftComposite,
+        right: data.rightComposite,
+      },
+    ];
 
-  // Filter out NaN values
-  const validData = chartData.filter(
-    (d) => !isNaN(d.left) && !isNaN(d.right) && d.left !== null && d.right !== null
-  );
+    // Filter out NaN values
+    const validData = chartData.filter(
+      (d) => !isNaN(d.left) && !isNaN(d.right) && d.left !== null && d.right !== null
+    );
 
-  // Calculate disbalance for each metric
-  const disbalanceData = [
-    { metric: 'Anterior', disbalance: data.anteriorDisbalance },
-    { metric: 'Medial', disbalance: data.medialDisbalance },
-    { metric: 'Lateral', disbalance: data.lateralDisbalance },
-    { metric: 'Composite', disbalance: data.compositeDisbalance },
-  ].filter((d) => !isNaN(d.disbalance) && d.disbalance !== null);
+    // Calculate disbalance for each metric
+    const disbalanceData = [
+      { metric: 'Anterior', disbalance: data.anteriorDisbalance },
+      { metric: 'Medial', disbalance: data.medialDisbalance },
+      { metric: 'Lateral', disbalance: data.lateralDisbalance },
+      { metric: 'Composite', disbalance: data.compositeDisbalance },
+    ].filter((d) => !isNaN(d.disbalance) && d.disbalance !== null);
 
-  return (
-    <div className="space-y-4">
-      <Card>
-        <CardHeader>
-          <div className="flex items-center justify-between">
-            <CardTitle>⚖️ Y-Balance Test ({selectedYear})</CardTitle>
-            <Tabs value={selectedYear} onValueChange={(v) => setSelectedYear(v as '2025' | '2026')}>
-              <TabsList>
-                <TabsTrigger value="2025">2025 Data</TabsTrigger>
-                <TabsTrigger value="2026">2026 Data</TabsTrigger>
-              </TabsList>
-            </Tabs>
-          </div>
-        </CardHeader>
-        <CardContent className="space-y-6">
-          {/* Main Chart - Line Chart with Connected Points */}
-          <div className="w-full h-96">
+    return (
+      <div className="space-y-6">
+        {/* Chart */}
+        <div className="bg-white rounded-lg p-6 shadow-sm border border-slate-100">
+          <h3 className="text-lg font-bold text-slate-800 mb-4">{athleteName} - Y-Balance Test ({year})</h3>
+          <div className="w-full h-80">
             <ResponsiveContainer width="100%" height="100%">
               <LineChart data={validData} margin={{ top: 20, right: 30, left: 60, bottom: 20 }}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
                 <XAxis
                   dataKey="name"
+                  tick={{ fontSize: 12 }}
                 />
                 <YAxis
                   domain={[70, 135]}
+                  label={{ value: 'Reach Percentage (%)', angle: -90, position: 'insideLeft' }}
+                  tick={{ fontSize: 12 }}
                 />
                 <Tooltip
                   cursor={{ strokeDasharray: '3 3' }}
@@ -157,44 +154,58 @@ export function YBalanceTest({ athleteName, yBalanceData }: YBalanceTestProps) {
               </LineChart>
             </ResponsiveContainer>
           </div>
+        </div>
 
-          {/* Detailed Metrics Table */}
-          <div className="space-y-3">
-            <h3 className="font-semibold text-gray-700">Detailed Metrics</h3>
-            <div className="overflow-x-auto">
-              <table className="w-full text-sm border-collapse">
-                <thead>
-                  <tr className="bg-gray-100 border-b-2 border-gray-300">
-                    <th className="p-2 text-left">Test Metric</th>
-                    <th className="p-2 text-center">Left Leg (%)</th>
-                    <th className="p-2 text-center">Right Leg (%)</th>
-                    <th className="p-2 text-center">Disbalance (%)</th>
-                    <th className="p-2 text-center">Status</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {validData.map((item) => {
-                    const disbalance = disbalanceData.find((d) => d.metric === item.name)?.disbalance ?? 0;
-                    return (
-                      <tr key={item.name} className="border-b border-gray-200 hover:bg-gray-50">
-                        <td className="p-2 font-medium">{item.name}</td>
-                        <td className="p-2 text-center text-blue-600 font-semibold">{item.left.toFixed(1)}</td>
-                        <td className="p-2 text-center text-orange-600 font-semibold">{item.right.toFixed(1)}</td>
-                        <td className="p-2 text-center font-semibold">{disbalance.toFixed(1)}</td>
-                        <td className="p-2 text-center">
-                          <span className={`text-xs px-2 py-1 rounded font-semibold ${disbalance < 4 ? 'bg-green-100 text-green-700' : 'bg-orange-100 text-orange-700'}`}>
-                            {disbalance < 4 ? '✓ Balanced' : '⚠ Imbalanced'}
-                          </span>
-                        </td>
-                      </tr>
-                    );
-                  })}
-                </tbody>
-              </table>
-            </div>
+        {/* Detailed Metrics Table */}
+        <div className="bg-white rounded-lg p-6 shadow-sm border border-slate-100">
+          <h3 className="font-semibold text-slate-700 mb-4">Detailed Metrics ({year})</h3>
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm border-collapse">
+              <thead>
+                <tr className="bg-gray-100 border-b-2 border-gray-300">
+                  <th className="p-2 text-left">Test Metric</th>
+                  <th className="p-2 text-center">Left Leg (%)</th>
+                  <th className="p-2 text-center">Right Leg (%)</th>
+                  <th className="p-2 text-center">Disbalance (%)</th>
+                  <th className="p-2 text-center">Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                {validData.map((item) => {
+                  const disbalance = disbalanceData.find((d) => d.metric === item.name)?.disbalance ?? 0;
+                  return (
+                    <tr key={item.name} className="border-b border-gray-200 hover:bg-gray-50">
+                      <td className="p-2 font-medium">{item.name}</td>
+                      <td className="p-2 text-center text-blue-600 font-semibold">{item.left.toFixed(1)}</td>
+                      <td className="p-2 text-center text-orange-600 font-semibold">{item.right.toFixed(1)}</td>
+                      <td className="p-2 text-center font-semibold">{disbalance.toFixed(1)}</td>
+                      <td className="p-2 text-center">
+                        <span className={`text-xs px-2 py-1 rounded font-semibold ${disbalance < 4 ? 'bg-green-100 text-green-700' : 'bg-orange-100 text-orange-700'}`}>
+                          {disbalance < 4 ? '✓ Balanced' : '⚠ Imbalanced'}
+                        </span>
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
           </div>
-        </CardContent>
-      </Card>
+        </div>
+      </div>
+    );
+  };
+
+  return (
+    <div className="space-y-6">
+      {/* Side by side layout for 2025 and 2026 */}
+      <div className="grid grid-cols-2 gap-6">
+        <div>
+          {renderYearContent('2026')}
+        </div>
+        <div>
+          {renderYearContent('2025')}
+        </div>
+      </div>
     </div>
   );
 }

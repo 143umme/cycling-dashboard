@@ -1,8 +1,15 @@
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, ReferenceLine, Label } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, ReferenceLine, Label, ComposedChart, Scatter } from 'recharts';
 import { ybtDataMap, type YBTData } from '@/lib/ybtDataLoader';
 
 interface YBalanceChartProps {
   athleteName: string;
+}
+
+interface ChartDataPoint {
+  metric: string;
+  leftReach: number;
+  rightReach: number;
+  disbalance: number;
 }
 
 export default function YBalanceChart({ athleteName }: YBalanceChartProps) {
@@ -18,19 +25,14 @@ export default function YBalanceChart({ athleteName }: YBalanceChartProps) {
 
   const renderYearChart = (year: "2025" | "2026") => {
     // Data structure: each point represents a test metric with left and right reach percentages
-    const data = year === "2026" 
+    // Order: Composite (top), Lateral, Medial, Anterior (bottom)
+    const data: ChartDataPoint[] = year === "2026" 
       ? [
           {
-            metric: 'Anterior',
-            leftReach: ybtData.ybtLA_26,
-            rightReach: ybtData.ybtRA_26,
-            disbalance: ybtData.anteriorDisbalance_26,
-          },
-          {
-            metric: 'Medial',
-            leftReach: ybtData.ybtLM_26,
-            rightReach: ybtData.ybtRM_26,
-            disbalance: ybtData.postMedialDisbalance_26,
+            metric: 'Composite',
+            leftReach: ybtData.leftComposite_26,
+            rightReach: ybtData.rightComposite_26,
+            disbalance: ybtData.compositeDisbalance_26,
           },
           {
             metric: 'Lateral',
@@ -39,24 +41,24 @@ export default function YBalanceChart({ athleteName }: YBalanceChartProps) {
             disbalance: ybtData.postLateralDisbalance_26,
           },
           {
-            metric: 'Composite',
-            leftReach: ybtData.leftComposite_26,
-            rightReach: ybtData.rightComposite_26,
-            disbalance: ybtData.compositeDisbalance_26,
+            metric: 'Medial',
+            leftReach: ybtData.ybtLM_26,
+            rightReach: ybtData.ybtRM_26,
+            disbalance: ybtData.postMedialDisbalance_26,
+          },
+          {
+            metric: 'Anterior',
+            leftReach: ybtData.ybtLA_26,
+            rightReach: ybtData.ybtRA_26,
+            disbalance: ybtData.anteriorDisbalance_26,
           },
         ]
       : [
           {
-            metric: 'Anterior',
-            leftReach: ybtData.ybtLA_25,
-            rightReach: ybtData.ybtRA_25,
-            disbalance: ybtData.anteriorDisbalance_25,
-          },
-          {
-            metric: 'Medial',
-            leftReach: ybtData.ybtLM_25,
-            rightReach: ybtData.ybtRM_25,
-            disbalance: ybtData.postMedialDisbalance_25,
+            metric: 'Composite',
+            leftReach: ybtData.leftComposite_25,
+            rightReach: ybtData.rightComposite_25,
+            disbalance: ybtData.compositeDisbalance_25,
           },
           {
             metric: 'Lateral',
@@ -65,10 +67,16 @@ export default function YBalanceChart({ athleteName }: YBalanceChartProps) {
             disbalance: ybtData.postLateralDisbalance_25,
           },
           {
-            metric: 'Composite',
-            leftReach: ybtData.leftComposite_25,
-            rightReach: ybtData.rightComposite_25,
-            disbalance: ybtData.compositeDisbalance_25,
+            metric: 'Medial',
+            leftReach: ybtData.ybtLM_25,
+            rightReach: ybtData.ybtRM_25,
+            disbalance: ybtData.postMedialDisbalance_25,
+          },
+          {
+            metric: 'Anterior',
+            leftReach: ybtData.ybtLA_25,
+            rightReach: ybtData.ybtRA_25,
+            disbalance: ybtData.anteriorDisbalance_25,
           },
         ];
 
@@ -81,12 +89,12 @@ export default function YBalanceChart({ athleteName }: YBalanceChartProps) {
           </div>
         </div>
 
-        <div className="relative">
+        <div className="relative w-full">
           <ResponsiveContainer width="100%" height={500}>
             <LineChart
               data={data}
               layout="vertical"
-              margin={{ top: 20, right: 100, left: 100, bottom: 60 }}
+              margin={{ top: 20, right: 150, left: 100, bottom: 60 }}
             >
               <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
               <XAxis 
@@ -138,9 +146,9 @@ export default function YBalanceChart({ athleteName }: YBalanceChartProps) {
             </LineChart>
           </ResponsiveContainer>
 
-          {/* Disbalance labels overlay */}
-          <div className="absolute top-0 right-0 w-32 space-y-20 mt-24">
-            {data.map((item, idx) => (
+          {/* Disbalance labels positioned between left and right lines */}
+          <div className="absolute top-0 right-0 space-y-[80px] mt-24 mr-12">
+            {data.map((item) => (
               <div key={item.metric} className="text-center">
                 <div className="bg-white border-2 border-slate-800 px-2 py-1 inline-block">
                   <p className="text-xs font-bold text-slate-800">

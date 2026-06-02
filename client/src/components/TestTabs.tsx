@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, ReferenceLine, LineChart, Line, ComposedChart, ScatterChart, Scatter } from "recharts";
 import type { Athlete, AthleteYear, YearKey } from "@/lib/athleteData";
-import YBalanceChart from "./YBalanceChart";
+import { YBalanceTest } from "./YBalanceTest";
 import IsokineticsChart from "./IsokineticsChart";
 import IKTMetricsSummary from "./IKTMetricsSummary";
 
@@ -469,7 +469,7 @@ export default function TestTabs({ athlete, yearView, teamAvg2025, teamAvg2026 }
       {/* Y-Balance Test Tab */}
       {activeTab === "ybalance" && (
         <div className="space-y-6">
-          <YBalanceChart athleteName={athlete.name} />
+          <YBalanceTest athleteName={athlete.name} yBalanceData={athlete.data.yBalance} />
         </div>
       )}
 

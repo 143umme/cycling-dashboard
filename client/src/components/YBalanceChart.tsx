@@ -1,4 +1,4 @@
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, ReferenceLine, Label, ComposedChart, Scatter } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, ReferenceLine, Cell } from 'recharts';
 import { ybtDataMap, type YBTData } from '@/lib/ybtDataLoader';
 
 interface YBalanceChartProps {
@@ -94,7 +94,7 @@ export default function YBalanceChart({ athleteName }: YBalanceChartProps) {
             <LineChart
               data={data}
               layout="vertical"
-              margin={{ top: 20, right: 150, left: 100, bottom: 60 }}
+              margin={{ top: 20, right: 80, left: 100, bottom: 80 }}
             >
               <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
               <XAxis 
@@ -115,9 +115,9 @@ export default function YBalanceChart({ athleteName }: YBalanceChartProps) {
                 contentStyle={{ backgroundColor: '#f8fafc', border: '1px solid #cbd5e1' }}
               />
               <Legend 
-                verticalAlign="top" 
+                verticalAlign="bottom" 
                 height={36}
-                wrapperStyle={{ paddingBottom: '20px' }}
+                wrapperStyle={{ paddingTop: '20px' }}
               />
               <ReferenceLine 
                 x={94} 
@@ -147,7 +147,7 @@ export default function YBalanceChart({ athleteName }: YBalanceChartProps) {
           </ResponsiveContainer>
 
           {/* Disbalance labels positioned between left and right lines */}
-          <div className="absolute top-0 right-0 space-y-[80px] mt-24 mr-12">
+          <div className="absolute top-0 space-y-[110px] mt-32 left-1/2 transform -translate-x-1/2">
             {data.map((item) => (
               <div key={item.metric} className="text-center">
                 <div className="bg-white border-2 border-slate-800 px-2 py-1 inline-block">
